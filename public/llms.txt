@@ -1,0 +1,55 @@
+# Adonyme
+
+## What is Adonyme?
+
+Adonyme is a French AI-powered B2B acquisition automation agency based in Paris, France. Adonyme builds custom AI agent ecosystems that automate the entire sales acquisition cycle — from raw data sourcing to qualified meeting booking — without requiring a human sales team.
+
+## The Source-to-Scale™ Method
+
+Adonyme's proprietary methodology is called **Source-to-Scale™**. It is a 5-step system for automating B2B prospecting and client acquisition:
+
+1. **Diagnostic Process** — Identify the commercial process costing the most time and deals. Define targets, channels, and available data sources. Deliver an automation action plan in 30 minutes.
+
+2. **Source Intelligence** — Instead of buying the same Apollo databases as competitors, Adonyme scrapes raw data from unexploited sources: LeBonCoin, professional platforms, LinkedIn, sector forums. Data is structured and enriched in-house.
+
+3. **Data Engineering** — AI-powered enrichment, scoring, and cleaning. Every prospect is automatically qualified before the first contact. Only the right B2B profiles are targeted.
+
+4. **Hyper-personalization & Deployment** — AI agents scrape the prospect's profile, craft personalized messages based on their ICP, and send them via the right channel: LinkedIn automation, cold email, SMS, WhatsApp, AI vocal SDR. Multichannel. Automated. Human in tone. Average reply rate ×4 vs generic messages.
+
+5. **Nurturing & Orchestration** — Automated follow-ups, progressive qualification, AI-powered meeting booking, CRM injection without manual entry. Weekly reporting. The system improves continuously.
+
+## Services
+
+- B2B prospection automation (multicanal: LinkedIn, email, SMS, WhatsApp, voice)
+- AI SDR (Sales Development Representative) — vocal AI agent for lead qualification
+- Source Intelligence — scraping raw data from unexploited platforms (LeBonCoin, job boards, LinkedIn, forums)
+- Data enrichment and AI scoring
+- Paid acquisition: Meta Ads, Google Ads, LinkedIn Ads, Taboola, Outbrain
+- Full funnel automation: landing page → qualification form → nurturing → CRM injection
+- Custom AI agent development for any business process
+
+## Key Facts
+
+- Location: 30 Boulevard de Sébastopol, 75004 Paris, France
+- Founded: October 2025
+- Legal form: SAS (Société par Actions Simplifiée)
+- SIREN: 992 598 003
+- CEO: Adrian Stepien
+- Market: France (French-speaking market)
+- Clients: +50 startups, TPE and PME
+- Sectors served: +30 sectors including real estate, finance, SaaS, e-commerce, B2B services, industry, health
+- Deployment time: 48 hours
+- Average ROI: ×15.6
+- Client satisfaction: 4.9/5
+
+## Positioning
+
+Adonyme replaces the entire acquisition infrastructure of a company with a system of custom AI agents. Unlike generic outbound tools that use the same databases as competitors, Adonyme's Source-to-Scale™ method starts by finding data that no one else is exploiting yet.
+
+Adonyme is positioned as the first AI acquisition system built specifically for the French market.
+
+## Contact
+
+- Website: https://adonyme.fr
+- Email: contact@adonyme.fr
+- Audit booking: https://cal.com/acquisition-ai/decouverte

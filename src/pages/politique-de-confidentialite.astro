@@ -1,0 +1,42 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Politique de confidentialité — Adonyme" description="Politique de confidentialité et RGPD d'Adonyme. Vos droits, les données collectées, leur utilisation." canonical="https://adonyme.fr/politique-de-confidentialite">
+
+  <div class="min-h-screen" style="background:#f4f5f6;">
+
+    <div class="py-20" style="background:#0f172a;">
+      <div class="container max-w-3xl mx-auto">
+        <a href="/" class="inline-flex items-center gap-2 text-sm font-semibold mb-8 transition-colors hover:text-white" style="color:#64748b;">← Retour</a>
+        <h1 class="text-4xl md:text-6xl font-black" style="color:white;">Politique de confidentialité</h1>
+        <p class="mt-4 font-medium" style="color:#64748b;">Dernière mise à jour : juin 2026</p>
+      </div>
+    </div>
+
+    <div class="container max-w-3xl mx-auto py-20 space-y-10">
+
+      {[
+        { title: "Responsable du traitement", content: `<p><strong>ADONYME</strong><br/>30 Boulevard de Sébastopol, 75004 Paris<br/>SIREN : 992 598 003<br/>Contact : contact@adonyme.fr</p>` },
+        { title: "Données collectées", content: `<p>Dans le cadre de l'utilisation de notre site et de nos services, nous collectons :</p><ul class="list-disc list-inside space-y-1 ml-2 mt-2"><li>Nom et prénom</li><li>Adresse e-mail professionnelle</li><li>Numéro de téléphone</li><li>Nom de l'entreprise</li><li>Messages et demandes de contact</li><li>Données de navigation (cookies, adresse IP, pages visitées)</li></ul>` },
+        { title: "Finalités du traitement", content: `<ul class="list-disc list-inside space-y-1 ml-2"><li>Répondre à vos demandes de contact et d'audit</li><li>Vous envoyer des informations commerciales (avec consentement)</li><li>Améliorer notre site et nos services</li><li>Respecter nos obligations légales</li></ul>` },
+        { title: "Durée de conservation", content: `<ul class="list-disc list-inside space-y-1 ml-2"><li>Données de contact : 3 ans à compter du dernier contact</li><li>Données clients : durée de la relation + 5 ans</li><li>Données de navigation : 13 mois maximum</li></ul>` },
+        { title: "Vos droits", content: `<p>Conformément au RGPD, vous disposez des droits suivants : accès, rectification, effacement, portabilité, opposition, limitation.</p><p class="mt-2">Pour les exercer : <a href="mailto:contact@adonyme.fr" style="color:#2563eb;">contact@adonyme.fr</a></p><p class="mt-2">En cas de réponse insatisfaisante, vous pouvez saisir la <strong>CNIL</strong> — <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer" style="color:#2563eb;">www.cnil.fr</a></p>` },
+        { title: "Sécurité", content: `<p>ADONYME met en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos données. Les données sont transmises via des connexions sécurisées (HTTPS).</p>` },
+      ].map((section) => (
+        <div>
+          <h2 class="text-2xl font-black mb-4" style="color:#0f172a;">{section.title}</h2>
+          <div class="text-base font-medium leading-relaxed space-y-2" style="color:#64748b;" set:html={section.content} />
+        </div>
+      ))}
+
+    </div>
+
+    <div class="border-t py-8" style="border-color:#e2e8f0;">
+      <div class="container max-w-3xl mx-auto flex justify-between items-center">
+        <span class="text-2xl font-black" style="color:#0f172a;">ADONYME<span style="color:#2563eb;">.</span></span>
+        <a href="/mentions-legales" style="color:#2563eb;" class="text-sm font-semibold hover:underline">Mentions légales →</a>
+      </div>
+    </div>
+  </div>
+</Layout>

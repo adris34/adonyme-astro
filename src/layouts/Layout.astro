@@ -1,0 +1,146 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+}
+
+const {
+  title = "Adonyme — Automatisation de la Prospection B2B par Agents IA en France",
+  description = "Adonyme construit votre infrastructure d'acquisition automatisée. La méthode Source-to-Scale™ : scraping, enrichissement IA, prospection multicanal, SDR vocal, nurturing. Opérationnel en 48h.",
+  canonical = "https://adonyme.fr",
+} = Astro.props;
+
+const schemaOrg = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://adonyme.fr/#organization",
+      "name": "Adonyme",
+      "url": "https://adonyme.fr",
+      "logo": "https://adonyme.fr/logo-adonyme.png",
+      "description": "Agence d'automatisation de la prospection B2B par agents IA en France. Méthode Source-to-Scale™.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "30 Boulevard de Sébastopol",
+        "addressLocality": "Paris",
+        "postalCode": "75004",
+        "addressCountry": "FR"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "contact@adonyme.fr",
+        "contactType": "customer service",
+        "availableLanguage": "French"
+      },
+      "sameAs": []
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://adonyme.fr/#website",
+      "url": "https://adonyme.fr",
+      "name": "Adonyme",
+      "publisher": { "@id": "https://adonyme.fr/#organization" }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://adonyme.fr/#service",
+      "name": "Méthode Source-to-Scale™",
+      "provider": { "@id": "https://adonyme.fr/#organization" },
+      "description": "Système complet d'automatisation de l'acquisition clients B2B : scraping de sources brutes, enrichissement IA, prospection multicanal automatisée, SDR vocal IA, nurturing et orchestration.",
+      "areaServed": "FR",
+      "serviceType": "Automatisation prospection B2B",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Services Adonyme",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Diagnostic Process", "description": "Identification du process commercial à automatiser en priorité." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Source Intelligence", "description": "Scraping de données brutes sur des sources sous-exploitées : LeBonCoin, LinkedIn, plateformes métier." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Data Engineering", "description": "Enrichissement, scoring et qualification automatique des prospects B2B." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hyper-personnalisation & Déploiement", "description": "Prospection multicanal automatisée : LinkedIn, email, SMS, WhatsApp, SDR vocal IA." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Nurturing & Orchestration", "description": "Relances automatisées, prise de RDV par agent IA, injection CRM, reporting hebdomadaire." } }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Comment fonctionne votre système d'automatisation de la prospection B2B ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La méthode Source-to-Scale™ d'Adonyme fonctionne en 5 étapes : diagnostic du process, scraping des sources de données brutes, enrichissement IA, déploiement des agents multicanal (LinkedIn, email, SMS, WhatsApp, SDR vocal), puis nurturing et orchestration automatisés. Le tout est opérationnel en 48h."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "En quoi vos agents IA sont différents des outils de prospection classiques ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Les outils classiques envoient les mêmes messages depuis les mêmes bases Apollo. Nos agents IA vont chercher la donnée à la source — LeBonCoin, plateformes métier, LinkedIn — et construisent des séquences hyper-personnalisées sur des canaux sous-exploités. Taux de réponse ×4 en moyenne."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps avant de voir des résultats ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Votre infrastructure d'acquisition automatisée est opérationnelle en 48h. Les premiers leads qualifiés arrivent dans la première semaine."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il une équipe commerciale pour utiliser vos solutions ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Le système d'agents IA tourne en autonomie complète — prospection, qualification, relances, prise de RDV. Vous recevez un reporting hebdomadaire. Votre seule intervention : closer les RDV qualifiés."
+          }
+        }
+      ]
+    }
+  ]
+};
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Adonyme" />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="https://adonyme.fr/og-image.jpg" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Adonyme" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://adonyme.fr/og-image.jpg" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/logo-adonyme.png" />
+    <link rel="apple-touch-icon" href="/logo-adonyme.png" />
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify(schemaOrg)} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
