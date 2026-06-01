@@ -6,7 +6,7 @@ import sitemap from '@astrojs/sitemap';
 import react from '@astrojs/react';
 
 export default defineConfig({
-  site: 'https://adonyme.fr',
+  site: 'https://adonyme.com',
   vite: {
     plugins: [tailwindcss()]
   },

@@ -10,7 +10,7 @@ interface Props {
 const {
   title = "Adonyme — Automatisation de la Prospection B2B par Agents IA en France",
   description = "Adonyme construit votre infrastructure d'acquisition automatisée. La méthode Source-to-Scale™ : scraping, enrichissement IA, prospection multicanal, SDR vocal, nurturing. Opérationnel en 48h.",
-  canonical = "https://adonyme.fr",
+  canonical = "https://adonyme.com",
 } = Astro.props;
 
 const schemaOrg = {
@@ -18,10 +18,10 @@ const schemaOrg = {
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "https://adonyme.fr/#organization",
+      "@id": "https://adonyme.com/#organization",
       "name": "Adonyme",
-      "url": "https://adonyme.fr",
-      "logo": "https://adonyme.fr/logo-adonyme.png",
+      "url": "https://adonyme.com",
+      "logo": "https://adonyme.com/logo-adonyme.png",
       "description": "Agence d'automatisation de la prospection B2B par agents IA en France. Méthode Source-to-Scale™.",
       "address": {
         "@type": "PostalAddress",
@@ -36,20 +36,24 @@ const schemaOrg = {
         "contactType": "customer service",
         "availableLanguage": "French"
       },
-      "sameAs": []
+      "sameAs": [
+        "https://www.linkedin.com/company/adonyme",
+        "https://www.pappers.fr/entreprise/adonyme-992598003",
+        "https://www.societe.com/societe/adonyme-992598003.html"
+      ]
     },
     {
       "@type": "WebSite",
-      "@id": "https://adonyme.fr/#website",
-      "url": "https://adonyme.fr",
+      "@id": "https://adonyme.com/#website",
+      "url": "https://adonyme.com",
       "name": "Adonyme",
-      "publisher": { "@id": "https://adonyme.fr/#organization" }
+      "publisher": { "@id": "https://adonyme.com/#organization" }
     },
     {
       "@type": "Service",
-      "@id": "https://adonyme.fr/#service",
+      "@id": "https://adonyme.com/#service",
       "name": "Méthode Source-to-Scale™",
-      "provider": { "@id": "https://adonyme.fr/#organization" },
+      "provider": { "@id": "https://adonyme.com/#organization" },
       "description": "Système complet d'automatisation de l'acquisition clients B2B : scraping de sources brutes, enrichissement IA, prospection multicanal automatisée, SDR vocal IA, nurturing et orchestration.",
       "areaServed": "FR",
       "serviceType": "Automatisation prospection B2B",
@@ -123,7 +127,7 @@ const schemaOrg = {
     <meta property="og:url" content={canonical} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="https://adonyme.fr/og-image.jpg" />
+    <meta property="og:image" content="https://adonyme.com/og-image.jpg" />
     <meta property="og:locale" content="fr_FR" />
     <meta property="og:site_name" content="Adonyme" />
 
@@ -131,7 +135,7 @@ const schemaOrg = {
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="https://adonyme.fr/og-image.jpg" />
+    <meta name="twitter:image" content="https://adonyme.com/og-image.jpg" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/logo-adonyme.png" />

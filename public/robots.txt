@@ -13,4 +13,4 @@ Allow: /
 User-agent: Googlebot
 Allow: /
 
-Sitemap: https://adonyme.fr/sitemap-index.xml
+Sitemap: https://adonyme.com/sitemap-index.xml

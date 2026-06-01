@@ -98,5 +98,5 @@ Non. Le système tourne en autonomie complète. Vous closez. Le reste est automa
 - **Adresse** : 30 Boulevard de Sébastopol, 75004 Paris, France
 - **SIREN** : 992 598 003
 - **Fondateur** : Adrian Stepien
-- **Site** : https://adonyme.fr
+- **Site** : https://adonyme.com
 - **Contact** : contact@adonyme.fr

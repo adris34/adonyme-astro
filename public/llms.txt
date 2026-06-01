@@ -50,6 +50,6 @@ Adonyme is positioned as the first AI acquisition system built specifically for 
 
 ## Contact
 
-- Website: https://adonyme.fr
+- Website: https://adonyme.com
 - Email: contact@adonyme.fr
 - Audit booking: https://cal.com/acquisition-ai/decouverte
