@@ -42,3 +42,13 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 0.3;
   pointer-events: none;
 }
+
+/* Fix container pour Tailwind v4 */
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
