@@ -72,13 +72,13 @@ import Layout from '../layouts/Layout.astro';
     <div class="w-full max-w-6xl mx-auto px-8">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-12">
         {[
-          { value: "412 000", label: "prospects générés via Meta & Google Ads" },
+          { value: "412&nbsp;000", label: "prospects générés via Meta & Google Ads" },
           { value: "4.9/5", label: "satisfaction client" },
           { value: "×15.6", label: "ROI moyen constaté" },
           { value: "+30", label: "secteurs d'activités accompagnés" },
         ].map((stat) => (
           <div class="flex flex-col items-center text-center">
-            <div class="text-5xl md:text-7xl font-black mb-4" style="color:#0f172a;letter-spacing:-0.03em;">{stat.value}</div>
+            <div class="text-5xl md:text-7xl font-black mb-4 whitespace-nowrap" style="color:#0f172a;letter-spacing:-0.03em;" set:html={stat.value}></div>
             <div class="text-xs uppercase font-bold tracking-widest text-center" style="color:#64748b;">{stat.label}</div>
           </div>
         ))}
@@ -99,7 +99,11 @@ import Layout from '../layouts/Layout.astro';
         </p>
       </div>
 
-      <div class="flex flex-col gap-6 max-w-4xl">
+      <div class="relative flex flex-col gap-6 max-w-4xl" id="steps-container">
+        <!-- Ligne de progression -->
+        <div class="absolute left-[27px] top-0 bottom-0 w-[2px]" style="background:#e2e8f0;">
+          <div id="progress-line" class="w-full" style="background:#2563eb;height:0%;transition:height 0.1s linear;box-shadow:0 0 12px rgba(37,99,235,0.5);"></div>
+        </div>
         {[
           { n:"01", title:"Diagnostic Process", desc:"On identifie le process commercial qui vous coûte le plus de temps et de deals. Cibles, canaux d'acquisition, sources de données disponibles. Vous repartez avec un plan d'automatisation concret en 30 minutes.", result:"Vous savez exactement où l'agent IA va intervenir." },
           { n:"02", title:"Source Intelligence", desc:"On ne rachète pas les mêmes bases de prospection que tout le monde. On scrape la donnée brute là où personne ne regarde encore — LeBonCoin, plateformes métier, LinkedIn, forums sectoriels. Données structurées et enrichies en interne.", result:"Vos prospects n'ont jamais été contactés par ce canal." },
@@ -305,6 +309,20 @@ import Layout from '../layouts/Layout.astro';
   </footer>
 
 </Layout>
+
+<script>
+  const container = document.getElementById('steps-container');
+  const line = document.getElementById('progress-line');
+  if (container && line) {
+    window.addEventListener('scroll', () => {
+      const rect = container.getBoundingClientRect();
+      const total = container.offsetHeight;
+      const scrolled = Math.max(0, -rect.top + window.innerHeight * 0.3);
+      const pct = Math.min(100, (scrolled / total) * 100);
+      line.style.height = pct + '%';
+    });
+  }
+</script>
 
 <style>
   .marquee-track {
