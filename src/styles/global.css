@@ -45,10 +45,10 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Fix container pour Tailwind v4 */
 .container {
-  width: 100%;
-  max-width: 1400px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  width: 100% !important;
+  max-width: 1400px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
 }
