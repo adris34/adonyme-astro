@@ -66,7 +66,7 @@ export const Services = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-1 gap-6 max-w-4xl">
+        <div className="grid lg:grid-cols-1 gap-6 max-w-4xl w-full">
           {steps.map((step, index) => (
             <motion.div
               key={index}
@@ -74,7 +74,7 @@ export const Services = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="bg-white p-8 group relative flex items-start gap-8 border border-border rounded-[24px] hover:border-primary/30 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-primary/5"
+              className="bg-white p-6 md:p-8 group relative flex items-start gap-4 md:gap-8 border border-border rounded-[24px] hover:border-primary/30 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-primary/5 overflow-hidden w-full"
             >
               {/* Number */}
               <div className="flex-none">

@@ -42,12 +42,8 @@ const AIExamplesMarquee = () => {
           <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-slate-50 to-transparent z-10" />
           <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-slate-50 to-transparent z-10" />
 
-          <motion.div
-            animate={{ x: [0, -1200] }}
-            transition={{ duration: 24, repeat: Infinity, ease: "linear" }}
-            className="flex gap-4 items-center whitespace-nowrap"
-          >
-            {[...AI_EXAMPLES, ...AI_EXAMPLES].map((item, i) => (
+          <div className="flex gap-4 items-center whitespace-nowrap animate-marquee">
+            {[...AI_EXAMPLES, ...AI_EXAMPLES, ...AI_EXAMPLES].map((item, i) => (
               <div
                 key={i}
                 className="px-8 py-3 rounded-full bg-white border border-slate-200 shadow-sm text-slate-800 font-bold text-sm md:text-base flex items-center justify-center hover:border-blue-400 hover:text-blue-600 transition-all cursor-default"
@@ -55,7 +51,7 @@ const AIExamplesMarquee = () => {
                 {item}
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
     </div>

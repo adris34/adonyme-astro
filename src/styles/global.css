@@ -29,6 +29,17 @@
   --font-sora: 'Plus Jakarta Sans', sans-serif;
 }
 
+/* Marquee animation CSS — fluide sur mobile */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+
+@utility animate-marquee {
+  animation: marquee 30s linear infinite;
+  will-change: transform;
+}
+
 /* Container centré */
 @utility container {
   margin-inline: auto;
