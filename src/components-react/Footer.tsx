@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export const Footer = () => {
   return (
-    <footer className="py-20 border-t border-border bg-[#f4f5f6]">
+    <footer className="py-20 border-t border-border bg-[#f5f4f0]">
       <div className="container">
         <div className="flex flex-col md:flex-row justify-between items-center gap-12">
           <motion.div

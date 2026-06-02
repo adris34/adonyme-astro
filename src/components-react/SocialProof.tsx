@@ -30,7 +30,7 @@ export const SocialProof = () => {
   ];
 
   return (
-    <section className="py-24 bg-[#f4f5f6] relative overflow-hidden">
+    <section className="py-24 bg-[#f5f4f0] relative overflow-hidden">
       <div className="container relative z-10">
         <div className="text-center mb-16">
           <motion.div
@@ -87,8 +87,8 @@ export const SocialProof = () => {
         </div>
 
         <div className="relative overflow-hidden w-full h-16 flex items-center">
-          <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#f4f5f6] to-transparent z-10" />
-          <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#f4f5f6] to-transparent z-10" />
+          <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#f5f4f0] to-transparent z-10" />
+          <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#f5f4f0] to-transparent z-10" />
 
           <motion.div
             animate={{ x: [0, -1000] }}
