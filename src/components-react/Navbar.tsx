@@ -11,6 +11,10 @@ export function Navbar() {
           <span className="font-semibold text-gray-900 text-lg tracking-tight">
             Adonyme
           </span>
+          <span className="text-gray-400 text-lg">·</span>
+          <span className="text-gray-500 text-sm font-medium">
+            La méthode Source-to-Scale™
+          </span>
         </a>
       </div>
     </header>
