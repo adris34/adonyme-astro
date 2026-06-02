@@ -10,10 +10,12 @@ import { SocialProof } from '../components-react/SocialProof';
 import { Objections } from '../components-react/Objections';
 import { FinalCTA } from '../components-react/FinalCTA';
 import { Footer } from '../components-react/Footer';
+import { Navbar } from '../components-react/Navbar';
 ---
 
 <Layout>
   <div class="min-h-screen" client:load>
+    <Navbar client:load />
     <Hero client:load />
     <Problem client:load />
     <Stats client:load />
