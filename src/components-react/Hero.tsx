@@ -64,7 +64,7 @@ export const Hero = () => {
   const y2 = useTransform(scrollY, [0, 500], [0, -150]);
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-start pt-32 pb-0 overflow-hidden bg-background">
+    <section className="relative min-h-screen flex flex-col items-center justify-start pt-32 pb-0 overflow-hidden" style={{backgroundColor: '#f5f4f0'}}>
       <motion.div
         style={{ y: y1 }}
         className="orb bg-primary/10 top-[-10%] right-[-10%] w-[600px] h-[600px]"
