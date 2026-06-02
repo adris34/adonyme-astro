@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export const Problem = () => {
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
+    <section className="py-24 relative overflow-hidden" style={{backgroundColor: '#ffffff'}}>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(37,99,235,0.08)_0%,transparent_70%)]" />
 
       <div className="container relative z-10 max-w-4xl mx-auto text-center">
