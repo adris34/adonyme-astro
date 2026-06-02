@@ -46,7 +46,7 @@ export const Services = () => {
   ];
 
   return (
-    <section className="py-24 relative overflow-hidden bg-background">
+    <section id="methode" className="py-24 relative overflow-hidden bg-background">
       <div className="container relative z-10">
         <div className="max-w-2xl mb-16">
           <motion.div

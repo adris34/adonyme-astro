@@ -20,7 +20,7 @@ export const Footer = () => {
           </motion.div>
 
           <div className="flex flex-wrap justify-center gap-10 text-sm font-semibold text-muted-foreground">
-            <a href="#" className="hover:text-primary transition-colors uppercase tracking-widest">
+            <a href="/#methode" className="hover:text-primary transition-colors uppercase tracking-widest">
               Méthode
             </a>
             <a href="#" className="hover:text-primary transition-colors uppercase tracking-widest">
