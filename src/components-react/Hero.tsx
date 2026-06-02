@@ -32,15 +32,15 @@ const AI_EXAMPLES = [
 
 const AIExamplesMarquee = () => {
   return (
-    <div className="w-full py-10 bg-slate-50/50 mt-6 border-y border-slate-100/50">
+    <div className="w-full py-10 mt-6 border-y border-slate-100/50" style={{backgroundColor: '#ffffff'}}>
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-slate-900 text-center mb-12 tracking-tight">
           Nos outils d'acquisition.
         </h2>
 
         <div className="relative overflow-hidden w-full h-16 flex items-center">
-          <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-slate-50 to-transparent z-10" />
-          <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-slate-50 to-transparent z-10" />
+          <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-white to-transparent z-10" />
+          <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-white to-transparent z-10" />
 
           <div className="flex gap-4 items-center whitespace-nowrap animate-marquee">
             {[...AI_EXAMPLES, ...AI_EXAMPLES, ...AI_EXAMPLES].map((item, i) => (
