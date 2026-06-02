@@ -87,7 +87,7 @@ export const Hero = () => {
           </div>
 
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tighter mb-8 text-foreground">
-            L'infrastructure qui remplace{" "}
+            L'infrastructure qui accélère{" "}
             <span className="text-primary">votre acquisition.</span>
           </h1>
 
