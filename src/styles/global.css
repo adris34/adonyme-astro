@@ -7,7 +7,7 @@
   --color-primary-foreground: #ffffff;
   --color-secondary: #2563eb;
   --color-secondary-foreground: #ffffff;
-  --color-background: #f4f5f6;
+  --color-background: #f5f4f0;
   --color-foreground: #0f172a;
   --color-muted: #f1f5f9;
   --color-muted-foreground: #64748b;
@@ -79,13 +79,13 @@
 html {
   font-family: 'Plus Jakarta Sans', sans-serif;
   color: #0f172a;
-  background: #f4f5f6;
+  background: #f5f4f0;
   -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
 }
 
 body {
-  background-color: #f4f5f6;
+  background-color: #f5f4f0;
   color: hsl(var(--foreground));
   font-family: 'Plus Jakarta Sans', sans-serif;
   background-image:
