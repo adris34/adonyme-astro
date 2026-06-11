@@ -87,12 +87,12 @@ export const Hero = () => {
           </div>
 
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tighter mb-8 text-foreground">
-            Votre prochain palier de croissance est bloqué par un{" "}
+            Votre croissance est bloquée par un{" "}
             <span className="text-primary">problème de système,</span> pas d'offre.
           </h1>
 
           <p className="text-xl md:text-2xl text-foreground font-medium mb-8 max-w-4xl leading-relaxed">
-            Vos prospects ne sont pas exploités. Vous n'avez pas de tunnel de conversion. Vos leads disparaissent sans suivi. Adonyme construit le système <strong className="font-extrabold italic text-foreground">Source-to-Scale</strong> qui comble ces 3 manques — pour que chaque prospect soit travaillé jusqu'à la décision. <strong className="font-extrabold italic text-foreground">Sans équipe commerciale.</strong>
+            Vos prospects ne sont pas exploités, ils ne sont pas qualifiés et disparaissent sans suivi. Adonyme construit le système <strong className="font-extrabold italic text-foreground">Source-to-Scale</strong> qui comble ces 3 manques — <strong className="font-extrabold italic text-foreground">Sans équipe commerciale.</strong>
           </p>
 
           {/* CTA */}
