@@ -31,7 +31,7 @@ export const Problem = () => {
           transition={{ delay: 0.15 }}
           className="text-xl md:text-2xl leading-relaxed mb-8" style={{color: '#334155'}}
         >
-          Vos commerciaux passent 80% de leur temps sur des tâches répétitives. Vos campagnes de prospection B2B tournent sur les mêmes bases Apollo que vos concurrents. Vos séquences multicanal se ressemblent toutes. Et pendant ce temps, les deals partent ailleurs.
+          Vous avez une bonne offre. Vous signez des clients — souvent par le bouche-à-oreille, parfois par chance. Mais vous n'avez pas de flux régulier. Personne ne sait exactement d'où viennent vos clients. Vous n'avez pas de tunnel de conversion structuré et vous ne savez pas où concentrer vos efforts. Résultat — vous plafonnez.
         </motion.p>
 
         <motion.p
