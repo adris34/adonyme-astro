@@ -81,7 +81,7 @@ export const Services = () => {
           >
             La méthode Source-to-Scale™
           </motion.div>
-          <h2 className="text-4xl md:text-6xl font-black mb-4 text-foreground">
+          <h2 className="text-3xl md:text-6xl font-black mb-4 text-foreground">
             Le système qui prospecte, qualifie et relance{" "}
             <span className="text-primary font-extrabold italic">— à votre place.</span>
           </h2>
@@ -94,20 +94,20 @@ export const Services = () => {
           {steps.map((step, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
               className="bg-white p-6 md:p-8 group relative flex items-start gap-4 md:gap-8 border border-border rounded-[24px] hover:border-primary/30 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-primary/5 overflow-hidden w-full"
             >
               {/* Number */}
               <div className="flex-none">
-                <span className="text-6xl font-black text-black/[0.04] group-hover:text-primary/10 transition-colors leading-none">
+                <span className="text-4xl md:text-6xl font-black text-black/[0.04] group-hover:text-primary/10 transition-colors leading-none">
                   {step.number}
                 </span>
               </div>
 
-              <div className="flex-1">
+              <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-4 mb-3">
                   <div className="p-3 rounded-xl bg-primary/5 group-hover:scale-110 transition-all duration-300">
                     <step.icon className="w-6 h-6 text-primary" />
