@@ -59,7 +59,7 @@ export const Stats = () => {
             >
               <div className="absolute -inset-10 bg-primary/5 blur-[40px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
-              <div className="text-5xl md:text-7xl font-black text-foreground mb-4 tracking-tighter transition-transform duration-500 group-hover:scale-110 whitespace-nowrap">
+              <div className="text-3xl md:text-7xl font-black text-foreground mb-4 tracking-tighter transition-transform duration-500 group-hover:scale-110 whitespace-nowrap">
                 <Counter value={stat.value} suffix={stat.suffix} prefix={stat.prefix} />
               </div>
 

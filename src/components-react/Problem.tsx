@@ -18,7 +18,7 @@ export const Problem = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-6xl font-black mb-10 leading-tight tracking-tighter" style={{color: '#0f172a'}}
+          className="text-3xl md:text-6xl font-black mb-10 leading-tight tracking-tighter" style={{color: '#0f172a'}}
         >
           La prospection manuelle est morte.{" "}
           <span className="text-primary italic">Vous le savez déjà.</span>
