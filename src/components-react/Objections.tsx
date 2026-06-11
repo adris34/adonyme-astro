@@ -4,24 +4,34 @@ import { useState } from "react";
 
 const faqs = [
   {
-    question: "Comment fonctionne votre système d'automatisation de la prospection B2B ?",
+    question: "Pourquoi le lead magnet doit être derrière une page de capture ?",
     answer:
-      "La méthode Source-to-Scale™ d'Adonyme fonctionne en 5 étapes : diagnostic du process, scraping des sources de données brutes, enrichissement IA, déploiement des agents multicanal (LinkedIn, email, SMS, WhatsApp, SDR vocal), puis nurturing et orchestration automatisés. Le tout est opérationnel en 48h.",
+      "Un PDF envoyé directement ne génère rien. Derrière une page de capture avec une VSL de 30 à 60 secondes, vous capturez le contact, vous démarrez la relation, et vous déclenchez automatiquement la séquence CRM. Sans ça, vous offrez de la valeur sans rien récupérer en échange.",
   },
   {
-    question: "En quoi vos agents IA sont différents des outils de prospection classiques ?",
+    question: "Comment fonctionne le scoring comportemental ?",
     answer:
-      "Les outils classiques envoient les mêmes messages depuis les mêmes bases Apollo que vos concurrents. Nos agents IA vont chercher la donnée à la source — LeBonCoin, plateformes métier, LinkedIn — et construisent des séquences hyper-personnalisées sur des canaux sous-exploités. Résultat : taux de réponse ×4 en moyenne.",
+      "Chaque action de votre prospect déclenche une réponse automatique. Email ouvert 3 fois → SMS dans l'heure. Clic sur la page RDV sans réservation → créneau proposé immédiatement. Le système détecte les signaux chauds et agit avant que l'intérêt retombe.",
   },
   {
-    question: "Combien de temps avant de voir des résultats ?",
+    question: "C'est quoi concrètement le warming avant le call ?",
     answer:
-      "Votre infrastructure d'acquisition automatisée est opérationnelle en 48h. Les premiers leads qualifiés arrivent dans la première semaine. Certains clients décrochent leur premier RDV le lendemain du déploiement.",
+      "Entre la réservation et le call, le prospect reçoit une séquence progressive : confirmation, études de cas, témoignages, puis une vidéo \"qui on est\" J+1. Quand il décroche, il vous connaît déjà — il a vu vos résultats. Vous closez en 20 minutes, pas 60.",
   },
   {
-    question: "Faut-il une équipe commerciale pour utiliser vos solutions ?",
+    question: "Pourquoi vous ne partez pas de bases Apollo comme tout le monde ?",
     answer:
-      "Non. Le système d'agents IA tourne en autonomie complète — prospection, qualification, relances, prise de RDV. Vous recevez un reporting hebdomadaire avec les métriques clés. Votre seule intervention : closer les RDV qualifiés qu'on vous livre.",
+      "Parce que vos concurrents prospectent exactement les mêmes contacts avec exactement les mêmes messages. On identifie des sources de données non exploitées, spécifiques à votre secteur. Et surtout — on n'enrichit pas tout le monde de la même façon. Si un signal d'achat est détecté sur un profil, on déclenche un enrichissement avancé : téléphone, LinkedIn, contexte entreprise. Si aucun signal, on ne dépense pas le budget. Vous ne travaillez que les profils qui arrivent en phase d'achat.",
+  },
+  {
+    question: "Comment vous mesurez que le système performe ?",
+    answer:
+      "UTMs par canal, CAC vs LTV, taux de conversion à chaque étape du tunnel. Reporting hebdomadaire. Vous savez exactement d'où vient chaque client, quel canal convertit le mieux, et où concentrer le budget au mois 4.",
+  },
+  {
+    question: "Est-ce que vous gérez aussi la publicité Meta ?",
+    answer:
+      "Oui. On structure les campagnes en CBO avec des créas TOFU, MOFU et BOFU qui tournent en simultané. L'algorithme optimise en global — pas par adset. C'est ce qui permet de scaler le budget sans casser les performances.",
   },
 ];
 
