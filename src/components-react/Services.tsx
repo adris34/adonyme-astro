@@ -1,78 +1,80 @@
 import { motion } from "framer-motion";
-import { Search, Database, Cpu, Megaphone, BarChart3, Zap, LineChart, Mail } from "lucide-react";
+import { Target, Megaphone, Database, Mail, FileText, Cpu, Zap, LineChart } from "lucide-react";
+
+const steps = [
+  {
+    number: "01",
+    icon: Target,
+    title: "Fondations",
+    description: "ICP, signaux d'achat, douleur centrale. Plan priorisé en 30 min.",
+    tags: ["Qui est mon client idéal", "Quel signal déclencheur", "Quelle douleur précise"],
+    result: "Vous savez exactement à qui parler",
+  },
+  {
+    number: "02",
+    icon: Megaphone,
+    title: "Attirer",
+    description: "Meta Ads CBO — TOFU/MOFU/BOFU en simultané. L'algorithme optimise le budget en global, pas par adset.",
+    tags: ["Meta Ads", "Google Ads", "LinkedIn Ads", "Taboola", "Outbrain"],
+    result: "Trafic qualifié sans structure lourde",
+  },
+  {
+    number: "03",
+    icon: Database,
+    title: "Source Intelligence",
+    description: "On scrape des sources non exploitées, spécifiques à votre secteur. Enrichissement en cascade selon les signaux détectés.",
+    tags: ["Pas Apollo comme tout le monde", "Signal → enrichissement avancé"],
+    result: "Données que vos concurrents n'ont pas",
+  },
+  {
+    number: "04",
+    icon: Mail,
+    title: "Prospecter",
+    description: "Email multicanal + LinkedIn outreach + SDR vocal IA. 5 à 7 touches sur 45 jours — le bon canal, au bon moment.",
+    tags: ["Email", "LinkedIn", "Vocal IA"],
+    result: "Relancé automatiquement jusqu'à la décision",
+  },
+  {
+    number: "05",
+    icon: FileText,
+    title: "Capturer",
+    description: "Page de capture + VSL 30-60s. Le PDF n'est jamais envoyé directement — toujours derrière une page.",
+    tags: ["Sans VSL : 15-20%", "Avec VSL : 35-50% ↑"],
+    result: "Taux de conversion ×2 avec VSL",
+    highlightTag: 1,
+  },
+  {
+    number: "06",
+    icon: Cpu,
+    title: "Nurturing",
+    description: "Séquence email 30 jours. Scoring comportemental — chaque action déclenche une réponse automatique.",
+    tags: ["Email ouvert 3× → SMS dans l'heure", "Clic page RDV → créneau immédiat"],
+    result: "7-12 points de contact automatiques",
+  },
+  {
+    number: "07",
+    icon: Zap,
+    title: "Convertir avant de signer",
+    description: "Séquence anti no-show : études de cas, témoignages, lead magnet, vidéo \"qui on est\" J+1, SMS 2h avant. Votre prospect cherche à confirmer ce qu'il sait déjà. Le seul facteur étant : la confiance.",
+    tags: ["RDV booké J+3 minimum", "No-show <15% ↓"],
+    result: "Closing en 20 min — pas 60",
+    highlightTag: 1,
+  },
+  {
+    number: "08",
+    icon: LineChart,
+    title: "Mesurer",
+    description: "UTMs par canal, CAC vs LTV, reporting hebdomadaire. Vous savez d'où vient chaque client et où concentrer vos efforts.",
+    tags: ["LinkedIn /li", "Instagram /inst", "Google /gg", "YouTube /yt"],
+    result: "Au mois 4, vous savez où mettre le budget",
+  },
+];
 
 export const Services = () => {
-  const steps = [
-    {
-      number: "01",
-      icon: Search,
-      title: "Fondations",
-      description:
-        "On définit votre ICP, vos signaux d'achat et la douleur centrale. On analyse vos cibles, vos canaux et les sources de données disponibles. On sort avec un plan Source-to-Scale priorisé en 30 minutes.",
-      result: "Vous savez exactement à qui parler — et pourquoi maintenant.",
-    },
-    {
-      number: "02",
-      icon: Megaphone,
-      title: "Attirer",
-      description:
-        "Campagnes Meta Ads CBO en simultané TOFU/MOFU/BOFU. L'algo optimise en global, pas par adset. Notoriété, preuve et conversion tournent en même temps.",
-      result: "Trafic qualifié entrant — sans structure lourde à gérer.",
-    },
-    {
-      number: "03",
-      icon: Database,
-      title: "Source Intelligence",
-      description:
-        "On ne rachète pas les mêmes bases Apollo que vos concurrents. On identifie et scrape les sources de données non exploitées — spécifiques à votre secteur et à votre ICP.",
-      result: "Pour vous démarquer et sortir du lot.",
-    },
-    {
-      number: "04",
-      icon: Mail,
-      title: "Prospecter",
-      description:
-        "Séquences email multicanal, LinkedIn outreach, SDR vocal IA. Enrichissement en cascade selon les signaux détectés — email ouvert, clic, visite page. Chaque contact est travaillé sur 5 à 7 touches sur 45 jours — le bon message, au bon moment, sur le bon canal.",
-      result: "Vos prospects sont relancés automatiquement jusqu'à la décision.",
-    },
-    {
-      number: "05",
-      icon: BarChart3,
-      title: "Capturer",
-      description:
-        "Page de capture + VSL 30-60s + formulaire. Le lead magnet n'est jamais envoyé directement — toujours derrière une page. Tout prospect capturé entre automatiquement dans le CRM.",
-      result: "Taux de conversion ×2 avec VSL vs sans.",
-    },
-    {
-      number: "06",
-      icon: Cpu,
-      title: "Nurturing",
-      description:
-        "Séquence email 30 jours automatisée. Pipeline CRM : Nouveau → Engagé → Chaud → RDV Booké. Scoring comportemental : email ouvert 3× → SMS dans l'heure. Votre CRM se met à jour automatiquement.",
-      result: "7 à 12 points de contact avant la décision — automatiques.",
-    },
-    {
-      number: "07",
-      icon: Zap,
-      title: "Convertir",
-      description:
-        "Séquence anti no-show automatisée : confirmation + contenu de warming progressif (études de cas, témoignages, preuves sociales) + vidéo \"qui on est\" J+1 + SMS 2h avant. Quand votre prospect décroche, il vous connaît déjà — il a vu vos résultats, il comprend votre méthode.",
-      result: "No-show réduit à <15%. Vous closez en 20 min. Pas 60.",
-    },
-    {
-      number: "08",
-      icon: LineChart,
-      title: "Mesurer",
-      description:
-        "UTMs par canal, CAC vs LTV, reporting hebdomadaire. Vous savez exactement d'où vient chaque client et où concentrer le budget.",
-      result: "Au mois 4, vous savez où mettre le budget.",
-    },
-  ];
-
   return (
     <section id="methode" className="py-24 relative overflow-hidden bg-background">
       <div className="container relative z-10">
-        <div className="max-w-2xl mb-16">
+        <div className="max-w-2xl mb-12">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -81,50 +83,59 @@ export const Services = () => {
           >
             La méthode Source-to-Scale™
           </motion.div>
-          <h2 className="text-3xl md:text-6xl font-black mb-4 text-foreground font-playfair">
-            Le système qui prospecte, qualifie et relance{" "}
-            <span className="text-primary font-extrabold italic">— à votre place.</span>
+          <h2 className="text-3xl md:text-5xl font-black mb-4 text-foreground font-playfair">
+            Le système en 8 étapes.
           </h2>
           <p className="text-xl text-muted-foreground font-medium leading-relaxed">
-            Là où les autres commencent par envoyer des emails, nous commençons par trouver une donnée que personne n'a encore exploitée.
+            De l'ICP au client signé — une structure maîtrisée.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-1 gap-6 max-w-4xl w-full">
+        <div className="grid md:grid-cols-2 gap-4">
           {steps.map((step, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="bg-white p-6 md:p-8 group relative flex items-start gap-4 md:gap-8 border border-border rounded-[24px] hover:border-primary/30 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-primary/5 overflow-hidden w-full"
+              transition={{ delay: index * 0.07, duration: 0.4 }}
+              className="bg-white border border-border rounded-[20px] p-6 relative overflow-hidden group hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300"
             >
-              {/* Number */}
-              <div className="flex-none">
-                <span className="text-4xl md:text-6xl font-black text-black/[0.04] group-hover:text-primary/10 transition-colors leading-none">
-                  {step.number}
-                </span>
+              <span className="absolute top-0 right-3 text-[72px] font-black text-foreground/[0.04] font-playfair leading-none select-none">
+                {step.number}
+              </span>
+
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-8 h-8 rounded-lg bg-primary/8 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                  <step.icon className="w-4 h-4 text-primary" />
+                </div>
+                <h3 className="text-base font-black text-foreground group-hover:text-primary transition-colors">
+                  {step.title}
+                </h3>
               </div>
 
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-4 mb-3">
-                  <div className="p-3 rounded-xl bg-primary/5 group-hover:scale-110 transition-all duration-300">
-                    <step.icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="text-2xl font-black text-foreground group-hover:text-primary transition-colors">
-                    {step.title}
-                  </h3>
-                </div>
+              <p className="text-sm text-muted-foreground leading-relaxed mb-3 font-medium">
+                {step.description}
+              </p>
 
-                <p className="text-muted-foreground text-lg leading-relaxed mb-4 font-medium">
-                  {step.description}
-                </p>
+              <div className="flex flex-wrap gap-1.5 mb-3">
+                {step.tags.map((tag, i) => (
+                  <span
+                    key={i}
+                    className={`text-[11px] font-bold px-2.5 py-1 rounded-full border ${
+                      step.highlightTag === i
+                        ? "border-primary/30 text-primary bg-primary/5"
+                        : "border-border text-muted-foreground"
+                    }`}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
 
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/5 border border-primary/10">
-                  <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                  <span className="text-sm font-bold text-primary">{step.result}</span>
-                </div>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/8">
+                <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                <span className="text-[11px] font-bold text-primary">{step.result}</span>
               </div>
             </motion.div>
           ))}

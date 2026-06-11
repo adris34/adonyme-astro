@@ -19,19 +19,19 @@ export const Timeline = () => {
     {
       title: "Audit 30 min",
       description:
-        "On analyse vos cibles, vos canaux et vos sources de données. On identifie le levier à fort ROI immédiat. Vous repartez avec un plan concret.",
+        "On analyse vos cibles, vos canaux et vos sources de données. On identifie le levier à fort ROI immédiat. Vous repartez avec un plan Source-to-Scale priorisé.",
       icon: Zap,
     },
     {
       title: "Build & Déploiement",
       description:
-        "Construction de l'agent, configuration des séquences, branchement CRM. Le système est live en 48h.",
+        "Vous validez l'audit, on fait un briefing avec vos équipes, on prend la main — sans que vous ayez à toucher une ligne de code.",
       icon: Clock,
     },
     {
-      title: "Scale & Optimisation",
+      title: "Les premiers signaux arrivent",
       description:
-        "Reporting hebdomadaire, tests continus, nouveaux canaux. Le système s'améliore sans intervention.",
+        "J+7, vos premières réponses tombent. J+30, vous avez un reporting clair. Vous savez d'où viennent vos leads et lesquels convertissent. On ajuste, on scale.",
       icon: CheckCircle,
     },
   ];
@@ -40,11 +40,11 @@ export const Timeline = () => {
     <section ref={containerRef} className="py-24 bg-white relative overflow-hidden">
       <div className="container relative z-10">
         <h2 className="text-4xl md:text-6xl font-black text-center mb-6 text-foreground">
-          De l'audit au système opérationnel{" "}
-          <span className="text-primary italic">en 48h.</span>
+          Source-to-Scale{" "}
+          <span className="text-primary italic">— en 3 étapes.</span>
         </h2>
         <p className="text-center text-xl text-muted-foreground font-medium mb-20 max-w-2xl mx-auto">
-          Trois étapes. Pas de friction. Pas de formation interne requise.
+          Audit. Déploiement. Résultats. On prend la main du début à la fin.
         </p>
 
         <div className="relative max-w-4xl mx-auto">

@@ -4,28 +4,31 @@ import { Quote } from "lucide-react";
 export const SocialProof = () => {
   const testimonials = [
     {
-      name: "Marc D.",
-      role: "Dirigeant — IMMO+",
+      name: "François Garcia",
+      role: "Directeur Général — Fulgurance",
       content:
-        "L'agent scrape LeBonCoin chaque matin, envoie un message personnalisé avec ma photo aux vendeurs, et me pose 3 RDV par semaine. Sans intervention de ma part.",
-      avatar: "MD",
-      metric: "3 RDV/semaine",
+        "Depuis qu'Adonyme a structuré notre acquisition, on a généré plus de 2 000 leads qualifiés. Je n'aurais pas pensé qu'on pouvait scaler aussi vite sans recruter.",
+      avatar: "FG",
+      metric: "2 000 leads",
+      logo: "/logos/fulgurance-dark.svg",
     },
     {
-      name: "Thomas B.",
-      role: "CEO — TechScale",
+      name: "",
+      role: "Cerfrance Normandie",
       content:
-        "Taux de réponse LinkedIn multiplié par 4 depuis qu'on envoie des images générées avec la photo du prospect. Je n'aurais pas cru si je ne l'avais pas vu.",
-      avatar: "TB",
-      metric: "×4 taux de réponse",
+        "On avait une base de 35 000 contacts qui dormait. Nous avons restructuré toute l'acquisition, activé la base de données et activé des canaux payants — les résultats sont arrivés dans les premières semaines.",
+      avatar: "CF",
+      metric: "35 000 contacts activés",
+      logoText: "Cerfrance Normandie",
     },
     {
-      name: "Julie L.",
-      role: "Fondatrice — Bloom",
+      name: "Thierry",
+      role: "Effy",
       content:
-        "Opérationnel en 48h. Le premier lead qualifié est tombé le lendemain. ROI positif dès la première semaine.",
-      avatar: "JL",
-      metric: "ROI J+7",
+        "Plus de 20 000 leads générés. Adonyme a mis en place un système d'acquisition qui tourne en continu — sans intervention de notre part.",
+      avatar: "TH",
+      metric: "20 000 leads",
+      logo: "/logos/effy.svg",
     },
   ];
 
@@ -57,9 +60,17 @@ export const SocialProof = () => {
               transition={{ delay: i * 0.15 }}
               className="bg-white p-10 rounded-[32px] border border-border shadow-sm hover:shadow-xl transition-all duration-500 group relative overflow-hidden"
             >
-              {/* Metric badge */}
-              <div className="absolute top-6 right-6 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20">
-                <span className="text-primary font-black text-sm">{t.metric}</span>
+              {/* Logo or metric badge */}
+              <div className="absolute top-6 right-6">
+                {t.logo ? (
+                  <img src={t.logo} alt="" className="h-6 w-auto object-contain opacity-80" />
+                ) : t.logoText ? (
+                  <span className="text-foreground font-black text-lg tracking-tight">{t.logoText}</span>
+                ) : (
+                  <div className="px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20">
+                    <span className="text-primary font-black text-sm">{t.metric}</span>
+                  </div>
+                )}
               </div>
 
               <Quote className="w-10 h-10 text-primary/10 mb-6 group-hover:text-primary/20 transition-colors" />

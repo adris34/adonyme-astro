@@ -92,7 +92,7 @@ export const Hero = () => {
           </h1>
 
           <p className="text-xl md:text-2xl text-foreground font-medium mb-8 max-w-4xl leading-relaxed">
-            Vos prospects ne sont pas exploités, ils ne sont pas qualifiés et disparaissent sans suivi. Adonyme construit le système <strong className="font-extrabold italic text-foreground">Source-to-Scale</strong> qui comble ces 3 manques — <strong className="font-extrabold italic text-foreground">Sans équipe commerciale.</strong>
+            Vous proposez une offre, vous signez des clients, souvent par le bouche-à-oreille, parfois par chance.<br />Personne ne sait exactement d'où viennent vos clients.<br />Résultat — vous n'avez aucune structure claire et vous plafonnez.
           </p>
 
           {/* CTA */}
@@ -108,7 +108,7 @@ export const Hero = () => {
                 rel="noopener noreferrer"
                 className="flex items-center gap-3"
               >
-                Réserver mon audit gratuit <ArrowRight className="w-6 h-6" />
+                Structurer mon acquisition <ArrowRight className="w-6 h-6" />
               </a>
             </Button>
             <p className="text-sm font-bold text-foreground/50 mt-3">

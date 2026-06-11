@@ -5,7 +5,8 @@
       "name": "adonyme-astro",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev"],
-      "port": 4322
+      "port": 4322,
+      "cwd": "/Users/adrian/adonyme-astro"
     }
   ]
 }
