@@ -1,47 +1,63 @@
 import { motion } from "framer-motion";
-import { Search, Database, Cpu, Megaphone, BarChart3 } from "lucide-react";
+import { Search, Database, Cpu, Megaphone, BarChart3, Zap, LineChart } from "lucide-react";
 
 export const Services = () => {
   const steps = [
     {
       number: "01",
       icon: Search,
-      title: "Diagnostic Process",
+      title: "Fondations",
       description:
-        "On identifie le process commercial qui vous coûte le plus de temps et de deals. Cibles, canaux d'acquisition, sources de données disponibles. Vous repartez avec un plan d'automatisation concret en 30 minutes.",
-      result: "Vous savez exactement où l'agent IA va intervenir.",
+        "On définit votre ICP, vos signaux d'achat et la douleur centrale. On analyse vos cibles, vos canaux et les sources de données disponibles. On sort avec un plan Source-to-Scale priorisé en 30 minutes.",
+      result: "Vous savez exactement à qui parler — et pourquoi maintenant.",
     },
     {
       number: "02",
-      icon: Database,
-      title: "Source Intelligence",
+      icon: Megaphone,
+      title: "Attirer",
       description:
-        "On ne rachète pas les mêmes bases de prospection que tout le monde. On scrape la donnée brute là où personne ne regarde encore — LeBonCoin, plateformes métier, LinkedIn, forums sectoriels. Données structurées et enrichies en interne.",
-      result: "Vos prospects n'ont jamais été contactés par ce canal.",
+        "Campagnes Meta Ads CBO en simultané TOFU/MOFU/BOFU. L'algo optimise en global, pas par adset. Notoriété, preuve et conversion tournent en même temps.",
+      result: "Trafic qualifié entrant — sans structure lourde à gérer.",
     },
     {
       number: "03",
-      icon: BarChart3,
-      title: "Data Engineering",
+      icon: Database,
+      title: "Source Intelligence",
       description:
-        "Enrichissement de données, scoring IA, nettoyage. Chaque prospect est automatiquement qualifié avant même le premier contact. Vous ne parlez qu'aux bons profils B2B, au bon moment.",
-      result: "Zéro temps perdu sur des leads froids.",
+        "On ne rachète pas les mêmes bases Apollo que vos concurrents. On identifie et scrape les sources de données non exploitées — spécifiques à votre secteur et à votre ICP.",
+      result: "Pour vous démarquer et sortir du lot.",
     },
     {
       number: "04",
-      icon: Cpu,
-      title: "Hyper-personnalisation & Déploiement",
+      icon: BarChart3,
+      title: "Capturer",
       description:
-        "L'agent IA scrape le profil, rédige un message hyper-personnalisé selon l'ICP et l'envoie sur le bon canal. Prospection multicanal automatisée : LinkedIn, email, SMS, WhatsApp, SDR vocal IA. Humain dans le ton.",
-      result: "Taux de réponse ×4 vs un message générique.",
+        "Page de capture + VSL 30-60s + formulaire. Le lead magnet n'est jamais envoyé directement — toujours derrière une page. Tout prospect capturé entre automatiquement dans le CRM.",
+      result: "Taux de conversion ×2 avec VSL vs sans.",
     },
     {
       number: "05",
-      icon: Megaphone,
-      title: "Nurturing & Orchestration",
+      icon: Cpu,
+      title: "Nurturing",
       description:
-        "Nurturing automatisé, qualification progressive, prise de RDV automatique par agent IA, injection CRM sans saisie manuelle. Reporting hebdomadaire. Votre infrastructure d'acquisition s'améliore chaque semaine.",
-      result: "Vous recevez des RDV qualifiés. Vous closez.",
+        "Séquence email 30 jours automatisée. Pipeline CRM : Nouveau → Engagé → Chaud → RDV Booké. Scoring comportemental : email ouvert 3× → SMS dans l'heure. Votre CRM se met à jour automatiquement.",
+      result: "7 à 12 points de contact avant la décision — automatiques.",
+    },
+    {
+      number: "06",
+      icon: Zap,
+      title: "Convertir",
+      description:
+        "Séquence anti no-show automatisée : confirmation + contenu de warming progressif (études de cas, témoignages, preuves sociales) + vidéo \"qui on est\" J+1 + SMS 2h avant. Quand votre prospect décroche, il vous connaît déjà — il a vu vos résultats, il comprend votre méthode.",
+      result: "No-show réduit à <15%. Vous closez en 20 min. Pas 60.",
+    },
+    {
+      number: "07",
+      icon: LineChart,
+      title: "Mesurer",
+      description:
+        "UTMs par canal, CAC vs LTV, reporting hebdomadaire. Vous savez exactement d'où vient chaque client et où concentrer le budget.",
+      result: "Au mois 4, vous savez où mettre le budget.",
     },
   ];
 
@@ -58,8 +74,8 @@ export const Services = () => {
             La méthode Source-to-Scale™
           </motion.div>
           <h2 className="text-4xl md:text-6xl font-black mb-4 text-foreground">
-            Le système qui tourne{" "}
-            <span className="text-primary font-extrabold italic">à votre place.</span>
+            Le système qui prospecte, qualifie et relance{" "}
+            <span className="text-primary font-extrabold italic">— à votre place.</span>
           </h2>
           <p className="text-xl text-muted-foreground font-medium leading-relaxed">
             Là où les autres commencent par envoyer des emails, nous commençons par trouver une donnée que personne n'a encore exploitée.
