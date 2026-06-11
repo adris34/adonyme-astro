@@ -15,7 +15,7 @@ export const FinalCTA = () => {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(37,99,235,0.15)_0%,transparent_70%)]" />
 
           <div className="relative z-10 max-w-3xl mx-auto">
-            <h2 className="text-4xl md:text-7xl font-black text-white mb-8 leading-[1.1] tracking-tighter">
+            <h2 className="text-4xl md:text-7xl font-black text-white mb-8 leading-[1.1] tracking-tight font-playfair">
               Combien de prospects perdez-vous{" "}
               <span className="italic text-primary underline underline-offset-8">
                 chaque jour ?

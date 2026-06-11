@@ -83,7 +83,7 @@ export const Objections = () => {
           >
             FAQ
           </motion.div>
-          <h2 className="text-4xl md:text-5xl font-black text-foreground">
+          <h2 className="text-4xl md:text-5xl font-black text-foreground font-playfair">
             Les questions qu'on nous{" "}
             <span className="text-primary font-extrabold italic">pose toujours.</span>
           </h2>

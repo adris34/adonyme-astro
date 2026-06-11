@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&display=swap');
 @import "tailwindcss";
 
 /* Tailwind v4 theme — équivalent des CSS vars v3 */
@@ -27,6 +27,7 @@
   --font-jakarta: 'Plus Jakarta Sans', sans-serif;
   --font-inter: 'Plus Jakarta Sans', sans-serif;
   --font-sora: 'Plus Jakarta Sans', sans-serif;
+  --font-playfair: 'Playfair Display', serif;
 }
 
 /* Marquee animation CSS — fluide sur mobile */
@@ -95,10 +96,20 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+h3, h4, h5, h6 {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 800;
   letter-spacing: -0.02em;
+}
+
+.font-playfair {
+  font-family: 'Playfair Display', serif !important;
 }
 
 .orb {

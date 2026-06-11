@@ -34,7 +34,7 @@ const AIExamplesMarquee = () => {
   return (
     <div className="w-full py-10 mt-6 border-y border-slate-100/50" style={{backgroundColor: '#ffffff'}}>
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-slate-900 text-center mb-12 tracking-tight">
+        <h2 className="text-3xl md:text-4xl font-black text-slate-900 text-center mb-12 tracking-tight font-playfair">
           Nos outils d'acquisition.
         </h2>
 
@@ -86,9 +86,9 @@ export const Hero = () => {
             Le 1er système d'acquisition IA pensé pour le marché français
           </div>
 
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tighter mb-8 text-foreground">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight mb-8 text-foreground font-playfair">
             Votre croissance est bloquée par un{" "}
-            <span className="text-primary">problème de système,</span> pas d'offre.
+            <span className="text-primary italic">problème de système,</span> pas d'offre.
           </h1>
 
           <p className="text-xl md:text-2xl text-foreground font-medium mb-8 max-w-4xl leading-relaxed">

@@ -41,7 +41,7 @@ export const SocialProof = () => {
           >
             Ils nous font confiance
           </motion.div>
-          <h2 className="text-4xl md:text-6xl font-black text-foreground">
+          <h2 className="text-4xl md:text-6xl font-black text-foreground font-playfair">
             Des résultats, pas des{" "}
             <span className="text-primary font-extrabold italic">promesses.</span>
           </h2>

@@ -81,7 +81,7 @@ export const Services = () => {
           >
             La méthode Source-to-Scale™
           </motion.div>
-          <h2 className="text-3xl md:text-6xl font-black mb-4 text-foreground">
+          <h2 className="text-3xl md:text-6xl font-black mb-4 text-foreground font-playfair">
             Le système qui prospecte, qualifie et relance{" "}
             <span className="text-primary font-extrabold italic">— à votre place.</span>
           </h2>
