@@ -1,55 +1,60 @@
 # Adonyme
 
-## What is Adonyme?
+> Adonyme construit le système d'acquisition complet qui tourne à votre place — de la source de données au client signé. Sans équipe commerciale.
 
-Adonyme is a French AI-powered B2B acquisition automation agency based in Paris, France. Adonyme builds custom AI agent ecosystems that automate the entire sales acquisition cycle — from raw data sourcing to qualified meeting booking — without requiring a human sales team.
+## Qui sommes-nous
 
-## The Source-to-Scale™ Method
+Adonyme est une agence française spécialisée dans la construction de systèmes d'acquisition B2B automatisés. Notre méthode propriétaire s'appelle Source-to-Scale™. Elle couvre l'intégralité du cycle commercial : attirer, prospecter, capturer, nurturer et convertir.
 
-Adonyme's proprietary methodology is called **Source-to-Scale™**. It is a 5-step system for automating B2B prospecting and client acquisition:
+Nous ne livrons pas des leads. Nous construisons l'infrastructure.
 
-1. **Diagnostic Process** — Identify the commercial process costing the most time and deals. Define targets, channels, and available data sources. Deliver an automation action plan in 30 minutes.
+Nous nous adressons aux TPE, PME et startups B2B françaises qui signent des clients par bouche-à-oreille mais n'ont pas de flux d'acquisition régulier et structuré.
 
-2. **Source Intelligence** — Instead of buying the same Apollo databases as competitors, Adonyme scrapes raw data from unexploited sources: LeBonCoin, professional platforms, LinkedIn, sector forums. Data is structured and enriched in-house.
+## La méthode Source-to-Scale™ — 8 étapes
 
-3. **Data Engineering** — AI-powered enrichment, scoring, and cleaning. Every prospect is automatically qualified before the first contact. Only the right B2B profiles are targeted.
+1. **Fondations** — Définition ICP, signaux d'achat, douleur centrale. Plan Source-to-Scale priorisé en 30 minutes. Vous savez exactement à qui parler — et pourquoi maintenant.
 
-4. **Hyper-personalization & Deployment** — AI agents scrape the prospect's profile, craft personalized messages based on their ICP, and send them via the right channel: LinkedIn automation, cold email, SMS, WhatsApp, AI vocal SDR. Multichannel. Automated. Human in tone. Average reply rate ×4 vs generic messages.
+2. **Attirer** — Campagnes Meta Ads CBO TOFU/MOFU/BOFU en simultané. L'algorithme optimise en global, pas par adset. Notoriété, preuve et conversion tournent en même temps.
 
-5. **Nurturing & Orchestration** — Automated follow-ups, progressive qualification, AI-powered meeting booking, CRM injection without manual entry. Weekly reporting. The system improves continuously.
+3. **Source Intelligence** — On n'achète pas les mêmes bases Apollo que vos concurrents. On identifie et scrape des sources de données non exploitées, spécifiques à votre secteur et votre ICP. Si un signal d'achat est détecté, on déclenche un enrichissement avancé. Sinon, on ne dépense pas le budget.
 
-## Services
+4. **Prospecter** — Séquences email multicanal, LinkedIn outreach, SDR vocal IA. Enrichissement en cascade selon les signaux détectés — email ouvert, clic, visite page. Chaque contact est travaillé sur 5 à 7 touches sur 45 jours.
 
-- B2B prospection automation (multicanal: LinkedIn, email, SMS, WhatsApp, voice)
-- AI SDR (Sales Development Representative) — vocal AI agent for lead qualification
-- Source Intelligence — scraping raw data from unexploited platforms (LeBonCoin, job boards, LinkedIn, forums)
-- Data enrichment and AI scoring
-- Paid acquisition: Meta Ads, Google Ads, LinkedIn Ads, Taboola, Outbrain
-- Full funnel automation: landing page → qualification form → nurturing → CRM injection
-- Custom AI agent development for any business process
+5. **Capturer** — Page de capture + VSL 30-60 secondes + formulaire. Le lead magnet n'est jamais envoyé directement — toujours derrière une page. Chaque lead entre automatiquement dans le CRM (GHL). Taux de conversion ×2 avec VSL vs sans.
 
-## Key Facts
+6. **Nurturing** — Séquence email 30 jours automatisée depuis GHL. Pipeline CRM : Nouveau → Engagé → Chaud → RDV Booké. Scoring comportemental : email ouvert 3 fois → SMS dans l'heure. 7 à 12 points de contact avant la décision — automatiques.
 
-- Location: 30 Boulevard de Sébastopol, 75004 Paris, France
-- Founded: October 2025
-- Legal form: SAS (Société par Actions Simplifiée)
-- SIREN: 992 598 003
-- CEO: Adrian Stepien
-- Market: France (French-speaking market)
-- Clients: +50 startups, TPE and PME
-- Sectors served: +30 sectors including real estate, finance, SaaS, e-commerce, B2B services, industry, health
-- Deployment time: 48 hours
-- Average ROI: ×15.6
-- Client satisfaction: 4.9/5
+7. **Convertir** — Séquence anti no-show automatisée : confirmation + contenu de warming progressif (études de cas, témoignages, preuves sociales) + vidéo "qui on est" J+1 + SMS 2h avant. Quand le prospect décroche, il vous connaît déjà. No-show réduit à moins de 15%.
 
-## Positioning
+8. **Mesurer** — UTMs par canal, CAC vs LTV, reporting hebdomadaire. Vous savez exactement d'où vient chaque client et où concentrer le budget.
 
-Adonyme replaces the entire acquisition infrastructure of a company with a system of custom AI agents. Unlike generic outbound tools that use the same databases as competitors, Adonyme's Source-to-Scale™ method starts by finding data that no one else is exploiting yet.
+## Ce qu'on fait concrètement
 
-Adonyme is positioned as the first AI acquisition system built specifically for the French market.
+- Campagnes Meta Ads (CBO, TOFU/MOFU/BOFU)
+- Cold email multicanal (LinkedIn, email, SMS, WhatsApp, SDR vocal IA)
+- Source Intelligence — scraping de sources de données non exploitées
+- Enrichissement en cascade selon signaux d'achat détectés
+- Page de capture + VSL
+- Tunnel et CRM GHL (GoHighLevel)
+- Nurturing automatisé 30 jours
+- Scoring comportemental et relances automatiques
+- Séquence warming avant call (études de cas, témoignages, vidéo)
+- Reporting CAC vs LTV
+
+## Faits clés
+
+- Localisation : 30 Boulevard de Sébastopol, 75004 Paris, France
+- Fondée en : octobre 2025
+- Forme juridique : SAS
+- SIREN : 992 598 003
+- Dirigeant : Adrian Stepien
+- Marché : France
+- Clients : +50 startups, TPE et PME
+- Secteurs : immobilier, finance, SaaS, B2B services, industrie, santé et +30 autres
 
 ## Contact
 
-- Website: https://adonyme.com
-- Email: contact@adonyme.fr
-- Audit booking: https://cal.com/acquisition-ai/decouverte
+- Site : https://adonyme.com
+- Email : contact@adonyme.fr
+- LinkedIn : https://www.linkedin.com/company/adonyme
+- Audit gratuit : https://cal.com/acquisition-ai/decouverte
