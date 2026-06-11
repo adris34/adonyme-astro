@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Search, Database, Cpu, Megaphone, BarChart3, Zap, LineChart } from "lucide-react";
+import { Search, Database, Cpu, Megaphone, BarChart3, Zap, LineChart, Mail } from "lucide-react";
 
 export const Services = () => {
   const steps = [
@@ -29,6 +29,14 @@ export const Services = () => {
     },
     {
       number: "04",
+      icon: Mail,
+      title: "Prospecter",
+      description:
+        "Séquences email multicanal, LinkedIn outreach, SDR vocal IA. Enrichissement en cascade selon les signaux détectés — email ouvert, clic, visite page. Chaque contact est travaillé sur 5 à 7 touches sur 45 jours — le bon message, au bon moment, sur le bon canal.",
+      result: "Vos prospects sont relancés automatiquement jusqu'à la décision.",
+    },
+    {
+      number: "05",
       icon: BarChart3,
       title: "Capturer",
       description:
@@ -36,7 +44,7 @@ export const Services = () => {
       result: "Taux de conversion ×2 avec VSL vs sans.",
     },
     {
-      number: "05",
+      number: "06",
       icon: Cpu,
       title: "Nurturing",
       description:
@@ -44,7 +52,7 @@ export const Services = () => {
       result: "7 à 12 points de contact avant la décision — automatiques.",
     },
     {
-      number: "06",
+      number: "07",
       icon: Zap,
       title: "Convertir",
       description:
@@ -52,7 +60,7 @@ export const Services = () => {
       result: "No-show réduit à <15%. Vous closez en 20 min. Pas 60.",
     },
     {
-      number: "07",
+      number: "08",
       icon: LineChart,
       title: "Mesurer",
       description:
