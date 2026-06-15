@@ -95,6 +95,19 @@ export const Hero = () => {
             Vous proposez une offre, vous signez des clients, souvent par le bouche-à-oreille, parfois par chance.<br />Personne ne sait exactement d'où viennent vos clients.<br />Résultat — vous n'avez aucune structure claire et vous plafonnez.
           </p>
 
+          {/* Video */}
+          <div className="w-full max-w-3xl mb-10 rounded-2xl overflow-hidden shadow-2xl shadow-primary/10 border border-slate-200/60">
+            <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+              <iframe
+                src="https://www.youtube.com/embed/tLkyAeACZ7k"
+                title="Adonyme — Source-to-Scale™"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full"
+              />
+            </div>
+          </div>
+
           {/* CTA */}
           <div className="flex flex-col items-center w-full mb-12">
             <Button
