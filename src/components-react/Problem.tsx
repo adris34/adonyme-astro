@@ -20,8 +20,8 @@ export const Problem = () => {
           viewport={{ once: true }}
           className="text-3xl md:text-6xl font-black mb-10 leading-tight tracking-tighter" style={{color: '#0f172a'}}
         >
-          La prospection manuelle est morte.{" "}
-          <span className="text-primary italic">Vous le savez déjà.</span>
+          Vous avez une bonne offre.{" "}
+          <span className="text-primary italic">Vous n'avez pas de système.</span>
         </motion.h2>
 
         <motion.p
@@ -31,7 +31,7 @@ export const Problem = () => {
           transition={{ delay: 0.15 }}
           className="text-xl md:text-2xl leading-relaxed mb-8" style={{color: '#334155'}}
         >
-          Vos prospects ne sont pas exploités, ils ne sont pas qualifiés et disparaissent sans suivi. Adonyme construit le système Source-to-Scale qui comble ces 3 manques — sans équipe commerciale.
+          Vous signez des clients — souvent par le bouche-à-oreille, parfois par chance. Mais personne ne sait exactement d'où ils viennent. Vous n'avez pas de canal payant qui tourne, pas d'outbound structuré, pas de tunnel qui capte et nurture. Résultat : vous dépendez du hasard pour grandir.
         </motion.p>
 
         <motion.p
@@ -42,7 +42,7 @@ export const Problem = () => {
           className="text-2xl md:text-3xl font-black" style={{color: '#0f172a'}}
         >
           Le problème n'est pas votre offre.{" "}
-          <span className="text-primary font-extrabold italic">C'est l'absence d'infrastructure.</span>
+          <span className="text-primary font-extrabold italic">C'est l'absence de système d'acquisition.</span>
         </motion.p>
       </div>
     </section>

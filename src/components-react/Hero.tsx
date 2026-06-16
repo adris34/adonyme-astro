@@ -93,7 +93,7 @@ export const Hero = () => {
           </h1>
 
           <p className="text-xl md:text-2xl text-foreground font-medium mb-8 max-w-4xl leading-relaxed">
-            Vous proposez une offre, vous signez des clients, souvent par le bouche-à-oreille, parfois par chance.<br />Personne ne sait exactement d'où viennent vos clients.<br />Résultat — vous n'avez aucune structure claire et vous plafonnez.
+            Adonyme construit le système d'acquisition qui tourne à votre place — canaux payants, outbound structuré, agents IA.
           </p>
 
           {/* CTA */}

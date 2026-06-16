@@ -17,21 +17,21 @@ export const Timeline = () => {
 
   const steps = [
     {
-      title: "Audit 30 min",
+      title: "Canaux payants",
       description:
-        "On analyse vos cibles, vos canaux et vos sources de données. On identifie le levier à fort ROI immédiat. Vous repartez avec un plan Source-to-Scale priorisé.",
+        "Meta, Google, Taboola, LinkedIn. On structure et déploie vos campagnes pour générer des prospects chauds en entrant — avec les bons créas, les bons budgets, les bonnes cibles.",
       icon: Zap,
     },
     {
-      title: "Build & Déploiement",
+      title: "Outbound structuré",
       description:
-        "Vous validez l'audit, on fait un briefing avec vos équipes, on prend la main — sans que vous ayez à toucher une ligne de code.",
+        "On identifie des sources de données non exploitées, on enrichit les listes, on construit les séquences. Emailing, WhatsApp, LinkedIn, vocal mailing. On prospecte là où personne ne regarde.",
       icon: Clock,
     },
     {
-      title: "Les premiers signaux arrivent",
+      title: "CRM + Agents IA",
       description:
-        "J+7, vos premières réponses tombent. J+30, vous avez un reporting clair. Vous savez d'où viennent vos leads et lesquels convertissent. On ajuste, on scale.",
+        "Détection des signaux d'achat, nurturing automatisé, prise de RDV, réactivation des prospects abandonnés. Le système commercial tourne 7j/7 — sans s'épuiser.",
       icon: CheckCircle,
     },
   ];
@@ -44,7 +44,7 @@ export const Timeline = () => {
           <span className="text-primary italic">— en 3 étapes.</span>
         </h2>
         <p className="text-center text-xl text-muted-foreground font-medium mb-20 max-w-2xl mx-auto">
-          Audit. Déploiement. Résultats. On prend la main du début à la fin.
+          Trois leviers. Un seul système. Zéro prospect laissé à l'abandon.
         </p>
 
         <div className="relative max-w-4xl mx-auto">
