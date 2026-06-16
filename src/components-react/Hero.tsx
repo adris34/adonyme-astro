@@ -93,7 +93,7 @@ export const Hero = () => {
           </h1>
 
           <p className="text-xl md:text-2xl text-foreground font-medium mb-8 max-w-4xl leading-relaxed">
-            Adonyme construit le système d'acquisition qui tourne à votre place — canaux payants, outbound structuré, agents IA.
+            Adonyme construit le système d'acquisition en exploitant 3 leviers — canaux payants, outbound structuré, agents IA.
           </p>
 
           {/* CTA */}
