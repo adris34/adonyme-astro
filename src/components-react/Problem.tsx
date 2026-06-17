@@ -20,8 +20,8 @@ export const Problem = () => {
           viewport={{ once: true }}
           className="text-3xl md:text-6xl font-black mb-10 leading-tight tracking-tighter" style={{color: '#0f172a'}}
         >
-          Vous avez une bonne offre.{" "}
-          <span className="text-primary italic">Vous n'avez pas de système.</span>
+          Vous pensez qu'une{" "}
+          <span className="text-primary italic">bonne offre suffit.</span>
         </motion.h2>
 
         <motion.p
