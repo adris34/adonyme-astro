@@ -83,7 +83,7 @@ export const Hero = () => {
         >
           {/* Badge */}
           <div className="inline-flex items-center px-6 py-2 rounded-full border border-primary/20 bg-primary/5 text-primary text-[10px] md:text-xs font-bold uppercase tracking-wider mb-10 shadow-sm">
-            Le 1er système d'acquisition IA pensé pour le marché français
+            Système opérationnel en 30 jours
           </div>
 
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight mb-8 text-foreground font-playfair">
