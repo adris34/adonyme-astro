@@ -85,7 +85,7 @@ export const Services = () => {
             La méthode Source-to-Scale™
           </motion.div>
           <h2 className="text-3xl md:text-5xl font-black mb-4 text-foreground font-playfair">
-            Comment on le fait.
+            Ce qu'on fait.
           </h2>
           <p className="text-xl text-muted-foreground font-medium leading-relaxed">
             De l'ICP au client signé — une structure maîtrisée.
