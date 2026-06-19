@@ -87,13 +87,12 @@ export const Hero = () => {
           </div>
 
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight mb-8 text-foreground font-playfair">
-            Vous plafonnez parce que{" "}
-            <span className="text-primary italic">vous n'avez aucune structure</span>{" "}
-            dans votre acquisition.
+            On débloque votre acquisition pour générer des{" "}
+            <span className="text-primary italic">revenus prédictibles.</span>
           </h1>
 
           <p className="text-xl md:text-2xl text-foreground font-medium mb-8 max-w-4xl leading-relaxed">
-            On débloque votre acquisition pour générer des revenus prédictibles — via 3 leviers : canaux payants, outbound structuré, agents IA.
+            Via 3 leviers : canaux payants, outbound structuré, agents IA.
           </p>
 
           {/* CTA */}
