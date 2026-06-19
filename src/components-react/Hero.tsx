@@ -95,7 +95,7 @@ export const Hero = () => {
             <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
               <iframe
                 className="absolute inset-0 w-full h-full"
-                src="https://www.youtube.com/embed/ui3SSRavfUc"
+                src="https://www.youtube.com/embed/K7DfTCLHwNk"
                 title="Adonyme — Système d'acquisition"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
