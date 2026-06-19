@@ -113,7 +113,6 @@ export const Hero = () => {
         </motion.div>
       </div>
 
-      <SectorsMarquee />
     </section>
   );
 };
