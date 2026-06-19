@@ -87,7 +87,7 @@ export const Hero = () => {
           </h1>
 
           <p className="text-xl md:text-2xl text-foreground font-medium mb-8 max-w-4xl leading-relaxed">
-            Via 3 leviers : canaux payants, outbound structuré, agents IA.
+            Pour les entreprises qui font +150K€/an et veulent structurer, scaler et maîtriser leur acquisition avec des résultats prédictibles.
           </p>
 
           {/* CTA */}
@@ -107,7 +107,7 @@ export const Hero = () => {
               </a>
             </Button>
             <p className="text-sm font-bold text-foreground/50 mt-3">
-              Pour les entreprises qui font +150K€/an et veulent structurer, scaler et maîtriser leur acquisition avec des résultats prédictibles.
+              +50 startups, TPE et PME nous font confiance
             </p>
           </div>
         </motion.div>
