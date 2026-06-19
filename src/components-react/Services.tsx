@@ -73,7 +73,7 @@ const steps = [
 export const Services = () => {
   return (
     <section id="methode" className="py-24 relative overflow-hidden bg-background">
-      <div className="container relative z-10 max-w-3xl mx-auto">
+      <div className="container relative z-10 max-w-5xl mx-auto">
 
         <div className="mb-16">
           <motion.div
