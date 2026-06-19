@@ -31,7 +31,8 @@ export const Problem = () => {
           transition={{ delay: 0.15 }}
           className="text-xl md:text-2xl leading-relaxed mb-8" style={{color: '#334155'}}
         >
-          Vous ne savez pas d'où viennent vos clients. Vous n'avez pas de canal d'acquisition structuré, aucune stratégie d'outbound, pas de tunnel qui capte et nurture.
+          Vous ne savez pas quel canal privilégier pour scaler votre entreprise ?<br />
+          Vous n'avez pas de canal d'acquisition structuré, aucune stratégie inbound / d'outbound, pas de tunnel qui capte et éduque.
         </motion.p>
 
       </div>
