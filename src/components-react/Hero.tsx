@@ -90,18 +90,6 @@ export const Hero = () => {
             Pour les entreprises qui veulent structurer, scaler et maîtriser leur acquisition.
           </p>
 
-          {/* Video */}
-          <div className="w-full max-w-5xl mb-10 rounded-[24px] overflow-hidden shadow-2xl shadow-primary/10 border border-slate-200">
-            <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
-              <iframe
-                className="absolute inset-0 w-full h-full"
-                src="https://www.youtube.com/embed/K7DfTCLHwNk"
-                title="Adonyme — Système d'acquisition"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
-          </div>
 
           {/* CTA */}
           <div className="flex flex-col items-center w-full mb-12">
