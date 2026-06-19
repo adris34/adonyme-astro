@@ -31,7 +31,7 @@ export const Problem = () => {
           transition={{ delay: 0.15 }}
           className="text-xl md:text-2xl leading-relaxed mb-8" style={{color: '#334155'}}
         >
-          Vous ne savez pas d'où viennent vos clients. Vous n'avez pas de canal d'acquisition structuré, aucune stratégie d'outbound, pas de tunnel qui capte et nurture. Résultat : vous dépendez du hasard pour grandir.
+          Vous ne savez pas d'où viennent vos clients. Vous n'avez pas de canal d'acquisition structuré, aucune stratégie d'outbound, pas de tunnel qui capte et nurture.
         </motion.p>
 
         <motion.p
