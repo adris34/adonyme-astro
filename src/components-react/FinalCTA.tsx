@@ -16,14 +16,14 @@ export const FinalCTA = () => {
 
           <div className="relative z-10 max-w-3xl mx-auto">
             <h2 className="text-4xl md:text-7xl font-black text-white mb-8 leading-[1.1] tracking-tight font-playfair">
-              Combien de prospects perdez-vous{" "}
-              <span className="italic text-primary underline underline-offset-8">
-                chaque jour ?
+              Prêt à structurer{" "}
+              <span className="italic text-primary">
+                votre acquisition ?
               </span>
             </h2>
 
             <p className="text-xl md:text-2xl text-slate-300 mb-6 font-medium leading-relaxed">
-              Audit gratuit de 30 minutes. On analyse votre process d'acquisition, on identifie vos canaux de prospection B2B sous-exploités, on repart avec un plan d'automatisation concret — et souvent une démo live de la méthode Source-to-Scale™ appliquée à votre cible.
+              On analyse votre situation en 30 minutes et on repart avec un plan d'action concret.
             </p>
 
             <div className="flex flex-col items-center gap-4">
@@ -38,11 +38,11 @@ export const FinalCTA = () => {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3"
                 >
-                  Réserver mon audit gratuit <ArrowRight className="w-6 h-6" />
+                  Réserver un appel découverte <ArrowRight className="w-6 h-6" />
                 </a>
               </Button>
               <p className="text-slate-400 text-sm font-bold">
-                Sans engagement · 30 minutes · 3 créneaux disponibles cette semaine
+                Sans engagement · 30 minutes
               </p>
             </div>
           </div>
