@@ -107,7 +107,7 @@ export const Hero = () => {
               </a>
             </Button>
             <p className="text-sm font-bold text-foreground/50 mt-3">
-              +50 startups, TPE et PME nous font confiance
+              Pour les entreprises qui font +150K€/an et veulent structurer, scaler et maîtriser leur acquisition avec des résultats prédictibles.
             </p>
           </div>
         </motion.div>
