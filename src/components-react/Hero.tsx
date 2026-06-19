@@ -87,7 +87,7 @@ export const Hero = () => {
           </h1>
 
           <p className="text-xl md:text-2xl text-foreground font-medium mb-8 max-w-4xl leading-relaxed">
-            Pour les entreprises qui veulent structurer, scaler et maîtriser leur acquisition avec des résultats prédictibles.
+            Pour les entreprises qui veulent structurer, scaler et maîtriser leur acquisition.
           </p>
 
           {/* CTA */}
