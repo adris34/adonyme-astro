@@ -2,51 +2,46 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "./ui/button";
 
-const AI_EXAMPLES = [
-  "Scraping sur-mesure",
-  "Cold Email",
-  "SDR IA",
-  "LinkedIn Automation",
-  "Social Warming",
-  "Ringless Voicemail",
-  "WhatsApp Automation",
-  "Meta Ads",
-  "Google Ads",
-  "LinkedIn Ads",
-  "Enrichissement de données",
-  "Prise de RDV",
-  "Nurturing automatisé",
-  "Score de qualification",
-  "Campagnes SMS",
-  "Séquences multicanal",
-  "Agent IA 24h/24",
-  "CRM sur-mesure",
-  "Transcription d'appels",
-  "Image génération IA",
-  "Hyper-personnalisation",
-  "Retargeting",
-  "Taboola",
-  "Outbrain",
-  "Source Intelligence",
+const SECTORS = [
+  "Finance",
+  "E-commerce",
+  "SaaS",
+  "Retail",
+  "Industrie",
+  "Services B2B",
+  "Santé",
+  "Immobilier",
+  "Conseil",
+  "Formation",
+  "RH & Recrutement",
+  "Logistique",
+  "Tech",
+  "Assurance",
+  "Juridique",
+  "BTP",
+  "Marketing",
+  "Restauration",
+  "Tourisme",
+  "Énergie",
 ];
 
-const AIExamplesMarquee = () => {
+const SectorsMarquee = () => {
   return (
     <div className="w-full py-10 mt-6 border-y border-slate-100/50" style={{backgroundColor: '#ffffff'}}>
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-black text-slate-900 text-center mb-12 tracking-tight font-playfair">
-          Nos outils d'acquisition.
-        </h2>
+        <p className="text-2xl md:text-3xl font-black text-slate-900 text-center mb-10 tracking-tight">
+          +30 secteurs d'activités accompagnés
+        </p>
 
         <div className="relative overflow-hidden w-full h-16 flex items-center">
           <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-white to-transparent z-10" />
           <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-white to-transparent z-10" />
 
           <div className="flex gap-4 items-center whitespace-nowrap animate-marquee">
-            {[...AI_EXAMPLES, ...AI_EXAMPLES, ...AI_EXAMPLES].map((item, i) => (
+            {[...SECTORS, ...SECTORS, ...SECTORS].map((item, i) => (
               <div
                 key={i}
-                className="px-8 py-3 rounded-full bg-white border border-slate-200 shadow-sm text-slate-800 font-bold text-sm md:text-base flex items-center justify-center hover:border-blue-400 hover:text-blue-600 transition-all cursor-default"
+                className="px-8 py-3 rounded-full bg-white border border-slate-200 shadow-sm text-slate-800 font-bold text-sm md:text-base flex items-center justify-center cursor-default"
               >
                 {item}
               </div>
@@ -118,7 +113,7 @@ export const Hero = () => {
         </motion.div>
       </div>
 
-      <AIExamplesMarquee />
+      <SectorsMarquee />
     </section>
   );
 };
