@@ -82,7 +82,7 @@ export const Hero = () => {
           </div>
 
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight mb-8 text-foreground font-playfair">
-            On débloque votre acquisition pour générer des{" "}
+            On débloque votre acquisition BtoB pour générer des{" "}
             <span className="text-primary italic">revenus prédictibles.</span>
           </h1>
 
@@ -107,7 +107,7 @@ export const Hero = () => {
               </a>
             </Button>
             <p className="text-sm font-bold text-foreground/50 mt-3">
-              +50 startups, TPE et PME nous font confiance
+              +50 entreprises accompagnées · 412K leads générés · Sans engagement
             </p>
           </div>
         </motion.div>
