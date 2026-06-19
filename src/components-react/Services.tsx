@@ -1,6 +1,5 @@
-import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
-import { Target, Megaphone, Database, Mail, FileText, Cpu, Zap, LineChart, ChevronLeft, ChevronRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { Target, Megaphone, Database, Mail, FileText, Cpu, Zap, LineChart } from "lucide-react";
 
 const steps = [
   {
@@ -56,7 +55,7 @@ const steps = [
     number: "07",
     icon: Zap,
     title: "Convertir avant de signer",
-    description: "Séquence anti no-show : études de cas, témoignages, lead magnet, vidéo \"qui on est\" J+1, SMS 2h avant. Votre prospect cherche à confirmer ce qu'il sait déjà. Le seul facteur étant : la confiance.",
+    description: "Séquence anti no-show : études de cas, témoignages, lead magnet, vidéo \"qui on est\" J+1, SMS 2h avant. Le seul facteur : la confiance.",
     tags: ["RDV booké J+3 minimum", "No-show <15% ↓"],
     result: "Closing en 20 min — pas 60",
     highlightTag: 1,
@@ -71,32 +70,12 @@ const steps = [
   },
 ];
 
-const variants = {
-  enter: (dir: number) => ({ x: dir > 0 ? 80 : -80, opacity: 0 }),
-  center: { x: 0, opacity: 1 },
-  exit: (dir: number) => ({ x: dir > 0 ? -80 : 80, opacity: 0 }),
-};
-
 export const Services = () => {
-  const [current, setCurrent] = useState(0);
-  const [direction, setDirection] = useState(1);
-
-  const go = (index: number) => {
-    setDirection(index > current ? 1 : -1);
-    setCurrent(index);
-  };
-
-  const prev = () => { if (current > 0) go(current - 1); };
-  const next = () => { if (current < steps.length - 1) go(current + 1); };
-
-  const step = steps[current];
-  const Icon = step.icon;
-
   return (
     <section id="methode" className="py-24 relative overflow-hidden bg-background">
-      <div className="container relative z-10">
+      <div className="container relative z-10 max-w-3xl mx-auto">
 
-        <div className="max-w-2xl mb-16">
+        <div className="mb-16">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -113,99 +92,85 @@ export const Services = () => {
           </p>
         </div>
 
-        {/* Slider */}
-        <div className="relative bg-white border border-border rounded-[32px] overflow-hidden shadow-sm">
-          <AnimatePresence mode="wait" custom={direction}>
-            <motion.div
-              key={current}
-              custom={direction}
-              variants={variants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
-              className="grid md:grid-cols-2 min-h-[420px]"
-            >
-              {/* Left — number + meta */}
-              <div className="bg-[#0f172a] p-10 md:p-14 flex flex-col justify-between relative overflow-hidden">
-                <span className="absolute bottom-0 right-0 text-[180px] font-black text-white/[0.04] font-playfair leading-none select-none translate-y-8 translate-x-4">
-                  {step.number}
-                </span>
-                <div>
-                  <div className="w-12 h-12 rounded-2xl bg-primary/20 flex items-center justify-center mb-8">
-                    <Icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <div className="text-primary font-black text-xs uppercase tracking-widest mb-3">
-                    Étape {step.number}
-                  </div>
-                  <h3 className="text-3xl md:text-4xl font-black text-white leading-tight font-playfair">
-                    {step.title}
-                  </h3>
-                </div>
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/15 w-fit mt-8">
-                  <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
-                  <span className="text-xs font-bold text-primary">{step.result}</span>
-                </div>
-              </div>
+        <div className="relative">
+          {steps.map((step, index) => {
+            const Icon = step.icon;
+            const isLast = index === steps.length - 1;
 
-              {/* Right — content */}
-              <div className="p-10 md:p-14 flex flex-col justify-center">
-                <p className="text-lg text-muted-foreground leading-relaxed font-medium mb-8">
-                  {step.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {step.tags.map((tag, i) => (
-                    <span
-                      key={i}
-                      className={`text-xs font-bold px-3 py-1.5 rounded-full border ${
-                        step.highlightTag === i
-                          ? "border-primary/30 text-primary bg-primary/5"
-                          : "border-border text-muted-foreground bg-background"
-                      }`}
-                    >
-                      {tag}
+            return (
+              <div key={index} className="relative flex gap-6 md:gap-10">
+                {/* Left: connector */}
+                <div className="flex flex-col items-center flex-shrink-0">
+                  <motion.div
+                    initial={{ scale: 0, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.1 }}
+                    className="w-10 h-10 rounded-full bg-[#0f172a] border-4 border-background shadow-lg flex items-center justify-center z-10 flex-shrink-0"
+                  >
+                    <Icon className="w-4 h-4 text-primary" />
+                  </motion.div>
+                  {!isLast && (
+                    <motion.div
+                      initial={{ scaleY: 0, opacity: 0 }}
+                      whileInView={{ scaleY: 1, opacity: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: 0.3 }}
+                      style={{ originY: 0 }}
+                      className="w-[2px] flex-1 bg-gradient-to-b from-border to-transparent mt-1 mb-1 min-h-[32px]"
+                    />
+                  )}
+                </div>
+
+                {/* Right: card */}
+                <motion.div
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.15 }}
+                  className={`bg-white border border-border rounded-[20px] p-6 md:p-8 w-full group hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 ${!isLast ? "mb-4" : ""}`}
+                >
+                  <div className="flex items-start justify-between mb-3">
+                    <div>
+                      <span className="text-[11px] font-black text-primary uppercase tracking-widest">
+                        Étape {step.number}
+                      </span>
+                      <h3 className="text-xl font-black text-foreground mt-0.5 group-hover:text-primary transition-colors">
+                        {step.title}
+                      </h3>
+                    </div>
+                    <span className="text-[48px] font-black text-foreground/[0.05] font-playfair leading-none select-none -mt-2 -mr-2">
+                      {step.number}
                     </span>
-                  ))}
-                </div>
+                  </div>
+
+                  <p className="text-sm text-muted-foreground leading-relaxed font-medium mb-4">
+                    {step.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    {step.tags.map((tag, i) => (
+                      <span
+                        key={i}
+                        className={`text-[11px] font-bold px-2.5 py-1 rounded-full border ${
+                          step.highlightTag === i
+                            ? "border-primary/30 text-primary bg-primary/5"
+                            : "border-border text-muted-foreground"
+                        }`}
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/8">
+                    <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                    <span className="text-[11px] font-bold text-primary">{step.result}</span>
+                  </div>
+                </motion.div>
               </div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
-
-        {/* Navigation */}
-        <div className="flex items-center justify-between mt-8">
-          {/* Step dots */}
-          <div className="flex items-center gap-2">
-            {steps.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => go(i)}
-                className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                  i === current
-                    ? "w-8 bg-primary"
-                    : "w-2 bg-border hover:bg-primary/40"
-                }`}
-              />
-            ))}
-          </div>
-
-          {/* Arrows */}
-          <div className="flex items-center gap-3">
-            <button
-              onClick={prev}
-              disabled={current === 0}
-              className="w-11 h-11 rounded-full border border-border flex items-center justify-center text-foreground hover:border-primary hover:text-primary transition-all disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button
-              onClick={next}
-              disabled={current === steps.length - 1}
-              className="w-11 h-11 rounded-full border border-border flex items-center justify-center text-foreground hover:border-primary hover:text-primary transition-all disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </div>
+            );
+          })}
         </div>
 
       </div>
