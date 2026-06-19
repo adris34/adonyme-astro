@@ -34,16 +34,6 @@ export const Problem = () => {
           Vous ne savez pas d'où viennent vos clients. Vous n'avez pas de canal d'acquisition structuré, aucune stratégie d'outbound, pas de tunnel qui capte et nurture.
         </motion.p>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-          className="text-2xl md:text-3xl font-black" style={{color: '#0f172a'}}
-        >
-          Le problème n'est pas votre offre.{" "}
-          <span className="text-primary font-extrabold italic">C'est l'absence de système d'acquisition.</span>
-        </motion.p>
       </div>
     </section>
   );
