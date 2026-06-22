@@ -1,5 +1,37 @@
 import { motion } from "framer-motion";
+import { useRef } from "react";
 import { Target, Megaphone, Database, Mail, FileText, Cpu, Zap, LineChart } from "lucide-react";
+
+const TiltCard = ({ children, className }: { children: React.ReactNode; className: string }) => {
+  const ref = useRef<HTMLDivElement>(null);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const card = ref.current;
+    if (!card) return;
+    const { left, top, width, height } = card.getBoundingClientRect();
+    const x = (e.clientX - left) / width - 0.5;
+    const y = (e.clientY - top) / height - 0.5;
+    card.style.transform = `perspective(800px) rotateY(${x * 14}deg) rotateX(${-y * 14}deg) scale3d(1.02,1.02,1.02)`;
+  };
+
+  const handleMouseLeave = () => {
+    const card = ref.current;
+    if (!card) return;
+    card.style.transform = "perspective(800px) rotateY(0deg) rotateX(0deg) scale3d(1,1,1)";
+  };
+
+  return (
+    <div
+      ref={ref}
+      className={className}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{ transition: "transform 0.15s ease-out", transformStyle: "preserve-3d" }}
+    >
+      {children}
+    </div>
+  );
+};
 
 const steps = [
   {
@@ -120,8 +152,8 @@ export const Services = () => {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: 0.15 }}
-                      className="bg-[#0f172a] rounded-2xl p-6 md:p-8 group hover:shadow-lg hover:shadow-slate-900/20 transition-all duration-300"
                     >
+                    <TiltCard className="bg-[#0f172a] rounded-2xl p-6 md:p-8 group hover:shadow-lg hover:shadow-slate-900/20 cursor-pointer">
                       <div className="flex items-start justify-between mb-3">
                         <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center mb-3">
                           <Icon className="w-5 h-5 text-white" />
@@ -150,6 +182,7 @@ export const Services = () => {
                         <div className="w-1.5 h-1.5 rounded-full bg-white flex-shrink-0" />
                         <span className="text-[11px] font-bold text-white">{step.result}</span>
                       </div>
+                    </TiltCard>
                     </motion.div>
                   </div>
                 </div>
