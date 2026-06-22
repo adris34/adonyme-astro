@@ -120,7 +120,7 @@ export const Services = () => {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: 0.15 }}
-                      className="bg-primary rounded-2xl p-6 md:p-8 group hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20 transition-all duration-300"
+                      className="bg-[#0f172a] rounded-2xl p-6 md:p-8 group hover:shadow-lg hover:shadow-slate-900/20 transition-all duration-300"
                     >
                       <div className="flex items-start justify-between mb-3">
                         <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center mb-3">
