@@ -109,9 +109,16 @@ export const Hero = () => {
                 Réserver un appel <ArrowRight className="w-6 h-6" />
               </a>
             </Button>
-            <p className="text-sm font-bold text-foreground/50 mt-3">
-              +50 entreprises accompagnées · Publicité · Outbound · CRM & Agents IA
-            </p>
+            <div className="flex items-center gap-4 mt-3 flex-wrap justify-center">
+              {["Publicité", "Outbound", "CRM & Agents IA"].map((item) => (
+                <div key={item} className="flex items-center gap-2">
+                  <div className="w-5 h-5 rounded-full bg-foreground/10 flex items-center justify-center flex-shrink-0">
+                    <div className="w-2 h-2 rounded-full bg-foreground" />
+                  </div>
+                  <span className="text-sm font-bold text-foreground">{item}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </motion.div>
       </div>
