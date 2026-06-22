@@ -106,7 +106,7 @@ export const Hero = () => {
                 rel="noopener noreferrer"
                 className="flex items-center gap-3"
               >
-                Structurer mon acquisition <ArrowRight className="w-6 h-6" />
+                Réserver un appel <ArrowRight className="w-6 h-6" />
               </a>
             </Button>
             <p className="text-sm font-bold text-foreground/50 mt-3">
