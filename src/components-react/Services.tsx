@@ -91,7 +91,7 @@ export const Services = () => {
   const canScrollRight = offset > maxOffset();
 
   return (
-    <section id="methode" className="py-24 bg-[#0f172a] relative overflow-hidden">
+    <section id="methode" className="py-24 bg-[#0f172a] relative">
       {/* Background glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(37,99,235,0.12)_0%,transparent_60%)]" />
 
@@ -146,7 +146,7 @@ export const Services = () => {
         </div>
 
         {/* Slider — JS translateX so no overflow clipping on zoom */}
-        <div className="overflow-hidden">
+        <div>
           <div
             ref={sliderRef}
             className="flex gap-5 py-10 -my-10"
