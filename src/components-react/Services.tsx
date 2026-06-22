@@ -73,22 +73,21 @@ const steps = [
 
 export const Services = () => {
   const sliderRef = useRef<HTMLDivElement>(null);
-  const [offset, setOffset] = useState(0);
-  const CARD_W = 340; // 320px card + 20px gap
-
-  const getMaxOffset = () => {
-    const el = sliderRef.current;
-    if (!el) return 0;
-    return -(steps.length * CARD_W - el.clientWidth - CARD_W);
-  };
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
 
   const scroll = (dir: "left" | "right") => {
-    const delta = dir === "right" ? -CARD_W : CARD_W;
-    setOffset(prev => Math.min(0, Math.max(getMaxOffset(), prev + delta)));
+    const el = sliderRef.current;
+    if (!el) return;
+    el.scrollBy({ left: dir === "right" ? 340 : -340, behavior: "smooth" });
   };
 
-  const canScrollLeft = offset < 0;
-  const canScrollRight = offset > getMaxOffset();
+  const onScroll = () => {
+    const el = sliderRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 4);
+    setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 4);
+  };
 
   return (
     <section id="methode" className="py-24 bg-[#0f172a] relative">
@@ -145,13 +144,13 @@ export const Services = () => {
           </div>
         </div>
 
-        {/* Slider — JS translateX so no overflow clipping on zoom */}
-        <div>
-          <div
-            ref={sliderRef}
-            className="flex gap-5 py-10 -my-10"
-            style={{ transform: `translateX(${offset}px)`, transition: "transform 0.4s cubic-bezier(0.22,1,0.36,1)" }}
-          >
+        {/* Slider */}
+        <div
+          ref={sliderRef}
+          onScroll={onScroll}
+          className="flex gap-5 overflow-x-auto scrollbar-none py-10 -my-10 px-1"
+          style={{ scrollSnapType: "x mandatory" }}
+        >
           {steps.map((step, index) => {
             const Icon = step.icon;
             return (
@@ -196,7 +195,6 @@ export const Services = () => {
 
             );
           })}
-          </div>
         </div>
       </div>
     </section>
