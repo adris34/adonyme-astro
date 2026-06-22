@@ -160,7 +160,7 @@ export const Services = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.5, delay: index * 0.06 }}
-                className="bg-white rounded-2xl p-7 flex flex-col flex-shrink-0 w-[300px] md:w-[320px]"
+                className="bg-white rounded-2xl p-7 flex flex-col flex-shrink-0 w-[300px] md:w-[320px] transition-transform duration-300 ease-out hover:scale-110 hover:shadow-2xl hover:z-10"
                 style={{ scrollSnapAlign: "start" }}
               >
                 <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
