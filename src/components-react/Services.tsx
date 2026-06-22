@@ -120,39 +120,35 @@ export const Services = () => {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: 0.15 }}
-                      className="bg-[#f5f4f0] border border-border rounded-2xl p-6 md:p-8 group hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300"
+                      className="bg-primary rounded-2xl p-6 md:p-8 group hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20 transition-all duration-300"
                     >
                       <div className="flex items-start justify-between mb-3">
-                        <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
-                          <Icon className="w-5 h-5 text-primary" />
+                        <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center mb-3">
+                          <Icon className="w-5 h-5 text-white" />
                         </div>
                       </div>
-                      <span className="text-[11px] font-black text-primary uppercase tracking-widest">
+                      <span className="text-[11px] font-black text-white/70 uppercase tracking-widest">
                         Étape {step.number}
                       </span>
-                      <h3 className="text-xl font-black text-foreground mt-1 mb-3 group-hover:text-primary transition-colors">
+                      <h3 className="text-xl font-black text-white mt-1 mb-3">
                         {step.title}
                       </h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed font-medium mb-4">
+                      <p className="text-sm text-white/75 leading-relaxed font-medium mb-4">
                         {step.description}
                       </p>
                       <div className="flex flex-wrap gap-1.5 mb-4">
                         {step.tags.map((tag, i) => (
                           <span
                             key={i}
-                            className={`text-[11px] font-bold px-2.5 py-1 rounded-full border ${
-                              step.highlightTag === i
-                                ? "border-primary/30 text-primary bg-primary/5"
-                                : "border-border text-muted-foreground bg-white"
-                            }`}
+                            className="text-[11px] font-bold px-2.5 py-1 rounded-full border border-white/30 text-white/80 bg-white/10"
                           >
                             {tag}
                           </span>
                         ))}
                       </div>
-                      <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/8">
-                        <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
-                        <span className="text-[11px] font-bold text-primary">{step.result}</span>
+                      <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/20">
+                        <div className="w-1.5 h-1.5 rounded-full bg-white flex-shrink-0" />
+                        <span className="text-[11px] font-bold text-white">{step.result}</span>
                       </div>
                     </motion.div>
                   </div>
