@@ -160,9 +160,7 @@ export const Services = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.5, delay: index * 0.06 }}
-                className="bg-white rounded-2xl p-7 flex flex-col flex-shrink-0 w-[300px] md:w-[320px] transition-all duration-300 ease-out border border-transparent hover:border-white/80 cursor-pointer"
-                onMouseEnter={e => (e.currentTarget.style.boxShadow = "0 0 0 1px rgba(255,255,255,0.8), 0 0 12px 2px rgba(255,255,255,0.6), 0 0 40px 8px rgba(147,197,253,0.5), 0 0 80px 16px rgba(99,102,241,0.3)")}
-                onMouseLeave={e => (e.currentTarget.style.boxShadow = "none")}
+                className="bg-white rounded-2xl p-7 flex flex-col flex-shrink-0 w-[260px] md:w-[280px] transition-all duration-300 ease-out hover:scale-105 cursor-pointer"
                 style={{ scrollSnapAlign: "start" }}
               >
                 <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
