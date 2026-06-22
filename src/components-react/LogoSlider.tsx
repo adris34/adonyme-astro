@@ -24,7 +24,7 @@ export const LogoSlider = () => {
               src={logo.src}
               alt={logo.alt}
               width={logo.width}
-              className="h-8 object-contain opacity-40 grayscale hover:opacity-70 hover:grayscale-0 transition-all duration-300 flex-shrink-0"
+              className="h-8 object-contain opacity-50 grayscale invert hover:opacity-80 transition-all duration-300 flex-shrink-0"
             />
           ))}
         </div>
