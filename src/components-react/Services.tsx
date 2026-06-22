@@ -144,13 +144,14 @@ export const Services = () => {
           </div>
         </div>
 
-        {/* Slider */}
-        <div
-          ref={sliderRef}
-          onScroll={onScroll}
-          className="flex gap-5 overflow-x-auto scrollbar-none pb-4"
-          style={{ scrollSnapType: "x mandatory" }}
-        >
+        {/* Slider — outer clips x, inner has y padding for zoom */}
+        <div className="overflow-x-hidden">
+          <div
+            ref={sliderRef}
+            onScroll={onScroll}
+            className="flex gap-5 overflow-x-auto scrollbar-none py-8 -my-8 px-1"
+            style={{ scrollSnapType: "x mandatory" }}
+          >
           {steps.map((step, index) => {
             const Icon = step.icon;
             return (
@@ -160,7 +161,7 @@ export const Services = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.5, delay: index * 0.06 }}
-                className="bg-white rounded-2xl p-7 flex flex-col flex-shrink-0 w-[300px] md:w-[320px] transition-all duration-300 ease-out border border-transparent hover:border-white/80"
+                className="bg-white rounded-2xl p-7 flex flex-col flex-shrink-0 w-[300px] md:w-[320px] transition-all duration-300 ease-out border border-transparent hover:border-white/80 hover:scale-105 cursor-pointer"
                 onMouseEnter={e => (e.currentTarget.style.boxShadow = "0 0 0 1px rgba(255,255,255,0.8), 0 0 12px 2px rgba(255,255,255,0.6), 0 0 40px 8px rgba(147,197,253,0.5), 0 0 80px 16px rgba(99,102,241,0.3)")}
                 onMouseLeave={e => (e.currentTarget.style.boxShadow = "none")}
                 style={{ scrollSnapAlign: "start" }}
@@ -192,8 +193,10 @@ export const Services = () => {
                   <span className="text-[11px] font-bold text-primary">{step.result}</span>
                 </div>
               </motion.div>
+
             );
           })}
+          </div>
         </div>
       </div>
     </section>
