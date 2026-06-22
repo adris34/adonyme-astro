@@ -74,21 +74,21 @@ const steps = [
 export const Services = () => {
   const sliderRef = useRef<HTMLDivElement>(null);
   const [offset, setOffset] = useState(0);
-  const CARD_W = 336; // 320px + 16px gap
+  const CARD_W = 340; // 320px card + 20px gap
 
-  const maxOffset = () => {
+  const getMaxOffset = () => {
     const el = sliderRef.current;
     if (!el) return 0;
-    return -(el.scrollWidth - el.clientWidth);
+    return -(steps.length * CARD_W - el.clientWidth - CARD_W);
   };
 
   const scroll = (dir: "left" | "right") => {
     const delta = dir === "right" ? -CARD_W : CARD_W;
-    setOffset(prev => Math.min(0, Math.max(maxOffset(), prev + delta)));
+    setOffset(prev => Math.min(0, Math.max(getMaxOffset(), prev + delta)));
   };
 
   const canScrollLeft = offset < 0;
-  const canScrollRight = offset > maxOffset();
+  const canScrollRight = offset > getMaxOffset();
 
   return (
     <section id="methode" className="py-24 bg-[#0f172a] relative">
