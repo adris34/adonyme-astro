@@ -148,8 +148,8 @@ export const Services = () => {
         <div
           ref={sliderRef}
           onScroll={onScroll}
-          className="flex gap-5 overflow-x-auto scrollbar-none py-10 -my-10 px-1"
-          style={{ scrollSnapType: "x mandatory" }}
+          className="flex gap-5 overflow-x-auto scrollbar-none py-10 -my-10"
+          style={{ scrollSnapType: "x mandatory", paddingLeft: "1rem", paddingRight: "4rem" }}
         >
           {steps.map((step, index) => {
             const Icon = step.icon;
