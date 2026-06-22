@@ -73,21 +73,22 @@ const steps = [
 
 export const Services = () => {
   const sliderRef = useRef<HTMLDivElement>(null);
-  const [canScrollLeft, setCanScrollLeft] = useState(false);
-  const [canScrollRight, setCanScrollRight] = useState(true);
+  const [offset, setOffset] = useState(0);
+  const CARD_W = 336; // 320px + 16px gap
+
+  const maxOffset = () => {
+    const el = sliderRef.current;
+    if (!el) return 0;
+    return -(el.scrollWidth - el.clientWidth);
+  };
 
   const scroll = (dir: "left" | "right") => {
-    const el = sliderRef.current;
-    if (!el) return;
-    el.scrollBy({ left: dir === "right" ? 360 : -360, behavior: "smooth" });
+    const delta = dir === "right" ? -CARD_W : CARD_W;
+    setOffset(prev => Math.min(0, Math.max(maxOffset(), prev + delta)));
   };
 
-  const onScroll = () => {
-    const el = sliderRef.current;
-    if (!el) return;
-    setCanScrollLeft(el.scrollLeft > 0);
-    setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 4);
-  };
+  const canScrollLeft = offset < 0;
+  const canScrollRight = offset > maxOffset();
 
   return (
     <section id="methode" className="py-24 bg-[#0f172a] relative overflow-hidden">
@@ -144,13 +145,12 @@ export const Services = () => {
           </div>
         </div>
 
-        {/* Slider — outer clips x, inner has y padding for zoom */}
-        <div className="overflow-x-hidden">
+        {/* Slider — JS translateX so no overflow clipping on zoom */}
+        <div className="overflow-hidden">
           <div
             ref={sliderRef}
-            onScroll={onScroll}
-            className="flex gap-5 overflow-x-auto scrollbar-none py-8 -my-8 px-1"
-            style={{ scrollSnapType: "x mandatory" }}
+            className="flex gap-5 py-10 -my-10"
+            style={{ transform: `translateX(${offset}px)`, transition: "transform 0.4s cubic-bezier(0.22,1,0.36,1)" }}
           >
           {steps.map((step, index) => {
             const Icon = step.icon;
