@@ -36,9 +36,6 @@ export const Footer = () => {
               <a href="/politique-de-confidentialite" className="hover:text-foreground transition-colors">
                 Politique de confidentialité
               </a>
-              <a href="/mentions-legales" className="hover:text-foreground transition-colors">
-                Mentions légales
-              </a>
             </div>
             <a
               href="https://www.linkedin.com/company/adonyme"
