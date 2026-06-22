@@ -11,7 +11,7 @@ const TiltCard = ({ children, className }: { children: React.ReactNode; classNam
     const { left, top, width, height } = card.getBoundingClientRect();
     const x = (e.clientX - left) / width - 0.5;
     const y = (e.clientY - top) / height - 0.5;
-    card.style.transform = `perspective(800px) rotateY(${x * 14}deg) rotateX(${-y * 14}deg) scale3d(1.06,1.06,1.06)`;
+    card.style.transform = `perspective(800px) rotateY(${x * 14}deg) rotateX(${-y * 14}deg) scale3d(1,1,1)`;
   };
 
   const handleMouseLeave = () => {
@@ -148,10 +148,10 @@ export const Services = () => {
                   {/* Card — alternating sides */}
                   <div className={`w-full md:w-[46%] ${isRight ? "md:ml-auto" : "md:mr-auto"}`}>
                     <motion.div
-                      initial={{ opacity: 0, x: isRight ? 40 : -40 }}
-                      whileInView={{ opacity: 1, x: 0 }}
+                      initial={{ opacity: 0, x: isRight ? 40 : -40, scale: 0.85 }}
+                      whileInView={{ opacity: 1, x: 0, scale: 1 }}
                       viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: 0.15 }}
+                      transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
                     >
                     <TiltCard className="bg-[#0f172a] rounded-2xl p-6 md:p-8 group hover:shadow-lg hover:shadow-slate-900/20 cursor-pointer">
                       <div className="flex items-start justify-between mb-3">
