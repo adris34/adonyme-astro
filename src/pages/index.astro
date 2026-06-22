@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Hero } from '../components-react/Hero';
+import { LogoSlider } from '../components-react/LogoSlider';
 import { Problem } from '../components-react/Problem';
 import { Services } from '../components-react/Services';
 import { Timeline } from '../components-react/Timeline';
@@ -15,6 +16,7 @@ import { Navbar } from '../components-react/Navbar';
   <div class="min-h-screen" client:load>
     <Navbar client:load />
     <Hero client:load />
+    <LogoSlider client:load />
     <Problem client:load />
     <Services client:load />
     <Timeline client:load />
