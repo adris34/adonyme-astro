@@ -105,24 +105,24 @@ export const Services = () => {
             >
               La méthode Source-to-Scale™
             </motion.div>
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="text-slate-400 text-lg font-medium mb-4"
-            >
-              Là où 90% des entreprises échouent.
-            </motion.p>
             <motion.h2
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="text-3xl md:text-5xl font-black text-white font-playfair"
+              transition={{ delay: 0.1 }}
+              className="text-3xl md:text-5xl font-black text-white font-playfair mb-4"
             >
               Comment on résout votre problème.
             </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="text-slate-400 text-lg font-medium"
+            >
+              Là où 90% des entreprises échouent.
+            </motion.p>
           </div>
 
           {/* Nav buttons */}
