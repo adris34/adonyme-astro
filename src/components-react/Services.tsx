@@ -73,9 +73,9 @@ const steps = [
 export const Services = () => {
   return (
     <section id="methode" className="py-24 relative overflow-hidden bg-background">
-      <div className="container relative z-10 max-w-3xl mx-auto">
+      <div className="container relative z-10 max-w-5xl mx-auto">
 
-        <div className="mb-16">
+        <div className="mb-20 max-w-2xl">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -92,89 +92,77 @@ export const Services = () => {
           </p>
         </div>
 
+        {/* Timeline */}
         <div className="relative">
-          {steps.map((step, index) => {
-            const Icon = step.icon;
-            const isLast = index === steps.length - 1;
+          {/* Vertical line */}
+          <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-border -translate-x-1/2 hidden md:block" />
 
-            return (
-              <div key={index} className="relative flex gap-6 md:gap-10">
-                {/* Left: connector */}
-                <div className="flex flex-col items-center flex-shrink-0">
+          <div className="flex flex-col gap-12">
+            {steps.map((step, index) => {
+              const Icon = step.icon;
+              const isRight = index % 2 === 0;
+
+              return (
+                <div key={index} className="relative flex items-center">
+                  {/* Dot on the line */}
                   <motion.div
                     initial={{ scale: 0, opacity: 0 }}
                     whileInView={{ scale: 1, opacity: 1 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: 0.1 }}
-                    className="w-10 h-10 rounded-full bg-[#0f172a] border-4 border-background shadow-lg flex items-center justify-center z-10 flex-shrink-0"
-                  >
-                    <Icon className="w-4 h-4 text-primary" />
-                  </motion.div>
-                  {!isLast && (
-                    <motion.div
-                      initial={{ scaleY: 0, opacity: 0 }}
-                      whileInView={{ scaleY: 1, opacity: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6, delay: 0.3 }}
-                      style={{ originY: 0 }}
-                      className="w-[2px] flex-1 bg-gradient-to-b from-border to-transparent mt-1 mb-1 min-h-[32px]"
-                    />
-                  )}
-                </div>
+                    transition={{ duration: 0.3, delay: 0.1 }}
+                    className="absolute left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-primary border-4 border-background shadow z-10 hidden md:block"
+                  />
 
-                {/* Right: card */}
-                <motion.div
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.15 }}
-                  className={`bg-white border border-border rounded-[20px] p-6 md:p-8 w-full group hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 ${!isLast ? "mb-4" : ""}`}
-                >
-                  <div className="flex items-start justify-between mb-3">
-                    <div>
+                  {/* Card — alternating sides */}
+                  <div className={`w-full md:w-[46%] ${isRight ? "md:ml-auto" : "md:mr-auto"}`}>
+                    <motion.div
+                      initial={{ opacity: 0, x: isRight ? 40 : -40 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.5, delay: 0.15 }}
+                      className="bg-[#f5f4f0] border border-border rounded-2xl p-6 md:p-8 group hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300"
+                    >
+                      <div className="flex items-start justify-between mb-3">
+                        <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
+                          <Icon className="w-5 h-5 text-primary" />
+                        </div>
+                      </div>
                       <span className="text-[11px] font-black text-primary uppercase tracking-widest">
                         Étape {step.number}
                       </span>
-                      <h3 className="text-xl font-black text-foreground mt-0.5 group-hover:text-primary transition-colors">
+                      <h3 className="text-xl font-black text-foreground mt-1 mb-3 group-hover:text-primary transition-colors">
                         {step.title}
                       </h3>
-                    </div>
-                    <span className="text-[48px] font-black text-foreground/[0.05] font-playfair leading-none select-none -mt-2 -mr-2">
-                      {step.number}
-                    </span>
+                      <p className="text-sm text-muted-foreground leading-relaxed font-medium mb-4">
+                        {step.description}
+                      </p>
+                      <div className="flex flex-wrap gap-1.5 mb-4">
+                        {step.tags.map((tag, i) => (
+                          <span
+                            key={i}
+                            className={`text-[11px] font-bold px-2.5 py-1 rounded-full border ${
+                              step.highlightTag === i
+                                ? "border-primary/30 text-primary bg-primary/5"
+                                : "border-border text-muted-foreground bg-white"
+                            }`}
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                      <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/8">
+                        <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                        <span className="text-[11px] font-bold text-primary">{step.result}</span>
+                      </div>
+                    </motion.div>
                   </div>
-
-                  <p className="text-sm text-muted-foreground leading-relaxed font-medium mb-4">
-                    {step.description}
-                  </p>
-
-                  <div className="flex flex-wrap gap-1.5 mb-4">
-                    {step.tags.map((tag, i) => (
-                      <span
-                        key={i}
-                        className={`text-[11px] font-bold px-2.5 py-1 rounded-full border ${
-                          step.highlightTag === i
-                            ? "border-primary/30 text-primary bg-primary/5"
-                            : "border-border text-muted-foreground"
-                        }`}
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/8">
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
-                    <span className="text-[11px] font-bold text-primary">{step.result}</span>
-                  </div>
-                </motion.div>
-              </div>
-            );
-          })}
+                </div>
+              );
+            })}
+          </div>
         </div>
 
       </div>
-      <div className="orb bg-primary/5 bottom-[-20%] right-[-10%] w-[500px] h-[500px]" />
     </section>
   );
 };
