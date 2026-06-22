@@ -90,7 +90,7 @@ export const Services = () => {
   };
 
   return (
-    <section id="methode" className="py-24 bg-[#0f172a] relative">
+    <section id="methode" className="py-24 bg-[#0f172a] relative" style={{ overflowX: "clip" }}>
       {/* Background glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(37,99,235,0.12)_0%,transparent_60%)]" />
 
