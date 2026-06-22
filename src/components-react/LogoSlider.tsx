@@ -4,7 +4,7 @@ const logos = [
   { src: "/logos/fulgurance-dark.svg", alt: "Fulgurance", width: 140 },
   { src: "/logos/upreview.svg", alt: "upReview", width: 110 },
   { src: "/logos/effy.svg", alt: "Effy", width: 80 },
-  { src: "/logos/cerfrance.webp", alt: "Cerfrance", width: 120 },
+  { src: "/logos/cerfrance.svg", alt: "Cerfrance", width: 120 },
 ];
 
 export const LogoSlider = () => {
