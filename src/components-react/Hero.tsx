@@ -98,7 +98,7 @@ export const Hero = () => {
             <Button
               asChild
               size="lg"
-              className="h-16 rounded-2xl px-12 text-xl font-bold bg-primary hover:bg-primary/90 text-white shadow-xl shadow-primary/20 transition-all hover:scale-[1.05] active:scale-95 cursor-pointer mb-3"
+              className="h-12 md:h-16 rounded-2xl px-6 md:px-12 text-base md:text-xl font-bold bg-primary hover:bg-primary/90 text-white shadow-xl shadow-primary/20 transition-all hover:scale-[1.05] active:scale-95 cursor-pointer mb-3"
             >
               <a
                 href="https://cal.com/acquisition-ai/decouverte"
