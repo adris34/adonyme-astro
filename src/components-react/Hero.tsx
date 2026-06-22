@@ -77,8 +77,13 @@ export const Hero = () => {
           className="max-w-4xl flex flex-col items-center"
         >
           {/* Badge */}
-          <div className="inline-flex items-center px-6 py-2 rounded-full border border-primary/20 bg-primary/5 text-primary text-[10px] md:text-xs font-bold uppercase tracking-wider mb-10 shadow-sm">
-            Système opérationnel en 30 jours
+          <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-slate-200 bg-white shadow-sm mb-10">
+            <div className="flex -space-x-2.5">
+              {["#3B82F6","#10B981","#F59E0B","#EF4444","#8B5CF6","#06B6D4"].map((color, i) => (
+                <div key={i} className="w-7 h-7 rounded-full border-2 border-white flex-shrink-0" style={{ backgroundColor: color, zIndex: 6 - i }} />
+              ))}
+            </div>
+            <span className="text-xs font-bold text-slate-700">Ils utilisent nos systèmes ⭐⭐⭐⭐⭐</span>
           </div>
 
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight mb-8 text-foreground font-playfair">
