@@ -121,7 +121,7 @@ export const Services = () => {
               transition={{ delay: 0.2 }}
               className="text-slate-400 text-lg mt-4 font-medium"
             >
-              De l'ICP au client signé — une structure maîtrisée.
+              Là où 90% des entreprises échouent.
             </motion.p>
           </div>
 
