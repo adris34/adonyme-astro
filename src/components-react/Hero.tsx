@@ -110,7 +110,7 @@ export const Hero = () => {
               </a>
             </Button>
             <p className="text-sm font-bold text-foreground/50 mt-3">
-              +50 entreprises accompagnées · 412K leads générés · Sans engagement
+              +50 entreprises accompagnées · Publicité · Outbound · CRM & Agents IA
             </p>
           </div>
         </motion.div>
