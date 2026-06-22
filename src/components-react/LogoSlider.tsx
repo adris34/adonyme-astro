@@ -15,7 +15,7 @@ export const LogoSlider = () => {
 
   return (
     <div className="w-full py-8 border-y border-slate-200/60 bg-[#f5f4f0]">
-      <p className="text-center text-xs font-bold uppercase tracking-widest text-foreground/40 mb-6">
+      <p className="text-center text-xs font-bold uppercase tracking-widest text-foreground mb-6">
         Ils nous font confiance
       </p>
       <div className="relative max-w-5xl mx-auto overflow-hidden">
