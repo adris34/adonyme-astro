@@ -79,7 +79,7 @@ export const Hero = () => {
           {/* Badge */}
           <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-slate-200 bg-white shadow-sm mb-10">
             <img src="/avatars.png" alt="clients" className="h-9 w-auto" />
-            <span className="text-xs font-bold text-slate-700">Ils utilisent nos systèmes ⭐⭐⭐⭐⭐</span>
+            <span className="text-xs font-bold text-slate-700">+50 entreprises utilisent nos systèmes ⭐⭐⭐⭐⭐</span>
           </div>
 
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight mb-8 text-foreground font-playfair">
