@@ -7,6 +7,7 @@ const logos = [
   { src: "/logos/cerfrance.svg", alt: "Cerfrance", width: 120 },
   { src: "/logos/jeep.png", alt: "Jeep", width: 80 },
   { src: "/logos/renault.png", alt: "Renault Group", width: 120 },
+  { src: "/logos/cyclopro.webp", alt: "CycloPro", width: 120 },
 ];
 
 export const LogoSlider = () => {
