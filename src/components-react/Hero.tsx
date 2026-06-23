@@ -95,21 +95,7 @@ export const Hero = () => {
 
           {/* CTA */}
           <div className="flex flex-col items-center w-full">
-            <Button
-              asChild
-              size="lg"
-              className="h-12 md:h-16 rounded-2xl px-6 md:px-12 text-base md:text-xl font-bold bg-primary hover:bg-primary/90 text-white shadow-xl shadow-primary/20 transition-all hover:scale-[1.05] active:scale-95 cursor-pointer mb-3"
-            >
-              <a
-                href="https://cal.com/acquisition-ai/decouverte"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3"
-              >
-                Réserver un appel <ArrowRight className="w-6 h-6" />
-              </a>
-            </Button>
-            <div className="flex items-center gap-4 mt-3 flex-wrap justify-center">
+            <div className="flex items-center gap-4 mb-8 flex-wrap justify-center">
               {["Publicité", "Outbound", "CRM & Agents IA"].map((item) => (
                 <div key={item} className="flex items-center gap-2">
                   <div className="w-5 h-5 rounded-full bg-foreground/10 flex items-center justify-center flex-shrink-0">
@@ -120,7 +106,7 @@ export const Hero = () => {
               ))}
             </div>
 
-            <div className="mt-10 w-full max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl">
+            <div className="w-full max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl">
               <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
                 <iframe
                   src="https://www.youtube.com/embed/-6pYztNyCuk"
@@ -131,6 +117,21 @@ export const Hero = () => {
                 />
               </div>
             </div>
+
+            <Button
+              asChild
+              size="lg"
+              className="mt-8 h-12 md:h-16 rounded-2xl px-6 md:px-12 text-base md:text-xl font-bold bg-primary hover:bg-primary/90 text-white shadow-xl shadow-primary/20 transition-all hover:scale-[1.05] active:scale-95 cursor-pointer"
+            >
+              <a
+                href="https://cal.com/acquisition-ai/decouverte"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3"
+              >
+                Réserver un appel <ArrowRight className="w-6 h-6" />
+              </a>
+            </Button>
 
           </div>
         </motion.div>
