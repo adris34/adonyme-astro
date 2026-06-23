@@ -120,18 +120,6 @@ export const Hero = () => {
               ))}
             </div>
 
-            {/* Video */}
-            <div className="mt-10 w-full max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl">
-              <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
-                <iframe
-                  src="https://www.youtube.com/embed/0ZLlrhxkwaU"
-                  title="Adonyme"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="absolute inset-0 w-full h-full"
-                />
-              </div>
-            </div>
           </div>
         </motion.div>
       </div>
