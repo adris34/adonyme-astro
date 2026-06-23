@@ -83,12 +83,12 @@ export const Hero = () => {
           </div>
 
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight mb-8 text-foreground font-playfair">
-            On débloque votre acquisition BtoB pour générer une{" "}
-            <span className="text-primary italic">croissance prédictible.</span>
+            On industrialise l'acquisition BtoB via la{" "}
+            <span className="text-primary italic">Publicité & Agents IA outbound.</span>
           </h1>
 
           <p className="text-xl md:text-2xl text-foreground font-medium mb-8 max-w-4xl leading-relaxed">
-            Pour les entreprises qui veulent structurer, scaler et maîtriser leur acquisition.
+            Pour les entreprises qui cherchent à générer un flux de rendez-vous qualifiés, structurer et scaler leur entreprise.
           </p>
 
 
