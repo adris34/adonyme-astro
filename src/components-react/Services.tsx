@@ -90,9 +90,7 @@ export const Services = () => {
   };
 
   return (
-    <section id="methode" className="py-24 bg-[#0f172a] relative" style={{ overflowX: "clip" }}>
-      {/* Background glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(37,99,235,0.12)_0%,transparent_60%)]" />
+    <section id="methode" className="py-24 bg-white relative" style={{ overflowX: "clip" }}>
 
       <div className="container relative z-10">
         <div className="flex items-end justify-between mb-14 flex-wrap gap-6">
@@ -101,7 +99,7 @@ export const Services = () => {
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-primary font-bold tracking-widest uppercase text-sm mb-4"
+              className="text-primary font-bold tracking-widest uppercase text-sm mb-4 text-primary"
             >
               La méthode Source-to-Scale™
             </motion.div>
@@ -110,7 +108,7 @@ export const Services = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-3xl md:text-5xl font-black text-white font-playfair mb-4"
+              className="text-3xl md:text-5xl font-black text-foreground font-playfair mb-4"
             >
               Comment on résout votre problème.
             </motion.h2>
@@ -119,7 +117,7 @@ export const Services = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="text-slate-400 text-lg font-medium"
+              className="text-slate-500 text-lg font-medium"
             >
               Là où 90% des entreprises échouent.
             </motion.p>
@@ -130,14 +128,14 @@ export const Services = () => {
             <button
               onClick={() => scroll("left")}
               disabled={!canScrollLeft}
-              className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white/10 transition disabled:opacity-30"
+              className="w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center text-foreground hover:bg-slate-100 transition disabled:opacity-30"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={() => scroll("right")}
               disabled={!canScrollRight}
-              className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center text-white hover:bg-white/10 transition disabled:opacity-30"
+              className="w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center text-foreground hover:bg-slate-100 transition disabled:opacity-30"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
@@ -160,34 +158,34 @@ export const Services = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.5, delay: index * 0.06 }}
-                className="bg-white rounded-2xl p-7 flex flex-col flex-shrink-0 w-[260px] md:w-[280px] transition-all duration-300 ease-out hover:scale-105 cursor-pointer"
+                className="bg-[#0f172a] rounded-2xl p-7 flex flex-col flex-shrink-0 w-[260px] md:w-[280px] transition-all duration-300 ease-out hover:scale-105 cursor-pointer"
                 style={{ scrollSnapAlign: "start" }}
               >
-                <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
-                  <Icon className="w-5 h-5 text-primary" />
+                <div className="w-11 h-11 rounded-xl bg-white/15 flex items-center justify-center mb-5">
+                  <Icon className="w-5 h-5 text-white" />
                 </div>
 
-                <span className="text-[11px] font-black text-primary uppercase tracking-widest mb-1">
+                <span className="text-[11px] font-black text-white/60 uppercase tracking-widest mb-1">
                   Étape {step.number}
                 </span>
-                <h3 className="text-lg font-black text-foreground mb-3">
+                <h3 className="text-lg font-black text-white mb-3">
                   {step.title}
                 </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed font-medium mb-5 flex-1">
+                <p className="text-sm text-white/70 leading-relaxed font-medium mb-5 flex-1">
                   {step.description}
                 </p>
 
                 <div className="flex flex-wrap gap-1.5 mb-5">
                   {step.tags.map((tag, i) => (
-                    <span key={i} className="text-[11px] font-bold px-2.5 py-1 rounded-full border border-slate-200 text-slate-600 bg-slate-50">
+                    <span key={i} className="text-[11px] font-bold px-2.5 py-1 rounded-full border border-white/20 text-white/80 bg-white/10">
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/8">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/30">
                   <div className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
-                  <span className="text-[11px] font-bold text-primary">{step.result}</span>
+                  <span className="text-[11px] font-bold text-white">{step.result}</span>
                 </div>
               </motion.div>
 
