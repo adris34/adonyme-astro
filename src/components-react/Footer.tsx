@@ -26,7 +26,7 @@ export const Footer = () => {
             <a href="https://cal.com/acquisition-ai/decouverte" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors uppercase tracking-widest">
               Contact
             </a>
-            <a href="#" className="hover:text-primary transition-colors uppercase tracking-widest">
+            <a href="/mentions-legales" className="hover:text-primary transition-colors uppercase tracking-widest">
               Mentions légales
             </a>
           </div>
