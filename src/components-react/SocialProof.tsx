@@ -90,47 +90,6 @@ export const SocialProof = () => {
           ))}
         </div>
 
-        {/* Sectors */}
-        <div className="text-center mb-8">
-          <h3 className="text-2xl md:text-3xl font-black text-foreground mb-8 tracking-tight">
-            +30 secteurs d'activités accompagnés
-          </h3>
-        </div>
-
-        <div className="relative overflow-hidden w-full h-16 flex items-center">
-          <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-[#f5f4f0] to-transparent z-10" />
-          <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-[#f5f4f0] to-transparent z-10" />
-
-          <motion.div
-            animate={{ x: [0, -1000] }}
-            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-            className="flex gap-8 items-center whitespace-nowrap"
-          >
-            {[...Array(3)].map((_, i) => (
-              <div key={i} className="flex gap-8 items-center">
-                {[
-                  "Immobilier",
-                  "Finance",
-                  "E-commerce",
-                  "SaaS",
-                  "Retail",
-                  "Industrie",
-                  "Services B2B",
-                  "Santé",
-                  "Recrutement",
-                  "Juridique",
-                ].map((sector, j) => (
-                  <div
-                    key={j}
-                    className="px-10 py-3 rounded-full bg-white border border-border shadow-sm text-foreground/40 font-black text-xl tracking-tighter hover:border-primary/30 hover:text-primary transition-all cursor-default"
-                  >
-                    {sector}
-                  </div>
-                ))}
-              </div>
-            ))}
-          </motion.div>
-        </div>
       </div>
 
       <div className="absolute top-[-10%] left-[-10%] w-[400px] h-[400px] bg-primary/5 blur-[100px] rounded-full pointer-events-none" />
