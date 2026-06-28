@@ -69,7 +69,7 @@ export const Problem = () => {
         <div className="relative overflow-hidden w-full h-16 flex items-center">
           <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-white to-transparent z-10" />
           <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-white to-transparent z-10" />
-          <div className="flex gap-4 items-center whitespace-nowrap animate-marquee">
+          <div className="flex gap-4 items-center whitespace-nowrap animate-marquee-slow">
             {[...SECTORS, ...SECTORS, ...SECTORS].map((item, i) => (
               <div
                 key={i}

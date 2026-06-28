@@ -41,6 +41,11 @@
   will-change: transform;
 }
 
+@utility animate-marquee-slow {
+  animation: marquee 30s linear infinite;
+  will-change: transform;
+}
+
 /* Container centré */
 @utility container {
   margin-inline: auto;
