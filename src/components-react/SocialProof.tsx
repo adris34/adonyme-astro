@@ -42,7 +42,7 @@ export const SocialProof = () => {
             viewport={{ once: true }}
             className="text-primary font-bold tracking-[0.2em] uppercase text-sm mb-4"
           >
-            Ils nous font confiance
+            1 SEUL OBJECTIF.
           </motion.div>
           <h2 className="text-4xl md:text-6xl font-black text-foreground font-playfair">
             Des résultats, pas des{" "}

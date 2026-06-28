@@ -15,6 +15,9 @@ export const LogoSlider = () => {
 
   return (
     <div className="w-full py-8 border-y border-slate-200/60 bg-[#f5f4f0]">
+      <p className="text-center text-xs font-bold uppercase tracking-widest text-foreground mb-6">
+        Ils nous font confiance
+      </p>
       <div className="relative max-w-5xl mx-auto overflow-hidden">
         <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#f5f4f0] to-transparent z-10" />
         <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#f5f4f0] to-transparent z-10" />
@@ -30,9 +33,6 @@ export const LogoSlider = () => {
           ))}
         </div>
       </div>
-      <p className="text-center text-xs font-bold uppercase tracking-widest text-foreground mt-6">
-        1 SEUL OBJECTIF.
-      </p>
     </div>
   );
 };
