@@ -66,9 +66,9 @@ export const Problem = () => {
         <p className="text-center text-xl md:text-2xl font-black text-slate-900 mb-8 tracking-tight">
           +30 secteurs d'activités accompagnés
         </p>
-        <div className="relative overflow-hidden w-full h-16 flex items-center">
-          <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-white to-transparent z-10" />
-          <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-white to-transparent z-10" />
+        <div className="relative max-w-5xl mx-auto overflow-hidden h-16 flex items-center">
+          <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white to-transparent z-10" />
+          <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white to-transparent z-10" />
           <div className="flex gap-4 items-center whitespace-nowrap animate-marquee-slow">
             {[...SECTORS, ...SECTORS, ...SECTORS].map((item, i) => (
               <div
