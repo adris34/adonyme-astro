@@ -5,7 +5,7 @@ export const SocialProof = () => {
   const testimonials = [
     {
       name: "François Garcia",
-      role: "Directeur Général — Fulgurance QVEMA S3",
+      role: "Fulgurance QVEMA S3",
       content:
         "Depuis qu'Adonyme a structuré notre acquisition, on a généré plus de 2 000 leads qualifiés. Je n'aurais pas pensé qu'on pouvait scaler aussi vite sans recruter.",
       avatar: "FG",
