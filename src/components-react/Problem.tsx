@@ -11,7 +11,7 @@ export const Problem = () => {
           viewport={{ once: true }}
           className="text-primary font-bold tracking-widest uppercase text-sm mb-6"
         >
-          Le problème
+          Ce qu'on fait
         </motion.div>
 
         <motion.h2
