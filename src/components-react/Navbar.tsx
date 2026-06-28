@@ -20,7 +20,7 @@ export function Navbar() {
           href="https://cal.com/acquisition-ai/decouverte"
           target="_blank"
           rel="noopener noreferrer"
-          className="hidden md:inline-flex items-center gap-2 bg-primary text-white text-sm font-bold px-5 py-2 rounded-xl hover:bg-primary/90 transition-all hover:scale-105 active:scale-95"
+          className="inline-flex items-center gap-2 bg-primary text-white text-xs md:text-sm font-bold px-3 md:px-5 py-2 rounded-xl hover:bg-primary/90 transition-all hover:scale-105 active:scale-95"
         >
           Réserver un appel
         </a>
