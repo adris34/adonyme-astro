@@ -8,13 +8,14 @@ export function Navbar() {
             alt="Adonyme"
             className="h-7 w-auto"
           />
-          <span className="font-semibold text-gray-900 text-lg tracking-tight">
-            Adonyme
-          </span>
-          <span className="text-gray-400 text-lg">·</span>
-          <span className="text-gray-500 text-sm font-medium">
-            La méthode Source-to-Scale™
-          </span>
+          <div className="flex flex-col">
+            <span className="font-semibold text-gray-900 text-base tracking-tight leading-tight">
+              Adonyme
+            </span>
+            <span className="text-gray-400 text-[10px] font-medium leading-tight">
+              La méthode Source-to-Scale™
+            </span>
+          </div>
         </a>
         <a
           href="https://cal.com/acquisition-ai/decouverte"
