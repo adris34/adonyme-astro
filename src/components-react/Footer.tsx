@@ -15,7 +15,7 @@ export const Footer = () => {
               ADONYME<span className="text-primary">.</span>
             </span>
             <p className="text-muted-foreground text-sm mt-2 max-w-[220px]">
-              La méthode Source-to-Scale™ — automatisation de la prospection B2B et acquisition clients par agents IA en France.
+              La méthode Source-to-Scale™ — Générez un flux régulier de prospects pour accélérer la croissance de votre business.
             </p>
           </motion.div>
 
