@@ -20,7 +20,7 @@ export const Problem = () => {
           viewport={{ once: true }}
           className="text-3xl md:text-6xl font-black mb-10 leading-tight tracking-tighter" style={{color: '#0f172a'}}
         >
-          Vous n'avez aucun{" "}
+          On vous garantit un{" "}
           <span className="text-primary italic">flux de prospects régulier.</span>
         </motion.h2>
 
