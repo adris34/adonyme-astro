@@ -6,7 +6,7 @@ export function Navbar() {
           <img
             src="/logo-adonyme.svg"
             alt="Adonyme"
-            className="h-7 w-auto"
+            className="h-5 w-auto"
           />
           <div className="flex flex-col">
             <span className="font-semibold text-gray-900 text-base tracking-tight leading-tight">
