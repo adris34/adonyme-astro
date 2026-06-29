@@ -4,7 +4,7 @@ export function Navbar() {
       <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
         <a href="/" className="flex items-center gap-2.5">
           <img
-            src="/logo-adonyme.png"
+            src="/logo-adonyme.svg"
             alt="Adonyme"
             className="h-7 w-auto"
           />
