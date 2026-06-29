@@ -23,7 +23,7 @@ export const Footer = () => {
             <a href="/#methode" className="hover:text-primary transition-colors uppercase tracking-widest">
               Méthode
             </a>
-            <a href="https://cal.com/acquisition-ai/decouverte" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors uppercase tracking-widest">
+            <a href="https://cal.com/source-to-scale/decouverte" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors uppercase tracking-widest">
               Contact
             </a>
             <a href="/mentions-legales" className="hover:text-primary transition-colors uppercase tracking-widest">

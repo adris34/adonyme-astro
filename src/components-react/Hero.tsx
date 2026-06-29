@@ -97,7 +97,7 @@ export const Hero = () => {
               className="mt-8 h-12 md:h-16 rounded-2xl px-6 md:px-12 text-base md:text-xl font-bold bg-primary hover:bg-primary/90 text-white shadow-xl shadow-primary/20 transition-all hover:scale-[1.05] active:scale-95 cursor-pointer"
             >
               <a
-                href="https://cal.com/acquisition-ai/decouverte"
+                href="https://cal.com/source-to-scale/decouverte"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3"

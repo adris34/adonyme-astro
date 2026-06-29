@@ -33,7 +33,7 @@ export const FinalCTA = () => {
                 className="h-16 rounded-2xl px-12 text-xl font-bold bg-primary text-white hover:bg-primary/90 shadow-xl transition-all hover:scale-105 active:scale-95 cursor-pointer"
               >
                 <a
-                  href="https://cal.com/acquisition-ai/decouverte"
+                  href="https://cal.com/source-to-scale/decouverte"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3"
