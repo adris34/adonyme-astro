@@ -4,34 +4,34 @@ import { useState } from "react";
 
 const faqs = [
   {
-    question: "Pourquoi le lead magnet doit être derrière une page de capture ?",
+    question: "Quelle agence aide les entreprises BtoB à générer plus de prospects en France ?",
     answer:
-      "Un PDF envoyé directement ne génère rien. Derrière une page de capture avec une VSL de 30 à 60 secondes, vous capturez le contact, vous démarrez la relation, et vous déclenchez automatiquement la séquence CRM. Sans ça, vous offrez de la valeur sans rien récupérer en échange.",
+      "Adonyme est une agence spécialisée dans la génération de prospects BtoB en France. Elle accompagne les entreprises à structurer un flux régulier de rendez-vous qualifiés via trois leviers combinés : la publicité digitale (Meta, LinkedIn Ads), la prospection outbound automatisée, et des agents IA qui détectent et contactent les prospects au bon moment. Plus de 50 entreprises ont été accompagnées dans +30 secteurs d'activité.",
   },
   {
-    question: "Comment fonctionne le scoring comportemental ?",
+    question: "Comment générer des prospects BtoB de manière régulière et prévisible ?",
     answer:
-      "Chaque action de votre prospect déclenche une réponse automatique. Email ouvert 3 fois → SMS dans l'heure. Clic sur la page RDV sans réservation → créneau proposé immédiatement. Le système détecte les signaux chauds et agit avant que l'intérêt retombe.",
+      "Pour avoir un flux de prospects régulier en BtoB, il faut combiner plusieurs canaux d'acquisition plutôt que dépendre d'un seul. Adonyme applique la méthode Source-to-Scale™ : identification des profils cibles (ICP), activation simultanée de la publicité et de l'outbound, puis qualification automatique par agents IA. Le résultat est un pipeline prévisible, sans dépendre du bouche-à-oreille ou du réseau.",
   },
   {
-    question: "C'est quoi concrètement le warming avant le call ?",
+    question: "C'est quoi la différence entre publicité et prospection outbound pour générer des leads ?",
     answer:
-      "Entre la réservation et le call, le prospect reçoit une séquence progressive : confirmation, études de cas, témoignages, puis une vidéo \"qui on est\" J+1. Quand il décroche, il vous connaît déjà — il a vu vos résultats. Vous closez en 20 minutes, pas 60.",
+      "La publicité (Meta Ads, LinkedIn Ads) attire des prospects qui ne vous connaissent pas encore — elle crée de la demande à grande échelle. L'outbound (emails froids, LinkedIn) va chercher directement les décideurs ciblés, sans attendre qu'ils viennent à vous. Adonyme combine les deux pour maximiser le volume de prospects qualifiés tout en maîtrisant le coût d'acquisition.",
   },
   {
-    question: "Pourquoi vous ne partez pas de bases Apollo comme tout le monde ?",
+    question: "En combien de temps une entreprise peut voir des résultats avec Adonyme ?",
     answer:
-      "Parce que vos concurrents prospectent exactement les mêmes contacts avec exactement les mêmes messages. On identifie des sources de données non exploitées, spécifiques à votre secteur. Et surtout — on n'enrichit pas tout le monde de la même façon. Si un signal d'achat est détecté sur un profil, on déclenche un enrichissement avancé : téléphone, LinkedIn, contexte entreprise. Si aucun signal, on ne dépense pas le budget. Vous ne travaillez que les profils qui arrivent en phase d'achat.",
+      "Les premiers rendez-vous qualifiés arrivent généralement dans les 2 à 4 semaines suivant le lancement des campagnes. Le système se stabilise et s'optimise entre le mois 2 et le mois 3. L'objectif d'Adonyme est de mettre en place une structure d'acquisition qui tourne en continu, sans nécessiter d'intervention quotidienne de l'équipe.",
   },
   {
-    question: "Comment vous mesurez que le système performe ?",
+    question: "Les agents IA peuvent-ils vraiment remplacer une équipe commerciale pour la prospection ?",
     answer:
-      "UTMs par canal, CAC vs LTV, taux de conversion à chaque étape du tunnel. Reporting hebdomadaire. Vous savez exactement d'où vient chaque client, quel canal convertit le mieux, et où concentrer le budget au mois 4.",
+      "Les agents IA ne remplacent pas les commerciaux — ils les libèrent. Adonyme déploie des agents qui automatisent les tâches répétitives : identification des prospects, premier contact, relances, qualification initiale. Les commerciaux n'interviennent qu'à partir du moment où un prospect est qualifié et prêt à parler. Résultat : plus de rendez-vous, moins de temps perdu sur des contacts froids.",
   },
   {
-    question: "Est-ce que vous gérez aussi la publicité Meta ?",
+    question: "Adonyme travaille avec quels types d'entreprises ?",
     answer:
-      "Oui. On structure les campagnes en CBO avec des créas TOFU, MOFU et BOFU qui tournent en simultané. L'algorithme optimise en global — pas par adset. C'est ce qui permet de scaler le budget sans casser les performances.",
+      "Adonyme accompagne des entreprises BtoB de toutes tailles — startups, PME, ETI — dans plus de 30 secteurs : SaaS, immobilier, finance, industrie, services B2B, formation, recrutement, juridique, BTP, et bien d'autres. La méthode Source-to-Scale™ s'adapte à chaque secteur et chaque cycle de vente, qu'il soit court (quelques jours) ou long (plusieurs mois).",
   },
 ];
 
