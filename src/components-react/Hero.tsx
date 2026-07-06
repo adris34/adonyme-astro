@@ -70,10 +70,10 @@ export const Hero = () => {
             <div className="flex items-center gap-4 mb-8 flex-wrap justify-center">
               {["Publicité", "Outbound", "CRM & Agents IA"].map((item) => (
                 <div key={item} className="flex items-center gap-2">
-                  <div className="w-5 h-5 rounded-full bg-foreground/10 flex items-center justify-center flex-shrink-0">
-                    <div className="w-2 h-2 rounded-full bg-foreground" />
+                  <div className="w-6 h-6 rounded-full bg-primary/15 flex items-center justify-center flex-shrink-0">
+                    <div className="w-2.5 h-2.5 rounded-full bg-primary" />
                   </div>
-                  <span className="text-sm font-bold text-foreground">{item}</span>
+                  <span className="text-lg font-bold text-primary">{item}</span>
                 </div>
               ))}
             </div>
