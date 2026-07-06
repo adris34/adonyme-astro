@@ -4,25 +4,23 @@ import { motion } from "framer-motion";
 
 const SECTORS = [
   "Finance",
-  "E-commerce",
   "SaaS",
   "Retail",
   "Industrie",
   "Services B2B",
-  "Santé",
   "Immobilier",
   "Conseil",
   "Formation",
   "RH & Recrutement",
-  "Logistique",
   "Tech",
   "Assurance",
   "Juridique",
   "BTP",
   "Marketing",
-  "Restauration",
   "Tourisme",
   "Énergie",
+  "Recouvrement",
+  "Biotech",
 ];
 
 export const Problem = () => {
