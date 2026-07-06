@@ -60,7 +60,7 @@ export const Hero = () => {
           </h1>
 
           <p className="text-xl md:text-2xl text-foreground font-medium mb-6 max-w-4xl leading-relaxed">
-            On vous fournit des prospects qualifiés pour accélérer votre croissance en implémentant notre système.
+            On vous fournit des prospects qualifiés pour accélérer votre croissance grâce à notre système d'acquisition.
           </p>
 
 
