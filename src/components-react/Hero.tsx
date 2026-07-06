@@ -61,7 +61,7 @@ export const Hero = () => {
           </h1>
 
           <p className="text-xl md:text-2xl text-foreground font-medium mb-8 max-w-4xl leading-relaxed">
-            Vous cherchez à générer un flux de rendez-vous qualifiés, structurer et scaler votre entreprise ?
+            Vous cherchez un flux de rendez-vous qualifiés pour structurer et scaler votre entreprise ?
           </p>
 
 
