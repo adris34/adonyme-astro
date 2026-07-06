@@ -68,7 +68,7 @@ export const Hero = () => {
           {/* CTA */}
           <div className="flex flex-col items-center w-full">
             <div className="flex items-center gap-4 mb-8 flex-wrap justify-center">
-              {["Publicité", "Outbound", "CRM & Agents IA", "+30 secteurs"].map((item) => (
+              {["Publicité", "Outbound", "CRM & Agents IA"].map((item) => (
                 <div key={item} className="flex items-center gap-2">
                   <div className="w-6 h-6 rounded-full bg-primary/15 flex items-center justify-center flex-shrink-0">
                     <div className="w-2.5 h-2.5 rounded-full bg-primary" />
