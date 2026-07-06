@@ -63,10 +63,6 @@ export const Hero = () => {
             Vous cherchez un flux de rendez-vous qualifiés pour structurer et scaler votre entreprise ?
           </p>
 
-          <p className="text-primary italic text-2xl md:text-3xl lg:text-4xl font-black mb-8 font-playfair">
-            Publicité & Agents IA outbound x CRM.
-          </p>
-
 
 
           {/* CTA */}
