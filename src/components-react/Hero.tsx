@@ -56,7 +56,7 @@ export const Hero = () => {
           </div>
 
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight mb-8 text-foreground font-playfair">
-            On génère des milliers de leads dans 30 secteurs<br />
+            On fournit des prospects pour +30 secteurs<br />
             <span className="text-primary italic">Publicité & Agents IA outbound x CRM.</span>
           </h1>
 
