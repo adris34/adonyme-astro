@@ -5,9 +5,7 @@ import { motion } from "framer-motion";
 const SECTORS = [
   "SaaS",
   "Retail",
-  "Industrie",
-  "Services B2B",
-  "Immobilier",
+"Immobilier",
   "Conseil",
   "RH & Recrutement",
   "Assurance",
