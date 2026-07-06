@@ -56,7 +56,7 @@ export const Hero = () => {
           </div>
 
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-black leading-[1.1] tracking-tight mb-4 text-foreground font-playfair max-w-5xl">
-            +50 entreprises utilisent notre système pour générer des RDV qualifiés
+            +50 Entreprises utilisent notre système pour générer des RDV qualifiés
           </h1>
 
           <p className="text-xl md:text-2xl text-foreground font-medium mb-6 max-w-4xl leading-relaxed">
