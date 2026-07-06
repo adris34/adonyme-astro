@@ -56,7 +56,7 @@ export const Hero = () => {
           </div>
 
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight mb-4 text-foreground font-playfair">
-            On fournit des prospects pour +30 secteurs
+            +50 entreprises utilisent notre système pour générer des RDV qualifiés
           </h1>
 
           <p className="text-xl md:text-2xl text-foreground font-medium mb-6 max-w-4xl leading-relaxed">
