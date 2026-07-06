@@ -55,13 +55,16 @@ export const Hero = () => {
             <span className="text-xs font-bold text-slate-700">+50 entreprises utilisent nos systèmes ⭐⭐⭐⭐⭐</span>
           </div>
 
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight mb-8 text-foreground font-playfair">
-            On fournit des prospects pour +30 secteurs<br />
-            <span className="text-primary italic text-2xl md:text-3xl lg:text-4xl">Publicité & Agents IA outbound x CRM.</span>
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight mb-4 text-foreground font-playfair">
+            On fournit des prospects pour +30 secteurs
           </h1>
 
-          <p className="text-xl md:text-2xl text-foreground font-medium mb-8 max-w-4xl leading-relaxed">
+          <p className="text-xl md:text-2xl text-foreground font-medium mb-6 max-w-4xl leading-relaxed">
             Vous cherchez un flux de rendez-vous qualifiés pour structurer et scaler votre entreprise ?
+          </p>
+
+          <p className="text-primary italic text-2xl md:text-3xl lg:text-4xl font-black mb-8 font-playfair">
+            Publicité & Agents IA outbound x CRM.
           </p>
 
 
