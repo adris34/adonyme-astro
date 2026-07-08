@@ -60,7 +60,7 @@ export const Hero = () => {
           </h1>
 
           <p className="text-xl md:text-2xl text-foreground font-medium mb-6 max-w-4xl leading-relaxed">
-            On vous génère des prospects qualifiés pour accélérer votre croissance via canaux payants.
+            Nous avons accompagné +50 entreprises où la publicité est devenue le canal de croissance numéro 1.
           </p>
 
 
