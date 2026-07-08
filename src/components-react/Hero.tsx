@@ -56,11 +56,11 @@ export const Hero = () => {
           </div>
 
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-black leading-[1.1] tracking-tight mb-4 text-foreground font-playfair max-w-5xl">
-            +50 Entreprises utilisent notre Système pour générer des RDV
+            +50 Entreprises nous ont confié leur acquisition
           </h1>
 
           <p className="text-xl md:text-2xl text-foreground font-medium mb-6 max-w-4xl leading-relaxed">
-            On vous fournit des prospects qualifiés pour accélérer votre croissance grâce à notre système d'acquisition.
+            On vous fournit des prospects qualifiés pour accélérer votre croissance grâce à notre stratégie éprouvée.
           </p>
 
 
