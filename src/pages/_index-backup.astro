@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Hero } from '../components-react/Hero';
+import { LogoSlider } from '../components-react/LogoSlider';
+import { Problem } from '../components-react/Problem';
+import { Services } from '../components-react/Services';
+import { Timeline } from '../components-react/Timeline';
+import { SocialProof } from '../components-react/SocialProof';
+import { Objections } from '../components-react/Objections';
+import { FinalCTA } from '../components-react/FinalCTA';
+import { Footer } from '../components-react/Footer';
+import { Navbar } from '../components-react/Navbar';
+---
+
+<Layout>
+  <div class="min-h-screen" client:load>
+    <Navbar client:load />
+    <Hero client:load />
+    <LogoSlider client:load />
+    <Problem client:load />
+    <SocialProof client:load />
+    <Objections client:load />
+<Footer client:load />
+  </div>
+</Layout>
