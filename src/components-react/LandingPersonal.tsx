@@ -238,17 +238,16 @@ const SourceToScale = () => (
       </p>
       <h2 style={{
         fontFamily: "'Anton', sans-serif",
-        fontSize: 'clamp(1.2rem, 1.6vw, 2rem)',
+        fontSize: 'clamp(1.6rem, 2.2vw, 2.8rem)',
         textTransform: 'uppercase',
         lineHeight: 1.2,
         color: '#0a0a0a',
         marginBottom: '1.5rem',
         fontWeight: 400,
         letterSpacing: '0.01em',
-        maxWidth: '100%',
-        whiteSpace: 'nowrap',
+        maxWidth: '900px',
       }}>
-        Une structure qu'on met en place depuis +10 ans pour générer un flux de prospects qualifiés.
+        Une structure qu'on met en place depuis +10 ans<br/>pour générer un flux de prospects qualifiés.
       </h2>
       <p style={{ fontSize: '1rem', color: '#64748b', lineHeight: 1.7, maxWidth: '600px', marginBottom: '2rem' }}>
         On revoit l'ensemble de votre stratégie d'acquisition. Votre tunnel de vente, vos méthodes de capturer — éduquer — qualifier — convertir vos prospects.
