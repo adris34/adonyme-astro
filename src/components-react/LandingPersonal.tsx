@@ -589,8 +589,47 @@ const FooterLP = () => (
 );
 
 /* ─── PAGE COMPLÈTE ─────────────────────────────────────────── */
+const Navbar = () => (
+  <nav style={{
+    position: 'sticky',
+    top: 0,
+    zIndex: 100,
+    backgroundColor: '#f5f4f0',
+    borderBottom: '1px solid #e2e8f0',
+    padding: '0 2rem',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    height: '64px',
+  }}>
+    {/* Liens */}
+    <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+      <a href="#methode" style={{ fontSize: '0.95rem', fontWeight: 600, color: '#0a0a0a', textDecoration: 'none' }}>
+        Découvrir la méthode
+      </a>
+      <a href="#etude-de-cas" style={{ fontSize: '0.95rem', fontWeight: 600, color: '#0a0a0a', textDecoration: 'none' }}>
+        Étude de cas
+      </a>
+      <a href="#offre" style={{ fontSize: '0.95rem', fontWeight: 600, color: '#0a0a0a', textDecoration: 'none' }}>
+        Notre offre
+      </a>
+    </div>
+
+    {/* Logo */}
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', lineHeight: 1.1 }}>
+      <span style={{ fontFamily: "'Anton', sans-serif", fontSize: '1.3rem', fontWeight: 400, textTransform: 'uppercase', color: '#0a0a0a', letterSpacing: '0.05em' }}>
+        Adonyme
+      </span>
+      <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+        Source-to-Scale
+      </span>
+    </div>
+  </nav>
+);
+
 export const LandingPersonal = () => (
   <main>
+    <Navbar />
     <Hero />
     <LogoSlider />
     <VideoProof />
