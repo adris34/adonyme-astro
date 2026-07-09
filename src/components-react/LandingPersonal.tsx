@@ -160,11 +160,14 @@ const VideoProof = () => (
       }}>
         Nous avons généré <span style={{ backgroundColor: '#a3e635', padding: '0 0.3em' }}>+2000 RDV en 10 mois</span><br/>QVEMA saison 4
       </h2>
-      <div style={{ textAlign: 'center', marginBottom: '1.5rem', marginTop: '0.5rem' }}>
-        <svg width="40" height="100" viewBox="0 0 40 100" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ display: 'inline-block' }}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1.5rem', marginBottom: '1.5rem', marginTop: '0.5rem' }}>
+        <svg width="40" height="100" viewBox="0 0 40 100" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
           <line x1="20" y1="0" x2="20" y2="72" stroke="#a3e635" strokeWidth="4"/>
           <polygon points="20,100 4,72 36,72" fill="#a3e635"/>
         </svg>
+        <p style={{ fontStyle: 'italic', fontWeight: 400, fontSize: '1rem', color: '#475569', lineHeight: 1.6, textAlign: 'left', margin: 0 }}>
+          Nous avons décortiqué toute notre stratégie<br/>Voici un extrait
+        </p>
       </div>
       <div style={{ borderRadius: '20px', overflow: 'hidden', boxShadow: '0 8px 40px rgba(0,0,0,0.12)', position: 'relative', paddingTop: '56.25%' }}>
         <iframe
