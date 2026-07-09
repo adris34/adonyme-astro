@@ -597,11 +597,9 @@ const Navbar = () => (
     backgroundColor: '#f5f4f0',
     borderBottom: '1px solid #e2e8f0',
     padding: '0 2rem',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
     height: '64px',
   }}>
+    <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '100%' }}>
     {/* Liens */}
     <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
       <a href="#methode" style={{ fontSize: '0.95rem', fontWeight: 600, color: '#0a0a0a', textDecoration: 'none' }}>
@@ -623,6 +621,7 @@ const Navbar = () => (
       <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
         Source-to-Scale
       </span>
+    </div>
     </div>
   </nav>
 );
