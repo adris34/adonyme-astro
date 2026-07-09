@@ -238,14 +238,15 @@ const SourceToScale = () => (
       </p>
       <h2 style={{
         fontFamily: "'Anton', sans-serif",
-        fontSize: 'clamp(1.6rem, 2.2vw, 2.8rem)',
+        fontSize: 'clamp(1.2rem, 1.6vw, 2rem)',
         textTransform: 'uppercase',
         lineHeight: 1.2,
         color: '#0a0a0a',
         marginBottom: '1.5rem',
         fontWeight: 400,
         letterSpacing: '0.01em',
-        maxWidth: '700px',
+        maxWidth: '100%',
+        whiteSpace: 'nowrap',
       }}>
         Une structure qu'on met en place depuis +10 ans pour générer un flux de prospects qualifiés.
       </h2>
