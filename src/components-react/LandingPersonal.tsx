@@ -155,12 +155,12 @@ const VideoProof = () => (
         letterSpacing: '0.01em',
         lineHeight: 1.2,
         color: '#0a0a0a',
-        marginBottom: '1.5rem',
+        marginBottom: '0.25rem',
         textAlign: 'center',
       }}>
         Nous avons généré <span style={{ backgroundColor: '#a3e635', padding: '0 0.3em' }}>+2000 RDV en 10 mois</span><br/>QVEMA saison 4
       </h2>
-      <p style={{ fontSize: '1.1rem', color: '#475569', fontWeight: 400, fontStyle: 'italic', lineHeight: 1.6, textAlign: 'center', margin: '0.25rem 0 1.5rem' }}>
+      <p style={{ fontSize: '1.1rem', color: '#475569', fontWeight: 400, fontStyle: 'italic', lineHeight: 1.6, textAlign: 'center', margin: '0 0 1.5rem' }}>
         (Nous avons décortiqué toute notre stratégie, voici un extrait)
       </p>
       <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
