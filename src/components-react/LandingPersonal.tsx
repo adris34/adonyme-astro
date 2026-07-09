@@ -166,7 +166,7 @@ const VideoProof = () => (
           <polygon points="20,100 4,72 36,72" fill="#a3e635"/>
         </svg>
         <p style={{ fontFamily: "'Dancing Script', cursive", fontWeight: 500, fontSize: '1.3rem', color: '#475569', lineHeight: 1.5, textAlign: 'left', margin: 0, maxWidth: '220px' }}>
-          Nous avons décortiqué toute notre stratégie, voici un extrait
+          Nous avons décortiqué toute notre stratégie,<br/>Voici un extrait
         </p>
       </div>
       <div style={{ borderRadius: '20px', overflow: 'hidden', boxShadow: '0 8px 40px rgba(0,0,0,0.12)', position: 'relative', paddingTop: '56.25%' }}>
