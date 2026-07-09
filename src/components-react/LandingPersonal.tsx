@@ -98,7 +98,7 @@ const problemes = [
 ];
 
 const Probleme = () => (
-  <section style={{ backgroundColor: '#f5f4f0', padding: '6rem 2rem' }}>
+  <section id="offre" style={{ backgroundColor: '#f5f4f0', padding: '6rem 2rem' }}>
     <div className="probleme-grid" style={{ maxWidth: '1100px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6rem', alignItems: 'start' }}>
 
       {/* GAUCHE — sticky */}
@@ -145,7 +145,7 @@ const Probleme = () => (
 
 /* ─── VIDEO PROOF ───────────────────────────────────────────── */
 const VideoProof = () => (
-  <section style={{ backgroundColor: '#f5f4f0', padding: '5rem 2rem' }}>
+  <section id="etude-de-cas" style={{ backgroundColor: '#f5f4f0', padding: '5rem 2rem' }}>
     <div style={{ maxWidth: '900px', margin: '0 auto' }}>
       <h2 style={{
         fontFamily: "'Anton', sans-serif",
@@ -597,7 +597,7 @@ const Navbar = () => {
 
         {/* Desktop: liens | Mobile: hamburger */}
         <div className="nav-links" style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
-          <a href="#methode" className="nav-link" style={{ fontSize: '0.95rem', fontWeight: 600, color: '#0a0a0a', textDecoration: 'none' }}>Découvrir la méthode</a>
+          <a href="https://cal.com/source-to-scale/decouverte" target="_blank" rel="noopener noreferrer" className="nav-link" style={{ fontSize: '0.95rem', fontWeight: 600, color: '#0a0a0a', textDecoration: 'none' }}>Découvrir la méthode</a>
           <a href="#etude-de-cas" className="nav-link" style={{ fontSize: '0.95rem', fontWeight: 600, color: '#0a0a0a', textDecoration: 'none' }}>Étude de cas</a>
           <a href="#offre" className="nav-link" style={{ fontSize: '0.95rem', fontWeight: 600, color: '#0a0a0a', textDecoration: 'none' }}>Notre offre</a>
         </div>
