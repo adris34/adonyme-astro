@@ -161,9 +161,9 @@ const VideoProof = () => (
         Nous avons généré <span style={{ backgroundColor: '#a3e635', padding: '0 0.3em' }}>+2000 RDV en 10 mois</span><br/>QVEMA saison 4
       </h2>
       <div style={{ textAlign: 'center', marginBottom: '1.5rem', marginTop: '0.5rem' }}>
-        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ display: 'inline-block' }}>
-          <path d="M40 6 Q58 28 40 54" stroke="#0a0a0a" strokeWidth="3" strokeLinecap="round" fill="none"/>
-          <path d="M28 46 L40 62 L52 46" stroke="#0a0a0a" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+        <svg width="40" height="100" viewBox="0 0 40 100" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ display: 'inline-block' }}>
+          <line x1="20" y1="0" x2="20" y2="72" stroke="#a3e635" strokeWidth="4"/>
+          <polygon points="20,100 4,72 36,72" fill="#a3e635"/>
         </svg>
       </div>
       <div style={{ borderRadius: '20px', overflow: 'hidden', boxShadow: '0 8px 40px rgba(0,0,0,0.12)', position: 'relative', paddingTop: '56.25%' }}>
