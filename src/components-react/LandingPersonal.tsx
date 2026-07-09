@@ -13,7 +13,7 @@ const Hero = () => (
       <div style={{ paddingTop: '3rem' }}>
         <h1 style={{
           fontFamily: "'Anton', sans-serif",
-          fontSize: 'clamp(1.6rem, 2.2vw, 2.5rem)',
+          fontSize: 'clamp(2.2rem, 3.5vw, 4rem)',
           fontWeight: 400,
           lineHeight: 1.2,
           textTransform: 'uppercase',
@@ -47,12 +47,12 @@ const Hero = () => (
         {/* Badge stat en bas de la photo */}
         <div className="hero-badge" style={{
           backgroundColor: '#fff',
-          borderRadius: '16px',
-          padding: '1.25rem 2rem',
+          borderRadius: '20px',
+          padding: '1.75rem 2.75rem',
           boxShadow: '0 8px 32px rgba(0,0,0,0.18)',
         }}>
-          <p style={{ fontSize: '2rem', fontWeight: 900, color: '#0a0a0a', margin: 0, lineHeight: 1 }}>+400k</p>
-          <p style={{ fontSize: '0.85rem', color: '#64748b', margin: '0.25rem 0 0', lineHeight: 1.3 }}>leads générés<br/>pour nos clients</p>
+          <p style={{ fontSize: '3rem', fontWeight: 900, color: '#0a0a0a', margin: 0, lineHeight: 1 }}>+400k</p>
+          <p style={{ fontSize: '1.1rem', color: '#64748b', margin: '0.4rem 0 0', lineHeight: 1.3 }}>leads générés<br/>pour nos clients</p>
         </div>
       </div>
 
@@ -108,7 +108,7 @@ const Probleme = () => (
         </p>
         <h2 className="font-anton" style={{
           fontFamily: "'Anton', sans-serif",
-          fontSize: 'clamp(1.3rem, 1.8vw, 2rem)',
+          fontSize: 'clamp(1.8rem, 2.8vw, 3.2rem)',
           textTransform: 'uppercase',
           lineHeight: 1.2,
           color: '#0a0a0a',
@@ -149,7 +149,7 @@ const VideoProof = () => (
     <div style={{ maxWidth: '900px', margin: '0 auto' }}>
       <h2 style={{
         fontFamily: "'Anton', sans-serif",
-        fontSize: 'clamp(1.3rem, 1.8vw, 2rem)',
+        fontSize: 'clamp(1.8rem, 2.8vw, 3.2rem)',
         fontWeight: 400,
         textTransform: 'uppercase',
         letterSpacing: '0.01em',
@@ -229,7 +229,7 @@ const SourceToScale = () => (
       </p>
       <h2 style={{
         fontFamily: "'Anton', sans-serif",
-        fontSize: 'clamp(1.3rem, 1.8vw, 2rem)',
+        fontSize: 'clamp(1.8rem, 2.8vw, 3.2rem)',
         textTransform: 'uppercase',
         lineHeight: 1.2,
         color: '#0a0a0a',
