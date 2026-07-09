@@ -148,3 +148,42 @@ h3, h4, h5, h6 {
 .font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif; }
 .font-inter { font-family: 'Plus Jakarta Sans', sans-serif; }
 .font-sora { font-family: 'Plus Jakarta Sans', sans-serif; }
+
+@media (max-width: 768px) {
+  /* Hero */
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+    padding: 2rem 1.5rem !important;
+  }
+  .hero-section {
+    padding: 2.5rem 1.5rem !important;
+  }
+  .hero-badge {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    bottom: -2.5rem !important;
+    width: 80% !important;
+    text-align: center !important;
+  }
+
+  /* Problème — stack en 1 colonne */
+  .probleme-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  .probleme-sticky {
+    position: static !important;
+  }
+
+  /* Cartes méthode — 1 colonne */
+  .methode-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.hero-badge {
+  position: absolute;
+  bottom: 2rem;
+  left: -2.5rem;
+}

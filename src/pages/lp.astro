@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { LandingPersonal } from '../components-react/LandingPersonal';
+---
+
+<Layout>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet" />
+  <style>
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8rem;
+      align-items: flex-start;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .hero-badge {
+      position: absolute;
+      bottom: 2rem;
+      left: -2.5rem;
+    }
+    @media (max-width: 768px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .hero-badge {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -2.5rem;
+        width: 80%;
+        text-align: center;
+      }
+    }
+  </style>
+  <LandingPersonal client:load />
+</Layout>
