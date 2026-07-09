@@ -150,6 +150,10 @@ h3, h4, h5, h6 {
 .font-sora { font-family: 'Plus Jakarta Sans', sans-serif; }
 
 @media (max-width: 768px) {
+  /* Navbar */
+  .nav-links { display: none !important; }
+  .nav-burger { display: block !important; }
+
   /* Hero */
   .hero-grid {
     grid-template-columns: 1fr !important;

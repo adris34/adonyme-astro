@@ -589,42 +589,40 @@ const FooterLP = () => (
 );
 
 /* ─── PAGE COMPLÈTE ─────────────────────────────────────────── */
-const Navbar = () => (
-  <nav style={{
-    position: 'sticky',
-    top: 0,
-    zIndex: 100,
-    backgroundColor: '#f5f4f0',
-    borderBottom: '1px solid #e2e8f0',
-    padding: '0 2rem',
-    height: '64px',
-  }}>
-    <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '100%' }}>
-    {/* Liens */}
-    <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
-      <a href="#methode" style={{ fontSize: '0.95rem', fontWeight: 600, color: '#0a0a0a', textDecoration: 'none' }}>
-        Découvrir la méthode
-      </a>
-      <a href="#etude-de-cas" style={{ fontSize: '0.95rem', fontWeight: 600, color: '#0a0a0a', textDecoration: 'none' }}>
-        Étude de cas
-      </a>
-      <a href="#offre" style={{ fontSize: '0.95rem', fontWeight: 600, color: '#0a0a0a', textDecoration: 'none' }}>
-        Notre offre
-      </a>
-    </div>
+const Navbar = () => {
+  const [open, setOpen] = useState(false);
+  return (
+    <nav style={{ position: 'sticky', top: 0, zIndex: 100, backgroundColor: '#f5f4f0', borderBottom: '1px solid #e2e8f0' }}>
+      <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 2rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '64px' }}>
 
-    {/* Logo */}
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', lineHeight: 1.1 }}>
-      <span style={{ fontFamily: "'Anton', sans-serif", fontSize: '1.3rem', fontWeight: 400, textTransform: 'uppercase', color: '#0a0a0a', letterSpacing: '0.05em' }}>
-        Adonyme
-      </span>
-      <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-        Source-to-Scale
-      </span>
-    </div>
-    </div>
-  </nav>
-);
+        {/* Desktop: liens | Mobile: hamburger */}
+        <div className="nav-links" style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+          <a href="#methode" style={{ fontSize: '0.95rem', fontWeight: 600, color: '#0a0a0a', textDecoration: 'none' }}>Découvrir la méthode</a>
+          <a href="#etude-de-cas" style={{ fontSize: '0.95rem', fontWeight: 600, color: '#0a0a0a', textDecoration: 'none' }}>Étude de cas</a>
+          <a href="#offre" style={{ fontSize: '0.95rem', fontWeight: 600, color: '#0a0a0a', textDecoration: 'none' }}>Notre offre</a>
+        </div>
+        <button className="nav-burger" onClick={() => setOpen(!open)} style={{ display: 'none', background: 'none', border: 'none', cursor: 'pointer', padding: '0.25rem' }}>
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><line x1="4" y1="8" x2="24" y2="8" stroke="#0a0a0a" strokeWidth="2.2" strokeLinecap="round"/><line x1="4" y1="14" x2="24" y2="14" stroke="#0a0a0a" strokeWidth="2.2" strokeLinecap="round"/><line x1="4" y1="20" x2="24" y2="20" stroke="#0a0a0a" strokeWidth="2.2" strokeLinecap="round"/></svg>
+        </button>
+
+        {/* Logo */}
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', lineHeight: 1.1 }}>
+          <span style={{ fontFamily: "'Anton', sans-serif", fontSize: '1.3rem', fontWeight: 400, textTransform: 'uppercase', color: '#0a0a0a', letterSpacing: '0.05em' }}>Adonyme</span>
+          <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Source-to-Scale</span>
+        </div>
+      </div>
+
+      {/* Mobile menu déroulant */}
+      {open && (
+        <div className="nav-mobile-menu" style={{ backgroundColor: '#f5f4f0', borderTop: '1px solid #e2e8f0', padding: '1.5rem 2rem', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+          <a href="#methode" onClick={() => setOpen(false)} style={{ fontSize: '1rem', fontWeight: 600, color: '#0a0a0a', textDecoration: 'none' }}>Découvrir la méthode</a>
+          <a href="#etude-de-cas" onClick={() => setOpen(false)} style={{ fontSize: '1rem', fontWeight: 600, color: '#0a0a0a', textDecoration: 'none' }}>Étude de cas</a>
+          <a href="#offre" onClick={() => setOpen(false)} style={{ fontSize: '1rem', fontWeight: 600, color: '#0a0a0a', textDecoration: 'none' }}>Notre offre</a>
+        </div>
+      )}
+    </nav>
+  );
+};
 
 export const LandingPersonal = () => (
   <main>
