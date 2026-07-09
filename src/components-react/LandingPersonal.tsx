@@ -158,8 +158,14 @@ const VideoProof = () => (
         marginBottom: '1.5rem',
         textAlign: 'center',
       }}>
-        Ils sont passés chez <span style={{ backgroundColor: '#a3e635', padding: '0 0.3em' }}>Qui veut être mon associé Saison 3</span><br/>Nous avons généré <span style={{ backgroundColor: '#a3e635', padding: '0 0.3em' }}>+2000 RDV en 10 mois</span>
+        Nous avons généré <span style={{ backgroundColor: '#a3e635', padding: '0 0.3em' }}>+2000 RDV en 10 mois</span><br/>QVEMA saison 4
       </h2>
+      <div style={{ textAlign: 'center', marginBottom: '1rem' }}>
+        <svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M30 4 Q44 20 30 38" stroke="#0a0a0a" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+          <path d="M22 32 L30 42 L38 32" stroke="#0a0a0a" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+        </svg>
+      </div>
       <div style={{ borderRadius: '20px', overflow: 'hidden', boxShadow: '0 8px 40px rgba(0,0,0,0.12)', position: 'relative', paddingTop: '56.25%' }}>
         <iframe
           src="https://www.youtube.com/embed/Big0YUW1428"
