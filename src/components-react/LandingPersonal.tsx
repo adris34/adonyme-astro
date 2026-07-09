@@ -25,7 +25,7 @@ const Hero = () => (
         <p style={{ fontSize: '1.1rem', color: '#475569', lineHeight: 1.6, marginBottom: '2rem' }}>
           Nous avons prouvé dans +20 secteurs que la publicité est le levier le plus rentable pour générer des prospects en BtoB.
         </p>
-        <a href="#contact" style={{
+        <a href="https://cal.com/source-to-scale/decouverte" target="_blank" rel="noopener noreferrer" style={{
           display: 'inline-block',
           backgroundColor: '#a3e635',
           color: '#0a0a0a',
@@ -413,7 +413,7 @@ const Offre = () => (
       </div>
 
       <a
-        href="#contact"
+        href="https://cal.com/source-to-scale/decouverte" target="_blank" rel="noopener noreferrer"
         className="inline-flex items-center gap-3 bg-blue-600 text-white px-10 py-5 rounded-2xl text-lg font-bold shadow-xl hover:bg-blue-700 transition-all hover:scale-[1.03]"
       >
         [CTA OFFRE] <ArrowRight className="w-5 h-5" />
