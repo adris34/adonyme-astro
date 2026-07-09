@@ -597,9 +597,9 @@ const Navbar = () => {
 
         {/* Desktop: liens | Mobile: hamburger */}
         <div className="nav-links" style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
-          <a href="#methode" style={{ fontSize: '0.95rem', fontWeight: 600, color: '#0a0a0a', textDecoration: 'none' }}>Découvrir la méthode</a>
-          <a href="#etude-de-cas" style={{ fontSize: '0.95rem', fontWeight: 600, color: '#0a0a0a', textDecoration: 'none' }}>Étude de cas</a>
-          <a href="#offre" style={{ fontSize: '0.95rem', fontWeight: 600, color: '#0a0a0a', textDecoration: 'none' }}>Notre offre</a>
+          <a href="#methode" className="nav-link" style={{ fontSize: '0.95rem', fontWeight: 600, color: '#0a0a0a', textDecoration: 'none' }}>Découvrir la méthode</a>
+          <a href="#etude-de-cas" className="nav-link" style={{ fontSize: '0.95rem', fontWeight: 600, color: '#0a0a0a', textDecoration: 'none' }}>Étude de cas</a>
+          <a href="#offre" className="nav-link" style={{ fontSize: '0.95rem', fontWeight: 600, color: '#0a0a0a', textDecoration: 'none' }}>Notre offre</a>
         </div>
         <button className="nav-burger" onClick={() => setOpen(!open)} style={{ display: 'none', background: 'none', border: 'none', cursor: 'pointer', padding: '0.25rem' }}>
           <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><line x1="4" y1="8" x2="24" y2="8" stroke="#0a0a0a" strokeWidth="2.2" strokeLinecap="round"/><line x1="4" y1="14" x2="24" y2="14" stroke="#0a0a0a" strokeWidth="2.2" strokeLinecap="round"/><line x1="4" y1="20" x2="24" y2="20" stroke="#0a0a0a" strokeWidth="2.2" strokeLinecap="round"/></svg>
