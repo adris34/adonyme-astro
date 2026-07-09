@@ -13,7 +13,7 @@ const Hero = () => (
       <div style={{ paddingTop: '3rem' }}>
         <h1 style={{
           fontFamily: "'Anton', sans-serif",
-          fontSize: 'clamp(2.2rem, 3.5vw, 4rem)',
+          fontSize: 'clamp(1.3rem, 1.8vw, 2.2rem)',
           fontWeight: 400,
           lineHeight: 1.2,
           textTransform: 'uppercase',
@@ -108,7 +108,7 @@ const Probleme = () => (
         </p>
         <h2 className="font-anton" style={{
           fontFamily: "'Anton', sans-serif",
-          fontSize: 'clamp(1.8rem, 2.8vw, 3.2rem)',
+          fontSize: 'clamp(1.3rem, 1.8vw, 2.2rem)',
           textTransform: 'uppercase',
           lineHeight: 1.2,
           color: '#0a0a0a',
@@ -149,7 +149,7 @@ const VideoProof = () => (
     <div style={{ maxWidth: '900px', margin: '0 auto' }}>
       <h2 style={{
         fontFamily: "'Anton', sans-serif",
-        fontSize: 'clamp(1.8rem, 2.8vw, 3.2rem)',
+        fontSize: 'clamp(1.3rem, 1.8vw, 2.2rem)',
         fontWeight: 400,
         textTransform: 'uppercase',
         letterSpacing: '0.01em',
@@ -229,7 +229,7 @@ const SourceToScale = () => (
       </p>
       <h2 style={{
         fontFamily: "'Anton', sans-serif",
-        fontSize: 'clamp(1.8rem, 2.8vw, 3.2rem)',
+        fontSize: 'clamp(1.3rem, 1.8vw, 2.2rem)',
         textTransform: 'uppercase',
         lineHeight: 1.2,
         color: '#0a0a0a',
