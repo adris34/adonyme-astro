@@ -161,8 +161,8 @@ const VideoProof = () => (
         Nous avons généré <span style={{ backgroundColor: '#a3e635', padding: '0 0.3em' }}>+2000 RDV en 10 mois</span><br/>QVEMA saison 4
       </h2>
       <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'center', gap: '0.5rem', marginBottom: '1.5rem', marginTop: '0.5rem' }}>
-        <p style={{ fontFamily: "'Caveat', cursive", fontWeight: 400, fontSize: '1.4rem', color: '#475569', lineHeight: 1.5, textAlign: 'right', margin: 0, paddingTop: '0.5rem' }}>
-          Nous avons décortiqué<br/>toute notre stratégie,<br/>voici un extrait
+        <p style={{ fontFamily: "'Permanent Marker', cursive", fontWeight: 400, fontSize: '1.2rem', color: '#475569', lineHeight: 1.5, textAlign: 'right', margin: 0, paddingTop: '0.5rem' }}>
+          Nous avons décortiqué toute notre stratégie,<br/>voici un extrait
         </p>
         <svg width="40" height="100" viewBox="0 0 40 100" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
           <line x1="20" y1="0" x2="20" y2="72" stroke="#a3e635" strokeWidth="4"/>
