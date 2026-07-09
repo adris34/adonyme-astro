@@ -247,7 +247,7 @@ const SourceToScale = () => (
         letterSpacing: '0.01em',
         maxWidth: '700px',
       }}>
-        Une structure qu'on met en place depuis +10 ans<br/>pour générer un flux de prospects qualifiés.
+        Une structure qu'on met en place depuis +10 ans pour générer un flux de prospects qualifiés.
       </h2>
       <p style={{ fontSize: '1rem', color: '#64748b', lineHeight: 1.7, maxWidth: '600px', marginBottom: '2rem' }}>
         On revoit l'ensemble de votre stratégie d'acquisition. Votre tunnel de vente, vos méthodes de capturer — éduquer — qualifier — convertir vos prospects.
