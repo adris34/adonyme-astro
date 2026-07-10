@@ -20,13 +20,14 @@ const Hero = () => (
           color: '#0a0a0a',
           marginBottom: '1.5rem',
         }}>
-          La publicité est devenue<br/>Leur canal d'acquisition numéro&nbsp;1<br/><span style={{display:'inline-block', marginTop:'0.9rem'}}><span style={{
-  backgroundImage: 'linear-gradient(#a3e635, #a3e635)',
-  backgroundRepeat: 'no-repeat',
-  backgroundSize: '100% 6px',
-  backgroundPosition: '0 95%',
-  paddingBottom: '2px',
-}}>+50 Entreprises</span> accompagnées</span>
+          La publicité est devenue<br/>Leur canal d'acquisition numéro&nbsp;1<br/><span style={{display:'inline-block', marginTop:'0.9rem'}}>
+  <span style={{ position: 'relative', display: 'inline-block' }}>
+    +50 Entreprises
+    <svg viewBox="0 0 300 18" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ position: 'absolute', bottom: '-6px', left: '-4px', width: 'calc(100% + 8px)', height: '12px', overflow: 'visible' }}>
+      <path d="M4,10 Q75,2 150,9 Q225,16 296,8" stroke="#a3e635" strokeWidth="5" fill="none" strokeLinecap="round"/>
+    </svg>
+  </span>{' '}accompagnées
+</span>
         </h1>
         <p style={{ fontSize: '1.1rem', color: '#475569', lineHeight: 1.6, marginBottom: '2rem' }}>
           Nous avons prouvé dans +20 secteurs que la publicité est le levier le plus rentable pour générer des prospects en BtoB.
