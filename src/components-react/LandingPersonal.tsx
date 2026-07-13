@@ -123,10 +123,10 @@ const Probleme = () => (
           fontWeight: 400,
           letterSpacing: '0.01em',
         }}>
-          90% des entreprises n'ont eu aucun résultat réel avec la Publicité.
+          Vous perdez du temps à prospecter à froid sans résultat.
         </h2>
         <p style={{ fontSize: '1rem', color: '#64748b', lineHeight: 1.7 }}>
-          La vérité : la plupart veulent convertir un prospect froid en client sans jamais avoir identifié ses douleurs réelles. Et sans adapter leur argumentation à chacune d'elles.
+          90% des Entreprises pensent que la publicité est une dépense et non un investissement avec un ROI immédiat. Nous avons implémenté notre stratégie au sein de +50 Entreprises où la publicité est devenue le canal d'acquisition principal.
         </p>
       </div>
 
