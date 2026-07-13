@@ -11,7 +11,7 @@ const logos = [
 ];
 
 export const LogoSlider = () => {
-  const repeated = [...logos, ...logos, ...logos, ...logos, ...logos, ...logos];
+  const repeated = [...logos, ...logos, ...logos];
 
   return (
     <div className="w-full py-8 border-y border-slate-200/60 bg-[#f5f4f0]">
