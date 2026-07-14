@@ -20,7 +20,7 @@ const Hero = () => (
           color: '#0a0a0a',
           marginBottom: '1.5rem',
         }}>
-          Générez des clients dès demain<br/>Le canal d'acquisition numéro&nbsp;1 en 2026<br/><span style={{display:'inline-block', marginTop:'0.9rem'}}>
+          On augmente le volume de vos clients<br/>Grâce à la publicité et notre système<br/><span style={{display:'inline-block', marginTop:'0.9rem'}}>
   <span style={{ position: 'relative', display: 'inline-block' }}>
     +50 Entreprises
     <svg viewBox="0 0 300 18" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ position: 'absolute', bottom: '-6px', left: '-4px', width: 'calc(100% + 8px)', height: '12px', overflow: 'visible' }}>
