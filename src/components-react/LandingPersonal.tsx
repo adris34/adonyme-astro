@@ -165,10 +165,10 @@ const VideoProof = () => (
         marginBottom: '0.25rem',
         textAlign: 'center',
       }}>
-        Vu dans QVEMA saison 4<br/>Nous avons généré <span style={{ backgroundColor: '#a3e635', padding: '0 0.3em' }}>+2000 RDV en 10 mois</span>
+        Vu dans QVEMA saison 4<br/>Extraits étude de cas <span style={{ backgroundColor: '#a3e635', padding: '0 0.3em' }}>+2000 RDV en 10 mois</span>
       </h2>
       <p style={{ fontSize: '1.1rem', color: '#475569', fontWeight: 400, fontStyle: 'italic', lineHeight: 1.6, textAlign: 'center', margin: '0 0 1.5rem' }}>
-        (Extrait d'un cas client, notre stratégie décortiquée pas à pas)
+        (On a décortiqué récemment toute notre stratégie, pas à pas)
       </p>
       <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
         <svg width="40" height="100" viewBox="0 0 40 100" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ display: 'inline-block' }}>
