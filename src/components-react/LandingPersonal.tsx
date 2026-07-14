@@ -126,7 +126,7 @@ const Probleme = () => (
           Vous perdez du temps à prospecter à froid sans résultat.
         </h2>
         <p style={{ fontSize: '1rem', color: '#64748b', lineHeight: 1.7 }}>
-          90% des Entreprises pensent que la publicité est une dépense et non un investissement avec un ROI immédiat. Nous avons implémenté notre stratégie au sein de +50 Entreprises, depuis, la publicité est devenue le canal d'acquisition principal.
+          90% des Entreprises pensent que la publicité est une dépense et non un investissement avec un ROI immédiat. Nous avons implémenté notre stratégie au sein de +50 Entreprises, depuis, la publicité est devenue leur principal canal d'acquisition.
         </p>
       </div>
 
