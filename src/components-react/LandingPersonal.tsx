@@ -194,7 +194,7 @@ const VideoProof = () => (
           fontSize: '1rem',
           padding: '1rem 2rem',
         }}>
-          Je veux les mêmes résultats
+          Découvrir l'intégralité du système
         </a>
       </div>
     </div>
