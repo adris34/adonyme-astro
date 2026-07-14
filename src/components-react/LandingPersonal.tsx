@@ -604,7 +604,7 @@ const Navbar = () => {
 
         {/* Desktop: liens | Mobile: hamburger */}
         <div className="nav-links" style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
-          <a href="https://cal.com/source-to-scale/decouverte" target="_blank" rel="noopener noreferrer" className="nav-link" style={{ fontSize: '0.95rem', fontWeight: 600, color: '#0a0a0a', textDecoration: 'none' }}>Découvrir la méthode</a>
+          <a href="https://cal.com/source-to-scale/decouverte" target="_blank" rel="noopener noreferrer" className="nav-link" style={{ fontSize: '0.95rem', fontWeight: 600, color: '#0a0a0a', textDecoration: 'none' }}>Comment ça marche ?</a>
           <a href="#etude-de-cas" className="nav-link" style={{ fontSize: '0.95rem', fontWeight: 600, color: '#0a0a0a', textDecoration: 'none' }}>Étude de cas</a>
           <a href="#offre" className="nav-link" style={{ fontSize: '0.95rem', fontWeight: 600, color: '#0a0a0a', textDecoration: 'none' }}>Notre offre</a>
         </div>
@@ -622,7 +622,7 @@ const Navbar = () => {
       {/* Mobile menu déroulant */}
       {open && (
         <div className="nav-mobile-menu" style={{ backgroundColor: '#f5f4f0', borderTop: '1px solid #e2e8f0', padding: '1.5rem 2rem', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-          <a href="#methode" onClick={() => setOpen(false)} style={{ fontSize: '1rem', fontWeight: 600, color: '#0a0a0a', textDecoration: 'none' }}>Découvrir la méthode</a>
+          <a href="#methode" onClick={() => setOpen(false)} style={{ fontSize: '1rem', fontWeight: 600, color: '#0a0a0a', textDecoration: 'none' }}>Comment ça marche ?</a>
           <a href="#etude-de-cas" onClick={() => setOpen(false)} style={{ fontSize: '1rem', fontWeight: 600, color: '#0a0a0a', textDecoration: 'none' }}>Étude de cas</a>
           <a href="#offre" onClick={() => setOpen(false)} style={{ fontSize: '1rem', fontWeight: 600, color: '#0a0a0a', textDecoration: 'none' }}>Notre offre</a>
         </div>
