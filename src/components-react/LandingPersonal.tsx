@@ -73,7 +73,6 @@ const problemes = [
     titre: "Vous achetez des listes non qualifiées et vous contactez des centaines de personnes sans résultat.",
     points: [
       "→ Ils ne vous connaissent pas.",
-      "→ Vous n'avez pas défini votre ICP.",
       "→ Vous parlez le même langage à tous vos prospects.",
       "→ Vous recevez des profils non qualifiés.",
     ],
