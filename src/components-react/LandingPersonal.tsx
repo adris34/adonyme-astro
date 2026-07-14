@@ -70,36 +70,37 @@ const Hero = () => (
 /* ─── SECTION 2 — LE PROBLÈME ──────────────────────────────── */
 const problemes = [
   {
-    titre: "Tu n'as pas de résultats car tu n'as pas de bonnes méthodes.",
+    titre: "Vous achetez des listes non qualifiées et vous contactez des centaines de personnes sans résultat.",
     points: [
-      "→ Tu n'as pas défini ton ICP.",
-      "→ Tu n'as pas identifié les buyer persona.",
-      "→ Tu parles le même langage à tous les prospects.",
-      "→ Tu reçois des profils non qualifiés.",
+      "→ Ils ne vous connaissent pas.",
+      "→ Vous n'avez pas défini votre ICP.",
+      "→ Vous parlez le même langage à tous vos prospects.",
+      "→ Vous recevez des profils non qualifiés.",
     ],
   },
   {
-    titre: "J'ai des prospects mais aucune vente.",
+    titre: "Vous essayez des outils, vous dépensez votre argent mais rien ne fonctionne.",
     points: [
-      "→ Tu laisses le prospect sans le maintenir engagé.",
-      "→ Il n'a pas confiance en toi avant l'appel.",
-      "→ Tu n'as aucun système de nurturing.",
+      "→ Le problème ce n'est pas votre offre.",
+      "→ Vous n'avez pas les bonnes méthodes.",
+      "→ Vous n'avez aucun système de nurturing.",
+      "→ Vos prospects n'ont pas confiance avant l'appel.",
     ],
   },
   {
-    titre: "Tu te sens dépassé et tu perds ton temps à prospecter.",
+    titre: "Vous avez déjà essayé la publicité mais vous n'avez obtenu aucun résultat.",
     points: [
       "→ La publicité est le seul canal qui génère des prospects immédiatement.",
-      "→ On t'a dit que la publicité c'était cher. Mais ça ne l'est moins que de perdre du temps.",
+      "→ On vous a dit que c'était cher. Mais pas autant que de perdre du temps.",
       "→ Avec la bonne stratégie, 500€/mois peuvent générer un ROI réel.",
     ],
   },
   {
-    titre: "Tu perds 60% de tes prospects par manque de structure et de suivi.",
+    titre: "Vous perdez 60% de vos prospects par manque de structure et de suivi.",
     points: [
-      "→ Tu n'enregistres pas tes appels de closing.",
-      "→ Tu n'as aucun suivi d'appels.",
-      "→ Tu ne relances pas tes prospects.",
+      "→ Vous n'enregistrez pas vos appels de closing.",
+      "→ Vous n'avez aucun suivi d'appels.",
+      "→ Vous ne relancez pas vos prospects.",
     ],
   },
 ];
