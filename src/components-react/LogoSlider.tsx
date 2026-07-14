@@ -10,29 +10,32 @@ const logos = [
   { src: "/logos/cyclopro.webp", alt: "CycloPro", width: 120 },
 ];
 
-export const LogoSlider = () => {
-  const repeated = [...logos, ...logos, ...logos];
+const GAP = 60;
 
-  return (
-    <div className="w-full py-8 border-y border-slate-200/60 bg-[#f5f4f0]">
-      <p className="text-center text-xs font-bold uppercase tracking-widest text-foreground mb-6">
-        Ils nous font confiance
-      </p>
-      <div className="relative max-w-5xl mx-auto overflow-hidden">
-        <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#f5f4f0] to-transparent z-10" />
-        <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#f5f4f0] to-transparent z-10" />
-        <div className="flex gap-10 items-center animate-marquee whitespace-nowrap">
-          {repeated.map((logo, i) => (
-            <img
-              key={i}
-              src={logo.src}
-              alt={logo.alt}
-              width={logo.width}
-              className="h-10 object-contain opacity-90 hover:opacity-100 transition-all duration-300 flex-shrink-0"
-            />
-          ))}
-        </div>
+export const LogoSlider = () => (
+  <div className="w-full py-8 border-y border-slate-200/60 bg-[#f5f4f0]">
+    <p className="text-center text-xs font-bold uppercase tracking-widest text-foreground mb-6">
+      Ils nous font confiance
+    </p>
+    <div style={{ position: 'relative', overflow: 'hidden' }}>
+      <div style={{ position: 'absolute', inset: 0, left: 0, width: '80px', background: 'linear-gradient(to right, #f5f4f0, transparent)', zIndex: 10 }} />
+      <div style={{ position: 'absolute', inset: 0, right: 0, left: 'auto', width: '80px', background: 'linear-gradient(to left, #f5f4f0, transparent)', zIndex: 10 }} />
+      <div style={{ display: 'flex', alignItems: 'center', animation: 'logoScroll 20s linear infinite', width: 'max-content' }}>
+        {[...logos, ...logos].map((logo, i) => (
+          <img
+            key={i}
+            src={logo.src}
+            alt={logo.alt}
+            style={{ height: '40px', width: `${logo.width}px`, objectFit: 'contain', opacity: 0.9, flexShrink: 0, marginRight: `${GAP}px` }}
+          />
+        ))}
       </div>
     </div>
-  );
-};
+    <style>{`
+      @keyframes logoScroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+    `}</style>
+  </div>
+);
