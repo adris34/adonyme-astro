@@ -30,7 +30,7 @@ const Hero = () => (
 </span>
         </h1>
         <p style={{ fontSize: '1.1rem', color: '#475569', lineHeight: 1.6, marginBottom: '2rem' }}>
-          Nous avons prouvé dans +20 secteurs que la publicité est le levier le plus rentable pour générer des prospects en BtoB.
+          Pendant que vous perdez du temps à prospecter à froid, nous prouvons chaque jour dans +20 secteurs que la publicité est le levier le plus rentable pour générer des prospects en BtoB.
         </p>
         <a href="https://cal.com/source-to-scale/decouverte" target="_blank" rel="noopener noreferrer" style={{
           display: 'inline-block',
