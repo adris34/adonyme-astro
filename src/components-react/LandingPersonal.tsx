@@ -178,7 +178,7 @@ const VideoProof = () => (
       </div>
       <div style={{ borderRadius: '20px', overflow: 'hidden', boxShadow: '0 8px 40px rgba(0,0,0,0.12)', position: 'relative', paddingTop: '56.25%' }}>
         <iframe
-          src="https://www.youtube.com/embed/Big0YUW1428"
+          src="https://www.youtube.com/embed/cb4NuQV8KRQ"
           title="Étude de cas client"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
