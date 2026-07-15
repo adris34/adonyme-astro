@@ -80,7 +80,7 @@ const problemes = [
   {
     titre: "Vous essayez des outils, vous dépensez votre argent mais rien ne fonctionne.",
     points: [
-      "→ Le problème ce n'est pas votre offre.",
+      "→ Le problème, ce n'est pas votre offre.",
       "→ Vous n'avez pas les bonnes méthodes.",
       "→ Vous n'avez aucun système de nurturing.",
       "→ Vos prospects n'ont pas confiance avant l'appel.",
@@ -90,7 +90,7 @@ const problemes = [
     titre: "Vous avez déjà essayé la publicité mais vous n'avez obtenu aucun résultat.",
     points: [
       "→ La publicité est le seul canal qui génère des prospects immédiatement.",
-      "→ On vous a dit que c'était cher. Mais pas autant que de perdre du temps.",
+      "→ On vous a dit que c'était cher. Mais ça coûte moins cher que de perdre du temps.",
       "→ Avec la bonne stratégie, 500€/mois peuvent générer un ROI réel.",
     ],
   },
@@ -165,7 +165,7 @@ const VideoProof = () => (
         marginBottom: '0.25rem',
         textAlign: 'center',
       }}>
-        Extraits étude de cas <span style={{ backgroundColor: '#a3e635', padding: '0 0.3em' }}>+2000 RDV en 10 mois</span>
+        Extrait d'une étude de cas <span style={{ backgroundColor: '#a3e635', padding: '0 0.3em' }}>+2000 RDV en 10 mois</span>
       </h2>
       <p style={{ fontSize: '1.1rem', color: '#475569', fontWeight: 400, fontStyle: 'italic', lineHeight: 1.6, textAlign: 'center', margin: '0 0 1.5rem' }}>
         (Vu dans QVEMA saison 4 - La publicité a fait exploser leur business)
