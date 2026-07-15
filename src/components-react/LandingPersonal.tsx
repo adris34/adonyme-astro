@@ -179,7 +179,7 @@ const VideoProof = () => (
         Extrait de notre stratégie à <span style={{ backgroundColor: '#a3e635', padding: '0 0.3em' }}>+2000 RDV en 10 mois</span>
       </h2>
       <p style={{ fontSize: '1.1rem', color: '#475569', fontWeight: 400, fontStyle: 'italic', lineHeight: 1.6, textAlign: 'center', margin: '0 0 1.5rem' }}>
-        (Vu dans QVEMA saison 4 - La publicité a fait exploser leur business)
+        (EMS QVEMA saison 4 - La publicité a fait exploser leur business)
       </p>
       <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
         <svg width="40" height="100" viewBox="0 0 40 100" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ display: 'inline-block' }}>
