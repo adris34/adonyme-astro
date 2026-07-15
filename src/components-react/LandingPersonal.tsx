@@ -675,8 +675,8 @@ const ResultatsClients = () => (
         Ce que nos clients obtiennent
       </h2>
     </div>
-    <div style={{ overflowX: 'auto', paddingBottom: '1rem', cursor: 'grab' }}>
-      <div style={{ display: 'flex', gap: '1.5rem', padding: '0 2rem', width: 'max-content' }}>
+    <div style={{ display: 'flex', justifyContent: 'center', overflowX: 'auto', paddingBottom: '1rem', cursor: 'grab' }}>
+      <div style={{ display: 'flex', gap: '1.5rem', padding: '0 2rem', flexWrap: 'nowrap' }}>
         {resultats.map((r, i) => (
           <div key={i} style={{ width: '300px', backgroundColor: '#fff', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 4px 24px rgba(0,0,0,0.07)', flexShrink: 0 }}>
             {/* Image placeholder */}
