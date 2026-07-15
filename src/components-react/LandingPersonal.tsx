@@ -6,16 +6,16 @@ import { LogoSlider } from "./LogoSlider";
 
 /* ─── SECTION 1 — HERO ─────────────────────────────────────── */
 const Hero = () => (
-  <section className="hero-section" style={{ backgroundColor: '#f5f4f0', padding: '5rem 6rem' }}>
-    <div className="hero-grid" style={{ maxWidth: '1100px', margin: '0 auto', display: 'grid', gridTemplateColumns: '55% 45%', gap: '5rem', alignItems: 'flex-start' }}>
+  <section className="hero-section" style={{ backgroundColor: '#f5f4f0', padding: '6rem 4rem' }}>
+    <div className="hero-grid" style={{ maxWidth: '1300px', margin: '0 auto', display: 'grid', gridTemplateColumns: '58% 42%', gap: '3rem', alignItems: 'center' }}>
 
       {/* GAUCHE — texte */}
-      <div style={{ paddingTop: '3rem' }}>
+      <div style={{ paddingTop: '1rem' }}>
         <h1 style={{
           fontFamily: "'Anton', sans-serif",
-          fontSize: 'clamp(1.6rem, 2.2vw, 2.8rem)',
+          fontSize: 'clamp(2rem, 3.8vw, 4.2rem)',
           fontWeight: 400,
-          lineHeight: 1.2,
+          lineHeight: 1.1,
           textTransform: 'uppercase',
           color: '#0a0a0a',
           marginBottom: '1.5rem',
