@@ -642,11 +642,73 @@ const Navbar = () => {
   );
 };
 
+const resultats = [
+  {
+    tag: 'NDA — Secteur BtoB',
+    stats: [{ val: '229', label: 'prospects générés' }, { val: '4,75€', label: 'par prospect' }, { val: '531', label: 'clics qualifiés' }],
+    desc: 'Campagne Meta Ads — génération de leads formulaire.',
+  },
+  {
+    tag: 'NDA — Formation',
+    stats: [{ val: '61', label: 'prospects générés' }, { val: '5,14€', label: 'par prospect' }, { val: '214', label: 'clics' }],
+    desc: 'Campagne Meta Ads — audience froide retargetée.',
+  },
+  {
+    tag: 'NDA — Services',
+    stats: [{ val: '159', label: 'prospects générés' }, { val: '5,90€', label: 'par prospect' }, { val: '2603', label: 'clics' }],
+    desc: 'Campagne Google Ads — leads formulaire qualifiés.',
+  },
+  {
+    tag: 'NDA — Immobilier',
+    stats: [{ val: '100', label: 'prospects générés' }, { val: '10,47€', label: 'par prospect' }, { val: '636', label: 'clics' }],
+    desc: 'Campagne Meta Ads — marché concurrentiel.',
+  },
+];
+
+const ResultatsClients = () => (
+  <section style={{ backgroundColor: '#f5f4f0', padding: '5rem 0' }}>
+    <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 2rem' }}>
+      <p style={{ fontSize: '0.85rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.15em', color: '#64748b', marginBottom: '0.75rem' }}>
+        Résultats clients
+      </p>
+      <h2 style={{ fontFamily: "'Anton', sans-serif", fontSize: 'clamp(1.6rem, 2.2vw, 2.8rem)', fontWeight: 400, textTransform: 'uppercase', color: '#0a0a0a', marginBottom: '2.5rem', lineHeight: 1.2 }}>
+        Ce que nos clients obtiennent
+      </h2>
+    </div>
+    <div style={{ overflowX: 'auto', paddingBottom: '1rem', cursor: 'grab' }}>
+      <div style={{ display: 'flex', gap: '1.5rem', padding: '0 2rem', width: 'max-content' }}>
+        {resultats.map((r, i) => (
+          <div key={i} style={{ width: '300px', backgroundColor: '#fff', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 4px 24px rgba(0,0,0,0.07)', flexShrink: 0 }}>
+            {/* Image placeholder */}
+            <div style={{ width: '100%', height: '180px', backgroundColor: '#e8f5d0', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <span style={{ fontSize: '0.8rem', color: '#64748b', fontWeight: 600 }}>📊 Dashboard pub</span>
+            </div>
+            {/* Contenu */}
+            <div style={{ padding: '1.5rem' }}>
+              <p style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#64748b', marginBottom: '1rem' }}>{r.tag}</p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', marginBottom: '1rem' }}>
+                {r.stats.map((s, j) => (
+                  <div key={j} style={{ display: 'flex', alignItems: 'baseline', gap: '0.5rem' }}>
+                    <span style={{ fontWeight: 900, fontSize: '1.3rem', color: '#0a0a0a' }}>{s.val}</span>
+                    <span style={{ fontSize: '0.85rem', color: '#64748b' }}>{s.label}</span>
+                  </div>
+                ))}
+              </div>
+              <p style={{ fontSize: '0.85rem', color: '#94a3b8', fontStyle: 'italic', lineHeight: 1.5 }}>{r.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
 export const LandingPersonal = () => (
   <main>
     <Navbar />
     <Hero />
     <LogoSlider />
+    <ResultatsClients />
     <VideoProof />
     <Probleme />
     <SecteurSlider />
