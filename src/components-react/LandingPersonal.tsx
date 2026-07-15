@@ -13,7 +13,7 @@ const Hero = () => (
       <div style={{ paddingTop: '1rem' }}>
         <h1 style={{
           fontFamily: "'Anton', sans-serif",
-          fontSize: 'clamp(2rem, 3.8vw, 4.2rem)',
+          fontSize: 'clamp(1.8rem, 2.8vw, 3.2rem)',
           fontWeight: 400,
           lineHeight: 1.1,
           textTransform: 'uppercase',
