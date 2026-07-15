@@ -684,8 +684,8 @@ const ResultatsClients = () => (
         {resultats.map((r, i) => (
           <div key={i} style={{ width: '300px', backgroundColor: '#fff', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 4px 24px rgba(0,0,0,0.07)', flexShrink: 0 }}>
             {/* Image */}
-            <div style={{ width: '100%', height: '180px', overflow: 'hidden' }}>
-              <img src={r.img} alt={r.tag} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
+            <div style={{ width: '100%', height: '260px', overflow: 'hidden' }}>
+              <img src={r.img} alt={r.tag} style={{ width: '100%', height: 'auto', display: 'block' }} />
             </div>
             {/* Contenu */}
             <div style={{ padding: '1.5rem' }}>
