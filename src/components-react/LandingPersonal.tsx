@@ -6,7 +6,18 @@ import { LogoSlider } from "./LogoSlider";
 
 /* ─── SECTION 1 — HERO ─────────────────────────────────────── */
 const Hero = () => (
-  <section className="hero-section" style={{ backgroundColor: '#f5f4f0', padding: '6rem 4rem' }}>
+  <section className="hero-section" style={{
+    backgroundColor: '#f5f4f0',
+    padding: '6rem 4rem',
+    position: 'relative',
+    overflow: 'hidden',
+    backgroundImage: 'linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px)',
+    backgroundSize: '40px 40px',
+  }}>
+    {/* Orb vert lime haut-gauche */}
+    <div style={{ position: 'absolute', top: '-10%', left: '-8%', width: '500px', height: '500px', borderRadius: '50%', background: '#a3e635', opacity: 0.12, filter: 'blur(90px)', pointerEvents: 'none' }} />
+    {/* Orb vert lime bas-droite */}
+    <div style={{ position: 'absolute', bottom: '-15%', right: '-5%', width: '400px', height: '400px', borderRadius: '50%', background: '#a3e635', opacity: 0.08, filter: 'blur(80px)', pointerEvents: 'none' }} />
     <div className="hero-grid" style={{ maxWidth: '1300px', margin: '0 auto', display: 'grid', gridTemplateColumns: '58% 42%', gap: '3rem', alignItems: 'center' }}>
 
       {/* GAUCHE — texte */}
