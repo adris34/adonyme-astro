@@ -179,7 +179,7 @@ const VideoProof = () => (
         Extrait de notre stratégie <span style={{ backgroundColor: '#a3e635', padding: '0 0.3em' }}>+2000 RDV en 10 mois</span>
       </h2>
       <p style={{ fontSize: '1.1rem', color: '#475569', fontWeight: 400, fontStyle: 'italic', lineHeight: 1.6, textAlign: 'center', margin: '0 0 1.5rem' }}>
-        (EMS QVEMA saison 4 - La publicité a fait exploser leur business)
+        (<span style={{ position: 'relative', display: 'inline-block' }}>EMS QVEMA saison 4<svg viewBox="0 0 260 18" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ position: 'absolute', bottom: '-4px', left: '-4px', width: 'calc(100% + 8px)', height: '10px', overflow: 'visible' }}><path d="M4,10 Q65,2 130,9 Q195,16 256,8" stroke="#a3e635" strokeWidth="4" fill="none" strokeLinecap="round"/></svg></span> - La publicité a fait exploser leur business)
       </p>
       <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
         <svg width="40" height="100" viewBox="0 0 40 100" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ display: 'inline-block' }}>
