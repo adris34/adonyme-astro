@@ -176,7 +176,7 @@ const VideoProof = () => (
         marginBottom: '0.25rem',
         textAlign: 'center',
       }}>
-        Extrait de notre stratégie à <span style={{ backgroundColor: '#a3e635', padding: '0 0.3em' }}>+2000 RDV en 10 mois</span>
+        Extrait de notre stratégie <span style={{ backgroundColor: '#a3e635', padding: '0 0.3em' }}>+2000 RDV en 10 mois</span>
       </h2>
       <p style={{ fontSize: '1.1rem', color: '#475569', fontWeight: 400, fontStyle: 'italic', lineHeight: 1.6, textAlign: 'center', margin: '0 0 1.5rem' }}>
         (EMS QVEMA saison 4 - La publicité a fait exploser leur business)
