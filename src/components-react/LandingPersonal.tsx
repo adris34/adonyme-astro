@@ -70,11 +70,11 @@ const Hero = () => (
 /* ─── SECTION 2 — LE PROBLÈME ──────────────────────────────── */
 const problemes = [
   {
-    titre: "Vous achetez des listes non qualifiées et vous contactez des centaines de personnes sans résultat.",
+    titre: "Vous contactez des centaines de prospects sans résultat.",
     points: [
       "→ Ils ne vous connaissent pas.",
       "→ Vous parlez le même langage à tous vos prospects.",
-      "→ Vous recevez des profils non qualifiés.",
+      "→ Vous essayez de vendre sans qualifier vos prospects.",
     ],
   },
   {
