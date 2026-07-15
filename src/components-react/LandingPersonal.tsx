@@ -644,21 +644,25 @@ const Navbar = () => {
 
 const resultats = [
   {
+    img: '/resultats-1.png',
     tag: 'NDA — Secteur BtoB',
     stats: [{ val: '229', label: 'prospects générés' }, { val: '4,75€', label: 'par prospect' }, { val: '531', label: 'clics qualifiés' }],
     desc: 'Campagne Meta Ads — génération de leads formulaire.',
   },
   {
+    img: '/resultats-2.png',
     tag: 'NDA — Formation',
     stats: [{ val: '61', label: 'prospects générés' }, { val: '5,14€', label: 'par prospect' }, { val: '214', label: 'clics' }],
     desc: 'Campagne Meta Ads — audience froide retargetée.',
   },
   {
+    img: '/resultats-3.png',
     tag: 'NDA — Services',
     stats: [{ val: '159', label: 'prospects générés' }, { val: '5,90€', label: 'par prospect' }, { val: '2603', label: 'clics' }],
     desc: 'Campagne Google Ads — leads formulaire qualifiés.',
   },
   {
+    img: '/resultats-4.png',
     tag: 'NDA — Immobilier',
     stats: [{ val: '100', label: 'prospects générés' }, { val: '10,47€', label: 'par prospect' }, { val: '636', label: 'clics' }],
     desc: 'Campagne Meta Ads — marché concurrentiel.',
@@ -679,9 +683,9 @@ const ResultatsClients = () => (
       <div style={{ display: 'flex', gap: '1.5rem', padding: '0 2rem', flexWrap: 'nowrap' }}>
         {resultats.map((r, i) => (
           <div key={i} style={{ width: '300px', backgroundColor: '#fff', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 4px 24px rgba(0,0,0,0.07)', flexShrink: 0 }}>
-            {/* Image placeholder */}
-            <div style={{ width: '100%', height: '180px', backgroundColor: '#e8f5d0', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <span style={{ fontSize: '0.8rem', color: '#64748b', fontWeight: 600 }}>📊 Dashboard pub</span>
+            {/* Image */}
+            <div style={{ width: '100%', height: '180px', overflow: 'hidden' }}>
+              <img src={r.img} alt={r.tag} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
             </div>
             {/* Contenu */}
             <div style={{ padding: '1.5rem' }}>
