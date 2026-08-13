@@ -1,38 +1,508 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { LandingPersonal } from '../components-react/LandingPersonal';
 ---
 
-<Layout>
+<Layout title="Adonyme — L'Agence des Leads pour les PME/TPE" description="On génère des leads prêts à signer pour les PME/TPE. Base de données, traitement de leads, acquisition multicanal.">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet" />
-  <style>
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8rem;
-      align-items: flex-start;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .hero-badge {
-      position: absolute;
-      bottom: 2rem;
-      left: -2.5rem;
-    }
-    @media (max-width: 768px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-      .hero-badge {
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: -2.5rem;
-        width: 80%;
-        text-align: center;
-      }
-    }
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style is:global>
+    @keyframes logoScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .logo-track { animation: logoScroll 25s linear infinite; }
+    @keyframes cardScroll { 0% { transform: translateY(0); } 100% { transform: translateY(-50%); } }
+    .card-track { animation: cardScroll 18s linear infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.75); } }
+    .dot-pulse { width: 8px; height: 8px; border-radius: 50%; background: #a3e635; display: inline-block; flex-shrink: 0; animation: pulse 2s ease-in-out infinite; }
+    .dot-pulse:nth-child(1) { animation-delay: 0s; }
   </style>
-  <LandingPersonal client:load />
+  <div id="app-root"></div>
+  <script type="module">
+    import { createElement as h, useState } from 'https://esm.sh/react@18';
+    import { createRoot } from 'https://esm.sh/react-dom@18/client';
+
+    const SECTEURS = [
+      { label: 'Recouvrement', emoji: '⚖️' },
+      { label: 'Immobilier', emoji: '🏠' },
+      { label: 'Assurance', emoji: '🛡️' },
+      { label: 'BTP', emoji: '🏗️' },
+      { label: 'Énergie', emoji: '⚡' },
+      { label: 'Biotech', emoji: '🧬' },
+      { label: 'Recrutement', emoji: '👥' },
+      { label: 'Autre secteur', emoji: '+' },
+    ];
+
+    const STEPS = ['Secteur', 'Projet', 'Profil', 'Estimation'];
+
+    function Simulator() {
+      const [step, setStep] = useState(0);
+      const [secteur, setSecteur] = useState(null);
+      const [budget, setBudget] = useState('');
+      const [prenom, setPrenom] = useState('');
+      const [email, setEmail] = useState('');
+
+      const selectSecteur = (s) => {
+        setSecteur(s);
+        setStep(1);
+      };
+
+      return h('div', { style: { background: '#fff', borderRadius: '16px', padding: '2rem', boxShadow: '0 4px 40px rgba(0,0,0,0.10)', maxWidth: '480px', width: '100%' } },
+        h('h2', { style: { fontSize: '1.4rem', fontWeight: 800, marginBottom: '0.25rem' } },
+          'Simulez votre ', h('span', { style: { color: '#a3e635', fontStyle: 'italic' } }, 'coût par lead')
+        ),
+        h('p', { style: { color: '#64748b', fontSize: '0.9rem', marginBottom: '1.5rem' } },
+          '30 secondes. Recevez une estimation chiffrée pour votre activité.'
+        ),
+        h('div', { style: { display: 'flex', gap: '0.5rem', marginBottom: '1.5rem', alignItems: 'center' } },
+          STEPS.map((s, i) =>
+            h('div', { key: s, style: { display: 'flex', alignItems: 'center', gap: '0.4rem', flex: 1 } },
+              h('div', { style: {
+                width: '28px', height: '28px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                background: i === step ? '#0a0a0a' : i < step ? '#a3e635' : '#e2e8f0',
+                color: i === step ? '#fff' : i < step ? '#0a0a0a' : '#94a3b8',
+                fontWeight: 700, fontSize: '0.8rem', flexShrink: 0
+              } }, i + 1),
+              h('span', { style: { fontSize: '0.75rem', color: i === step ? '#0a0a0a' : '#94a3b8', fontWeight: i === step ? 700 : 400 } }, s),
+              i < STEPS.length - 1 && h('div', { style: { flex: 1, height: '1px', background: '#e2e8f0' } })
+            )
+          )
+        ),
+        step === 0 && h('div', null,
+          h('h3', { style: { fontWeight: 700, marginBottom: '0.25rem' } }, 'Quel est votre secteur ?'),
+          h('p', { style: { color: '#64748b', fontSize: '0.85rem', marginBottom: '1rem' } }, 'Chaque secteur a ses enchères et ses coûts.'),
+          h('div', { style: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' } },
+            SECTEURS.map(s =>
+              h('button', {
+                key: s.label,
+                onClick: () => selectSecteur(s.label),
+                style: {
+                  padding: '0.85rem', borderRadius: '10px', border: '1.5px solid #e2e8f0',
+                  background: '#f8fafc', cursor: 'pointer', fontWeight: 600, fontSize: '0.85rem',
+                  display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.3rem',
+                  transition: 'border-color 0.15s', fontFamily: "'Inter', sans-serif",
+                }
+              },
+                h('span', { style: { fontSize: '1.4rem' } }, s.emoji),
+                s.label
+              )
+            )
+          )
+        ),
+        step === 1 && h('div', null,
+          h('h3', { style: { fontWeight: 700, marginBottom: '1rem' } }, 'Quel est votre budget mensuel ?'),
+          h('div', { style: { display: 'flex', flexDirection: 'column', gap: '0.75rem' } },
+            ['Moins de 1 000€', '1 000€ – 3 000€', '3 000€ – 5 000€', 'Plus de 5 000€'].map(b =>
+              h('button', {
+                key: b,
+                onClick: () => { setBudget(b); setStep(2); },
+                style: {
+                  padding: '0.9rem 1rem', borderRadius: '10px', border: '1.5px solid #e2e8f0',
+                  background: '#f8fafc', cursor: 'pointer', fontWeight: 600, fontSize: '0.9rem',
+                  textAlign: 'left', transition: 'border-color 0.15s', fontFamily: "'Inter', sans-serif",
+                }
+              }, b)
+            )
+          )
+        ),
+        step === 2 && h('div', null,
+          h('h3', { style: { fontWeight: 700, marginBottom: '1rem' } }, 'Vos coordonnées'),
+          h('input', {
+            placeholder: 'Votre prénom',
+            value: prenom,
+            onInput: (e) => setPrenom(e.target.value),
+            style: { width: '100%', padding: '0.8rem', borderRadius: '8px', border: '1.5px solid #e2e8f0', marginBottom: '0.75rem', fontSize: '0.9rem', boxSizing: 'border-box', fontFamily: "'Inter', sans-serif" }
+          }),
+          h('input', {
+            placeholder: 'Votre email',
+            value: email,
+            onInput: (e) => setEmail(e.target.value),
+            style: { width: '100%', padding: '0.8rem', borderRadius: '8px', border: '1.5px solid #e2e8f0', marginBottom: '1rem', fontSize: '0.9rem', boxSizing: 'border-box', fontFamily: "'Inter', sans-serif" }
+          }),
+          h('button', {
+            onClick: () => setStep(3),
+            style: { width: '100%', padding: '0.9rem', borderRadius: '10px', background: '#a3e635', border: 'none', cursor: 'pointer', fontWeight: 700, fontSize: '1rem', fontFamily: "'Inter', sans-serif" }
+          }, 'Voir mon estimation →')
+        ),
+        step === 3 && h('div', { style: { textAlign: 'center' } },
+          h('div', { style: { fontSize: '3rem', marginBottom: '0.5rem' } }, '🎯'),
+          h('h3', { style: { fontWeight: 800, fontSize: '1.3rem', marginBottom: '0.5rem' } }, 'Votre estimation est prête !'),
+          h('p', { style: { color: '#64748b', marginBottom: '1.5rem' } },
+            `Secteur : ${secteur} · Budget : ${budget}`
+          ),
+          h('a', {
+            href: 'https://calendly.com/adonyme',
+            style: { display: 'block', padding: '0.9rem', borderRadius: '10px', background: '#0a0a0a', color: '#fff', fontWeight: 700, fontSize: '1rem', textDecoration: 'none', fontFamily: "'Inter', sans-serif" }
+          }, 'Réserver un appel stratégique →')
+        )
+      );
+    }
+
+    const PROJETS = [
+      { img: '/fulgurance-etude-de-cas.webp', label: 'ACQUISITION DIGITALE', headline: '+1000 leads à 7€ CPL', desc: 'Mise en place de toute la stratégie d\'acquisition meta, système complet de qualification et nurturing.', kpis: [{ v: '7€', l: 'CPL' }, { v: '+1000', l: 'Leads' }, { v: '135K€', l: 'CA généré' }] },
+      { img: '/cerfrance-etude-de-cas.webp', label: 'BASE DE DONNÉES', headline: '1 milliard de CA à travers 720 agences', desc: 'Comment nous avons segmenté et exploité la base de données du plus gros réseau d\'expertise comptable en France pour générer des leads chauds.', kpis: [{ v: '720', l: 'Agences' }, { v: '1 Mrd€', l: 'CA réseau' }] },
+      { img: '/gci-etude-de-cas.webp', label: 'AUTOMATISATION IA', headline: 'Répondre à plus de 200 appels d\'offres par jour', desc: 'Nous avons créé une plateforme sur-mesure complète, basée sur des signaux détectés par notre système automatisé, dédié aux marchés publics pour capturer des leads chauds.', kpis: [{ v: '200+', l: 'Appels/jour' }, { v: '100%', l: 'Automatisé' }] },
+      { img: '/abraham-etude-de-cas.webp', label: 'RECOUVREMENT', headline: '20 leads exclusifs', desc: 'Maîtrise de la publicité pour générer des leads exclusifs et se démarquer de toute concurrence dans le recouvrement de créances.', kpis: [{ v: '20', l: 'Leads excl.' }, { v: '0', l: 'Concurrents' }, { v: '17 ans', l: 'Expérience' }] },
+    ];
+
+    function TestimonialsCarousel() {
+      const scrollId = 'proj-scroll';
+      const scroll = function(dir) {
+        var el = document.getElementById(scrollId);
+        if (el) el.scrollBy({ left: dir * 320, behavior: 'smooth' });
+      };
+      const sep = { borderTop: '1px solid rgba(0,0,0,0.08)', margin: '0.6rem 0' };
+      const cards = PROJETS.map(function(p) {
+        const kpiItems = p.kpis.map(function(k) {
+          return h('div', { key: k.l },
+            h('p', { style: { fontSize: '1rem', fontWeight: 900, color: '#0a0a0a', margin: 0 } }, k.v),
+            h('p', { style: { fontSize: '0.58rem', color: '#94a3b8', margin: 0, textTransform: 'uppercase', letterSpacing: '0.08em' } }, k.l)
+          );
+        });
+        return h('div', { key: p.img, style: { flexShrink: 0, width: '300px', borderRadius: '14px', overflow: 'hidden', background: '#fff', border: '1px solid #e2e8f0', scrollSnapAlign: 'start', display: 'flex', flexDirection: 'column' } },
+          h('img', { src: p.img, alt: '', style: { width: '100%', height: '170px', objectFit: 'cover', objectPosition: 'center', display: 'block' } }),
+          h('div', { style: { padding: '1.2rem', display: 'flex', flexDirection: 'column', flex: 1 } },
+            h('p', { style: { fontSize: '0.58rem', fontWeight: 700, letterSpacing: '0.12em', color: '#84cc16', margin: '0 0 0.25rem' } }, p.label),
+            h('h3', { style: { fontSize: '1rem', fontWeight: 900, color: '#0a0a0a', lineHeight: 1.2, margin: '0 0 0.5rem' } }, p.headline),
+            h('p', { style: { fontSize: '0.78rem', color: '#475569', lineHeight: 1.5, margin: '0 0 0.5rem', flex: 1 } }, p.desc),
+            h('div', { style: sep }),
+            h.apply(null, ['div', { style: { display: 'flex', gap: '1.25rem' } }].concat(kpiItems))
+          )
+        );
+      });
+      return h('div', { style: { background: '#f8fafc', padding: '5rem 3rem' } },
+        h('div', { style: { maxWidth: '1200px', margin: '0 auto' } },
+          h('div', { style: { display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2.5rem' } },
+            h('span', { style: { fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.15em', color: '#0a0a0a', whiteSpace: 'nowrap' } }, 'Nos derniers projets ↗'),
+            h('div', { style: { flex: 1, height: '1px', background: '#e2e8f0' } })
+          ),
+          h('div', { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' } },
+            h('h2', { style: { fontSize: 'clamp(1.4rem, 2.2vw, 2rem)', fontWeight: 800, color: '#0a0a0a', lineHeight: 1.1, margin: 0 } }, 'Des solutions toujours adaptées à votre objectif'),
+            h('div', { style: { display: 'flex', alignItems: 'center', gap: '0.75rem', marginLeft: '2rem', flexShrink: 0 } },
+              h('button', { onClick: function() { scroll(-1); }, style: { width: '36px', height: '36px', borderRadius: '50%', border: '1px solid #e2e8f0', background: '#fff', cursor: 'pointer', fontSize: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center' } }, '←'),
+              h('button', { onClick: function() { scroll(1); }, style: { width: '36px', height: '36px', borderRadius: '50%', border: 'none', background: '#0a0a0a', cursor: 'pointer', fontSize: '1rem', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' } }, '→'),
+              h('a', { href: '/etude-de-cas', style: { fontSize: '0.8rem', fontWeight: 700, color: '#84cc16', textDecoration: 'none' } }, 'Voir tous →')
+            )
+          ),
+          h.apply(null, ['div', { id: scrollId, style: { display: 'flex', gap: '1.25rem', overflowX: 'auto', scrollSnapType: 'x mandatory', paddingBottom: '0.5rem', scrollbarWidth: 'none', msOverflowStyle: 'none' } }].concat(cards))
+        )
+      );
+    }
+
+    function Page() {
+      return h('div', { style: {
+        fontFamily: "'Inter', sans-serif",
+      }},
+        h('div', { style: { background: 'linear-gradient(120deg, #e2fce9 0%, #edfcd4 20%, #fefce8 45%, #dbeafe 70%, #ede9fe 100%)' } },
+        h('nav', { style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '1.25rem 3rem', borderBottom: '1px solid rgba(0,0,0,0.06)' } },
+          h('div', { style: { fontWeight: 900, fontSize: '1.1rem', letterSpacing: '-0.02em' } }, 'Agence Leads'),
+          h('div', { style: { display: 'flex', gap: '2rem', alignItems: 'center', fontSize: '0.9rem', fontWeight: 600 } },
+            h('a', { href: '#systeme', style: { color: '#0a0a0a', textDecoration: 'none' } }, 'Comment ça marche ?'),
+            h('a', { href: '/etude-de-cas', style: { color: '#0a0a0a', textDecoration: 'none' } }, 'Étude de cas'),
+            h('a', { href: '#simulateur', style: { color: '#0a0a0a', textDecoration: 'none' } }, 'Notre offre'),
+          ),
+          h('a', {
+            href: '#simulateur',
+            style: { background: '#a3e635', color: '#0a0a0a', padding: '0.6rem 1.2rem', borderRadius: '8px', fontWeight: 700, fontSize: '0.9rem', textDecoration: 'none' }
+          }, 'Simuler mon coût →')
+        ),
+        h('div', { style: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center', maxWidth: '1200px', margin: '0 auto', padding: '5rem 3rem' } },
+          h('div', null,
+            h('p', { style: { fontSize: '0.8rem', fontWeight: 700, letterSpacing: '0.08em', color: '#64748b', marginBottom: '1rem' } },
+              '+50 Entreprises accompagnées'
+            ),
+            h('h1', { style: { fontSize: 'clamp(2.2rem, 4vw, 3.5rem)', fontWeight: 700, lineHeight: 1.05, marginBottom: '1.5rem', color: '#0a0a0a' } },
+              'On génère des',
+              h('br'),
+              h('span', { style: { color: '#a3e635', fontStyle: 'italic' } }, 'leads prêts à signer'),
+              h('br'),
+              'En marque blanche'
+            ),
+            h('p', { style: { fontSize: '1rem', color: '#475569', lineHeight: 1.6, marginBottom: '2rem' } },
+              'Notre objectif est de vous offrir un service de génération de leads entièrement adapté à votre offre, presque comme si vous l\'aviez internalisé.'
+            ),
+            h('div', { style: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem', marginBottom: '2rem' } },
+              [
+                ['Base de données enrichie', '0s'],
+                ['Acquisition multicanal', '0.5s'],
+                ['Qualification selon vos critères', '1s'],
+                ['Accompagnement', '1.5s'],
+              ].map(([item, delay]) =>
+                h('div', { key: item, style: { display: 'flex', alignItems: 'center', gap: '0.6rem', fontSize: '0.9rem', fontWeight: 600 } },
+                  h('span', { className: 'dot-pulse', style: { animationDelay: delay } }),
+                  item
+                )
+              )
+            ),
+          ),
+          h('div', { style: { width: '100%', maxWidth: '440px', marginLeft: 'auto', height: '480px', overflow: 'hidden', position: 'relative', maskImage: 'linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)' } },
+            h('div', { className: 'card-track', style: { display: 'flex', flexDirection: 'column', gap: '1rem' } },
+              ...[
+                { img: '/fulgurance-etude-de-cas.webp', secteur: 'Recouvrement', fields: [{ l: 'Créances', v: '+120 000€' }, { l: 'Ancienneté', v: '18 mois' }, { l: 'Statut', v: 'Entreprise' }, { l: 'Secteur', v: 'BTP' }], score: 94 },
+                { img: '/cerfrance-etude-de-cas.webp', secteur: 'Immobilier', fields: [{ l: 'Budget', v: '330 000€' }, { l: 'Type', v: 'Appartement' }, { l: 'Statut', v: 'Locataire' }, { l: 'Âge', v: '39 ans' }], score: 98 },
+                { img: '/gci-etude-de-cas.webp', secteur: 'Assurance', fields: [{ l: 'Impôt/an', v: '+7 500€' }, { l: 'Capacité', v: '600€/mois' }, { l: 'Statut', v: 'Marié(e)' }, { l: 'Âge', v: '44 ans' }], score: 91 },
+                { img: '/abraham-etude-de-cas.webp', secteur: 'BTP', fields: [{ l: 'Projet', v: 'Extension' }, { l: 'Budget', v: '85 000€' }, { l: 'Délai', v: '3 mois' }, { l: 'Région', v: 'Île-de-France' }], score: 87 },
+                // duplicate for infinite loop
+                { img: '/fulgurance-etude-de-cas.webp', secteur: 'Recouvrement', fields: [{ l: 'Créances', v: '+120 000€' }, { l: 'Ancienneté', v: '18 mois' }, { l: 'Statut', v: 'Entreprise' }, { l: 'Secteur', v: 'BTP' }], score: 94 },
+                { img: '/cerfrance-etude-de-cas.webp', secteur: 'Immobilier', fields: [{ l: 'Budget', v: '330 000€' }, { l: 'Type', v: 'Appartement' }, { l: 'Statut', v: 'Locataire' }, { l: 'Âge', v: '39 ans' }], score: 98 },
+                { img: '/gci-etude-de-cas.webp', secteur: 'Assurance', fields: [{ l: 'Impôt/an', v: '+7 500€' }, { l: 'Capacité', v: '600€/mois' }, { l: 'Statut', v: 'Marié(e)' }, { l: 'Âge', v: '44 ans' }], score: 91 },
+                { img: '/abraham-etude-de-cas.webp', secteur: 'BTP', fields: [{ l: 'Projet', v: 'Extension' }, { l: 'Budget', v: '85 000€' }, { l: 'Délai', v: '3 mois' }, { l: 'Région', v: 'Île-de-France' }], score: 87 },
+              ].map((card, i) =>
+                h('div', { key: i, style: { background: '#fff', borderRadius: '16px', padding: '1.25rem', boxShadow: '0 2px 16px rgba(0,0,0,0.07)', border: '1px solid #f1f5f9' } },
+                  h('div', { style: { display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' } },
+                    h('img', { src: card.img, alt: '', style: { width: '44px', height: '44px', borderRadius: '50%', objectFit: 'cover', filter: 'blur(6px)', flexShrink: 0 } }),
+                    h('div', null,
+                      h('p', { style: { fontWeight: 700, fontSize: '0.95rem', color: '#0a0a0a', margin: 0 } }, 'Nouveau Lead'),
+                      h('p', { style: { fontSize: '0.8rem', color: '#64748b', margin: 0 } }, card.secteur)
+                    )
+                  ),
+                  h('div', { style: { display: 'flex', flexDirection: 'column' } },
+                    card.fields.map((f, fi) => h('div', { key: fi, style: { display: 'flex', justifyContent: 'space-between', padding: '0.5rem 0', borderBottom: fi < card.fields.length - 1 ? '1px solid #f1f5f9' : 'none', fontSize: '0.85rem' } },
+                      h('span', { style: { color: '#94a3b8' } }, f.l + ' :'),
+                      h('span', { style: { fontWeight: 600, color: '#0a0a0a' } }, f.v)
+                    ))
+                  ),
+                  h('div', { style: { display: 'flex', alignItems: 'center', gap: '0.75rem', marginTop: '0.75rem' } },
+                    h('span', { style: { fontSize: '0.8rem', color: '#94a3b8', flexShrink: 0 } }, 'Score ICP'),
+                    h('div', { style: { flex: 1, height: '4px', background: '#f1f5f9', borderRadius: '2px', overflow: 'hidden' } },
+                      h('div', { style: { width: `${card.score}%`, height: '100%', background: 'linear-gradient(90deg, #a3e635, #4ade80)', borderRadius: '2px' } })
+                    ),
+                    h('span', { style: { fontSize: '0.8rem', fontWeight: 700, color: '#0a0a0a', flexShrink: 0 } }, `${card.score}%`)
+                  )
+                )
+              )
+            )
+          )
+        ),
+          // Logo marquee — dans le dégradé hero
+          h('div', { style: { maxWidth: '1200px', margin: '0 auto', padding: '2rem 3rem 3rem' } },
+            h('div', { style: { overflow: 'hidden', position: 'relative' } },
+              h('div', { style: { position: 'absolute', top: 0, bottom: 0, left: 0, width: '4rem', background: 'linear-gradient(to right, rgba(226,252,233,0.8), transparent)', zIndex: 10 } }),
+              h('div', { style: { position: 'absolute', top: 0, bottom: 0, right: 0, width: '4rem', background: 'linear-gradient(to left, rgba(237,252,212,0.8), transparent)', zIndex: 10 } }),
+              h('div', { className: 'logo-track', style: { display: 'flex', gap: '4rem', alignItems: 'center', width: 'max-content' } },
+                ...[
+                  { src: '/logos/fulgurance-dark.svg', alt: 'Fulgurance', w: 140 },
+                  { src: '/logos/upreview-dark.svg', alt: 'upReview', w: 110 },
+                  { src: '/logos/effy.svg', alt: 'Effy', w: 80 },
+                  { src: '/logos/cerfrance.svg', alt: 'Cerfrance', w: 120 },
+                  { src: '/logos/jeep.png', alt: 'Jeep', w: 80 },
+                  { src: '/logos/renault.png', alt: 'Renault Group', w: 120 },
+                  { src: '/logos/cyclopro.webp', alt: 'CycloPro', w: 120 },
+                  { src: '/logos/fulgurance-dark.svg', alt: 'Fulgurance2', w: 140 },
+                  { src: '/logos/upreview-dark.svg', alt: 'upReview2', w: 110 },
+                  { src: '/logos/effy.svg', alt: 'Effy2', w: 80 },
+                  { src: '/logos/cerfrance.svg', alt: 'Cerfrance2', w: 120 },
+                  { src: '/logos/jeep.png', alt: 'Jeep2', w: 80 },
+                  { src: '/logos/renault.png', alt: 'Renault2', w: 120 },
+                  { src: '/logos/cyclopro.webp', alt: 'CycloPro2', w: 120 },
+                ].map(logo => h('img', { key: logo.alt, src: logo.src, alt: logo.alt, style: { height: '32px', width: `${logo.w}px`, objectFit: 'contain', flexShrink: 0 } }))
+              )
+            )
+          )
+        ), // close gradient div
+
+        // Section "Le Constat" — après logos
+        h('div', { style: { background: '#f8fafc', padding: '6rem 3rem' } },
+          h('div', { style: { maxWidth: '1100px', margin: '0 auto' } },
+            h('div', { style: { display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2.5rem' } },
+              h('span', { style: { fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.15em', color: '#64748b', whiteSpace: 'nowrap' } }, 'Le problème'),
+              h('div', { style: { flex: 1, height: '1px', background: '#e2e8f0' } })
+            ),
+            h('h2', { style: { fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', fontWeight: 700, lineHeight: 1.15, color: '#0a0a0a', marginBottom: '1.5rem' } },
+              '90% des entreprises investissent',
+              h('br'),
+              'dans des leads, sans aucun contrôle sur leurs profils'
+            ),
+            h('p', { style: { color: '#475569', fontSize: '1rem', lineHeight: 1.6, maxWidth: '600px', marginBottom: '2rem' } },
+              'Toutes les entreprises qui achètent des listes de prospects ont accès aux mêmes fichiers que leurs concurrents et cela représente trois problèmes majeurs'
+            ),
+            h('div', { style: { display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', borderTop: '1px solid #e2e8f0', marginTop: '1rem' } },
+              [
+                {
+                  num: '1',
+                  titre: 'Les prospects ne vous connaissent pas',
+                  desc: 'Ils font une demande de prise de contact, ils n\'ont jamais vu le nom de votre entreprise avant d\'être contactés, ils ne savent pas qui vous êtes. Par conséquent, vous avez besoin de les qualifier, rappeler plusieurs fois, avant de pouvoir les convertir.',
+                },
+                {
+                  num: '2',
+                  titre: 'Aucun choix de critères de qualification',
+                  desc: 'Vous contactez des prospects qui ne correspondent pas à vos critères. Vous ne pouvez pas agir sur le profil des prospects ni ajuster le flux du volume que vous recevez.',
+                },
+                {
+                  num: '3',
+                  titre: 'Le Retour sur investissement',
+                  desc: 'Vous devez compenser par le volume pour avoir des profils intéressants, ce qui signifie plus de dépenses, plus de temps nécessaire pour les traiter par vos commerciaux et une liste de relance qui explose.',
+                },
+              ].map((card, i) =>
+                h('div', { key: card.num, style: { padding: '2rem 2rem 2rem 0', borderRight: i < 2 ? '1px solid #e2e8f0' : 'none', paddingLeft: i > 0 ? '2rem' : '0' } },
+                  h('p', { style: { fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', color: '#84cc16', marginBottom: '0.75rem' } }, `PROBLÈME N° ${card.num}`),
+                  h('div', { style: { width: '2rem', height: '2px', background: '#a3e635', marginBottom: '1.25rem' } }),
+                  h('h3', { style: { fontWeight: 800, fontSize: '1.1rem', color: '#0a0a0a', marginBottom: '0.75rem', lineHeight: 1.3 } }, card.titre),
+                  h('p', { style: { color: '#475569', fontSize: '0.9rem', lineHeight: 1.6 } }, card.desc)
+                )
+              )
+            )
+          )
+        ),
+
+        h('div', { style: { background: '#fff', padding: '6rem 3rem' } },
+          h('div', { style: { maxWidth: '1100px', margin: '0 auto' } },
+            h('h2', { style: { textAlign: 'center', fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', fontWeight: 700, lineHeight: 1.15, marginBottom: '1rem', color: '#0a0a0a' } },
+              h('span', { style: { background: 'linear-gradient(120deg, #a3e635, #4ade80, #86efac)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' } }, 'Une stratégie'),
+              ' pensée pour',
+              h('br'),
+              'générer des leads selon vos critères',
+              h('br'),
+              h('span', { style: { background: 'linear-gradient(120deg, #a3e635, #4ade80, #86efac)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' } }, 'en marque blanche')
+            ),
+            h('p', { style: { textAlign: 'center', color: '#475569', maxWidth: '640px', margin: '0 auto 4rem', lineHeight: 1.7 } },
+              'Avant la production on revoit avec vous l\'exploitation de votre base de données, le process de traitement de leads, les canaux utilisés pour maximiser votre ROI.'
+            ),
+            h('div', { style: { position: 'relative' } },
+              h('div', { style: { position: 'absolute', left: '50%', top: 0, bottom: 0, width: '2px', background: 'linear-gradient(to bottom, #a3e635, #84cc16)', transform: 'translateX(-50%)', zIndex: 0 } }),
+              [
+                {
+                  num: '01',
+                  tag: 'BASE DE DONNÉES',
+                  title: 'Nettoyage et mise à jour',
+                  body: 'On défini votre ICP et on segmente votre base de données. On Enrichit les profils sur plusieurs niveaux selon leur profil pour maîtriser le budget et l\'allouer aux plus qualifiés.',
+                  points: ['Mise à jour Entreprises data gouv', 'Analyse du profil & Scoring', 'Enrichissement email & Linkedin', 'Signaux d\'achat & Numéro mobile pro'],
+                  side: 'left',
+                  illustration: h('div', { style: { position: 'relative' } },
+                    h('div', { style: { position: 'absolute', inset: '-2px', background: 'linear-gradient(135deg, #a3e635 0%, #4ade80 50%, #86efac 100%)', borderRadius: '12px', filter: 'blur(24px)', opacity: 0.35, zIndex: 0 } }),
+                    h('iframe', { src: '/enrich-v2.html', style: { position: 'relative', zIndex: 1, width: '100%', aspectRatio: '4/3', border: 'none', display: 'block', borderRadius: '8px' }, loading: 'lazy' })
+                  )
+                },
+                {
+                  num: '02',
+                  tag: 'MULTICANAL',
+                  title: 'Les prospects dormants',
+                  body: 'On vous aide à activer les prospects dormants dans votre CRM via plusieurs canaux, email, LinkedIn, vocal, WhatsApp, vocal mailing.',
+                  points: ['Nettoyage et mise à jour de votre base de données', 'Enrichissement', 'Nurturing en continu'],
+                  side: 'left', flip: true,
+                  illustration: h('div', { style: { position: 'relative' } },
+                    h('div', { style: { position: 'absolute', inset: '-2px', background: 'linear-gradient(135deg, #a3e635 0%, #4ade80 50%, #86efac 100%)', borderRadius: '12px', filter: 'blur(24px)', opacity: 0.35, zIndex: 0 } }),
+                    h('iframe', { src: '/crm-demo.html', style: { position: 'relative', zIndex: 1, width: '100%', aspectRatio: '4/3', border: 'none', display: 'block', borderRadius: '8px' }, loading: 'lazy' })
+                  )
+                },
+                {
+                  num: '03',
+                  tag: 'LIVRAISON',
+                  title: 'Des leads prêts à signer dans votre CRM',
+                  body: 'Chaque lead est qualifié, scoré et livré directement dans votre CRM. Vos commerciaux reçoivent uniquement des contacts qui ont manifesté un intérêt réel.',
+                  points: ['Qualification automatique par notre système', 'Score d\'intention avant livraison', 'Intégration directe dans votre CRM'],
+                  side: 'left',
+                  illustration: h('div', { style: { width: '100%', maxWidth: '440px', marginLeft: 'auto', height: '420px', overflow: 'hidden', position: 'relative', maskImage: 'linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 12%, black 88%, transparent 100%)' } },
+                    h('div', { className: 'card-track', style: { display: 'flex', flexDirection: 'column', gap: '1rem' } },
+                      ...[
+                        { img: '/fulgurance-etude-de-cas.webp', secteur: 'Recouvrement', fields: [{ l: 'Créances', v: '+120 000€' }, { l: 'Ancienneté', v: '18 mois' }, { l: 'Statut', v: 'Entreprise' }, { l: 'Secteur', v: 'BTP' }], score: 94 },
+                        { img: '/cerfrance-etude-de-cas.webp', secteur: 'Immobilier', fields: [{ l: 'Budget', v: '330 000€' }, { l: 'Type', v: 'Appartement' }, { l: 'Statut', v: 'Locataire' }, { l: 'Âge', v: '39 ans' }], score: 98 },
+                        { img: '/gci-etude-de-cas.webp', secteur: 'Assurance', fields: [{ l: 'Impôt/an', v: '+7 500€' }, { l: 'Capacité', v: '600€/mois' }, { l: 'Statut', v: 'Marié(e)' }, { l: 'Âge', v: '44 ans' }], score: 91 },
+                        { img: '/abraham-etude-de-cas.webp', secteur: 'BTP', fields: [{ l: 'Projet', v: 'Extension' }, { l: 'Budget', v: '85 000€' }, { l: 'Délai', v: '3 mois' }, { l: 'Région', v: 'Île-de-France' }], score: 87 },
+                        { img: '/fulgurance-etude-de-cas.webp', secteur: 'Recouvrement', fields: [{ l: 'Créances', v: '+120 000€' }, { l: 'Ancienneté', v: '18 mois' }, { l: 'Statut', v: 'Entreprise' }, { l: 'Secteur', v: 'BTP' }], score: 94 },
+                        { img: '/cerfrance-etude-de-cas.webp', secteur: 'Immobilier', fields: [{ l: 'Budget', v: '330 000€' }, { l: 'Type', v: 'Appartement' }, { l: 'Statut', v: 'Locataire' }, { l: 'Âge', v: '39 ans' }], score: 98 },
+                        { img: '/gci-etude-de-cas.webp', secteur: 'Assurance', fields: [{ l: 'Impôt/an', v: '+7 500€' }, { l: 'Capacité', v: '600€/mois' }, { l: 'Statut', v: 'Marié(e)' }, { l: 'Âge', v: '44 ans' }], score: 91 },
+                        { img: '/abraham-etude-de-cas.webp', secteur: 'BTP', fields: [{ l: 'Projet', v: 'Extension' }, { l: 'Budget', v: '85 000€' }, { l: 'Délai', v: '3 mois' }, { l: 'Région', v: 'Île-de-France' }], score: 87 },
+                      ].map((card, i) =>
+                        h('div', { key: i, style: { background: '#fff', borderRadius: '16px', padding: '1.25rem', boxShadow: '0 2px 16px rgba(0,0,0,0.07)', border: '1px solid #f1f5f9' } },
+                          h('div', { style: { display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' } },
+                            h('img', { src: card.img, alt: '', style: { width: '44px', height: '44px', borderRadius: '50%', objectFit: 'cover', filter: 'blur(6px)', flexShrink: 0 } }),
+                            h('div', null,
+                              h('p', { style: { fontWeight: 700, fontSize: '0.95rem', color: '#0a0a0a', margin: 0 } }, 'Nouveau Lead'),
+                              h('p', { style: { fontSize: '0.8rem', color: '#64748b', margin: 0 } }, card.secteur)
+                            )
+                          ),
+                          h('div', { style: { display: 'flex', flexDirection: 'column' } },
+                            card.fields.map((f, fi) => h('div', { key: fi, style: { display: 'flex', justifyContent: 'space-between', padding: '0.5rem 0', borderBottom: fi < card.fields.length - 1 ? '1px solid #f1f5f9' : 'none', fontSize: '0.85rem' } },
+                              h('span', { style: { color: '#94a3b8' } }, f.l + ' :'),
+                              h('span', { style: { fontWeight: 600, color: '#0a0a0a' } }, f.v)
+                            ))
+                          ),
+                          h('div', { style: { display: 'flex', alignItems: 'center', gap: '0.75rem', marginTop: '0.75rem' } },
+                            h('span', { style: { fontSize: '0.8rem', color: '#94a3b8', flexShrink: 0 } }, 'Score ICP'),
+                            h('div', { style: { flex: 1, height: '4px', background: '#f1f5f9', borderRadius: '2px', overflow: 'hidden' } },
+                              h('div', { style: { width: `${card.score}%`, height: '100%', background: 'linear-gradient(90deg, #a3e635, #4ade80)', borderRadius: '2px' } })
+                            ),
+                            h('span', { style: { fontSize: '0.8rem', fontWeight: 700, color: '#0a0a0a', flexShrink: 0 } }, `${card.score}%`)
+                          )
+                        )
+                      )
+                    )
+                  )
+                }
+              ].map((step, i) =>
+                h('div', { key: step.num, style: { display: 'grid', gridTemplateColumns: '1fr 80px 1fr', gap: '2rem', alignItems: 'center', marginBottom: i < 2 ? '5rem' : 0 } },
+                  step.flip
+                    ? h('div', null,
+                        h('p', { style: { fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.1em', color: '#a3e635', marginBottom: '0.5rem' } }, step.tag),
+                        h('h3', { style: { fontWeight: 700, fontSize: '1.3rem', marginBottom: '0.75rem', color: '#0a0a0a' } }, step.title),
+                        h('p', { style: { color: '#475569', lineHeight: 1.6, marginBottom: '1rem' } }, step.body),
+                        h('div', { style: { display: 'flex', flexDirection: 'column' } },
+                          step.points.map(function(p, i) { return h('div', { key: p, style: { display: 'flex', gap: '0.75rem', alignItems: 'center', fontSize: '0.875rem', padding: '0.75rem 0', borderBottom: i < step.points.length - 1 ? '1px solid #e2e8f0' : 'none' } },
+                            h('span', { style: { color: '#a3e635', fontWeight: 900, flexShrink: 0, fontSize: '0.6rem' } }, '●'),
+                            h('span', { style: { color: '#0a0a0a' } }, p)
+                          ); })
+                        )
+                      )
+                    : step.side === 'left'
+                      ? h('div', null, step.illustration)
+                      : h('div', null),
+                  h('div', { style: { display: 'flex', flexDirection: 'column', alignItems: 'center', zIndex: 1 } },
+                    h('div', { style: { width: '48px', height: '48px', borderRadius: '50%', background: '#a3e635', border: '4px solid #faf9f6', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 900, fontSize: '0.85rem', color: '#0a0a0a' } }, step.num)
+                  ),
+                  step.flip
+                    ? h('div', null, step.illustration)
+                    : step.side === 'right'
+                    ? h('div', null,
+                        h('p', { style: { fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.1em', color: '#a3e635', marginBottom: '0.5rem' } }, step.tag),
+                        h('h3', { style: { fontWeight: 700, fontSize: '1.3rem', marginBottom: '0.75rem', color: '#0a0a0a' } }, step.title),
+                        h('p', { style: { color: '#475569', lineHeight: 1.6, marginBottom: '1rem' } }, step.body),
+                        h('div', { style: { display: 'flex', flexDirection: 'column' } },
+                          step.points.map((p, i) => h('div', { key: p, style: { display: 'flex', gap: '0.75rem', alignItems: 'center', fontSize: '0.875rem', padding: '0.75rem 0', borderBottom: i < step.points.length - 1 ? '1px solid #e2e8f0' : 'none' } },
+                            h('span', { style: { color: '#a3e635', fontWeight: 900, flexShrink: 0, fontSize: '0.6rem' } }, '●'),
+                            h('span', { style: { color: '#0a0a0a' } }, p)
+                          ))
+                        )
+                      )
+                    : h('div', null,
+                        h('p', { style: { fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.1em', color: '#a3e635', marginBottom: '0.5rem' } }, step.tag),
+                        h('h3', { style: { fontWeight: 700, fontSize: '1.3rem', marginBottom: '0.75rem', color: '#0a0a0a' } }, step.title),
+                        h('p', { style: { color: '#475569', lineHeight: 1.6, marginBottom: '1rem' } }, step.body),
+                        h('div', { style: { display: 'flex', flexDirection: 'column' } },
+                          step.points.map((p, i) => h('div', { key: p, style: { display: 'flex', gap: '0.75rem', alignItems: 'center', fontSize: '0.875rem', padding: '0.75rem 0', borderBottom: i < step.points.length - 1 ? '1px solid #e2e8f0' : 'none' } },
+                            h('span', { style: { color: '#a3e635', fontWeight: 900, flexShrink: 0, fontSize: '0.6rem' } }, '●'),
+                            h('span', { style: { color: '#0a0a0a' } }, p)
+                          ))
+                        )
+                      )
+                )
+              )
+            )
+          )
+        ),
+        // Section Témoignages clients — carousel en bas de page
+        h(TestimonialsCarousel)
+      );
+    }
+
+    createRoot(document.getElementById('app-root')).render(h(Page));
+
+    // Start CRM animation when iframe scrolls into view
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.contentWindow.postMessage('start', '*');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    const observeIframe = (src) => {
+      const try_ = () => {
+        const iframe = document.querySelector(`iframe[src="${src}"]`);
+        if (iframe) observer.observe(iframe);
+        else setTimeout(try_, 200);
+      };
+      try_();
+    };
+    observeIframe('/crm-demo.html');
+    observeIframe('/enrich-v2.html');
+  </script>
 </Layout>
