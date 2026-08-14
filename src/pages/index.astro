@@ -191,6 +191,52 @@ import Layout from '../layouts/Layout.astro';
       { img: '/abraham-etude-de-cas.webp', label: 'RECOUVREMENT', headline: '20 leads exclusifs', desc: 'Maîtrise de la publicité pour générer des leads exclusifs et se démarquer de toute concurrence dans le recouvrement de créances.', kpis: [{ v: '20', l: 'Leads excl.' }, { v: '0', l: 'Concurrents' }, { v: '17 ans', l: 'Expérience' }] },
     ];
 
+    function FaqAccordion() {
+      const [open, setOpen] = useState(null);
+      const items = [
+        {
+          q: "Qu'est-ce qu'un lead qualifié selon vos critères ?",
+          a: "Lorsqu'un prospect manifeste de l'intérêt pour votre offre, nos outils vérifient automatiquement qu'il correspond aux critères que vous nous avez définis (secteur, poste, taille d'entreprise, zone géographique…). Seuls les profils validés sont livrés."
+        },
+        {
+          q: "Comment fonctionne la livraison sous votre marque ?",
+          a: "Nous opérons sur nos propres canaux en citant votre entreprise, votre offre ainsi que ses spécificités à chaque étape. Vos prospects savent qu'ils seront contactés par vous, pas par une agence. Nous gérons l'intégralité de la stratégie et de l'opérationnel, vous vous concentrez sur la vente."
+        },
+        {
+          q: "Quelle intégration CRM est possible ?",
+          a: "Nous pouvons transmettre vos leads sur n'importe quel CRM du marché (HubSpot, Salesforce, Pipedrive, Notion, Airtable…). Si vous n'en avez pas encore, nous vous fournissons une interface dédiée pour suivre votre production en temps réel."
+        },
+        {
+          q: "En combien de temps voit-on les premiers résultats ?",
+          a: "Les premiers leads arrivent généralement dès le lendemain du lancement. Nous optimisons les campagnes quotidiennement pour améliorer en continu la qualité et le volume des prospects livrés."
+        },
+        {
+          q: "Comment est calculé le score d'intention ?",
+          a: "Avant le lancement, nous faisons un brief complet pour définir votre ICP (client idéal) et analyser votre offre. Nous mettons ensuite en place un système d'analyse automatique qui filtre chaque prospect entrant selon ces critères. Seuls ceux qui correspondent sont livrés."
+        },
+      ];
+      return h('section', { style: { background: '#f5f4f0', padding: '5rem 2rem' } },
+        h('div', { style: { maxWidth: '720px', margin: '0 auto' } },
+          h('p', { style: { fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.1em', color: '#a3e635', marginBottom: '0.75rem', textAlign: 'center' } }, 'FAQ'),
+          h('h2', { style: { fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 700, color: '#0a0a0a', marginBottom: '3rem', textAlign: 'center', lineHeight: 1.2 } }, 'Questions fréquentes'),
+          h('div', { style: { display: 'flex', flexDirection: 'column' } },
+            items.map((item, i) =>
+              h('div', { key: i, style: { borderTop: '1px solid #e2e8f0', borderBottom: i === items.length - 1 ? '1px solid #e2e8f0' : 'none' } },
+                h('button', {
+                  onClick: function() { setOpen(open === i ? null : i); },
+                  style: { width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1.25rem 0', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', gap: '1rem' }
+                },
+                  h('span', { style: { fontWeight: 700, fontSize: '0.975rem', color: '#0a0a0a' } }, item.q),
+                  h('span', { style: { fontSize: '1.2rem', color: '#a3e635', fontWeight: 700, flexShrink: 0, transition: 'transform 0.2s', transform: open === i ? 'rotate(45deg)' : 'rotate(0deg)' } }, '+')
+                ),
+                open === i && h('p', { style: { color: '#475569', lineHeight: 1.7, fontSize: '0.925rem', paddingBottom: '1.25rem', margin: 0 } }, item.a)
+              )
+            )
+          )
+        )
+      );
+    }
+
     function TestimonialsCarousel() {
       const scrollId = 'proj-scroll';
       const scroll = function(dir) {
@@ -349,6 +395,9 @@ import Layout from '../layouts/Layout.astro';
             )
           )
         ), // close gradient div
+
+        // Témoignages — juste après les logos
+        h(TestimonialsCarousel),
 
         // Section "Le Constat" — après logos
         h('div', { style: { background: '#f8fafc', padding: '6rem 3rem' } },
@@ -529,44 +578,8 @@ import Layout from '../layouts/Layout.astro';
             )
           )
         ),
-        // Section FAQ
-        h('section', { style: { background: '#f5f4f0', padding: '5rem 2rem' } },
-          h('div', { style: { maxWidth: '720px', margin: '0 auto' } },
-            h('p', { style: { fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.1em', color: '#a3e635', marginBottom: '0.75rem', textAlign: 'center' } }, 'FAQ'),
-            h('h2', { style: { fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 700, color: '#0a0a0a', marginBottom: '3rem', textAlign: 'center', lineHeight: 1.2 } }, 'Questions fréquentes'),
-            h('div', { style: { display: 'flex', flexDirection: 'column', gap: '0' } },
-              [
-                {
-                  q: "Qu'est-ce qu'un lead qualifié selon vos critères ?",
-                  a: "Lorsqu'un prospect manifeste de l'intérêt pour votre offre, nos outils vérifient automatiquement qu'il correspond aux critères que vous nous avez définis (secteur, poste, taille d'entreprise, zone géographique…). Seuls les profils validés sont livrés."
-                },
-                {
-                  q: "Comment fonctionne la livraison sous votre marque ?",
-                  a: "Nous opérons sur nos propres canaux en citant votre entreprise, votre offre ainsi que ses spécificités à chaque étape. Vos prospects savent qu'ils seront contactés par vous, pas par une agence. Nous gérons l'intégralité de la stratégie et de l'opérationnel, vous vous concentrez sur la vente."
-                },
-                {
-                  q: "Quelle intégration CRM est possible ?",
-                  a: "Nous pouvons transmettre vos leads sur n'importe quel CRM du marché (HubSpot, Salesforce, Pipedrive, Notion, Airtable…). Si vous n'en avez pas encore, nous vous fournissons une interface dédiée pour suivre votre production en temps réel."
-                },
-                {
-                  q: "En combien de temps voit-on les premiers résultats ?",
-                  a: "Les premiers leads arrivent généralement dès le lendemain du lancement. Nous optimisons les campagnes quotidiennement pour améliorer en continu la qualité et le volume des prospects livrés."
-                },
-                {
-                  q: "Comment est calculé le score d'intention ?",
-                  a: "Avant le lancement, nous faisons un brief complet pour définir votre ICP (client idéal) et analyser votre offre. Nous mettons ensuite en place un système d'analyse automatique qui filtre chaque prospect entrant selon ces critères. Seuls ceux qui correspondent sont livrés."
-                },
-              ].map((item, i, arr) =>
-                h('div', { key: i, style: { borderTop: '1px solid #e2e8f0', borderBottom: i === arr.length - 1 ? '1px solid #e2e8f0' : 'none', padding: '1.5rem 0' } },
-                  h('p', { style: { fontWeight: 700, fontSize: '1rem', color: '#0a0a0a', marginBottom: '0.5rem' } }, item.q),
-                  h('p', { style: { color: '#475569', lineHeight: 1.7, fontSize: '0.925rem' } }, item.a)
-                )
-              )
-            )
-          )
-        ),
-        // Section Témoignages clients — carousel en bas de page
-        h(TestimonialsCarousel)
+        // Section FAQ — accordion
+        h(FaqAccordion)
       );
     }
 
