@@ -4,7 +4,8 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="Adonyme — L'Agence des Leads pour les PME/TPE" description="On génère des leads prêts à signer pour les PME/TPE. Base de données, traitement de leads, acquisition multicanal.">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&display=swap" rel="stylesheet" />
   <style is:global>
     @keyframes logoScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
     .logo-track { animation: logoScroll 25s linear infinite; }
@@ -77,7 +78,7 @@ import Layout from '../layouts/Layout.astro';
                   padding: '0.85rem', borderRadius: '10px', border: '1.5px solid #e2e8f0',
                   background: '#f8fafc', cursor: 'pointer', fontWeight: 600, fontSize: '0.85rem',
                   display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.3rem',
-                  transition: 'border-color 0.15s', fontFamily: "'Inter', sans-serif",
+                  transition: 'border-color 0.15s', fontFamily: "'Instrument Sans', system-ui, sans-serif",
                 }
               },
                 h('span', { style: { fontSize: '1.4rem' } }, s.emoji),
@@ -96,7 +97,7 @@ import Layout from '../layouts/Layout.astro';
                 style: {
                   padding: '0.9rem 1rem', borderRadius: '10px', border: '1.5px solid #e2e8f0',
                   background: '#f8fafc', cursor: 'pointer', fontWeight: 600, fontSize: '0.9rem',
-                  textAlign: 'left', transition: 'border-color 0.15s', fontFamily: "'Inter', sans-serif",
+                  textAlign: 'left', transition: 'border-color 0.15s', fontFamily: "'Instrument Sans', system-ui, sans-serif",
                 }
               }, b)
             )
@@ -108,17 +109,17 @@ import Layout from '../layouts/Layout.astro';
             placeholder: 'Votre prénom',
             value: prenom,
             onInput: (e) => setPrenom(e.target.value),
-            style: { width: '100%', padding: '0.8rem', borderRadius: '8px', border: '1.5px solid #e2e8f0', marginBottom: '0.75rem', fontSize: '0.9rem', boxSizing: 'border-box', fontFamily: "'Inter', sans-serif" }
+            style: { width: '100%', padding: '0.8rem', borderRadius: '8px', border: '1.5px solid #e2e8f0', marginBottom: '0.75rem', fontSize: '0.9rem', boxSizing: 'border-box', fontFamily: "'Instrument Sans', system-ui, sans-serif" }
           }),
           h('input', {
             placeholder: 'Votre email',
             value: email,
             onInput: (e) => setEmail(e.target.value),
-            style: { width: '100%', padding: '0.8rem', borderRadius: '8px', border: '1.5px solid #e2e8f0', marginBottom: '1rem', fontSize: '0.9rem', boxSizing: 'border-box', fontFamily: "'Inter', sans-serif" }
+            style: { width: '100%', padding: '0.8rem', borderRadius: '8px', border: '1.5px solid #e2e8f0', marginBottom: '1rem', fontSize: '0.9rem', boxSizing: 'border-box', fontFamily: "'Instrument Sans', system-ui, sans-serif" }
           }),
           h('button', {
             onClick: () => setStep(3),
-            style: { width: '100%', padding: '0.9rem', borderRadius: '10px', background: '#a3e635', border: 'none', cursor: 'pointer', fontWeight: 700, fontSize: '1rem', fontFamily: "'Inter', sans-serif" }
+            style: { width: '100%', padding: '0.9rem', borderRadius: '10px', background: '#a3e635', border: 'none', cursor: 'pointer', fontWeight: 700, fontSize: '1rem', fontFamily: "'Instrument Sans', system-ui, sans-serif" }
           }, 'Voir mon estimation →')
         ),
         step === 3 && h('div', { style: { textAlign: 'center' } },
@@ -129,7 +130,7 @@ import Layout from '../layouts/Layout.astro';
           ),
           h('a', {
             href: 'https://calendly.com/adonyme',
-            style: { display: 'block', padding: '0.9rem', borderRadius: '10px', background: '#0a0a0a', color: '#fff', fontWeight: 700, fontSize: '1rem', textDecoration: 'none', fontFamily: "'Inter', sans-serif" }
+            style: { display: 'block', padding: '0.9rem', borderRadius: '10px', background: '#0a0a0a', color: '#fff', fontWeight: 700, fontSize: '1rem', textDecoration: 'none', fontFamily: "'Instrument Sans', system-ui, sans-serif" }
           }, 'Réserver un appel stratégique →')
         )
       );
@@ -188,7 +189,7 @@ import Layout from '../layouts/Layout.astro';
 
     function Page() {
       return h('div', { style: {
-        fontFamily: "'Inter', sans-serif",
+        fontFamily: "'Instrument Sans', system-ui, sans-serif",
       }},
         h('div', { style: { background: 'linear-gradient(120deg, #e2fce9 0%, #edfcd4 20%, #fefce8 45%, #dbeafe 70%, #ede9fe 100%)' } },
         h('nav', { style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '1.25rem 3rem', borderBottom: '1px solid rgba(0,0,0,0.06)' } },
