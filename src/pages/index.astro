@@ -37,9 +37,11 @@ import Layout from '../layouts/Layout.astro';
       .mob-timeline-line { left: 20px !important; transform: translateX(-50%) !important; }
 
       /* Notre Système — steps layout */
-      .mob-step-grid { grid-template-columns: 40px 1fr !important; gap: 1rem !important; margin-bottom: 3rem !important; }
-      .mob-step-illus { display: none !important; }
-      .mob-step-content { grid-column: 2 !important; }
+      .mob-step-grid { display: flex !important; flex-direction: column !important; gap: 1.5rem !important; margin-bottom: 3rem !important; }
+      .mob-step-illus { order: 3 !important; width: 100% !important; }
+      .mob-step-illus iframe { width: 100% !important; }
+      .mob-step-content { order: 2 !important; }
+      .mob-step-num-wrap { order: 1 !important; }
       .mob-step-num { width: 36px !important; height: 36px !important; font-size: 0.75rem !important; border: 3px solid #faf9f6 !important; }
 
       /* Padding des sections */
@@ -557,7 +559,7 @@ import Layout from '../layouts/Layout.astro';
                     : step.side === 'left'
                       ? h('div', { className: 'mob-step-illus' }, step.illustration)
                       : h('div', { className: 'mob-step-illus' }),
-                  h('div', { style: { display: 'flex', flexDirection: 'column', alignItems: 'center', zIndex: 1 } },
+                  h('div', { className: 'mob-step-num-wrap', style: { display: 'flex', flexDirection: 'column', alignItems: 'center', zIndex: 1 } },
                     h('div', { className: 'mob-step-num', style: { width: '48px', height: '48px', borderRadius: '50%', background: '#a3e635', border: '4px solid #faf9f6', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 900, fontSize: '0.85rem', color: '#0a0a0a' } }, step.num)
                   ),
                   step.flip
