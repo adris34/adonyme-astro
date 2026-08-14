@@ -14,6 +14,41 @@ import Layout from '../layouts/Layout.astro';
     @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.75); } }
     .dot-pulse { width: 8px; height: 8px; border-radius: 50%; background: #a3e635; display: inline-block; flex-shrink: 0; animation: pulse 2s ease-in-out infinite; }
     .dot-pulse:nth-child(1) { animation-delay: 0s; }
+
+    @media (max-width: 768px) {
+      html, body { overflow-x: hidden !important; }
+      .mob-hero-wrapper { overflow: hidden !important; }
+
+      /* Navbar */
+      .mob-nav-links { display: none !important; }
+      .mob-nav-cta { display: none !important; }
+
+      /* Hero */
+      .mob-hero-grid { grid-template-columns: 1fr !important; padding: 2rem 1.25rem !important; }
+      .mob-hero-video { display: none !important; }
+      .mob-hero-badges { flex-wrap: wrap !important; white-space: normal !important; gap: 0.5rem !important; }
+      .mob-hero-badges > div { white-space: normal !important; }
+
+      /* Le problème — 3 colonnes → 1 colonne */
+      .mob-probleme-grid { grid-template-columns: 1fr !important; }
+      .mob-probleme-card { border-right: none !important; border-bottom: 1px solid #e2e8f0; padding-left: 0 !important; }
+
+      /* Notre Système — steps layout */
+      .mob-step-grid { grid-template-columns: 40px 1fr !important; gap: 1rem !important; margin-bottom: 3rem !important; }
+      .mob-step-grid > div:nth-child(1) { display: none !important; }
+      .mob-step-grid > div:nth-child(3) { grid-column: 2 !important; }
+      .mob-step-num { width: 36px !important; height: 36px !important; font-size: 0.75rem !important; border: 3px solid #faf9f6 !important; }
+
+      /* Padding des sections */
+      .mob-section-pad { padding: 3rem 1.25rem !important; }
+
+      /* FAQ */
+      .mob-faq-pad { padding: 3rem 1.25rem !important; }
+
+      /* Footer */
+      .mob-footer { flex-direction: column !important; align-items: flex-start !important; gap: 2rem !important; }
+      .mob-footer-right { align-items: flex-start !important; }
+    }
   </style>
   <script type="application/ld+json">
   {
@@ -284,20 +319,21 @@ import Layout from '../layouts/Layout.astro';
       return h('div', { style: {
         fontFamily: "'Instrument Sans', system-ui, sans-serif",
       }},
-        h('div', { style: { background: 'linear-gradient(120deg, #e2fce9 0%, #edfcd4 20%, #fefce8 45%, #dbeafe 70%, #ede9fe 100%)' } },
+        h('div', { className: 'mob-hero-wrapper', style: { background: 'linear-gradient(120deg, #e2fce9 0%, #edfcd4 20%, #fefce8 45%, #dbeafe 70%, #ede9fe 100%)' } },
         h('nav', { style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '1.25rem 3rem', borderBottom: '1px solid rgba(0,0,0,0.06)' } },
           h('div', { style: { fontWeight: 900, fontSize: '1.1rem', letterSpacing: '-0.02em' } }, 'Agence Leads'),
-          h('div', { style: { display: 'flex', gap: '2rem', alignItems: 'center', fontSize: '0.9rem', fontWeight: 600 } },
+          h('div', { className: 'mob-nav-links', style: { display: 'flex', gap: '2rem', alignItems: 'center', fontSize: '0.9rem', fontWeight: 600 } },
             h('a', { href: '#systeme', style: { color: '#0a0a0a', textDecoration: 'none' } }, 'Comment ça marche ?'),
             h('a', { href: '/etude-de-cas', style: { color: '#0a0a0a', textDecoration: 'none' } }, 'Étude de cas'),
             h('a', { href: '#simulateur', style: { color: '#0a0a0a', textDecoration: 'none' } }, 'Notre offre'),
           ),
           h('a', {
             href: '#simulateur',
+            className: 'mob-nav-cta',
             style: { background: '#a3e635', color: '#0a0a0a', padding: '0.6rem 1.2rem', borderRadius: '8px', fontWeight: 700, fontSize: '0.9rem', textDecoration: 'none' }
           }, 'Simuler mon coût →')
         ),
-        h('div', { style: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center', maxWidth: '1200px', margin: '0 auto', padding: '5rem 3rem' } },
+        h('div', { className: 'mob-hero-grid', style: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center', maxWidth: '1200px', margin: '0 auto', padding: '5rem 3rem' } },
           h('div', null,
             h('p', { style: { fontSize: '0.95rem', fontWeight: 600, letterSpacing: '0.02em', color: '#64748b', marginBottom: '1rem', fontFamily: "'Instrument Sans', system-ui, sans-serif" } },
               '+50 Entreprises accompagnées'
@@ -312,7 +348,7 @@ import Layout from '../layouts/Layout.astro';
             h('p', { style: { fontSize: '1rem', color: '#475569', lineHeight: 1.6, marginBottom: '2rem' } },
               'Notre objectif est de vous offrir un service de génération de leads entièrement adapté à votre offre, presque comme si vous l\'aviez internalisé.'
             ),
-            h('div', { style: { display: 'flex', alignItems: 'center', gap: '0', marginBottom: '1.5rem', whiteSpace: 'nowrap' } },
+            h('div', { className: 'mob-hero-badges', style: { display: 'flex', alignItems: 'center', gap: '0', marginBottom: '1.5rem', whiteSpace: 'nowrap' } },
               [
                 { icon: '🏷️', label: 'Sous votre marque' },
                 { icon: '🎯', label: 'Sur-mesure' },
@@ -329,7 +365,7 @@ import Layout from '../layouts/Layout.astro';
             ),
             h('a', { href: 'https://calendly.com/adonyme', style: { display: 'inline-block', background: '#0a0a0a', color: '#fff', padding: '0.75rem 1.5rem', borderRadius: '8px', fontWeight: 600, fontSize: '0.95rem', textDecoration: 'none' } }, 'Demander un rendez-vous'),
           ),
-          h('div', { style: { width: '100%', maxWidth: '520px', marginLeft: 'auto' } },
+          h('div', { className: 'mob-hero-video', style: { width: '100%', maxWidth: '520px', marginLeft: 'auto' } },
             h('div', { style: { position: 'relative', borderRadius: '16px', overflow: 'hidden', background: '#0a0a0a', aspectRatio: '16/9', boxShadow: '0 8px 40px rgba(0,0,0,0.15)' } },
               h('div', { style: { position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '1rem' } },
                 h('div', { style: { width: '64px', height: '64px', borderRadius: '50%', background: 'rgba(255,255,255,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center' } },
@@ -387,7 +423,7 @@ import Layout from '../layouts/Layout.astro';
             h('p', { style: { color: '#475569', fontSize: '1rem', lineHeight: 1.6, maxWidth: '600px', marginBottom: '1.25rem' } },
               'Toutes les entreprises qui achètent des listes de prospects ont accès aux mêmes fichiers que leurs concurrents et cela représente trois problèmes majeurs'
             ),
-            h('div', { style: { display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', borderTop: '1px solid #e2e8f0', marginTop: '0' } },
+            h('div', { className: 'mob-probleme-grid', style: { display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', borderTop: '1px solid #e2e8f0', marginTop: '0' } },
               [
                 {
                   num: '1',
@@ -405,7 +441,7 @@ import Layout from '../layouts/Layout.astro';
                   desc: 'Vous devez compenser par le volume pour avoir des profils intéressants, ce qui signifie plus de dépenses, plus de temps nécessaire pour les traiter par vos commerciaux et une liste de relance qui explose.',
                 },
               ].map((card, i) =>
-                h('div', { key: card.num, style: { padding: '2rem 2rem 2rem 0', borderRight: i < 2 ? '1px solid #e2e8f0' : 'none', paddingLeft: i > 0 ? '2rem' : '0' } },
+                h('div', { key: card.num, className: 'mob-probleme-card', style: { padding: '2rem 2rem 2rem 0', borderRight: i < 2 ? '1px solid #e2e8f0' : 'none', paddingLeft: i > 0 ? '2rem' : '0' } },
                   h('p', { style: { fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', color: '#84cc16', marginBottom: '0.75rem' } }, `PROBLÈME N° ${card.num}`),
                   h('div', { style: { width: '2rem', height: '2px', background: '#a3e635', marginBottom: '1.25rem' } }),
                   h('h3', { style: { fontWeight: 800, fontSize: '1.1rem', color: '#0a0a0a', marginBottom: '0.75rem', lineHeight: 1.3 } }, card.titre),
@@ -502,7 +538,7 @@ import Layout from '../layouts/Layout.astro';
                   )
                 }
               ].map((step, i) =>
-                h('div', { key: step.num, style: { display: 'grid', gridTemplateColumns: '1fr 80px 1fr', gap: '2rem', alignItems: 'center', marginBottom: i < 2 ? '5rem' : 0 } },
+                h('div', { key: step.num, className: 'mob-step-grid', style: { display: 'grid', gridTemplateColumns: '1fr 80px 1fr', gap: '2rem', alignItems: 'center', marginBottom: i < 2 ? '5rem' : 0 } },
                   step.flip
                     ? h('div', null,
                         h('p', { style: { fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.1em', color: '#a3e635', marginBottom: '0.5rem' } }, step.tag),
@@ -519,7 +555,7 @@ import Layout from '../layouts/Layout.astro';
                       ? h('div', null, step.illustration)
                       : h('div', null),
                   h('div', { style: { display: 'flex', flexDirection: 'column', alignItems: 'center', zIndex: 1 } },
-                    h('div', { style: { width: '48px', height: '48px', borderRadius: '50%', background: '#a3e635', border: '4px solid #faf9f6', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 900, fontSize: '0.85rem', color: '#0a0a0a' } }, step.num)
+                    h('div', { className: 'mob-step-num', style: { width: '48px', height: '48px', borderRadius: '50%', background: '#a3e635', border: '4px solid #faf9f6', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 900, fontSize: '0.85rem', color: '#0a0a0a' } }, step.num)
                   ),
                   step.flip
                     ? h('div', null, step.illustration)
@@ -556,7 +592,7 @@ import Layout from '../layouts/Layout.astro';
 
         // Footer
         h('footer', { style: { borderTop: '1px solid #e2e8f0', background: '#f5f4f0', padding: '5rem 2rem' } },
-          h('div', { style: { maxWidth: '1200px', margin: '0 auto', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-start', gap: '3rem' } },
+          h('div', { className: 'mob-footer', style: { maxWidth: '1200px', margin: '0 auto', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-start', gap: '3rem' } },
             h('div', null,
               h('span', { style: { fontSize: '1.6rem', fontWeight: 900, letterSpacing: '-0.04em', color: '#0a0a0a' } }, 'ADONYME', h('span', { style: { color: '#2563eb' } }, '.')),
               h('p', { style: { color: '#64748b', fontSize: '0.875rem', marginTop: '0.5rem', maxWidth: '220px', lineHeight: 1.6 } }, 'Agence leads B2B — On génère de la demande sous votre marque.')
@@ -566,7 +602,7 @@ import Layout from '../layouts/Layout.astro';
               h('a', { href: 'https://calendly.com/adonyme', target: '_blank', rel: 'noopener noreferrer', style: { color: '#64748b', textDecoration: 'none', textTransform: 'uppercase' } }, 'Contact'),
               h('a', { href: '/mentions-legales', style: { color: '#64748b', textDecoration: 'none', textTransform: 'uppercase' } }, 'Mentions légales')
             ),
-            h('div', { style: { display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.75rem' } },
+            h('div', { className: 'mob-footer-right', style: { display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.75rem' } },
               h('a', { href: '/politique-de-confidentialite', style: { color: '#64748b', fontSize: '0.8rem', textDecoration: 'none' } }, 'Politique de confidentialité'),
               h('a', { href: 'https://www.linkedin.com/company/adonyme', target: '_blank', rel: 'noopener noreferrer', style: { display: 'flex', alignItems: 'center', gap: '0.4rem', color: '#64748b', fontSize: '0.8rem', textDecoration: 'none' } },
                 h('svg', { xmlns: 'http://www.w3.org/2000/svg', width: 14, height: 14, viewBox: '0 0 24 24', fill: 'currentColor' },
