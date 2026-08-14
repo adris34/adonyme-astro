@@ -15,6 +15,54 @@ import Layout from '../layouts/Layout.astro';
     .dot-pulse { width: 8px; height: 8px; border-radius: 50%; background: #a3e635; display: inline-block; flex-shrink: 0; animation: pulse 2s ease-in-out infinite; }
     .dot-pulse:nth-child(1) { animation-delay: 0s; }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Qu'est-ce qu'un lead qualifié selon vos critères ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Lorsqu'un prospect manifeste de l'intérêt pour votre offre, nos outils vérifient automatiquement qu'il correspond aux critères que vous nous avez définis (secteur, poste, taille d'entreprise, zone géographique…). Seuls les profils validés sont livrés."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Comment fonctionne la livraison sous votre marque ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nous opérons sur nos propres canaux en citant votre entreprise, votre offre ainsi que ses spécificités à chaque étape. Vos prospects savent qu'ils seront contactés par vous, pas par une agence. Nous gérons l'intégralité de la stratégie et de l'opérationnel, vous vous concentrez sur la vente."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quelle intégration CRM est possible ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nous pouvons transmettre vos leads sur n'importe quel CRM du marché (HubSpot, Salesforce, Pipedrive, Notion, Airtable…). Si vous n'en avez pas encore, nous vous fournissons une interface dédiée pour suivre votre production en temps réel."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "En combien de temps voit-on les premiers résultats ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Les premiers leads arrivent généralement dès le lendemain du lancement. Nous optimisons les campagnes quotidiennement pour améliorer en continu la qualité et le volume des prospects livrés."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Comment est calculé le score d'intention ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Avant le lancement, nous faisons un brief complet pour définir votre ICP (client idéal) et analyser votre offre. Nous mettons ensuite en place un système d'analyse automatique qui filtre chaque prospect entrant selon ces critères. Seuls ceux qui correspondent sont livrés."
+        }
+      }
+    ]
+  }
+  </script>
   <div id="app-root"></div>
   <script type="module">
     import { createElement as h, useState } from 'https://esm.sh/react@18';
@@ -476,6 +524,42 @@ import Layout from '../layouts/Layout.astro';
                           ))
                         )
                       )
+                )
+              )
+            )
+          )
+        ),
+        // Section FAQ
+        h('section', { style: { background: '#f5f4f0', padding: '5rem 2rem' } },
+          h('div', { style: { maxWidth: '720px', margin: '0 auto' } },
+            h('p', { style: { fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.1em', color: '#a3e635', marginBottom: '0.75rem', textAlign: 'center' } }, 'FAQ'),
+            h('h2', { style: { fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 700, color: '#0a0a0a', marginBottom: '3rem', textAlign: 'center', lineHeight: 1.2 } }, 'Questions fréquentes'),
+            h('div', { style: { display: 'flex', flexDirection: 'column', gap: '0' } },
+              [
+                {
+                  q: "Qu'est-ce qu'un lead qualifié selon vos critères ?",
+                  a: "Lorsqu'un prospect manifeste de l'intérêt pour votre offre, nos outils vérifient automatiquement qu'il correspond aux critères que vous nous avez définis (secteur, poste, taille d'entreprise, zone géographique…). Seuls les profils validés sont livrés."
+                },
+                {
+                  q: "Comment fonctionne la livraison sous votre marque ?",
+                  a: "Nous opérons sur nos propres canaux en citant votre entreprise, votre offre ainsi que ses spécificités à chaque étape. Vos prospects savent qu'ils seront contactés par vous, pas par une agence. Nous gérons l'intégralité de la stratégie et de l'opérationnel, vous vous concentrez sur la vente."
+                },
+                {
+                  q: "Quelle intégration CRM est possible ?",
+                  a: "Nous pouvons transmettre vos leads sur n'importe quel CRM du marché (HubSpot, Salesforce, Pipedrive, Notion, Airtable…). Si vous n'en avez pas encore, nous vous fournissons une interface dédiée pour suivre votre production en temps réel."
+                },
+                {
+                  q: "En combien de temps voit-on les premiers résultats ?",
+                  a: "Les premiers leads arrivent généralement dès le lendemain du lancement. Nous optimisons les campagnes quotidiennement pour améliorer en continu la qualité et le volume des prospects livrés."
+                },
+                {
+                  q: "Comment est calculé le score d'intention ?",
+                  a: "Avant le lancement, nous faisons un brief complet pour définir votre ICP (client idéal) et analyser votre offre. Nous mettons ensuite en place un système d'analyse automatique qui filtre chaque prospect entrant selon ces critères. Seuls ceux qui correspondent sont livrés."
+                },
+              ].map((item, i, arr) =>
+                h('div', { key: i, style: { borderTop: '1px solid #e2e8f0', borderBottom: i === arr.length - 1 ? '1px solid #e2e8f0' : 'none', padding: '1.5rem 0' } },
+                  h('p', { style: { fontWeight: 700, fontSize: '1rem', color: '#0a0a0a', marginBottom: '0.5rem' } }, item.q),
+                  h('p', { style: { color: '#475569', lineHeight: 1.7, fontSize: '0.925rem' } }, item.a)
                 )
               )
             )
