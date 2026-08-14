@@ -33,6 +33,9 @@ import Layout from '../layouts/Layout.astro';
       .mob-probleme-grid { grid-template-columns: 1fr !important; }
       .mob-probleme-card { border-right: none !important; border-bottom: 1px solid #e2e8f0; padding-left: 0 !important; }
 
+      /* Timeline line — alignée sur le numéro (20px = centre du cercle 40px) */
+      .mob-timeline-line { left: 20px !important; transform: translateX(-50%) !important; }
+
       /* Notre Système — steps layout */
       .mob-step-grid { grid-template-columns: 40px 1fr !important; gap: 1rem !important; margin-bottom: 3rem !important; }
       .mob-step-grid > div:nth-child(1) { display: none !important; }
@@ -466,7 +469,7 @@ import Layout from '../layouts/Layout.astro';
               'Avant la production on revoit avec vous l\'exploitation de votre base de données, le process de traitement de leads, les canaux utilisés pour maximiser votre ROI.'
             ),
             h('div', { style: { position: 'relative' } },
-              h('div', { style: { position: 'absolute', left: '50%', top: 0, bottom: 0, width: '2px', background: 'linear-gradient(to bottom, #a3e635, #84cc16)', transform: 'translateX(-50%)', zIndex: 0 } }),
+              h('div', { className: 'mob-timeline-line', style: { position: 'absolute', left: '50%', top: 0, bottom: 0, width: '2px', background: 'linear-gradient(to bottom, #a3e635, #84cc16)', transform: 'translateX(-50%)', zIndex: 0 } }),
               [
                 {
                   num: '01',
