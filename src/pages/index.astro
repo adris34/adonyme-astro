@@ -219,18 +219,18 @@ import Layout from '../layouts/Layout.astro';
             h('p', { style: { fontSize: '1rem', color: '#475569', lineHeight: 1.6, marginBottom: '2rem' } },
               'Notre objectif est de vous offrir un service de génération de leads entièrement adapté à votre offre, presque comme si vous l\'aviez internalisé.'
             ),
-            h('div', { style: { display: 'flex', alignItems: 'center', gap: '0', marginBottom: '1.5rem', flexWrap: 'wrap' } },
+            h('div', { style: { display: 'flex', alignItems: 'center', gap: '0', marginBottom: '1.5rem', whiteSpace: 'nowrap' } },
               [
                 { icon: '🏷️', label: 'Marque blanche' },
-                { icon: '🎯', label: 'Qualification sur-mesure' },
+                { icon: '🎯', label: 'Sur-mesure' },
                 { icon: '🤝', label: 'Accompagnement' },
               ].map((item, i, arr) =>
                 h('div', { key: item.label, style: { display: 'flex', alignItems: 'center' } },
-                  h('div', { style: { display: 'flex', alignItems: 'center', gap: '0.45rem', fontSize: '0.9rem', fontWeight: 600, color: '#0a0a0a', padding: '0 1rem 0 ' + (i === 0 ? '0' : '1rem') } },
-                    h('span', { style: { fontSize: '1rem' } }, item.icon),
+                  h('div', { style: { display: 'flex', alignItems: 'center', gap: '0.4rem', fontSize: '0.88rem', fontWeight: 600, color: '#0a0a0a', padding: '0 0.85rem 0 ' + (i === 0 ? '0' : '0.85rem') } },
+                    h('span', { style: { fontSize: '0.95rem' } }, item.icon),
                     item.label
                   ),
-                  i < arr.length - 1 && h('span', { style: { color: '#cbd5e1', fontSize: '1.2rem', lineHeight: 1 } }, '|')
+                  i < arr.length - 1 && h('span', { style: { color: '#cbd5e1', fontSize: '1.1rem', lineHeight: 1 } }, '|')
                 )
               )
             ),
