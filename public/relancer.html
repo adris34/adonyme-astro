@@ -22,51 +22,17 @@ body {
 /* ── Card ── */
 .card-wrap {
   position: absolute;
-  top: 50%; left: 30%;
-  transform: translate(-50%, -50%);
+  top: 4%; left: 30%;
+  transform: translateX(-50%);
   width: 44%;
   z-index: 2;
-}
-@media (max-width: 520px) {
-  .card-wrap {
-    top: 3%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 82%;
-  }
-  .lead-card { padding: 10px 14px; }
-  .card-head { margin-bottom: 6px; padding-bottom: 6px; gap: 8px; }
-  .avatar { width: 36px !important; height: 36px !important; font-size: 13px !important; }
-  .fields { gap: 2px; }
-  .score-row { margin-top: 6px; padding-top: 6px; }
-  .score-header { margin-bottom: 4px; }
-  .bar-bg { height: 5px; }
-  .card-foot { margin-top: 6px; }
-  .btn-relancer { margin-top: 8px; padding: 8px 0; font-size: 13px; }
-  .click-hint { margin-top: 4px; }
-  .channels-wrap {
-    left: 50%;
-    top: auto;
-    bottom: 2%;
-    transform: translateX(-50%);
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 5px;
-  }
-  .ch-btn {
-    padding: 6px 10px;
-    font-size: 12px;
-    border-radius: 10px;
-  }
-  .ch-icon { width: 22px; height: 22px; font-size: 12px; border-radius: 7px; }
 }
 
 .lead-card {
   background: #fff;
   border-radius: 20px;
   padding: 22px 24px;
-  box-shadow: 0 6px 32px rgba(0,0,0,.11), 0 0 0 1px rgba(0,0,0,.04);
+  box-shadow: none;
   width: 100%;
 }
 
