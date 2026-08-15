@@ -309,7 +309,7 @@ import Layout from '../layouts/Layout.astro';
             h('div', { style: { flex: 1, height: '1px', background: '#e2e8f0' } })
           ),
           h('div', { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' } },
-            h('h2', { style: { fontSize: '1rem', fontWeight: 700, letterSpacing: '0.05em', color: '#0a0a0a', lineHeight: 1.1, margin: 0, fontFamily: "'Instrument Sans', system-ui, sans-serif" } }, 'Des solutions toujours adaptées à votre objectif'),
+            h('h2', { style: { fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', fontWeight: 700, color: '#0a0a0a', lineHeight: 1.15, margin: 0 } }, 'Des solutions toujours adaptées à votre objectif'),
             h('div', { style: { display: 'flex', alignItems: 'center', gap: '0.75rem', marginLeft: '2rem', flexShrink: 0 } },
               h('button', { onClick: function() { scroll(-1); }, style: { width: '36px', height: '36px', borderRadius: '50%', border: '1px solid #fb6931', background: '#fff', cursor: 'pointer', fontSize: '1rem', color: '#fb6931', display: 'flex', alignItems: 'center', justifyContent: 'center' } }, '←'),
               h('button', { onClick: function() { scroll(1); }, style: { width: '36px', height: '36px', borderRadius: '50%', border: 'none', background: '#fb6931', cursor: 'pointer', fontSize: '1rem', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' } }, '→'),
