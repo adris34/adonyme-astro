@@ -25,9 +25,9 @@ body {
   border-radius: 16px;
   padding: 16px 18px;
   box-shadow: 0 4px 24px rgba(0,0,0,0.10), 0 0 0 1px rgba(0,0,0,0.04);
-  width: 34%;
+  width: 42%;
   opacity: 0;
-  transform: translateY(16px) scale(0.95);
+  transform: translateY(14px) scale(0.96);
   transition: opacity 0.45s cubic-bezier(0.34,1.56,0.64,1), transform 0.45s cubic-bezier(0.34,1.56,0.64,1);
   pointer-events: none;
 }
@@ -45,18 +45,18 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 14px;
-  padding-bottom: 12px;
+  margin-bottom: 12px;
+  padding-bottom: 11px;
   border-bottom: 1px solid #f0f0f0;
 }
 .avatar {
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 800;
   color: #fff;
   flex-shrink: 0;
@@ -64,17 +64,13 @@ body {
 .card-title { font-size: 13px; font-weight: 800; color: #0a0a0a; }
 .card-sector { font-size: 11px; color: #94a3b8; margin-top: 1px; }
 
-.fields { display: flex; flex-direction: column; gap: 7px; }
-.field-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.field-label { font-size: 10px; font-weight: 600; color: #94a3b8; letter-spacing: 0.03em; }
+.fields { display: flex; flex-direction: column; gap: 6px; }
+.field-row { display: flex; align-items: center; justify-content: space-between; }
+.field-label { font-size: 10px; font-weight: 600; color: #94a3b8; }
 .field-value { font-size: 11px; font-weight: 700; color: #0a0a0a; }
 
-.score-row { margin-top: 12px; padding-top: 10px; border-top: 1px solid #f0f0f0; }
-.score-header { display: flex; justify-content: space-between; margin-bottom: 6px; }
+.score-row { margin-top: 10px; padding-top: 9px; border-top: 1px solid #f0f0f0; }
+.score-header { display: flex; justify-content: space-between; margin-bottom: 5px; }
 .score-label { font-size: 10px; font-weight: 600; color: #94a3b8; }
 .score-pct { font-size: 12px; font-weight: 900; color: #fb6931; }
 .bar-bg { height: 5px; background: #f0f0f0; border-radius: 99px; overflow: hidden; }
@@ -84,85 +80,72 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 10px;
+  margin-top: 9px;
 }
 .channel-badge {
-  font-size: 9.5px;
-  font-weight: 700;
-  padding: 3px 8px;
-  border-radius: 6px;
-  background: rgba(251,105,49,0.1);
-  color: #fb6931;
+  font-size: 9.5px; font-weight: 700;
+  padding: 3px 8px; border-radius: 6px;
+  background: rgba(251,105,49,0.1); color: #fb6931;
 }
 .time-label { font-size: 9.5px; color: #94a3b8; }
 
-/* Notification ping */
 .ping {
   position: absolute;
   top: 12px; right: 12px;
   width: 8px; height: 8px;
 }
-.ping-dot {
-  width: 8px; height: 8px; border-radius: 50%; background: #fb6931; position: absolute;
-}
+.ping-dot { width: 8px; height: 8px; border-radius: 50%; background: #fb6931; position: absolute; }
 .ping-ring {
-  width: 8px; height: 8px; border-radius: 50%; background: rgba(251,105,49,0.4);
-  position: absolute; animation: ping 1.4s ease-out infinite;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(251,105,49,0.4); position: absolute;
+  animation: ping 1.4s ease-out infinite;
 }
 @keyframes ping {
-  0% { transform: scale(1); opacity: 0.8; }
+  0%   { transform: scale(1); opacity: 0.8; }
   100% { transform: scale(2.5); opacity: 0; }
 }
 </style>
 
-<div class="stage" id="stage"></div>
+<div class="stage" id="stage">
+  <div class="lead-card" id="left-card"></div>
+  <div class="lead-card" id="right-card"></div>
+</div>
 
 <script>
 const CARDS = [
-  {
-    initials: 'BT', color: '#3b82f6',
-    sector: 'BTP',
+  { initials: 'BT', color: '#3b82f6', sector: 'BTP',
     projet: 'Extension', budget: '85 000 €', delai: '3 mois', region: 'Île-de-France',
-    score: 87, channel: 'LinkedIn', time: 'Il y a 2j'
-  },
-  {
-    initials: 'RC', color: '#f97316',
-    sector: 'Recouvrement',
+    score: 87, channel: 'LinkedIn', time: 'Il y a 2j' },
+  { initials: 'RC', color: '#f97316', sector: 'Recouvrement',
     projet: 'Créances B2B', budget: '12 000 €', delai: '1 mois', region: 'Occitanie',
-    score: 94, channel: 'Email', time: 'Il y a 1j'
-  },
-  {
-    initials: 'IM', color: '#8b5cf6',
-    sector: 'Immobilier',
+    score: 94, channel: 'Email', time: 'Il y a 1j' },
+  { initials: 'IM', color: '#8b5cf6', sector: 'Immobilier',
     projet: 'Programme neuf', budget: '40 000 €', delai: '6 mois', region: 'PACA',
-    score: 76, channel: 'LinkedIn', time: 'Il y a 4j'
-  },
-  {
-    initials: 'AS', color: '#10b981',
-    sector: 'Assurance',
+    score: 76, channel: 'LinkedIn', time: 'Il y a 4j' },
+  { initials: 'AS', color: '#10b981', sector: 'Assurance',
     projet: 'Courtage pro', budget: '25 000 €', delai: '2 mois', region: 'Auvergne-RA',
-    score: 91, channel: 'WhatsApp', time: 'Il y a 3j'
-  },
+    score: 91, channel: 'WhatsApp', time: 'Il y a 3j' },
 ];
 
-// Positions (% from top-left): 4 zones avoiding overlap
-const POSITIONS = [
-  { left: 4,  top: 6  },
-  { left: 62, top: 6  },
-  { left: 4,  top: 54 },
-  { left: 62, top: 54 },
+// 2 slots: left & right, vertically centered
+const SLOTS = [
+  { left: '4%',  top: '50%', transform: 'translateY(-50%)' },
+  { left: '54%', top: '50%', transform: 'translateY(-50%)' },
 ];
 
-const stage = document.getElementById('stage');
-const cardEls = [];
-let started = false;
+const leftEl  = document.getElementById('left-card');
+const rightEl = document.getElementById('right-card');
 
-function buildCard(data, pos) {
-  const el = document.createElement('div');
-  el.className = 'lead-card';
-  el.style.left = pos.left + '%';
-  el.style.top  = pos.top + '%';
+// Apply slot styles
+function applySlot(el, slot) {
+  el.style.left = slot.left;
+  el.style.top  = slot.top;
+  el.style.transform = slot.transform + ' translateY(14px) scale(0.96)';
+}
+applySlot(leftEl,  SLOTS[0]);
+applySlot(rightEl, SLOTS[1]);
 
+function fillCard(el, data) {
   el.innerHTML = `
     <div class="ping"><div class="ping-ring"></div><div class="ping-dot"></div></div>
     <div class="card-head">
@@ -190,92 +173,78 @@ function buildCard(data, pos) {
       <span class="time-label">${data.time}</span>
     </div>
   `;
-
-  stage.appendChild(el);
-  return { el, score: data.score };
 }
-
-// Build all 4 cards (shuffled positions)
-const shuffledPos = [...POSITIONS].sort(() => Math.random() - 0.5);
-CARDS.forEach((data, i) => {
-  cardEls.push(buildCard(data, shuffledPos[i]));
-});
 
 const wait = ms => new Promise(r => setTimeout(r, ms));
 
-async function showCard(item, delay) {
-  await wait(delay);
-  item.el.classList.add('visible');
-
-  // animate score bar
-  const bar = item.el.querySelector('.bar-fill');
-  const pct = item.el.querySelector('.score-pct');
-  await wait(300);
-  bar.style.width = item.score + '%';
-  // count up
-  let v = 0;
-  const target = item.score;
-  const dur = 900;
+function animateScore(el, target) {
+  const bar = el.querySelector('.bar-fill');
+  const pct = el.querySelector('.score-pct');
+  bar.style.width = target + '%';
   const start = performance.now();
+  const dur = 900;
   function step(now) {
     const t = Math.min((now - start) / dur, 1);
     const ease = t < 0.5 ? 2*t*t : -1+(4-2*t)*t;
-    v = Math.round(ease * target);
-    pct.textContent = v + '%';
+    pct.textContent = Math.round(ease * target) + '%';
     if (t < 1) requestAnimationFrame(step);
   }
   requestAnimationFrame(step);
 }
 
+async function showCard(el, data, slot) {
+  // reset transform for entry animation
+  el.style.transition = 'none';
+  el.style.opacity = '0';
+  el.style.transform = slot.transform + ' translateY(14px) scale(0.96)';
+  fillCard(el, data);
+
+  await wait(30);
+  el.style.transition = 'opacity 0.45s cubic-bezier(0.34,1.56,0.64,1), transform 0.45s cubic-bezier(0.34,1.56,0.64,1)';
+  el.style.opacity = '1';
+  el.style.transform = slot.transform + ' translateY(0) scale(1)';
+
+  await wait(500);
+  animateScore(el, data.score);
+}
+
+async function hideCard(el, slot) {
+  el.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
+  el.style.opacity = '0';
+  el.style.transform = slot.transform + ' translateY(-10px) scale(0.97)';
+  await wait(380);
+}
+
+let started = false;
+
 async function run() {
-  // Reset all
-  cardEls.forEach(item => {
-    item.el.classList.remove('visible', 'hiding');
-    item.el.querySelector('.bar-fill').style.width = '0';
-    item.el.querySelector('.score-pct').textContent = '0%';
-  });
+  // Shuffle cards, show first 2
+  const shuffled = [...CARDS].sort(() => Math.random() - 0.5);
+  let leftIdx  = 0;
+  let rightIdx = 1;
 
-  await wait(200);
+  await showCard(leftEl,  shuffled[leftIdx],  SLOTS[0]);
+  await wait(600);
+  await showCard(rightEl, shuffled[rightIdx], SLOTS[1]);
 
-  // Appear one by one with stagger
-  const order = [0, 1, 2, 3].sort(() => Math.random() - 0.5);
-  for (let i = 0; i < order.length; i++) {
-    showCard(cardEls[order[i]], i * 600);
-  }
+  // Cycle: every 3s swap one card
+  while (started) {
+    await wait(3200);
 
-  // After all shown, wait then cycle: hide one, show again
-  await wait(order.length * 600 + 3000);
+    // Pick which side to refresh (alternate)
+    const refreshLeft = Math.random() > 0.5;
+    const nextIdx = (Math.max(leftIdx, rightIdx) + 1) % shuffled.length;
 
-  // Loop: every 2.5s, rotate one card (hide + re-show with fresh data feel)
-  async function cycle() {
-    while (started) {
-      await wait(2500);
-      // pick random visible card to refresh
-      const idx = Math.floor(Math.random() * cardEls.length);
-      const item = cardEls[idx];
-      item.el.classList.add('hiding');
-      await wait(400);
-      item.el.classList.remove('visible', 'hiding');
-      item.el.querySelector('.bar-fill').style.width = '0';
-      item.el.querySelector('.score-pct').textContent = '0%';
-      await wait(300);
-      item.el.classList.add('visible');
-      await wait(400);
-      item.el.querySelector('.bar-fill').style.width = item.score + '%';
-      let v2 = 0;
-      const t2 = item.score;
-      const s2 = performance.now();
-      function s(now) {
-        const t = Math.min((now - s2) / 800, 1);
-        const e = t < 0.5 ? 2*t*t : -1+(4-2*t)*t;
-        v2 = Math.round(e * t2);
-        item.el.querySelector('.score-pct').textContent = v2 + '%';
-        if (t < 1) requestAnimationFrame(s);
-      }
-      requestAnimationFrame(s);
+    if (refreshLeft) {
+      await hideCard(leftEl, SLOTS[0]);
+      leftIdx = nextIdx;
+      await showCard(leftEl, shuffled[leftIdx], SLOTS[0]);
+    } else {
+      await hideCard(rightEl, SLOTS[1]);
+      rightIdx = nextIdx;
+      await showCard(rightEl, shuffled[rightIdx], SLOTS[1]);
     }
   }
-  cycle();
 }
 
 window.addEventListener('message', (e) => {
