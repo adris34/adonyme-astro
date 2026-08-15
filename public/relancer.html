@@ -4,8 +4,7 @@
 
 body {
   background: #ECEEF7;
-  width: 100vw; height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,12 +13,10 @@ body {
 
 .stage {
   position: relative;
-  width: 800px;
-  height: 600px;
+  width: min(100vw, 133.33vh);
+  aspect-ratio: 4/3;
   overflow: hidden;
   background: #ECEEF7;
-  transform-origin: center center;
-  flex-shrink: 0;
 }
 .stage::before {
   content: '';
@@ -38,6 +35,32 @@ body {
   transform: translate(-50%, -50%);
   width: 44%;
   z-index: 2;
+}
+@media (max-aspect-ratio: 5/4) {
+  .card-wrap {
+    top: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+  }
+  .channels-wrap {
+    left: 50%;
+    top: auto;
+    bottom: 3%;
+    transform: translateX(-50%);
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+  }
+  .ch-btn {
+    padding: 8px 12px;
+    font-size: clamp(11px, 3vw, 14px);
+  }
+  .ch-icon {
+    width: 24px; height: 24px;
+    font-size: 13px;
+  }
 }
 
 .lead-card {
@@ -280,13 +303,6 @@ triggerEls.forEach(el => {
     else await closeChannels();
   });
 });
-
-function fit() {
-  const s = Math.min(window.innerWidth / 800, window.innerHeight / 600);
-  document.getElementById('stage').style.transform = `scale(${s})`;
-}
-window.addEventListener('resize', fit);
-fit();
 
 // Init — attend le signal du parent
 window.addEventListener('message', (e) => {

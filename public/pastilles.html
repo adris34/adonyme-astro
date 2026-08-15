@@ -4,8 +4,7 @@
 
 body {
   background: #f0f0f0;
-  width: 100vw; height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,14 +13,12 @@ body {
 
 .stage {
   position: relative;
-  width: 800px;
-  height: 600px;
+  width: min(100vw, 133.33vh);
+  aspect-ratio: 4/3;
   background: #ffffff;
   overflow: hidden;
   border-radius: 16px;
   box-shadow: 0 8px 40px rgba(0,0,0,.12);
-  transform-origin: center center;
-  flex-shrink: 0;
 }
 
 svg.path-svg {
@@ -280,12 +277,7 @@ async function run() {
   }
 }
 
-function fit() {
-  const s = Math.min(window.innerWidth / 800, window.innerHeight / 600);
-  stage.style.transform = `scale(${s})`;
-}
-window.addEventListener('resize', () => { fit(); run(); });
-fit();
+window.addEventListener('resize', () => { run(); });
 
 // Attend un signal postMessage du parent avant de lancer l'animation
 window.addEventListener('message', (e) => {

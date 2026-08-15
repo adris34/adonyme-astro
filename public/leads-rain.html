@@ -4,21 +4,19 @@
 
 body {
   background: transparent;
-  width: 100vw; height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  overflow: hidden;
 }
 
 .stage {
   position: relative;
-  width: 600px;
-  height: 600px;
+  width: min(100vw, 100vh);
+  aspect-ratio: 1/1;
   overflow: hidden;
-  transform-origin: center center;
-  flex-shrink: 0;
 }
 
 .lead-card {
@@ -229,13 +227,6 @@ async function run() {
     await showEl(els[slot], CARDS[next], slot);
   }
 }
-
-function fit() {
-  const s = Math.min(window.innerWidth / 600, window.innerHeight / 600);
-  document.getElementById('stage').style.transform = `scale(${s})`;
-}
-window.addEventListener('resize', fit);
-fit();
 
 window.addEventListener('message', (e) => {
   if (e.data === 'play' && !started) {
