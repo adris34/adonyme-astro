@@ -481,7 +481,7 @@ import Layout from '../layouts/Layout.astro';
                   body: 'Avant de vous fournir en leads, on défini ensemble votre profil de client que vous recherchez afin de projeter les angles marketing pour cibler les bons profils.',
                   points: ['Stratégie créative', 'Stratégies de gestion de campagnes publicitaires', 'Support 7/7'],
                   side: 'left',
-                  illustration: h('iframe', { src: '/pastilles.html', style: { width: '100%', aspectRatio: '4/3', border: 'none', display: 'block', borderRadius: '8px' }, loading: 'lazy' })
+                  illustration: h('iframe', { src: '/pastilles.html', style: { width: '100%', aspectRatio: '4/3', border: 'none', display: 'block', borderRadius: '8px' } })
                 },
                 {
                   num: '02',
@@ -490,7 +490,7 @@ import Layout from '../layouts/Layout.astro';
                   body: 'On active les relances omnicanal de tous les leads générés à votre place, email, LinkedIn, vocal, WhatsApp, vocal mailing, suivis dans votre CRM.',
                   points: ['Education pour qualification', 'Gestion de Relances', 'Transformation'],
                   side: 'left', flip: true,
-                  illustration: h('iframe', { src: '/relancer.html', style: { width: '100%', aspectRatio: '4/3', border: 'none', display: 'block', borderRadius: '8px', background: 'transparent' }, allowTransparency: 'true', loading: 'lazy' })
+                  illustration: h('iframe', { src: '/relancer.html', style: { width: '100%', aspectRatio: '4/3', border: 'none', display: 'block', borderRadius: '8px', background: 'transparent' }, allowTransparency: 'true' })
                 },
                 {
                   num: '03',
@@ -499,7 +499,7 @@ import Layout from '../layouts/Layout.astro';
                   body: 'Chaque lead est qualifié, scoré et livré directement dans votre CRM, ou notre interface. Vos commerciaux reçoivent uniquement des contacts qui ont manifesté un intérêt réel pour l\'offre de votre entreprise.',
                   points: ['Qualification automatique selon vos critères', 'Score d\'intention et validation', 'Intégration directe dans votre CRM'],
                   side: 'left',
-                  illustration: h('iframe', { src: '/leads-rain.html', style: { width: '100%', aspectRatio: '1/1', border: 'none', display: 'block', borderRadius: '8px', background: 'transparent' }, allowTransparency: 'true', loading: 'lazy' })
+                  illustration: h('iframe', { src: '/leads-rain.html', style: { width: '100%', aspectRatio: '1/1', border: 'none', display: 'block', borderRadius: '8px', background: 'transparent' }, allowTransparency: 'true' })
                 }
               ].map((step, i) =>
                 h('div', { key: step.num, className: 'mob-step-grid', style: { display: 'grid', gridTemplateColumns: '1fr 80px 1fr', gap: '2rem', alignItems: 'center', marginBottom: i < 2 ? '5rem' : 0 } },
@@ -583,27 +583,25 @@ import Layout from '../layouts/Layout.astro';
 
     createRoot(document.getElementById('app-root')).render(h(Page));
 
-    // Déclenche les animations iframes au scroll
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.contentWindow.postMessage('play', '*');
-          entry.target.contentWindow.postMessage('start', '*');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.3 });
-
-    const observeIframe = (src) => {
+    // Démarre toutes les animations iframes dès le chargement
+    const startIframe = (src) => {
       const try_ = () => {
         const iframe = document.querySelector(`iframe[src="${src}"]`);
-        if (iframe) observer.observe(iframe);
-        else setTimeout(try_, 200);
+        if (iframe) {
+          const send = () => {
+            iframe.contentWindow.postMessage('play', '*');
+            iframe.contentWindow.postMessage('start', '*');
+          };
+          if (iframe.contentDocument?.readyState === 'complete') send();
+          else iframe.addEventListener('load', send, { once: true });
+        } else {
+          setTimeout(try_, 100);
+        }
       };
       try_();
     };
-    observeIframe('/pastilles.html');
-    observeIframe('/relancer.html');
-    observeIframe('/leads-rain.html');
+    startIframe('/pastilles.html');
+    startIframe('/relancer.html');
+    startIframe('/leads-rain.html');
   </script>
 </Layout>
