@@ -13,6 +13,8 @@ import Layout from '../layouts/Layout.astro';
     .card-track { animation: cardScroll 18s linear infinite; }
     @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.75); } }
     .dot-pulse { width: 8px; height: 8px; border-radius: 50%; background: #fb6931; display: inline-block; flex-shrink: 0; animation: pulse 2s ease-in-out infinite; }
+    @keyframes ctaPulse { 0%, 100% { box-shadow: 0 4px 24px rgba(251,105,49,.35), 0 0 0 0 rgba(251,105,49,.4); } 50% { box-shadow: 0 4px 32px rgba(251,105,49,.5), 0 0 0 10px rgba(251,105,49,0); } }
+    .cta-pulse { animation: ctaPulse 2s ease-in-out infinite; }
     .dot-pulse:nth-child(1) { animation-delay: 0s; }
 
     @media (max-width: 768px) {
@@ -548,8 +550,8 @@ import Layout from '../layouts/Layout.astro';
                       )
                 )
               ),
-              h('div', { style: { display: 'flex', justifyContent: 'center', marginTop: '3rem', position: 'relative', zIndex: 1 } },
-                h('a', { href: 'https://calendly.com/acquisition-rentable/30min', style: { display: 'inline-block', background: '#fb6931', color: '#fff', padding: '1rem 2.5rem', borderRadius: '12px', fontWeight: 700, fontSize: '1rem', textDecoration: 'none', boxShadow: '0 4px 24px rgba(251,105,49,.35)', letterSpacing: '.01em' } }, 'Je réserve un appel →')
+              h('div', { style: { display: 'flex', justifyContent: 'center', marginTop: '5rem', position: 'relative', zIndex: 1 } },
+                h('a', { href: 'https://calendly.com/acquisition-rentable/30min', className: 'cta-pulse', style: { display: 'inline-block', background: '#fb6931', color: '#fff', padding: '1rem 2.5rem', borderRadius: '12px', fontWeight: 700, fontSize: '1rem', textDecoration: 'none', letterSpacing: '.01em' } }, 'Je réserve un appel →')
               )
             )
           )
