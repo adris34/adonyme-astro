@@ -1,0 +1,287 @@
+<title>Adonyme — Leads</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #f8f7f4;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  overflow: hidden;
+}
+
+.stage {
+  position: relative;
+  width: min(100vw, 133.33vh);
+  aspect-ratio: 4/3;
+  overflow: hidden;
+}
+
+.lead-card {
+  position: absolute;
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10), 0 0 0 1px rgba(0,0,0,0.04);
+  width: 34%;
+  opacity: 0;
+  transform: translateY(16px) scale(0.95);
+  transition: opacity 0.45s cubic-bezier(0.34,1.56,0.64,1), transform 0.45s cubic-bezier(0.34,1.56,0.64,1);
+  pointer-events: none;
+}
+.lead-card.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.lead-card.hiding {
+  opacity: 0;
+  transform: translateY(-10px) scale(0.97);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.card-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #f0f0f0;
+}
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 800;
+  color: #fff;
+  flex-shrink: 0;
+}
+.card-title { font-size: 13px; font-weight: 800; color: #0a0a0a; }
+.card-sector { font-size: 11px; color: #94a3b8; margin-top: 1px; }
+
+.fields { display: flex; flex-direction: column; gap: 7px; }
+.field-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.field-label { font-size: 10px; font-weight: 600; color: #94a3b8; letter-spacing: 0.03em; }
+.field-value { font-size: 11px; font-weight: 700; color: #0a0a0a; }
+
+.score-row { margin-top: 12px; padding-top: 10px; border-top: 1px solid #f0f0f0; }
+.score-header { display: flex; justify-content: space-between; margin-bottom: 6px; }
+.score-label { font-size: 10px; font-weight: 600; color: #94a3b8; }
+.score-pct { font-size: 12px; font-weight: 900; color: #fb6931; }
+.bar-bg { height: 5px; background: #f0f0f0; border-radius: 99px; overflow: hidden; }
+.bar-fill { height: 100%; background: #fb6931; border-radius: 99px; width: 0; transition: width 1s ease; }
+
+.card-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.channel-badge {
+  font-size: 9.5px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: rgba(251,105,49,0.1);
+  color: #fb6931;
+}
+.time-label { font-size: 9.5px; color: #94a3b8; }
+
+/* Notification ping */
+.ping {
+  position: absolute;
+  top: 12px; right: 12px;
+  width: 8px; height: 8px;
+}
+.ping-dot {
+  width: 8px; height: 8px; border-radius: 50%; background: #fb6931; position: absolute;
+}
+.ping-ring {
+  width: 8px; height: 8px; border-radius: 50%; background: rgba(251,105,49,0.4);
+  position: absolute; animation: ping 1.4s ease-out infinite;
+}
+@keyframes ping {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+</style>
+
+<div class="stage" id="stage"></div>
+
+<script>
+const CARDS = [
+  {
+    initials: 'BT', color: '#3b82f6',
+    sector: 'BTP',
+    projet: 'Extension', budget: '85 000 €', delai: '3 mois', region: 'Île-de-France',
+    score: 87, channel: 'LinkedIn', time: 'Il y a 2j'
+  },
+  {
+    initials: 'RC', color: '#f97316',
+    sector: 'Recouvrement',
+    projet: 'Créances B2B', budget: '12 000 €', delai: '1 mois', region: 'Occitanie',
+    score: 94, channel: 'Email', time: 'Il y a 1j'
+  },
+  {
+    initials: 'IM', color: '#8b5cf6',
+    sector: 'Immobilier',
+    projet: 'Programme neuf', budget: '40 000 €', delai: '6 mois', region: 'PACA',
+    score: 76, channel: 'LinkedIn', time: 'Il y a 4j'
+  },
+  {
+    initials: 'AS', color: '#10b981',
+    sector: 'Assurance',
+    projet: 'Courtage pro', budget: '25 000 €', delai: '2 mois', region: 'Auvergne-RA',
+    score: 91, channel: 'WhatsApp', time: 'Il y a 3j'
+  },
+];
+
+// Positions (% from top-left): 4 zones avoiding overlap
+const POSITIONS = [
+  { left: 4,  top: 6  },
+  { left: 62, top: 6  },
+  { left: 4,  top: 54 },
+  { left: 62, top: 54 },
+];
+
+const stage = document.getElementById('stage');
+const cardEls = [];
+let started = false;
+
+function buildCard(data, pos) {
+  const el = document.createElement('div');
+  el.className = 'lead-card';
+  el.style.left = pos.left + '%';
+  el.style.top  = pos.top + '%';
+
+  el.innerHTML = `
+    <div class="ping"><div class="ping-ring"></div><div class="ping-dot"></div></div>
+    <div class="card-head">
+      <div class="avatar" style="background:${data.color}">${data.initials}</div>
+      <div>
+        <div class="card-title">Nouveau Lead</div>
+        <div class="card-sector">${data.sector}</div>
+      </div>
+    </div>
+    <div class="fields">
+      <div class="field-row"><span class="field-label">Projet</span><span class="field-value">${data.projet}</span></div>
+      <div class="field-row"><span class="field-label">Budget</span><span class="field-value">${data.budget}</span></div>
+      <div class="field-row"><span class="field-label">Délai</span><span class="field-value">${data.delai}</span></div>
+      <div class="field-row"><span class="field-label">Région</span><span class="field-value">${data.region}</span></div>
+    </div>
+    <div class="score-row">
+      <div class="score-header">
+        <span class="score-label">Score ICP</span>
+        <span class="score-pct">0%</span>
+      </div>
+      <div class="bar-bg"><div class="bar-fill"></div></div>
+    </div>
+    <div class="card-foot">
+      <span class="channel-badge">${data.channel}</span>
+      <span class="time-label">${data.time}</span>
+    </div>
+  `;
+
+  stage.appendChild(el);
+  return { el, score: data.score };
+}
+
+// Build all 4 cards (shuffled positions)
+const shuffledPos = [...POSITIONS].sort(() => Math.random() - 0.5);
+CARDS.forEach((data, i) => {
+  cardEls.push(buildCard(data, shuffledPos[i]));
+});
+
+const wait = ms => new Promise(r => setTimeout(r, ms));
+
+async function showCard(item, delay) {
+  await wait(delay);
+  item.el.classList.add('visible');
+
+  // animate score bar
+  const bar = item.el.querySelector('.bar-fill');
+  const pct = item.el.querySelector('.score-pct');
+  await wait(300);
+  bar.style.width = item.score + '%';
+  // count up
+  let v = 0;
+  const target = item.score;
+  const dur = 900;
+  const start = performance.now();
+  function step(now) {
+    const t = Math.min((now - start) / dur, 1);
+    const ease = t < 0.5 ? 2*t*t : -1+(4-2*t)*t;
+    v = Math.round(ease * target);
+    pct.textContent = v + '%';
+    if (t < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+async function run() {
+  // Reset all
+  cardEls.forEach(item => {
+    item.el.classList.remove('visible', 'hiding');
+    item.el.querySelector('.bar-fill').style.width = '0';
+    item.el.querySelector('.score-pct').textContent = '0%';
+  });
+
+  await wait(200);
+
+  // Appear one by one with stagger
+  const order = [0, 1, 2, 3].sort(() => Math.random() - 0.5);
+  for (let i = 0; i < order.length; i++) {
+    showCard(cardEls[order[i]], i * 600);
+  }
+
+  // After all shown, wait then cycle: hide one, show again
+  await wait(order.length * 600 + 3000);
+
+  // Loop: every 2.5s, rotate one card (hide + re-show with fresh data feel)
+  async function cycle() {
+    while (started) {
+      await wait(2500);
+      // pick random visible card to refresh
+      const idx = Math.floor(Math.random() * cardEls.length);
+      const item = cardEls[idx];
+      item.el.classList.add('hiding');
+      await wait(400);
+      item.el.classList.remove('visible', 'hiding');
+      item.el.querySelector('.bar-fill').style.width = '0';
+      item.el.querySelector('.score-pct').textContent = '0%';
+      await wait(300);
+      item.el.classList.add('visible');
+      await wait(400);
+      item.el.querySelector('.bar-fill').style.width = item.score + '%';
+      let v2 = 0;
+      const t2 = item.score;
+      const s2 = performance.now();
+      function s(now) {
+        const t = Math.min((now - s2) / 800, 1);
+        const e = t < 0.5 ? 2*t*t : -1+(4-2*t)*t;
+        v2 = Math.round(e * t2);
+        item.el.querySelector('.score-pct').textContent = v2 + '%';
+        if (t < 1) requestAnimationFrame(s);
+      }
+      requestAnimationFrame(s);
+    }
+  }
+  cycle();
+}
+
+window.addEventListener('message', (e) => {
+  if (e.data === 'play' && !started) {
+    started = true;
+    run();
+  }
+});
+</script>
