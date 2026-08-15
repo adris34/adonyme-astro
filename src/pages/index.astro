@@ -421,7 +421,8 @@ import Layout from '../layouts/Layout.astro';
               h('div', { style: { flex: 1, height: '1px', background: '#e2e8f0' } })
             ),
             h('h2', { style: { fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', fontWeight: 700, lineHeight: 1.15, color: '#0a0a0a', marginBottom: '1.5rem' } },
-              '90% des entreprises investissent',
+              h('span', { style: { color: '#fb6931' } }, '90% des entreprises'),
+              ' investissent',
               h('br'),
               'dans des leads sans aucun contrôle'
             ),
