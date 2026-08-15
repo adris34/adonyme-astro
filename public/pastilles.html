@@ -1,4 +1,4 @@
-<title>Pastilles Adonyme — Static</title>
+<title>Pastilles Adonyme</title>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -27,6 +27,7 @@ svg.path-svg {
   width: 100%;
   height: 100%;
   pointer-events: none;
+  overflow: visible;
 }
 
 .pill {
@@ -42,8 +43,15 @@ svg.path-svg {
   font-size: clamp(13px, 2.6vw, 28px);
   box-shadow: 0 4px 20px rgba(251,105,49,.35);
   width: 58%;
+  opacity: 0;
+  transform: translateX(-24px);
+  transition: opacity .4s ease, transform .4s cubic-bezier(0.34,1.56,0.64,1);
   z-index: 2;
 }
+.pill.right {
+  transform: translateX(24px);
+}
+.pill.show { opacity: 1; transform: translateX(0); }
 
 .pill-num {
   background: rgba(255,255,255,0.22);
@@ -58,14 +66,20 @@ svg.path-svg {
   aspect-ratio: 1;
 }
 
+/* Dot at the connector end of each pill */
 .pill-dot {
   position: absolute;
+  width: clamp(10px, 1.6vw, 18px);
+  height: clamp(10px, 1.6vw, 18px);
   border-radius: 50%;
   background: #fb6931;
   border: 3px solid #fff;
   box-shadow: 0 0 0 2px #fb6931;
   z-index: 3;
+  opacity: 0;
+  transition: opacity .3s ease .3s;
 }
+.pill-dot.show { opacity: 1; }
 </style>
 
 <div class="stage" id="stage">
@@ -85,28 +99,59 @@ const labels = [
 const stage = document.getElementById('stage');
 const svg   = document.getElementById('svg');
 
-const TOP_PAD = 6, BOT_PAD = 6;
+const wait = ms => new Promise(r => setTimeout(r, ms));
+
+function pct(x, y) {
+  // returns {x: px, y: px} from percentage
+  const W = stage.offsetWidth;
+  const H = stage.offsetHeight;
+  return { x: W * x / 100, y: H * y / 100 };
+}
+
+// Layout: each pill placed alternating left/right
+// [side, topCenterY%]  — vertical spread across 5%..95%
 const ROWS = labels.length;
+const TOP_PAD = 6, BOT_PAD = 6;
 const rowH = (100 - TOP_PAD - BOT_PAD) / ROWS;
-const LEFT_PILL_X = 4;
-const RIGHT_PILL_X = 38;
-const PILL_W = 58;
-const PILL_FILL = 0.65;
+
+function getLayout(i) {
+  const side = i % 2 === 0 ? 'left' : 'right';
+  const centerY = TOP_PAD + rowH * i + rowH / 2;
+  return { side, centerY };
+}
+
+// Connector dot X position (end of pill toward center)
+// Left pills: right edge → pill starts at 4%, width 58% → right edge at 62%
+// Right pills: left edge → pill starts at 38% → left edge at 38%
+const LEFT_PILL_X  = 4;   // pill left edge %
+const RIGHT_PILL_X = 38;  // pill left edge %
+const PILL_W       = 58;  // pill width %
+
+function getDotX(side) {
+  if (side === 'left')  return LEFT_PILL_X  + PILL_W; // 62%
+  else                  return RIGHT_PILL_X;            // 38%
+}
+
+const pillEls = [];
+const dotEls  = [];
+const dotPositions = []; // absolute px positions of each connector dot
 
 function build() {
   stage.querySelectorAll('.pill, .pill-dot').forEach(e => e.remove());
   svg.innerHTML = '';
+  pillEls.length = 0;
+  dotEls.length  = 0;
+  dotPositions.length = 0;
 
   const W = stage.offsetWidth;
   const H = stage.offsetHeight;
-  const dotPositions = [];
 
   labels.forEach((text, i) => {
-    const side = i % 2 === 0 ? 'left' : 'right';
-    const centerY = TOP_PAD + rowH * i + rowH / 2;
+    const { side, centerY } = getLayout(i);
 
+    // Pill
     const pill = document.createElement('div');
-    pill.className = 'pill';
+    pill.className = 'pill' + (side === 'right' ? ' right' : '');
 
     const numEl = document.createElement('div');
     numEl.className = 'pill-num';
@@ -119,41 +164,62 @@ function build() {
     pill.appendChild(span);
 
     const pillLeft = side === 'left' ? LEFT_PILL_X : RIGHT_PILL_X;
+    pill.style.left = pillLeft + '%';
+    pill.style.top  = '50%';
+    pill.style.transform = (side === 'right' ? 'translateX(24px)' : 'translateX(-24px)') + ' translateY(-50%)';
+    pill.style.marginTop = (centerY - 50) * H / 100 + 'px'; // shift from 50% anchor
+
+    // Simpler: use absolute top
+    pill.style.top = '';
+    pill.style.marginTop = '';
+    // Pill occupies 65% of the row height, centered
+    const PILL_FILL = 0.65;
     const rowPx  = H * rowH / 100;
     const pillH  = rowPx * PILL_FILL;
     const pillTop = H * (TOP_PAD + rowH * i) / 100 + (rowPx - pillH) / 2;
-
-    pill.style.left   = pillLeft + '%';
     pill.style.top    = pillTop + 'px';
     pill.style.height = pillH + 'px';
+    pill.style.alignItems = 'center';
 
     stage.appendChild(pill);
+    pillEls.push({ el: pill, side });
 
-    // Dot
-    const dotX = side === 'left' ? LEFT_PILL_X + PILL_W : RIGHT_PILL_X;
-    const dotPxX = W * dotX / 100;
-    const dotPxY = H * centerY / 100;
-    const dotSize = Math.round(W * 0.016);
-
+    // Connector dot
     const dot = document.createElement('div');
     dot.className = 'pill-dot';
-    dot.style.left   = (dotPxX - dotSize / 2) + 'px';
-    dot.style.top    = (dotPxY - dotSize / 2) + 'px';
+    const dotX = getDotX(side);
+    const dotPx = pct(dotX, centerY);
+    const dotSize = Math.round(W * 0.016);
+    dot.style.left = (dotPx.x - dotSize / 2) + 'px';
+    dot.style.top  = (dotPx.y - dotSize / 2) + 'px';
     dot.style.width  = dotSize + 'px';
     dot.style.height = dotSize + 'px';
     stage.appendChild(dot);
-
-    dotPositions.push({ x: dotPxX, y: dotPxY });
+    dotEls.push(dot);
+    dotPositions.push({ x: dotPx.x, y: dotPx.y });
   });
 
-  // SVG path
+  // Build SVG path connecting dots
+  buildSvgPath();
+}
+
+function buildSvgPath() {
+  svg.innerHTML = '';
   if (dotPositions.length < 2) return;
+
+  const W = stage.offsetWidth;
+  const dotR = W * 0.008;
+
+  // Build one smooth path through all connector dots
   let d = '';
-  const midX = W * 50 / 100;
   for (let i = 0; i < dotPositions.length - 1; i++) {
     const a = dotPositions[i];
     const b = dotPositions[i + 1];
+    // Cubic bezier: control points curve toward center
+    const midX = W * 50 / 100;
     if (i === 0) d += `M ${a.x} ${a.y} `;
+
+    // Curve: from a, go toward center X, then reach b
     const cp1x = a.x + (midX - a.x) * 0.6;
     const cp1y = a.y + (b.y - a.y) * 0.3;
     const cp2x = b.x + (midX - b.x) * 0.6;
@@ -168,10 +234,54 @@ function build() {
   path.setAttribute('stroke-width', Math.round(W * 0.004));
   path.setAttribute('stroke-dasharray', `${W * 0.012} ${W * 0.008}`);
   path.setAttribute('stroke-linecap', 'round');
-  path.setAttribute('opacity', '0.6');
+  path.setAttribute('opacity', '0');
+  path.setAttribute('id', 'mainPath');
   svg.appendChild(path);
+
+  // Animate path drawing via stroke-dashoffset
+  const len = path.getTotalLength();
+  path.setAttribute('stroke-dasharray', `${W * 0.012} ${W * 0.008}`);
+  // We'll reveal by clipping with a solid animated overlay path
+  // Simpler: use a second path that acts as a mask reveal
+  // Actually just fade in segments between each pair of dots
 }
 
-window.addEventListener('load', build);
-window.addEventListener('resize', build);
+async function run() {
+  build();
+  await wait(200);
+
+  const W = stage.offsetWidth;
+  const pathEl = document.getElementById('mainPath');
+
+  for (let i = 0; i < pillEls.length; i++) {
+    // Show pill
+    const { el, side } = pillEls[i];
+    el.style.transition = 'opacity .4s ease, transform .4s cubic-bezier(0.34,1.56,0.64,1)';
+    el.style.opacity = '1';
+    el.style.transform = 'translateX(0)';
+
+    await wait(100);
+
+    // Show dot
+    dotEls[i].classList.add('show');
+
+    await wait(80);
+
+    // Reveal path up to next dot (fade in segments progressively)
+    if (pathEl && i === 0) {
+      pathEl.style.transition = 'opacity .3s ease';
+      pathEl.style.opacity = '0.6';
+    }
+
+    await wait(260);
+  }
+}
+
+window.addEventListener('load', () => {
+  setTimeout(run, 300);
+});
+
+window.addEventListener('resize', () => {
+  run();
+});
 </script>
