@@ -481,10 +481,7 @@ import Layout from '../layouts/Layout.astro';
                   body: 'Avant de vous fournir en leads, on défini ensemble votre profil de client que vous recherchez afin de projeter les angles marketing pour cibler les bons profils.',
                   points: ['Stratégie créative', 'Stratégies de gestion de campagnes publicitaires', 'Support 7/7'],
                   side: 'left',
-                  illustration: h('div', { style: { position: 'relative' } },
-                    h('div', { style: { position: 'absolute', inset: '-2px', background: '#fb6931', borderRadius: '12px', filter: 'blur(24px)', opacity: 0.35, zIndex: 0 } }),
-                    h('iframe', { src: '/pastilles.html', style: { position: 'relative', zIndex: 1, width: '100%', aspectRatio: '4/3', border: 'none', display: 'block', borderRadius: '8px' }, loading: 'lazy' })
-                  )
+                  illustration: h('iframe', { src: '/pastilles.html', style: { width: '100%', aspectRatio: '4/3', border: 'none', display: 'block', borderRadius: '8px' }, loading: 'lazy' })
                 },
                 {
                   num: '02',
