@@ -14,8 +14,8 @@ body {
 
 .stage {
   position: relative;
-  width: 640px;
-  height: 480px;
+  width: 480px;
+  height: 360px;
   overflow: hidden;
   background: transparent;
   transform-origin: center center;
@@ -273,7 +273,7 @@ triggerEls.forEach(el => {
 
 function fit() {
   const stage = document.getElementById('stage');
-  const scale = Math.min(window.innerWidth / 640, window.innerHeight / 480);
+  const scale = Math.min(window.innerWidth / 480, window.innerHeight / 360);
   stage.style.transform = `scale(${scale})`;
 }
 window.addEventListener('resize', fit);
