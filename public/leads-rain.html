@@ -22,8 +22,8 @@ body {
 .lead-card {
   position: absolute;
   background: #fff;
-  border-radius: 16px;
-  padding: clamp(10px, 1.7%, 14px) clamp(12px, 1.9%, 16px);
+  border-radius: 20px;
+  padding: 1.6% 1.8%;
   box-shadow: 0 6px 24px rgba(0,0,0,0.10), 0 0 0 1px rgba(0,0,0,0.04);
   width: 43%;
   opacity: 0;
@@ -46,44 +46,44 @@ body {
   border-bottom: 1px solid #f0f0f0;
 }
 .avatar {
-  width: clamp(26px, 3.8vw, 34px);
-  height: clamp(26px, 3.8vw, 34px);
+  width: clamp(36px, 4.5vw, 48px);
+  height: clamp(36px, 4.5vw, 48px);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: clamp(9px, 1.4vw, 12px);
+  font-size: clamp(12px, 1.6vw, 17px);
   font-weight: 800;
   color: #fff;
   flex-shrink: 0;
 }
-.card-title { font-size: clamp(10px, 1.5vw, 13px); font-weight: 800; color: #0a0a0a; line-height: 1.2; }
-.card-sector { font-size: clamp(8px, 1.2vw, 10px); color: #94a3b8; margin-top: 1px; }
+.card-title { font-size: clamp(13px, 1.8vw, 20px); font-weight: 800; color: #0a0a0a; line-height: 1.2; }
+.card-sector { font-size: clamp(10px, 1.3vw, 14px); color: #94a3b8; margin-top: 2px; }
 
-.fields { display: flex; flex-direction: column; gap: 4px; }
+.fields { display: flex; flex-direction: column; gap: 6px; }
 .field-row { display: flex; align-items: center; justify-content: space-between; }
-.field-label { font-size: clamp(7px, 1.1vw, 10px); font-weight: 600; color: #94a3b8; }
-.field-value { font-size: clamp(8px, 1.2vw, 11px); font-weight: 700; color: #0a0a0a; }
+.field-label { font-size: clamp(10px, 1.3vw, 14px); font-weight: 600; color: #94a3b8; }
+.field-value { font-size: clamp(11px, 1.4vw, 15px); font-weight: 700; color: #0a0a0a; }
 
-.score-row { margin-top: 7px; padding-top: 6px; border-top: 1px solid #f0f0f0; }
-.score-header { display: flex; justify-content: space-between; margin-bottom: 4px; }
-.score-label { font-size: clamp(7px, 1.1vw, 10px); font-weight: 600; color: #94a3b8; }
-.score-pct { font-size: clamp(9px, 1.4vw, 12px); font-weight: 900; color: #fb6931; }
-.bar-bg { height: 4px; background: #f0f0f0; border-radius: 99px; overflow: hidden; }
+.score-row { margin-top: 10px; padding-top: 9px; border-top: 1px solid #f0f0f0; }
+.score-header { display: flex; justify-content: space-between; margin-bottom: 5px; }
+.score-label { font-size: clamp(10px, 1.3vw, 14px); font-weight: 600; color: #94a3b8; }
+.score-pct { font-size: clamp(13px, 1.7vw, 19px); font-weight: 900; color: #fb6931; }
+.bar-bg { height: 5px; background: #f0f0f0; border-radius: 99px; overflow: hidden; }
 .bar-fill { height: 100%; background: #fb6931; border-radius: 99px; width: 0; transition: width 1s ease; }
 
 .card-foot {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 6px;
+  margin-top: 9px;
 }
 .channel-badge {
-  font-size: clamp(7px, 1.1vw, 9.5px); font-weight: 700;
-  padding: 2px 7px; border-radius: 5px;
+  font-size: clamp(9px, 1.2vw, 13px); font-weight: 700;
+  padding: 3px 9px; border-radius: 6px;
   background: rgba(251,105,49,0.1); color: #fb6931;
 }
-.time-label { font-size: clamp(7px, 1.1vw, 9.5px); color: #94a3b8; }
+.time-label { font-size: clamp(9px, 1.2vw, 13px); color: #94a3b8; }
 
 .ping {
   position: absolute;
