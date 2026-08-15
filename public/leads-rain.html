@@ -22,12 +22,12 @@ body {
 .lead-card {
   position: absolute;
   background: #fff;
-  border-radius: 16px;
-  padding: 16px 18px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.10), 0 0 0 1px rgba(0,0,0,0.04);
-  width: 42%;
+  border-radius: 14px;
+  padding: clamp(10px, 1.8%, 14px) clamp(12px, 2%, 16px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.09), 0 0 0 1px rgba(0,0,0,0.04);
+  width: 45%;
   opacity: 0;
-  transform: translateY(14px) scale(0.96);
+  transform: translateY(12px) scale(0.96);
   transition: opacity 0.45s cubic-bezier(0.34,1.56,0.64,1), transform 0.45s cubic-bezier(0.34,1.56,0.64,1);
   pointer-events: none;
 }
@@ -37,66 +37,72 @@ body {
 }
 .lead-card.hiding {
   opacity: 0;
-  transform: translateY(-10px) scale(0.97);
-  transition: opacity 0.35s ease, transform 0.35s ease;
+  transform: translateY(-8px) scale(0.97);
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
+
+/* 2×2 fixed positions */
+.lead-card:nth-child(1) { left: 3%;  top: 4%; }
+.lead-card:nth-child(2) { left: 52%; top: 4%; }
+.lead-card:nth-child(3) { left: 3%;  top: 52%; }
+.lead-card:nth-child(4) { left: 52%; top: 52%; }
 
 .card-head {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 12px;
-  padding-bottom: 11px;
+  gap: 10px;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
   border-bottom: 1px solid #f0f0f0;
 }
 .avatar {
-  width: 38px;
-  height: 38px;
+  width: clamp(28px, 4vw, 36px);
+  height: clamp(28px, 4vw, 36px);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 13px;
+  font-size: clamp(10px, 1.5vw, 13px);
   font-weight: 800;
   color: #fff;
   flex-shrink: 0;
 }
-.card-title { font-size: 13px; font-weight: 800; color: #0a0a0a; }
-.card-sector { font-size: 11px; color: #94a3b8; margin-top: 1px; }
+.card-title { font-size: clamp(10px, 1.6vw, 13px); font-weight: 800; color: #0a0a0a; }
+.card-sector { font-size: clamp(9px, 1.3vw, 11px); color: #94a3b8; margin-top: 1px; }
 
-.fields { display: flex; flex-direction: column; gap: 6px; }
+.fields { display: flex; flex-direction: column; gap: 4px; }
 .field-row { display: flex; align-items: center; justify-content: space-between; }
-.field-label { font-size: 10px; font-weight: 600; color: #94a3b8; }
-.field-value { font-size: 11px; font-weight: 700; color: #0a0a0a; }
+.field-label { font-size: clamp(8px, 1.2vw, 10px); font-weight: 600; color: #94a3b8; }
+.field-value { font-size: clamp(9px, 1.3vw, 11px); font-weight: 700; color: #0a0a0a; }
 
-.score-row { margin-top: 10px; padding-top: 9px; border-top: 1px solid #f0f0f0; }
-.score-header { display: flex; justify-content: space-between; margin-bottom: 5px; }
-.score-label { font-size: 10px; font-weight: 600; color: #94a3b8; }
-.score-pct { font-size: 12px; font-weight: 900; color: #fb6931; }
-.bar-bg { height: 5px; background: #f0f0f0; border-radius: 99px; overflow: hidden; }
+.score-row { margin-top: 8px; padding-top: 7px; border-top: 1px solid #f0f0f0; }
+.score-header { display: flex; justify-content: space-between; margin-bottom: 4px; }
+.score-label { font-size: clamp(8px, 1.2vw, 10px); font-weight: 600; color: #94a3b8; }
+.score-pct { font-size: clamp(10px, 1.5vw, 12px); font-weight: 900; color: #fb6931; }
+.bar-bg { height: 4px; background: #f0f0f0; border-radius: 99px; overflow: hidden; }
 .bar-fill { height: 100%; background: #fb6931; border-radius: 99px; width: 0; transition: width 1s ease; }
 
 .card-foot {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 9px;
+  margin-top: 7px;
 }
 .channel-badge {
-  font-size: 9.5px; font-weight: 700;
-  padding: 3px 8px; border-radius: 6px;
+  font-size: clamp(8px, 1.1vw, 10px); font-weight: 700;
+  padding: 2px 7px; border-radius: 5px;
   background: rgba(251,105,49,0.1); color: #fb6931;
 }
-.time-label { font-size: 9.5px; color: #94a3b8; }
+.time-label { font-size: clamp(8px, 1.1vw, 10px); color: #94a3b8; }
 
 .ping {
   position: absolute;
-  top: 12px; right: 12px;
-  width: 8px; height: 8px;
+  top: 10px; right: 10px;
+  width: 7px; height: 7px;
 }
-.ping-dot { width: 8px; height: 8px; border-radius: 50%; background: #fb6931; position: absolute; }
+.ping-dot { width: 7px; height: 7px; border-radius: 50%; background: #fb6931; position: absolute; }
 .ping-ring {
-  width: 8px; height: 8px; border-radius: 50%;
+  width: 7px; height: 7px; border-radius: 50%;
   background: rgba(251,105,49,0.4); position: absolute;
   animation: ping 1.4s ease-out infinite;
 }
@@ -107,8 +113,10 @@ body {
 </style>
 
 <div class="stage" id="stage">
-  <div class="lead-card" id="left-card"></div>
-  <div class="lead-card" id="right-card"></div>
+  <div class="lead-card" id="c0"></div>
+  <div class="lead-card" id="c1"></div>
+  <div class="lead-card" id="c2"></div>
+  <div class="lead-card" id="c3"></div>
 </div>
 
 <script>
@@ -127,23 +135,7 @@ const CARDS = [
     score: 91, channel: 'WhatsApp', time: 'Il y a 3j' },
 ];
 
-// 2 slots: left & right, vertically centered
-const SLOTS = [
-  { left: '4%',  top: '50%', transform: 'translateY(-50%)' },
-  { left: '54%', top: '50%', transform: 'translateY(-50%)' },
-];
-
-const leftEl  = document.getElementById('left-card');
-const rightEl = document.getElementById('right-card');
-
-// Apply slot styles
-function applySlot(el, slot) {
-  el.style.left = slot.left;
-  el.style.top  = slot.top;
-  el.style.transform = slot.transform + ' translateY(14px) scale(0.96)';
-}
-applySlot(leftEl,  SLOTS[0]);
-applySlot(rightEl, SLOTS[1]);
+const els = [0,1,2,3].map(i => document.getElementById('c' + i));
 
 function fillCard(el, data) {
   el.innerHTML = `
@@ -182,68 +174,60 @@ function animateScore(el, target) {
   const pct = el.querySelector('.score-pct');
   bar.style.width = target + '%';
   const start = performance.now();
-  const dur = 900;
-  function step(now) {
-    const t = Math.min((now - start) / dur, 1);
-    const ease = t < 0.5 ? 2*t*t : -1+(4-2*t)*t;
-    pct.textContent = Math.round(ease * target) + '%';
+  (function step(now) {
+    const t = Math.min((now - start) / 900, 1);
+    const e = t < 0.5 ? 2*t*t : -1+(4-2*t)*t;
+    pct.textContent = Math.round(e * target) + '%';
     if (t < 1) requestAnimationFrame(step);
-  }
-  requestAnimationFrame(step);
+  })(performance.now());
 }
 
-async function showCard(el, data, slot) {
-  // reset transform for entry animation
-  el.style.transition = 'none';
-  el.style.opacity = '0';
-  el.style.transform = slot.transform + ' translateY(14px) scale(0.96)';
+async function showEl(el, data) {
   fillCard(el, data);
-
-  await wait(30);
-  el.style.transition = 'opacity 0.45s cubic-bezier(0.34,1.56,0.64,1), transform 0.45s cubic-bezier(0.34,1.56,0.64,1)';
-  el.style.opacity = '1';
-  el.style.transform = slot.transform + ' translateY(0) scale(1)';
-
-  await wait(500);
+  el.classList.remove('hiding');
+  await wait(20);
+  el.classList.add('visible');
+  await wait(400);
   animateScore(el, data.score);
 }
 
-async function hideCard(el, slot) {
-  el.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
-  el.style.opacity = '0';
-  el.style.transform = slot.transform + ' translateY(-10px) scale(0.97)';
-  await wait(380);
+async function hideEl(el) {
+  el.classList.add('hiding');
+  el.classList.remove('visible');
+  await wait(320);
 }
 
 let started = false;
 
 async function run() {
-  // Shuffle cards, show first 2
-  const shuffled = [...CARDS].sort(() => Math.random() - 0.5);
-  let leftIdx  = 0;
-  let rightIdx = 1;
+  // Show all 4 with stagger
+  for (let i = 0; i < 4; i++) {
+    showEl(els[i], CARDS[i]);
+    await wait(400);
+  }
 
-  await showCard(leftEl,  shuffled[leftIdx],  SLOTS[0]);
-  await wait(600);
-  await showCard(rightEl, shuffled[rightIdx], SLOTS[1]);
+  // Cycle: every 3s, refresh one random card with a "new" lead variant
+  const EXTRAS = [
+    { initials: 'EN', color: '#ef4444', sector: 'Énergie',
+      projet: 'Solaire B2B', budget: '60 000 €', delai: '4 mois', region: 'Grand Est',
+      score: 88, channel: 'Email', time: 'Il y a 6h' },
+    { initials: 'RE', color: '#0ea5e9', sector: 'Recrutement',
+      projet: 'CDI Senior', budget: '18 000 €', delai: '6 sem.', region: 'Lyon',
+      score: 82, channel: 'LinkedIn', time: 'Il y a 12h' },
+  ];
+  const pool = [...CARDS, ...EXTRAS];
+  let used = [0, 1, 2, 3];
 
-  // Cycle: every 3s swap one card
   while (started) {
-    await wait(3200);
-
-    // Pick which side to refresh (alternate)
-    const refreshLeft = Math.random() > 0.5;
-    const nextIdx = (Math.max(leftIdx, rightIdx) + 1) % shuffled.length;
-
-    if (refreshLeft) {
-      await hideCard(leftEl, SLOTS[0]);
-      leftIdx = nextIdx;
-      await showCard(leftEl, shuffled[leftIdx], SLOTS[0]);
-    } else {
-      await hideCard(rightEl, SLOTS[1]);
-      rightIdx = nextIdx;
-      await showCard(rightEl, shuffled[rightIdx], SLOTS[1]);
-    }
+    await wait(3000);
+    const slot = Math.floor(Math.random() * 4);
+    // pick a card not currently shown
+    const available = pool.map((_, i) => i).filter(i => !used.includes(i));
+    if (available.length === 0) continue;
+    const next = available[Math.floor(Math.random() * available.length)];
+    await hideEl(els[slot]);
+    used[slot] = next;
+    await showEl(els[slot], pool[next]);
   }
 }
 
