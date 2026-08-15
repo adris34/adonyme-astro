@@ -22,17 +22,43 @@ body {
 /* ── Card ── */
 .card-wrap {
   position: absolute;
-  top: 4%; left: 30%;
-  transform: translateX(-50%);
+  top: 50%; left: 30%;
+  transform: translate(-50%, -50%);
   width: 44%;
   z-index: 2;
+}
+@media (max-aspect-ratio: 5/4) {
+  .card-wrap {
+    top: 3%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+  }
+  .channels-wrap {
+    left: 50%;
+    top: auto;
+    bottom: 3%;
+    transform: translateX(-50%);
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+  }
+  .ch-btn {
+    padding: 8px 12px;
+    font-size: clamp(11px, 3vw, 14px);
+  }
+  .ch-icon {
+    width: 24px; height: 24px;
+    font-size: 13px;
+  }
 }
 
 .lead-card {
   background: #fff;
   border-radius: 20px;
   padding: 22px 24px;
-  box-shadow: none;
+  box-shadow: 0 6px 32px rgba(0,0,0,.11), 0 0 0 1px rgba(0,0,0,.04);
   width: 100%;
 }
 
