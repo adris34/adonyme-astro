@@ -3,7 +3,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  background: #ECEEF7;
+  background: transparent;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -16,16 +16,7 @@ body {
   width: min(100vw, 133.33vh);
   aspect-ratio: 4/3;
   overflow: hidden;
-  background: #ECEEF7;
-}
-.stage::before {
-  content: '';
-  position: absolute; inset: 0;
-  background-image:
-    linear-gradient(rgba(79,70,229,.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(79,70,229,.03) 1px, transparent 1px);
-  background-size: 36px 36px;
-  pointer-events: none;
+  background: transparent;
 }
 
 /* ── Card ── */
