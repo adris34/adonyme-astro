@@ -12,7 +12,7 @@ import Layout from '../layouts/Layout.astro';
     @keyframes cardScroll { 0% { transform: translateY(0); } 100% { transform: translateY(-50%); } }
     .card-track { animation: cardScroll 18s linear infinite; }
     @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.75); } }
-    .dot-pulse { width: 8px; height: 8px; border-radius: 50%; background: #a3e635; display: inline-block; flex-shrink: 0; animation: pulse 2s ease-in-out infinite; }
+    .dot-pulse { width: 8px; height: 8px; border-radius: 50%; background: #fb6931; display: inline-block; flex-shrink: 0; animation: pulse 2s ease-in-out infinite; }
     .dot-pulse:nth-child(1) { animation-delay: 0s; }
 
     @media (max-width: 768px) {
@@ -135,7 +135,7 @@ import Layout from '../layouts/Layout.astro';
 
       return h('div', { style: { background: '#fff', borderRadius: '16px', padding: '2rem', boxShadow: '0 4px 40px rgba(0,0,0,0.10)', maxWidth: '480px', width: '100%' } },
         h('h2', { style: { fontSize: '1.4rem', fontWeight: 800, marginBottom: '0.25rem' } },
-          'Simulez votre ', h('span', { style: { color: '#a3e635', fontStyle: 'italic' } }, 'coût par lead')
+          'Simulez votre ', h('span', { style: { color: '#fb6931', fontStyle: 'italic' } }, 'coût par lead')
         ),
         h('p', { style: { color: '#64748b', fontSize: '0.9rem', marginBottom: '1.5rem' } },
           '30 secondes. Recevez une estimation chiffrée pour votre activité.'
@@ -145,7 +145,7 @@ import Layout from '../layouts/Layout.astro';
             h('div', { key: s, style: { display: 'flex', alignItems: 'center', gap: '0.4rem', flex: 1 } },
               h('div', { style: {
                 width: '28px', height: '28px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                background: i === step ? '#0a0a0a' : i < step ? '#a3e635' : '#e2e8f0',
+                background: i === step ? '#0a0a0a' : i < step ? '#fb6931' : '#e2e8f0',
                 color: i === step ? '#fff' : i < step ? '#0a0a0a' : '#94a3b8',
                 fontWeight: 700, fontSize: '0.8rem', flexShrink: 0
               } }, i + 1),
@@ -207,7 +207,7 @@ import Layout from '../layouts/Layout.astro';
           }),
           h('button', {
             onClick: () => setStep(3),
-            style: { width: '100%', padding: '0.9rem', borderRadius: '10px', background: '#a3e635', border: 'none', cursor: 'pointer', fontWeight: 700, fontSize: '1rem', fontFamily: "'Instrument Sans', system-ui, sans-serif" }
+            style: { width: '100%', padding: '0.9rem', borderRadius: '10px', background: '#fb6931', border: 'none', cursor: 'pointer', fontWeight: 700, fontSize: '1rem', fontFamily: "'Instrument Sans', system-ui, sans-serif" }
           }, 'Voir mon estimation →')
         ),
         step === 3 && h('div', { style: { textAlign: 'center' } },
@@ -257,7 +257,7 @@ import Layout from '../layouts/Layout.astro';
       ];
       return h('section', { style: { background: '#f5f4f0', padding: '5rem 2rem' } },
         h('div', { style: { maxWidth: '720px', margin: '0 auto' } },
-          h('p', { style: { fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.1em', color: '#a3e635', marginBottom: '0.75rem', textAlign: 'center' } }, 'FAQ'),
+          h('p', { style: { fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.1em', color: '#fb6931', marginBottom: '0.75rem', textAlign: 'center' } }, 'FAQ'),
           h('h2', { style: { fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 700, color: '#0a0a0a', marginBottom: '3rem', textAlign: 'center', lineHeight: 1.2 } }, 'Questions fréquentes'),
           h('div', { style: { display: 'flex', flexDirection: 'column' } },
             items.map((item, i) =>
@@ -267,7 +267,7 @@ import Layout from '../layouts/Layout.astro';
                   style: { width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '1.25rem 0', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left', gap: '1rem' }
                 },
                   h('span', { style: { fontWeight: 700, fontSize: '0.975rem', color: '#0a0a0a' } }, item.q),
-                  h('span', { style: { fontSize: '1.2rem', color: '#a3e635', fontWeight: 700, flexShrink: 0, transition: 'transform 0.2s', transform: open === i ? 'rotate(45deg)' : 'rotate(0deg)' } }, '+')
+                  h('span', { style: { fontSize: '1.2rem', color: '#fb6931', fontWeight: 700, flexShrink: 0, transition: 'transform 0.2s', transform: open === i ? 'rotate(45deg)' : 'rotate(0deg)' } }, '+')
                 ),
                 open === i && h('p', { style: { color: '#475569', lineHeight: 1.7, fontSize: '0.925rem', paddingBottom: '1.25rem', margin: 0 } }, item.a)
               )
@@ -294,7 +294,7 @@ import Layout from '../layouts/Layout.astro';
         return h('div', { key: p.img, style: { flexShrink: 0, width: '300px', borderRadius: '14px', overflow: 'hidden', background: '#fff', border: '1px solid #e2e8f0', scrollSnapAlign: 'start', display: 'flex', flexDirection: 'column' } },
           h('img', { src: p.img, alt: '', style: { width: '100%', height: '170px', objectFit: 'cover', objectPosition: 'center', display: 'block' } }),
           h('div', { style: { padding: '1.2rem', display: 'flex', flexDirection: 'column', flex: 1 } },
-            h('p', { style: { fontSize: '0.58rem', fontWeight: 700, letterSpacing: '0.12em', color: '#84cc16', margin: '0 0 0.25rem' } }, p.label),
+            h('p', { style: { fontSize: '0.58rem', fontWeight: 700, letterSpacing: '0.12em', color: '#fb6931', margin: '0 0 0.25rem' } }, p.label),
             h('h3', { style: { fontSize: '1rem', fontWeight: 900, color: '#0a0a0a', lineHeight: 1.2, margin: '0 0 0.5rem' } }, p.headline),
             h('p', { style: { fontSize: '0.78rem', color: '#475569', lineHeight: 1.5, margin: '0 0 0.5rem', flex: 1 } }, p.desc),
             h('div', { style: sep }),
@@ -335,7 +335,7 @@ import Layout from '../layouts/Layout.astro';
           h('a', {
             href: '#simulateur',
             className: 'mob-nav-cta',
-            style: { background: '#a3e635', color: '#0a0a0a', padding: '0.6rem 1.2rem', borderRadius: '8px', fontWeight: 700, fontSize: '0.9rem', textDecoration: 'none' }
+            style: { background: '#fb6931', color: '#0a0a0a', padding: '0.6rem 1.2rem', borderRadius: '8px', fontWeight: 700, fontSize: '0.9rem', textDecoration: 'none' }
           }, 'Simuler mon coût →')
         ),
         h('div', { className: 'mob-hero-grid', style: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center', maxWidth: '1200px', margin: '0 auto', padding: '5rem 3rem' } },
@@ -346,7 +346,7 @@ import Layout from '../layouts/Layout.astro';
             h('h1', { style: { fontSize: 'clamp(1.6rem, 2.8vw, 2.8rem)', fontWeight: 700, lineHeight: 1.15, marginBottom: '1.5rem', color: '#0a0a0a' } },
               'On vous accompagne à',
               h('br'),
-              h('span', { style: { color: '#a3e635', fontStyle: 'italic', whiteSpace: 'nowrap' } }, 'Générer des leads qualifiés'),
+              h('span', { style: { color: '#fb6931', fontStyle: 'italic', whiteSpace: 'nowrap' } }, 'Générer des leads qualifiés'),
               h('br'),
               'Sous votre marque'
             ),
@@ -447,8 +447,8 @@ import Layout from '../layouts/Layout.astro';
                 },
               ].map((card, i) =>
                 h('div', { key: card.num, className: 'mob-probleme-card', style: { padding: '2rem 2rem 2rem 0', borderRight: i < 2 ? '1px solid #e2e8f0' : 'none', paddingLeft: i > 0 ? '2rem' : '0' } },
-                  h('p', { style: { fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', color: '#84cc16', marginBottom: '0.75rem' } }, `PROBLÈME N° ${card.num}`),
-                  h('div', { style: { width: '2rem', height: '2px', background: '#a3e635', marginBottom: '1.25rem' } }),
+                  h('p', { style: { fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', color: '#fb6931', marginBottom: '0.75rem' } }, `PROBLÈME N° ${card.num}`),
+                  h('div', { style: { width: '2rem', height: '2px', background: '#fb6931', marginBottom: '1.25rem' } }),
                   h('h3', { style: { fontWeight: 800, fontSize: '1.1rem', color: '#0a0a0a', marginBottom: '0.75rem', lineHeight: 1.3 } }, card.titre),
                   h('p', { style: { color: '#475569', fontSize: '0.9rem', lineHeight: 1.6 } }, card.desc)
                 )
@@ -460,18 +460,18 @@ import Layout from '../layouts/Layout.astro';
         h('div', { style: { background: '#fff', padding: '6rem 3rem' } },
           h('div', { style: { maxWidth: '1100px', margin: '0 auto' } },
             h('h2', { style: { textAlign: 'center', fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', fontWeight: 700, lineHeight: 1.15, marginBottom: '1rem', color: '#0a0a0a' } },
-              h('span', { style: { background: 'linear-gradient(120deg, #a3e635, #4ade80, #86efac)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' } }, 'Une stratégie'),
+              h('span', { style: { background: '#fb6931', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' } }, 'Une stratégie'),
               ' pensée selon',
               h('br'),
               'vos critères',
               h('br'),
-              h('span', { style: { background: 'linear-gradient(120deg, #a3e635, #4ade80, #86efac)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' } }, 'sous votre marque')
+              h('span', { style: { background: '#fb6931', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' } }, 'sous votre marque')
             ),
             h('p', { style: { textAlign: 'center', color: '#475569', maxWidth: '640px', margin: '0 auto 4rem', lineHeight: 1.7 } },
               'Avant la production on revoit avec vous l\'exploitation de votre base de données, le process de traitement de leads, les canaux utilisés pour maximiser votre ROI.'
             ),
             h('div', { style: { position: 'relative' } },
-              h('div', { className: 'mob-timeline-line', style: { position: 'absolute', left: '50%', top: 0, bottom: 0, width: '2px', background: 'linear-gradient(to bottom, #a3e635, #84cc16)', transform: 'translateX(-50%)', zIndex: 0 } }),
+              h('div', { className: 'mob-timeline-line', style: { position: 'absolute', left: '50%', top: 0, bottom: 0, width: '2px', background: 'linear-gradient(to bottom, #fb6931, #fb6931)', transform: 'translateX(-50%)', zIndex: 0 } }),
               [
                 {
                   num: '01',
@@ -481,7 +481,7 @@ import Layout from '../layouts/Layout.astro';
                   points: ['Stratégie créative', 'Stratégies de gestion de campagnes publicitaires', 'Support 7/7'],
                   side: 'left',
                   illustration: h('div', { style: { position: 'relative' } },
-                    h('div', { style: { position: 'absolute', inset: '-2px', background: 'linear-gradient(135deg, #a3e635 0%, #4ade80 50%, #86efac 100%)', borderRadius: '12px', filter: 'blur(24px)', opacity: 0.35, zIndex: 0 } }),
+                    h('div', { style: { position: 'absolute', inset: '-2px', background: '#fb6931', borderRadius: '12px', filter: 'blur(24px)', opacity: 0.35, zIndex: 0 } }),
                     h('iframe', { src: '/enrich-v2.html', style: { position: 'relative', zIndex: 1, width: '100%', aspectRatio: '4/3', border: 'none', display: 'block', borderRadius: '8px' }, loading: 'lazy' })
                   )
                 },
@@ -493,7 +493,7 @@ import Layout from '../layouts/Layout.astro';
                   points: ['Nettoyage et mise à jour de votre base de données', 'Enrichissement', 'Nurturing en continu'],
                   side: 'left', flip: true,
                   illustration: h('div', { style: { position: 'relative' } },
-                    h('div', { style: { position: 'absolute', inset: '-2px', background: 'linear-gradient(135deg, #a3e635 0%, #4ade80 50%, #86efac 100%)', borderRadius: '12px', filter: 'blur(24px)', opacity: 0.35, zIndex: 0 } }),
+                    h('div', { style: { position: 'absolute', inset: '-2px', background: '#fb6931', borderRadius: '12px', filter: 'blur(24px)', opacity: 0.35, zIndex: 0 } }),
                     h('iframe', { src: '/crm-demo.html', style: { position: 'relative', zIndex: 1, width: '100%', aspectRatio: '4/3', border: 'none', display: 'block', borderRadius: '8px' }, loading: 'lazy' })
                   )
                 },
@@ -533,7 +533,7 @@ import Layout from '../layouts/Layout.astro';
                           h('div', { style: { display: 'flex', alignItems: 'center', gap: '0.75rem', marginTop: '0.75rem' } },
                             h('span', { style: { fontSize: '0.8rem', color: '#94a3b8', flexShrink: 0 } }, 'Score ICP'),
                             h('div', { style: { flex: 1, height: '4px', background: '#f1f5f9', borderRadius: '2px', overflow: 'hidden' } },
-                              h('div', { style: { width: `${card.score}%`, height: '100%', background: 'linear-gradient(90deg, #a3e635, #4ade80)', borderRadius: '2px' } })
+                              h('div', { style: { width: `${card.score}%`, height: '100%', background: '#fb6931', borderRadius: '2px' } })
                             ),
                             h('span', { style: { fontSize: '0.8rem', fontWeight: 700, color: '#0a0a0a', flexShrink: 0 } }, `${card.score}%`)
                           )
@@ -546,12 +546,12 @@ import Layout from '../layouts/Layout.astro';
                 h('div', { key: step.num, className: 'mob-step-grid', style: { display: 'grid', gridTemplateColumns: '1fr 80px 1fr', gap: '2rem', alignItems: 'center', marginBottom: i < 2 ? '5rem' : 0 } },
                   step.flip
                     ? h('div', { className: 'mob-step-content' },
-                        h('p', { style: { fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.1em', color: '#a3e635', marginBottom: '0.5rem' } }, step.tag),
+                        h('p', { style: { fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.1em', color: '#fb6931', marginBottom: '0.5rem' } }, step.tag),
                         h('h3', { style: { fontWeight: 700, fontSize: '1.3rem', marginBottom: '0.75rem', color: '#0a0a0a' } }, step.title),
                         h('p', { style: { color: '#475569', lineHeight: 1.6, marginBottom: '1rem' } }, step.body),
                         h('div', { style: { display: 'flex', flexDirection: 'column' } },
                           step.points.map(function(p, i) { return h('div', { key: p, style: { display: 'flex', gap: '0.75rem', alignItems: 'center', fontSize: '0.875rem', padding: '0.75rem 0', borderBottom: i < step.points.length - 1 ? '1px solid #e2e8f0' : 'none' } },
-                            h('span', { style: { color: '#a3e635', fontWeight: 900, flexShrink: 0, fontSize: '0.6rem' } }, '●'),
+                            h('span', { style: { color: '#fb6931', fontWeight: 900, flexShrink: 0, fontSize: '0.6rem' } }, '●'),
                             h('span', { style: { color: '#0a0a0a' } }, p)
                           ); })
                         )
@@ -560,29 +560,29 @@ import Layout from '../layouts/Layout.astro';
                       ? h('div', { className: 'mob-step-illus' }, step.illustration)
                       : h('div', { className: 'mob-step-illus' }),
                   h('div', { className: 'mob-step-num-wrap', style: { display: 'flex', flexDirection: 'column', alignItems: 'center', zIndex: 1 } },
-                    h('div', { className: 'mob-step-num', style: { width: '48px', height: '48px', borderRadius: '50%', background: '#a3e635', border: '4px solid #faf9f6', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 900, fontSize: '0.85rem', color: '#0a0a0a' } }, step.num)
+                    h('div', { className: 'mob-step-num', style: { width: '48px', height: '48px', borderRadius: '50%', background: '#fb6931', border: '4px solid #faf9f6', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 900, fontSize: '0.85rem', color: '#0a0a0a' } }, step.num)
                   ),
                   step.flip
                     ? h('div', { className: 'mob-step-illus' }, step.illustration)
                     : step.side === 'right'
                     ? h('div', { className: 'mob-step-content' },
-                        h('p', { style: { fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.1em', color: '#a3e635', marginBottom: '0.5rem' } }, step.tag),
+                        h('p', { style: { fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.1em', color: '#fb6931', marginBottom: '0.5rem' } }, step.tag),
                         h('h3', { style: { fontWeight: 700, fontSize: '1.3rem', marginBottom: '0.75rem', color: '#0a0a0a' } }, step.title),
                         h('p', { style: { color: '#475569', lineHeight: 1.6, marginBottom: '1rem' } }, step.body),
                         h('div', { style: { display: 'flex', flexDirection: 'column' } },
                           step.points.map((p, i) => h('div', { key: p, style: { display: 'flex', gap: '0.75rem', alignItems: 'center', fontSize: '0.875rem', padding: '0.75rem 0', borderBottom: i < step.points.length - 1 ? '1px solid #e2e8f0' : 'none' } },
-                            h('span', { style: { color: '#a3e635', fontWeight: 900, flexShrink: 0, fontSize: '0.6rem' } }, '●'),
+                            h('span', { style: { color: '#fb6931', fontWeight: 900, flexShrink: 0, fontSize: '0.6rem' } }, '●'),
                             h('span', { style: { color: '#0a0a0a' } }, p)
                           ))
                         )
                       )
                     : h('div', { className: 'mob-step-content' },
-                        h('p', { style: { fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.1em', color: '#a3e635', marginBottom: '0.5rem' } }, step.tag),
+                        h('p', { style: { fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.1em', color: '#fb6931', marginBottom: '0.5rem' } }, step.tag),
                         h('h3', { style: { fontWeight: 700, fontSize: '1.3rem', marginBottom: '0.75rem', color: '#0a0a0a' } }, step.title),
                         h('p', { style: { color: '#475569', lineHeight: 1.6, marginBottom: '1rem' } }, step.body),
                         h('div', { style: { display: 'flex', flexDirection: 'column' } },
                           step.points.map((p, i) => h('div', { key: p, style: { display: 'flex', gap: '0.75rem', alignItems: 'center', fontSize: '0.875rem', padding: '0.75rem 0', borderBottom: i < step.points.length - 1 ? '1px solid #e2e8f0' : 'none' } },
-                            h('span', { style: { color: '#a3e635', fontWeight: 900, flexShrink: 0, fontSize: '0.6rem' } }, '●'),
+                            h('span', { style: { color: '#fb6931', fontWeight: 900, flexShrink: 0, fontSize: '0.6rem' } }, '●'),
                             h('span', { style: { color: '#0a0a0a' } }, p)
                           ))
                         )
