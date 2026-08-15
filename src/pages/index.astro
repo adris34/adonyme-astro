@@ -13,6 +13,7 @@ import Layout from '../layouts/Layout.astro';
     .card-track { animation: cardScroll 18s linear infinite; }
     @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.75); } }
     .dot-pulse { width: 8px; height: 8px; border-radius: 50%; background: #fb6931; display: inline-block; flex-shrink: 0; animation: pulse 2s ease-in-out infinite; }
+    .mob-title-br { display: none; }
     @keyframes ctaPulse { 0%, 100% { box-shadow: 0 4px 24px rgba(251,105,49,.35), 0 0 0 0 rgba(251,105,49,.4); } 50% { box-shadow: 0 4px 32px rgba(251,105,49,.5), 0 0 0 10px rgba(251,105,49,0); } }
     .cta-pulse { animation: ctaPulse 2s ease-in-out infinite; }
     .dot-pulse:nth-child(1) { animation-delay: 0s; }
@@ -37,6 +38,7 @@ import Layout from '../layouts/Layout.astro';
 
       /* Timeline line — alignée sur le numéro (20px = centre du cercle 40px) */
       .mob-timeline-line { display: none !important; }
+      .mob-title-br { display: block; }
 
       /* Notre Système — steps layout */
       .mob-step-grid { display: flex !important; flex-direction: column !important; gap: 1.5rem !important; margin-bottom: 3rem !important; }
@@ -462,9 +464,9 @@ import Layout from '../layouts/Layout.astro';
           h('div', { style: { maxWidth: '1100px', margin: '0 auto' } },
             h('h2', { style: { textAlign: 'center', fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', fontWeight: 700, lineHeight: 1.15, marginBottom: '1rem', color: '#0a0a0a' } },
               h('span', { style: { background: '#fb6931', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' } }, 'Une stratégie'),
-              ' pensée selon',
-              h('br'),
-              'vos critères',
+              ' pensée',
+              h('br', { className: 'mob-title-br' }),
+              'selon vos critères',
               h('br'),
               h('span', { style: { background: '#fb6931', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' } }, 'sous votre marque')
             ),
