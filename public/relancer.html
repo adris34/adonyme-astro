@@ -1,0 +1,285 @@
+<title>Relancer — Adonyme</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #ECEEF7;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.stage {
+  position: relative;
+  width: min(100vw, 133.33vh);
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: #ECEEF7;
+}
+.stage::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(79,70,229,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(79,70,229,.03) 1px, transparent 1px);
+  background-size: 36px 36px;
+  pointer-events: none;
+}
+
+/* ── Card ── */
+.card-wrap {
+  position: absolute;
+  top: 50%; left: 30%;
+  transform: translate(-50%, -50%);
+  width: 44%;
+  z-index: 2;
+}
+
+.lead-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 22px 24px;
+  box-shadow: 0 6px 32px rgba(0,0,0,.11), 0 0 0 1px rgba(0,0,0,.04);
+  width: 100%;
+}
+
+.card-head {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 10px; padding-bottom: 10px;
+  border-bottom: 1px solid #f0f0f0;
+}
+.avatar {
+  width: clamp(44px, 5.2vw, 64px);
+  height: clamp(44px, 5.2vw, 64px);
+  border-radius: 50%;
+  background: #f97316;
+  display: flex; align-items: center; justify-content: center;
+  font-size: clamp(16px, 2vw, 24px);
+  font-weight: 800; color: #fff; flex-shrink: 0;
+}
+.card-title { font-size: clamp(15px, 1.9vw, 24px); font-weight: 800; color: #0a0a0a; line-height: 1.2; }
+.card-sector { font-size: clamp(12px, 1.4vw, 17px); color: #94a3b8; margin-top: 2px; }
+
+.ping { position: absolute; top: 12px; right: 14px; width: 7px; height: 7px; }
+.ping-dot { width: 7px; height: 7px; border-radius: 50%; background: #fb6931; position: absolute; }
+.ping-ring { width: 7px; height: 7px; border-radius: 50%; background: rgba(251,105,49,.4); position: absolute; animation: ping 1.4s ease-out infinite; }
+@keyframes ping { 0% { transform: scale(1); opacity: .8; } 100% { transform: scale(2.5); opacity: 0; } }
+
+.fields { display: flex; flex-direction: column; gap: 4px; }
+.field-row { display: flex; align-items: center; justify-content: space-between; }
+.field-label { font-size: clamp(11px, 1.3vw, 16px); font-weight: 600; color: #94a3b8; }
+.field-value { font-size: clamp(13px, 1.5vw, 18px); font-weight: 700; color: #0a0a0a; }
+
+.score-row { margin-top: 14px; padding-top: 14px; border-top: 1px solid #f0f0f0; }
+.score-header { display: flex; justify-content: space-between; margin-bottom: 7px; }
+.score-label { font-size: clamp(11px, 1.3vw, 16px); font-weight: 600; color: #94a3b8; }
+.score-pct { font-size: clamp(15px, 1.9vw, 24px); font-weight: 900; color: #fb6931; }
+.bar-bg { height: 7px; background: #f0f0f0; border-radius: 99px; overflow: hidden; }
+.bar-fill { height: 100%; background: #fb6931; border-radius: 99px; width: 0; transition: width 1s ease; }
+
+.card-foot { display: flex; align-items: center; justify-content: space-between; margin-top: 14px; }
+.channel-badge { font-size: clamp(11px, 1.3vw, 15px); font-weight: 700; padding: 5px 12px; border-radius: 8px; background: rgba(251,105,49,.1); color: #fb6931; }
+.time-label { font-size: clamp(11px, 1.3vw, 15px); color: #94a3b8; }
+
+/* ── Relancer button ── */
+.btn-relancer {
+  margin-top: 14px;
+  width: 100%;
+  background: #fb6931;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: clamp(10px, 1.4vh, 16px) 0;
+  font-size: clamp(12px, 1.4vw, 16px);
+  font-weight: 800;
+  cursor: pointer;
+  letter-spacing: .3px;
+  font-family: inherit;
+  transition: background .2s;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.btn-relancer:hover { background: #e85a22; }
+
+.click-hint {
+  text-align: center;
+  margin-top: 8px;
+  font-size: clamp(11px, 1.2vw, 14px);
+  font-weight: 600;
+  color: #fb6931;
+  animation: hintPulse 1.4s ease-in-out infinite;
+}
+.click-hint.hidden { opacity: 0; pointer-events: none; transition: opacity .3s; }
+@keyframes hintPulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+.btn-relancer .arr {
+  display: inline-block;
+  transition: transform .3s cubic-bezier(0.34,1.56,0.64,1);
+}
+.btn-relancer.open .arr { transform: rotate(90deg); }
+
+/* ── Channel options ── */
+.channels-wrap {
+  position: absolute;
+  top: 50%;
+  left: calc(30% + 23%);
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 1.2vh, 14px);
+  z-index: 3;
+}
+
+.ch-btn {
+  display: flex;
+  align-items: center;
+  gap: clamp(10px, 1.4vw, 18px);
+  background: #fff;
+  border-radius: 14px;
+  padding: clamp(12px, 1.6vh, 20px) clamp(16px, 2.2vw, 28px);
+  box-shadow: 0 4px 16px rgba(0,0,0,.09), 0 0 0 1px rgba(0,0,0,.04);
+  font-size: clamp(13px, 1.7vw, 20px);
+  font-weight: 700;
+  color: #1e1b4b;
+  cursor: pointer;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(-16px);
+  transition: opacity .35s ease, transform .35s cubic-bezier(0.34,1.56,0.64,1), box-shadow .2s;
+}
+.ch-btn:hover { box-shadow: 0 6px 20px rgba(0,0,0,.13); }
+.ch-btn.show { opacity: 1; transform: translateX(0); }
+
+.ch-icon {
+  width: clamp(28px, 3.2vw, 40px);
+  height: clamp(28px, 3.2vw, 40px);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: clamp(14px, 1.8vw, 22px);
+  flex-shrink: 0;
+}
+</style>
+
+<div class="stage" id="stage">
+
+  <!-- Lead card -->
+  <div class="card-wrap">
+    <div class="lead-card" style="position:relative">
+      <div class="ping"><div class="ping-ring"></div><div class="ping-dot"></div></div>
+      <div class="card-head">
+        <div class="avatar">RC</div>
+        <div>
+          <div class="card-title">Nouveau Lead</div>
+          <div class="card-sector">Recouvrement</div>
+        </div>
+      </div>
+      <div class="fields">
+        <div class="field-row"><span class="field-label">Projet</span><span class="field-value">Créances B2B</span></div>
+        <div class="field-row"><span class="field-label">Budget</span><span class="field-value">12 000 €</span></div>
+        <div class="field-row"><span class="field-label">Délai</span><span class="field-value">1 mois</span></div>
+        <div class="field-row"><span class="field-label">Région</span><span class="field-value">Occitanie</span></div>
+      </div>
+      <div class="score-row">
+        <div class="score-header">
+          <span class="score-label">Score ICP</span>
+          <span class="score-pct" id="scorePct">0%</span>
+        </div>
+        <div class="bar-bg"><div class="bar-fill" id="barFill"></div></div>
+      </div>
+      <div class="card-foot">
+        <span class="channel-badge">Email</span>
+        <span class="time-label">Il y a 1j</span>
+      </div>
+    </div>
+    <button class="btn-relancer" id="btnRelancer">
+      ↺ <span class="arr">▶</span> Relancer
+    </button>
+    <div class="click-hint" id="clickHint">Cliquez ici</div>
+  </div>
+
+  <!-- Channel options -->
+  <div class="channels-wrap" id="channelsWrap">
+    <div class="ch-btn" data-i="0">
+      <div class="ch-icon" style="background:#25D366;color:#fff">💬</div>
+      WhatsApp
+    </div>
+    <div class="ch-btn" data-i="1">
+      <div class="ch-icon" style="background:#EA4335;color:#fff">✉️</div>
+      Email
+    </div>
+    <div class="ch-btn" data-i="2">
+      <div class="ch-icon" style="background:#0EA5E9;color:#fff">📱</div>
+      SMS
+    </div>
+    <div class="ch-btn" data-i="3">
+      <div class="ch-icon" style="background:#F59E0B;color:#fff">🎙️</div>
+      Message vocal
+    </div>
+    <div class="ch-btn" data-i="4">
+      <div class="ch-icon" style="background:#0A66C2;color:#fff">💼</div>
+      LinkedIn
+    </div>
+  </div>
+
+</div>
+
+<script>
+const wait = ms => new Promise(r => setTimeout(r, ms));
+
+// Animate score
+async function animateScore() {
+  const bar = document.getElementById('barFill');
+  const pct = document.getElementById('scorePct');
+  bar.style.width = '94%';
+  const start = performance.now();
+  (function step(now) {
+    const t = Math.min((now - start) / 900, 1);
+    const e = t < 0.5 ? 2*t*t : -1+(4-2*t)*t;
+    pct.textContent = Math.round(e * 94) + '%';
+    if (t < 1) requestAnimationFrame(step);
+  })(performance.now());
+}
+
+// Channel buttons
+const chBtns = document.querySelectorAll('.ch-btn');
+let open = false;
+
+async function openChannels() {
+  for (const btn of chBtns) {
+    btn.classList.add('show');
+    await wait(80);
+  }
+}
+
+async function closeChannels() {
+  const btns = [...chBtns].reverse();
+  for (const btn of btns) {
+    btn.classList.remove('show');
+    await wait(50);
+  }
+}
+
+const triggerEls = [
+  document.getElementById('btnRelancer'),
+  document.querySelector('.lead-card'),
+];
+
+triggerEls.forEach(el => {
+  el.style.cursor = 'pointer';
+  el.addEventListener('click', async () => {
+    document.getElementById('clickHint').classList.add('hidden');
+    open = !open;
+    document.getElementById('btnRelancer').classList.toggle('open', open);
+    if (open) await openChannels();
+    else await closeChannels();
+  });
+});
+
+// Init — attend le signal du parent
+window.addEventListener('message', (e) => {
+  if (e.data === 'play') setTimeout(animateScore, 400);
+});
+</script>
