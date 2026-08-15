@@ -295,8 +295,5 @@ triggerEls.forEach(el => {
   });
 });
 
-// Init — attend le signal du parent
-window.addEventListener('message', (e) => {
-  if (e.data === 'play') setTimeout(animateScore, 400);
-});
+window.addEventListener('load', () => { setTimeout(animateScore, 400); });
 </script>

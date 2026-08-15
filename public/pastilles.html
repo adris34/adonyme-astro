@@ -278,9 +278,5 @@ async function run() {
 }
 
 window.addEventListener('resize', () => { run(); });
-
-// Attend un signal postMessage du parent avant de lancer l'animation
-window.addEventListener('message', (e) => {
-  if (e.data === 'play') run();
-});
+window.addEventListener('load', () => { run(); });
 </script>

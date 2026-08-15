@@ -583,25 +583,5 @@ import Layout from '../layouts/Layout.astro';
 
     createRoot(document.getElementById('app-root')).render(h(Page));
 
-    // Démarre toutes les animations iframes dès le chargement
-    const startIframe = (src) => {
-      const try_ = () => {
-        const iframe = document.querySelector(`iframe[src="${src}"]`);
-        if (iframe) {
-          const send = () => {
-            iframe.contentWindow.postMessage('play', '*');
-            iframe.contentWindow.postMessage('start', '*');
-          };
-          if (iframe.contentDocument?.readyState === 'complete') send();
-          else iframe.addEventListener('load', send, { once: true });
-        } else {
-          setTimeout(try_, 100);
-        }
-      };
-      try_();
-    };
-    startIframe('/pastilles.html');
-    startIframe('/relancer.html');
-    startIframe('/leads-rain.html');
   </script>
 </Layout>

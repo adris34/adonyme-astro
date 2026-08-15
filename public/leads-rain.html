@@ -228,10 +228,7 @@ async function run() {
   }
 }
 
-window.addEventListener('message', (e) => {
-  if (e.data === 'play' && !started) {
-    started = true;
-    run();
-  }
+window.addEventListener('load', () => {
+  if (!started) { started = true; run(); }
 });
 </script>
