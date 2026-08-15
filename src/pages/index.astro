@@ -625,28 +625,11 @@ import Layout from '../layouts/Layout.astro';
 
     createRoot(document.getElementById('app-root')).render(h(Page));
 
-    // Déclenche l'animation pastilles quand le step 01 entre dans le viewport
+    // Déclenche les animations iframes au scroll
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          const iframe = entry.target.querySelector('iframe[src="/pastilles.html"]');
-          if (iframe) iframe.contentWindow.postMessage('play', '*');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.3 });
-
-    // Observe après le rendu React
-    setTimeout(() => {
-      document.querySelectorAll('iframe[src="/pastilles.html"]').forEach(iframe => {
-        observer.observe(iframe.closest('.mob-step-grid') || iframe.parentElement);
-      });
-    }, 500);
-
-    // Start CRM animation when iframe scrolls into view
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
+          entry.target.contentWindow.postMessage('play', '*');
           entry.target.contentWindow.postMessage('start', '*');
           observer.unobserve(entry.target);
         }
@@ -661,6 +644,7 @@ import Layout from '../layouts/Layout.astro';
       };
       try_();
     };
+    observeIframe('/pastilles.html');
     observeIframe('/crm-demo.html');
     observeIframe('/enrich-v2.html');
   </script>
