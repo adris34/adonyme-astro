@@ -4,7 +4,8 @@
 
 body {
   background: #ECEEF7;
-  min-height: 100vh;
+  width: 100vw; height: 100vh;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,10 +14,12 @@ body {
 
 .stage {
   position: relative;
-  width: min(100vw, 133.33vh);
-  aspect-ratio: 4/3;
+  width: 800px;
+  height: 600px;
   overflow: hidden;
   background: #ECEEF7;
+  transform-origin: center center;
+  flex-shrink: 0;
 }
 .stage::before {
   content: '';
@@ -277,6 +280,13 @@ triggerEls.forEach(el => {
     else await closeChannels();
   });
 });
+
+function fit() {
+  const s = Math.min(window.innerWidth / 800, window.innerHeight / 600);
+  document.getElementById('stage').style.transform = `scale(${s})`;
+}
+window.addEventListener('resize', fit);
+fit();
 
 // Init — attend le signal du parent
 window.addEventListener('message', (e) => {
