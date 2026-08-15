@@ -502,7 +502,7 @@ import Layout from '../layouts/Layout.astro';
                   body: 'Chaque lead est qualifié, scoré et livré directement dans votre CRM, ou notre interface. Vos commerciaux reçoivent uniquement des contacts qui ont manifesté un intérêt réel pour l\'offre de votre entreprise.',
                   points: ['Qualification automatique selon vos critères', 'Score d\'intention et validation', 'Intégration directe dans votre CRM'],
                   side: 'left',
-                  illustration: h('iframe', { src: '/leads-rain.html', style: { width: '100%', aspectRatio: '4/3', border: 'none', display: 'block', borderRadius: '8px', background: 'transparent' }, allowTransparency: 'true', loading: 'lazy' })
+                  illustration: h('iframe', { src: '/leads-rain.html', style: { width: '100%', aspectRatio: '1/1', border: 'none', display: 'block', borderRadius: '8px', background: 'transparent' }, allowTransparency: 'true', loading: 'lazy' })
                 }
               ].map((step, i) =>
                 h('div', { key: step.num, className: 'mob-step-grid', style: { display: 'grid', gridTemplateColumns: '1fr 80px 1fr', gap: '2rem', alignItems: 'center', marginBottom: i < 2 ? '5rem' : 0 } },
