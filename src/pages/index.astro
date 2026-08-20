@@ -556,6 +556,13 @@ import Layout from '../layouts/Layout.astro';
         // Section FAQ — accordion
         h(FaqAccordion),
 
+        // Watermark CTA section
+        h('div', { style: { position: 'relative', overflow: 'hidden', padding: '5rem 2rem', background: '#ffffff', textAlign: 'center' } },
+          h('div', { style: { position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none', userSelect: 'none', zIndex: 0 } },
+            h('span', { style: { fontSize: 'clamp(5rem, 14vw, 11rem)', fontWeight: 900, color: '#fb6931', opacity: 0.07, letterSpacing: '-0.03em', whiteSpace: 'nowrap', lineHeight: 1 } }, 'Agence Leads')
+          )
+        ),
+
         // Footer
         h('footer', { style: { borderTop: '1px solid #e2e8f0', background: '#ffffff', padding: '5rem 2rem' } },
           h('div', { className: 'mob-footer', style: { maxWidth: '1200px', margin: '0 auto', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-start', gap: '3rem' } },
