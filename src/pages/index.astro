@@ -260,8 +260,8 @@ import Layout from '../layouts/Layout.astro';
           a: "Avant le lancement, nous faisons un brief complet pour définir votre ICP (client idéal) et analyser votre offre. Nous mettons ensuite en place un système d'analyse automatique qui filtre chaque prospect entrant selon ces critères. Seuls ceux qui correspondent sont livrés."
         },
       ];
-      return h('section', { style: { background: '#ffffff', padding: '2rem 4rem' } },
-        h('div', { style: { background: 'linear-gradient(135deg, #fff8f5 0%, #ffeee5 40%, #ffd9c5 70%, #ffcbb0 100%)', borderRadius: '20px', padding: '3rem', display: 'flex', flexDirection: 'column', gap: '1.5rem' } },
+      return h('section', { style: { background: '#ffffff', padding: '2rem', display: 'flex', justifyContent: 'center' } },
+        h('div', { style: { background: 'linear-gradient(135deg, #fff8f5 0%, #ffeee5 40%, #ffd9c5 70%, #ffcbb0 100%)', borderRadius: '20px', padding: '3rem', display: 'flex', flexDirection: 'column', gap: '1.5rem', width: '100%', maxWidth: '760px' } },
           h('div', { style: { background: '#fff', borderRadius: '16px', padding: '2.5rem 2.5rem 2rem', textAlign: 'center' } },
             h('p', { style: { fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.1em', color: '#fb6931', marginBottom: '0.75rem' } }, 'FAQ'),
             h('h2', { style: { fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 700, color: '#0a0a0a', lineHeight: 1.2, margin: 0 } }, 'Questions fréquentes')
