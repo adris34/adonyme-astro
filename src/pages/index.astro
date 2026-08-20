@@ -557,14 +557,15 @@ import Layout from '../layouts/Layout.astro';
         h(FaqAccordion),
 
         // Watermark CTA section
-        h('div', { style: { position: 'relative', overflow: 'hidden', padding: '7rem 2rem', background: '#0a0a0a' } },
-          h('div', { style: { position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none', userSelect: 'none' } },
-            h('span', { style: { fontSize: 'clamp(5rem, 14vw, 11rem)', fontWeight: 900, color: '#ffffff', opacity: 0.06, letterSpacing: '-0.03em', whiteSpace: 'nowrap', lineHeight: 1 } }, 'Agence Leads')
+        h('div', { style: { position: 'relative', overflow: 'hidden', padding: '7rem 2rem', background: '#ffffff' } },
+          h('div', { style: { position: 'absolute', inset: 0, background: 'linear-gradient(to top, #ffcbb0 0%, #ffd9c5 25%, transparent 70%)', pointerEvents: 'none', zIndex: 0 } }),
+          h('div', { style: { position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none', userSelect: 'none', zIndex: 1 } },
+            h('span', { style: { fontSize: 'clamp(5rem, 14vw, 11rem)', fontWeight: 900, color: '#0a0a0a', opacity: 0.08, letterSpacing: '-0.03em', whiteSpace: 'nowrap', lineHeight: 1 } }, 'Agence Leads')
           )
         ),
 
         // Footer
-        h('footer', { style: { borderTop: '1px solid #e2e8f0', background: '#ffffff', padding: '5rem 2rem' } },
+        h('footer', { style: { background: 'linear-gradient(135deg, #fff8f5 0%, #ffeee5 40%, #ffd9c5 70%, #ffcbb0 100%)', padding: '5rem 2rem' } },
           h('div', { className: 'mob-footer', style: { maxWidth: '1200px', margin: '0 auto', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-start', gap: '3rem' } },
             h('div', null,
               h('span', { style: { fontSize: '1.6rem', fontWeight: 900, letterSpacing: '-0.04em', color: '#0a0a0a' } }, 'ADONYME', h('span', { style: { color: '#2563eb' } }, '.')),
