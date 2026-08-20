@@ -1,0 +1,311 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Adonyme — L'Agence des Leads pour les PME/TPE" description="On génère des leads prêts à signer pour les PME/TPE. Base de données, traitement de leads, acquisition multicanal.">
+  <div id="test1-root"></div>
+  <script type="module">
+    import { createElement as h, useState } from 'https://esm.sh/react@18';
+    import { createRoot } from 'https://esm.sh/react-dom@18/client';
+
+    const SECTEURS = [
+      { label: 'Recouvrement', emoji: '⚖️' },
+      { label: 'Immobilier', emoji: '🏠' },
+      { label: 'Assurance', emoji: '🛡️' },
+      { label: 'BTP', emoji: '🏗️' },
+      { label: 'Énergie', emoji: '⚡' },
+      { label: 'Biotech', emoji: '🧬' },
+      { label: 'Recrutement', emoji: '👥' },
+      { label: 'Autre secteur', emoji: '+' },
+    ];
+
+    const STEPS = ['Secteur', 'Projet', 'Profil', 'Estimation'];
+
+    function Simulator() {
+      const [step, setStep] = useState(0);
+      const [secteur, setSecteur] = useState(null);
+      const [budget, setBudget] = useState('');
+      const [prenom, setPrenom] = useState('');
+      const [email, setEmail] = useState('');
+
+      const selectSecteur = (s) => {
+        setSecteur(s);
+        setStep(1);
+      };
+
+      return h('div', { style: { background: '#fff', borderRadius: '16px', padding: '2rem', boxShadow: '0 4px 40px rgba(0,0,0,0.10)', maxWidth: '480px', width: '100%' } },
+        h('h2', { style: { fontSize: '1.4rem', fontWeight: 800, marginBottom: '0.25rem' } },
+          'Simulez votre ', h('span', { style: { color: '#a3e635', fontStyle: 'italic' } }, 'coût par lead')
+        ),
+        h('p', { style: { color: '#64748b', fontSize: '0.9rem', marginBottom: '1.5rem' } },
+          '30 secondes. Recevez une estimation chiffrée pour votre activité.'
+        ),
+        // Stepper
+        h('div', { style: { display: 'flex', gap: '0.5rem', marginBottom: '1.5rem', alignItems: 'center' } },
+          STEPS.map((s, i) =>
+            h('div', { key: s, style: { display: 'flex', alignItems: 'center', gap: '0.4rem', flex: 1 } },
+              h('div', { style: {
+                width: '28px', height: '28px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                background: i === step ? '#0a0a0a' : i < step ? '#a3e635' : '#e2e8f0',
+                color: i === step ? '#fff' : i < step ? '#0a0a0a' : '#94a3b8',
+                fontWeight: 700, fontSize: '0.8rem', flexShrink: 0
+              } }, i + 1),
+              h('span', { style: { fontSize: '0.75rem', color: i === step ? '#0a0a0a' : '#94a3b8', fontWeight: i === step ? 700 : 400 } }, s),
+              i < STEPS.length - 1 && h('div', { style: { flex: 1, height: '1px', background: '#e2e8f0' } })
+            )
+          )
+        ),
+        // Step 0 — Secteur
+        step === 0 && h('div', null,
+          h('h3', { style: { fontWeight: 700, marginBottom: '0.25rem' } }, 'Quel est votre secteur ?'),
+          h('p', { style: { color: '#64748b', fontSize: '0.85rem', marginBottom: '1rem' } }, 'Chaque secteur a ses enchères et ses coûts.'),
+          h('div', { style: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' } },
+            SECTEURS.map(s =>
+              h('button', {
+                key: s.label,
+                onClick: () => selectSecteur(s.label),
+                style: {
+                  padding: '0.85rem', borderRadius: '10px', border: '1.5px solid #e2e8f0',
+                  background: '#f8fafc', cursor: 'pointer', fontWeight: 600, fontSize: '0.85rem',
+                  display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.3rem',
+                  transition: 'border-color 0.15s',
+                }
+              },
+                h('span', { style: { fontSize: '1.4rem' } }, s.emoji),
+                s.label
+              )
+            )
+          )
+        ),
+        // Step 1 — Projet
+        step === 1 && h('div', null,
+          h('h3', { style: { fontWeight: 700, marginBottom: '1rem' } }, 'Quel est votre budget mensuel ?'),
+          h('div', { style: { display: 'flex', flexDirection: 'column', gap: '0.75rem' } },
+            ['Moins de 1 000€', '1 000€ – 3 000€', '3 000€ – 5 000€', 'Plus de 5 000€'].map(b =>
+              h('button', {
+                key: b,
+                onClick: () => { setBudget(b); setStep(2); },
+                style: {
+                  padding: '0.9rem 1rem', borderRadius: '10px', border: '1.5px solid #e2e8f0',
+                  background: '#f8fafc', cursor: 'pointer', fontWeight: 600, fontSize: '0.9rem',
+                  textAlign: 'left', transition: 'border-color 0.15s',
+                }
+              }, b)
+            )
+          )
+        ),
+        // Step 2 — Profil
+        step === 2 && h('div', null,
+          h('h3', { style: { fontWeight: 700, marginBottom: '1rem' } }, 'Vos coordonnées'),
+          h('input', {
+            placeholder: 'Votre prénom',
+            value: prenom,
+            onInput: (e) => setPrenom(e.target.value),
+            style: { width: '100%', padding: '0.8rem', borderRadius: '8px', border: '1.5px solid #e2e8f0', marginBottom: '0.75rem', fontSize: '0.9rem', boxSizing: 'border-box' }
+          }),
+          h('input', {
+            placeholder: 'Votre email',
+            value: email,
+            onInput: (e) => setEmail(e.target.value),
+            style: { width: '100%', padding: '0.8rem', borderRadius: '8px', border: '1.5px solid #e2e8f0', marginBottom: '1rem', fontSize: '0.9rem', boxSizing: 'border-box' }
+          }),
+          h('button', {
+            onClick: () => setStep(3),
+            style: { width: '100%', padding: '0.9rem', borderRadius: '10px', background: '#a3e635', border: 'none', cursor: 'pointer', fontWeight: 700, fontSize: '1rem' }
+          }, 'Voir mon estimation →')
+        ),
+        // Step 3 — Estimation
+        step === 3 && h('div', { style: { textAlign: 'center' } },
+          h('div', { style: { fontSize: '3rem', marginBottom: '0.5rem' } }, '🎯'),
+          h('h3', { style: { fontWeight: 800, fontSize: '1.3rem', marginBottom: '0.5rem' } }, 'Votre estimation est prête !'),
+          h('p', { style: { color: '#64748b', marginBottom: '1.5rem' } },
+            `Secteur : ${secteur} · Budget : ${budget}`
+          ),
+          h('a', {
+            href: 'https://calendly.com/adonyme',
+            style: { display: 'block', padding: '0.9rem', borderRadius: '10px', background: '#0a0a0a', color: '#fff', fontWeight: 700, fontSize: '1rem', textDecoration: 'none' }
+          }, 'Réserver un appel stratégique →')
+        )
+      );
+    }
+
+    function Page() {
+      return h('div', { style: {
+        minHeight: '100vh',
+        background: 'linear-gradient(135deg, #f0fdf4 0%, #fefce8 40%, #f0f9ff 100%)',
+        fontFamily: "'Plus Jakarta Sans', sans-serif",
+      }},
+        // Nav
+        h('nav', { style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '1.25rem 3rem', borderBottom: '1px solid rgba(0,0,0,0.06)' } },
+          h('div', { style: { fontWeight: 900, fontSize: '1.1rem', letterSpacing: '-0.02em' } }, 'ADONYME'),
+          h('div', { style: { display: 'flex', gap: '1rem', alignItems: 'center', fontSize: '0.85rem', color: '#64748b' } },
+            h('span', null, '⭐⭐⭐⭐⭐ 4,9/5 · +50 clients accompagnés')
+          ),
+          h('a', {
+            href: '#simulateur',
+            style: { background: '#a3e635', color: '#0a0a0a', padding: '0.6rem 1.2rem', borderRadius: '8px', fontWeight: 700, fontSize: '0.9rem', textDecoration: 'none' }
+          }, 'Simuler mon coût →')
+        ),
+        // Hero
+        h('div', { style: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center', maxWidth: '1200px', margin: '0 auto', padding: '5rem 3rem' } },
+          // Left
+          h('div', null,
+            h('p', { style: { fontSize: '0.8rem', fontWeight: 700, letterSpacing: '0.08em', color: '#64748b', marginBottom: '1rem' } },
+              '● ADONYME · L\'AGENCE DES LEADS'
+            ),
+            h('h1', { style: { fontSize: 'clamp(2.2rem, 4vw, 3.5rem)', fontWeight: 900, lineHeight: 1.05, marginBottom: '1.5rem', color: '#0a0a0a' } },
+              'On génère des ',
+              h('span', { style: { color: '#a3e635', fontStyle: 'italic' } }, 'leads prêts'),
+              h('br'),
+              h('span', { style: { color: '#a3e635', fontStyle: 'italic' } }, 'à signer'),
+              ', pour votre',
+              h('br'),
+              'croissance.'
+            ),
+            h('p', { style: { fontSize: '1rem', color: '#475569', lineHeight: 1.6, marginBottom: '2rem' } },
+              'Base de données, traitement de leads, acquisition multicanal : on structure votre système complet. Vos commerciaux n\'ont plus qu\'un seul job : ', h('strong', null, 'vendre.')
+            ),
+            h('div', { style: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem', marginBottom: '2rem' } },
+              [
+                'Base de données segmentée',
+                'Acquisition multicanal',
+                'Opérationnel en 2 semaines',
+                'Sans frais cachés',
+              ].map(item =>
+                h('div', { key: item, style: { display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem', fontWeight: 600 } },
+                  h('span', { style: { color: '#a3e635', fontWeight: 900 } }, '✓'),
+                  item
+                )
+              )
+            ),
+            h('div', { style: { display: 'flex', gap: '1rem', alignItems: 'center', fontSize: '0.85rem', color: '#64748b' } },
+              h('span', null, '⭐⭐⭐⭐⭐'),
+              h('span', null, '+50 entreprises accompagnées · +400k leads générés')
+            )
+          ),
+          // Right — Simulator
+          h('div', { id: 'simulateur' }, h(Simulator))
+        ),
+
+        // Section "Notre système"
+        h('div', { style: { background: '#faf9f6', padding: '6rem 3rem' } },
+          h('div', { style: { maxWidth: '1100px', margin: '0 auto' } },
+            h('p', { style: { textAlign: 'center', fontSize: '0.8rem', fontWeight: 700, letterSpacing: '0.1em', color: '#94a3b8', marginBottom: '1rem' } }, '// NOTRE SYSTÈME'),
+            h('h2', { style: { textAlign: 'center', fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', fontWeight: 900, lineHeight: 1.15, marginBottom: '1rem', color: '#0a0a0a' } },
+              'Un système complet, pensé pour',
+              h('br'),
+              'produire des ventes.',
+              h('br'),
+              h('span', { style: { color: '#a3e635', fontStyle: 'italic' } }, 'Pas juste des pubs.')
+            ),
+            h('p', { style: { textAlign: 'center', color: '#64748b', maxWidth: '600px', margin: '0 auto 4rem', lineHeight: 1.6 } },
+              'Trois maillons, opérés par notre équipe. Le lead entre par votre base de données ou votre publicité, il ressort en rendez-vous dans l\'agenda de vos commerciaux.'
+            ),
+            // Timeline
+            h('div', { style: { position: 'relative' } },
+              // Ligne verticale
+              h('div', { style: { position: 'absolute', left: '50%', top: 0, bottom: 0, width: '2px', background: 'linear-gradient(to bottom, #a3e635, #84cc16)', transform: 'translateX(-50%)', zIndex: 0 } }),
+              [
+                {
+                  num: '01',
+                  tag: 'BASE DE DONNÉES',
+                  title: 'On structure et segmente votre base',
+                  body: 'On audite votre base existante, on la segmente par priorité et on l\'enrichit avec nos outils propriétaires. Une mauvaise base coûte plus cher qu\'elle ne rapporte.',
+                  points: ['Audit et nettoyage de votre base', 'Segmentation par signal d\'achat', 'Enrichissement multicanal'],
+                  side: 'left',
+                  illustration: h('div', { style: { background: '#0a0a0a', borderRadius: '12px', padding: '1.5rem', color: '#fff', fontSize: '0.85rem' } },
+                    h('div', { style: { color: '#a3e635', fontWeight: 700, marginBottom: '0.5rem' } }, '📊 Base de données'),
+                    h('div', { style: { color: '#94a3b8', marginBottom: '0.75rem' } }, '35 000 contacts importés'),
+                    h('div', { style: { display: 'flex', flexDirection: 'column', gap: '0.4rem' } },
+                      [['Segment A — Chauds', '1 240', '#a3e635'], ['Segment B — Tièdes', '8 500', '#fbbf24'], ['Segment C — Froids', '25 260', '#64748b']].map(([label, count, color]) =>
+                        h('div', { key: label, style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center' } },
+                          h('span', null, label),
+                          h('span', { style: { color, fontWeight: 700 } }, count)
+                        )
+                      )
+                    )
+                  )
+                },
+                {
+                  num: '02',
+                  tag: 'ACTIVATION',
+                  title: 'On active les bons canaux au bon moment',
+                  body: 'Email, LinkedIn, vocal, WhatsApp, pub Meta et Google — on choisit les canaux selon votre secteur et on les opère pour vous. Les créas sont renouvelées chaque semaine.',
+                  points: ['Choix de la plateforme selon votre cible', 'Messages et visuels produits par notre équipe', 'Optimisation continue — on coupe ce qui ne performe pas'],
+                  side: 'right',
+                  illustration: h('div', { style: { background: '#fff', borderRadius: '12px', padding: '1.5rem', border: '1px solid #e2e8f0', fontSize: '0.85rem' } },
+                    h('div', { style: { display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' } },
+                      h('div', { style: { width: '32px', height: '32px', borderRadius: '50%', background: '#0a0a0a', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '0.7rem', fontWeight: 700 } }, 'AD'),
+                      h('div', null,
+                        h('div', { style: { fontWeight: 700, fontSize: '0.8rem' } }, 'Votre entreprise'),
+                        h('div', { style: { color: '#94a3b8', fontSize: '0.75rem' } }, 'Sponsorisé')
+                      )
+                    ),
+                    h('div', { style: { background: 'linear-gradient(135deg, #a3e635, #84cc16)', borderRadius: '8px', padding: '1rem', color: '#0a0a0a', fontWeight: 700, textAlign: 'center', marginBottom: '0.5rem' } },
+                      'Votre offre, vos mots, votre image.'
+                    ),
+                    h('div', { style: { color: '#64748b', fontSize: '0.75rem' } }, '128 j\'aime · 14 commentaires · 6 partages')
+                  )
+                },
+                {
+                  num: '03',
+                  tag: 'LIVRAISON',
+                  title: 'Des leads prêts à signer dans votre CRM',
+                  body: 'Chaque lead est qualifié, scoré et livré directement dans votre CRM. Vos commerciaux reçoivent uniquement des contacts qui ont manifesté un intérêt réel.',
+                  points: ['Qualification automatique par notre système', 'Score d\'intention avant livraison', 'Intégration directe dans votre CRM'],
+                  side: 'left',
+                  illustration: h('div', { style: { background: '#0a0a0a', borderRadius: '12px', padding: '1.5rem', color: '#fff', fontSize: '0.85rem' } },
+                    h('div', { style: { color: '#a3e635', fontWeight: 700, marginBottom: '0.75rem' } }, '✅ Nouveau lead qualifié'),
+                    h('div', { style: { display: 'flex', flexDirection: 'column', gap: '0.5rem' } },
+                      [['Prénom', 'Thomas D.'], ['Secteur', 'Recouvrement'], ['Score', '⭐⭐⭐⭐⭐ Chaud'], ['Source', 'LinkedIn + Email']].map(([k, v]) =>
+                        h('div', { key: k, style: { display: 'flex', justifyContent: 'space-between' } },
+                          h('span', { style: { color: '#94a3b8' } }, k),
+                          h('span', { style: { fontWeight: 600 } }, v)
+                        )
+                      )
+                    )
+                  )
+                }
+              ].map((step, i) =>
+                h('div', { key: step.num, style: { display: 'grid', gridTemplateColumns: '1fr 80px 1fr', gap: '2rem', alignItems: 'center', marginBottom: i < 2 ? '5rem' : 0 } },
+                  step.side === 'left'
+                    ? h('div', { style: { background: '#fff', borderRadius: '16px', padding: '1.5rem', boxShadow: '0 2px 20px rgba(0,0,0,0.06)' } }, step.illustration)
+                    : h('div', null),
+                  h('div', { style: { display: 'flex', flexDirection: 'column', alignItems: 'center', zIndex: 1 } },
+                    h('div', { style: { width: '48px', height: '48px', borderRadius: '50%', background: '#a3e635', border: '4px solid #faf9f6', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 900, fontSize: '0.85rem', color: '#0a0a0a' } }, step.num)
+                  ),
+                  step.side === 'right'
+                    ? h('div', null,
+                        h('p', { style: { fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.1em', color: '#a3e635', marginBottom: '0.5rem' } }, step.tag),
+                        h('h3', { style: { fontWeight: 900, fontSize: '1.3rem', marginBottom: '0.75rem', color: '#0a0a0a' } }, step.title),
+                        h('p', { style: { color: '#475569', lineHeight: 1.6, marginBottom: '1rem' } }, step.body),
+                        h('div', { style: { display: 'flex', flexDirection: 'column', gap: '0.4rem' } },
+                          step.points.map(p => h('div', { key: p, style: { display: 'flex', gap: '0.5rem', fontSize: '0.875rem' } },
+                            h('span', { style: { color: '#a3e635', fontWeight: 900, flexShrink: 0 } }, '●'),
+                            h('span', { style: { color: '#475569' } }, p)
+                          ))
+                        )
+                      )
+                    : h('div', null,
+                        h('p', { style: { fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.1em', color: '#a3e635', marginBottom: '0.5rem' } }, step.tag),
+                        h('h3', { style: { fontWeight: 900, fontSize: '1.3rem', marginBottom: '0.75rem', color: '#0a0a0a' } }, step.title),
+                        h('p', { style: { color: '#475569', lineHeight: 1.6, marginBottom: '1rem' } }, step.body),
+                        h('div', { style: { display: 'flex', flexDirection: 'column', gap: '0.4rem' } },
+                          step.points.map(p => h('div', { key: p, style: { display: 'flex', gap: '0.5rem', fontSize: '0.875rem' } },
+                            h('span', { style: { color: '#a3e635', fontWeight: 900, flexShrink: 0 } }, '●'),
+                            h('span', { style: { color: '#475569' } }, p)
+                          ))
+                        ),
+                        h('div', { style: { background: '#fff', borderRadius: '16px', padding: '1.5rem', boxShadow: '0 2px 20px rgba(0,0,0,0.06)', marginTop: '1.5rem' } }, step.illustration)
+                      )
+                )
+              )
+            )
+          )
+        )
+      );
+    }
+
+    createRoot(document.getElementById('test1-root')).render(h(Page));
+  </script>
+</Layout>

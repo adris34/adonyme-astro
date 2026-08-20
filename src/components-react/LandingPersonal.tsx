@@ -1,8 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ChevronDown, ArrowRight, Check } from "lucide-react";
-import { LogoSlider } from "./LogoSlider";
+const logos = [
+  { src: "/logos/fulgurance-dark.svg", alt: "Fulgurance", width: 140 },
+  { src: "/logos/upreview-dark.svg", alt: "upReview", width: 110 },
+  { src: "/logos/effy.svg", alt: "Effy", width: 80 },
+  { src: "/logos/cerfrance.svg", alt: "Cerfrance", width: 120 },
+  { src: "/logos/jeep.png", alt: "Jeep", width: 80 },
+  { src: "/logos/renault.png", alt: "Renault Group", width: 120 },
+  { src: "/logos/cyclopro.webp", alt: "CycloPro", width: 120 },
+];
 
 /* ─── SECTION 1 — HERO ─────────────────────────────────────── */
 const Hero = () => (
@@ -21,27 +29,61 @@ const Hero = () => (
     <div className="hero-grid" style={{ maxWidth: '1300px', margin: '0 auto', display: 'grid', gridTemplateColumns: '58% 42%', gap: '3rem', alignItems: 'center' }}>
 
       {/* GAUCHE — texte */}
-      <div style={{ paddingTop: '1rem' }}>
+      <div style={{ paddingTop: '1rem', minWidth: 0, overflow: 'hidden' }}>
         <h1 style={{
-          fontFamily: "'Anton', sans-serif",
+          fontFamily: "'Plus Jakarta Sans', sans-serif",
           fontSize: 'clamp(1.8rem, 2.8vw, 3.2rem)',
           fontWeight: 400,
           lineHeight: 1.1,
           textTransform: 'uppercase',
           color: '#0a0a0a',
-          marginBottom: '1.5rem',
+          marginBottom: '0.75rem',
         }}>
-          Activez la publicité et recevez<br/>des prospects chauds prêts à signer<br/><span style={{display:'inline-block', marginTop:'0.9rem'}}>
-  <span style={{ position: 'relative', display: 'inline-block' }}>
-    +50 Entreprises
-    <svg viewBox="0 0 300 18" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ position: 'absolute', bottom: '-6px', left: '-4px', width: 'calc(100% + 8px)', height: '12px', overflow: 'visible' }}>
-      <path d="M4,10 Q75,2 150,9 Q225,16 296,8" stroke="#a3e635" strokeWidth="5" fill="none" strokeLinecap="round"/>
-    </svg>
-  </span>{' '}accompagnées
-</span>
+          L'agence des leads pour les PME/TPE
         </h1>
-        <p style={{ fontSize: '1.1rem', color: '#475569', lineHeight: 1.6, marginBottom: '2rem' }}>
-          Pendant que vous perdez du temps à prospecter à froid, nous prouvons chaque jour dans +20 secteurs que la publicité est le levier le plus rentable pour générer des prospects en BtoB.
+        <div style={{ marginBottom: '1.5rem' }}>
+          <p style={{
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontSize: 'clamp(1.1rem, 1.6vw, 1.6rem)',
+            fontWeight: 400,
+            textTransform: 'uppercase',
+            color: '#0a0a0a',
+            lineHeight: 1.2,
+            margin: '0 0 0.5rem',
+          }}>On structure vos bases et on accélère votre croissance</p>
+          <p style={{
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontSize: 'clamp(1.1rem, 1.6vw, 1.6rem)',
+            fontWeight: 400,
+            textTransform: 'uppercase',
+            color: '#0a0a0a',
+            lineHeight: 1.2,
+            margin: 0,
+          }}>
+            <span style={{ position: 'relative', display: 'inline-block' }}>
+              +50 Entreprises / +20 secteurs
+              <svg viewBox="0 0 300 18" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ position: 'absolute', bottom: '-6px', left: '-4px', width: 'calc(100% + 8px)', height: '12px', overflow: 'visible' }}>
+                <path d="M4,10 Q75,2 150,9 Q225,16 296,8" stroke="#a3e635" strokeWidth="5" fill="none" strokeLinecap="round"/>
+              </svg>
+            </span>
+          </p>
+        </div>
+
+        {/* Secteur slider inline */}
+        <div style={{ width: '100%', maxWidth: '100%', overflow: 'hidden', margin: '1.25rem 0 1.75rem', position: 'relative', height: '3rem', display: 'flex', alignItems: 'center' }}>
+          <div style={{ position: 'absolute', top: 0, bottom: 0, left: 0, width: '3rem', background: 'linear-gradient(to right, #f5f4f0, transparent)', zIndex: 10 }} />
+          <div style={{ position: 'absolute', top: 0, bottom: 0, right: 0, width: '3rem', background: 'linear-gradient(to left, #f5f4f0, transparent)', zIndex: 10 }} />
+          <div className="animate-marquee-slow" style={{ display: 'flex', gap: '0.6rem', alignItems: 'center', whiteSpace: 'nowrap', flexShrink: 0 }}>
+            {[...SECTORS, ...SECTORS, ...SECTORS].map((item, i) => (
+              <div key={i} style={{ padding: '0.4rem 1rem', borderRadius: '9999px', backgroundColor: '#fff', border: '1px solid #e2e8f0', boxShadow: '0 1px 4px rgba(0,0,0,0.06)', color: '#1e293b', fontWeight: 600, fontSize: '0.8rem', whiteSpace: 'nowrap', flexShrink: 0 }}>
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+
+<p style={{ fontSize: '1.1rem', color: '#475569', lineHeight: 1.6, marginBottom: '2rem' }}>
+          Pendant que vous prospectez toujours à froid, nous générons des leads prêts à signer pour accélérer votre croissance et gagner du temps !
         </p>
         <a href="https://cal.com/source-to-scale/decouverte" target="_blank" rel="noopener noreferrer" style={{
           display: 'inline-block',
@@ -51,14 +93,14 @@ const Hero = () => (
           fontSize: '1rem',
           padding: '1rem 2rem',
         }}>
-          Découvrez nos stratégies
+          Réserver un appel stratégique
         </a>
       </div>
 
       {/* DROITE — photo avec badge */}
       <div style={{ position: 'relative', overflow: 'visible' }}>
         <img
-          src="/photo-adrian-vertical.png"
+          src="/photo-adrian-vertical.webp"
           alt="Adrian"
           style={{ width: '100%', borderRadius: '20px', display: 'block', objectFit: 'cover' }}
         />
@@ -75,42 +117,75 @@ const Hero = () => (
       </div>
 
     </div>
+
+    {/* Logo slider — statique sur desktop, défilement sur mobile */}
+    <div style={{ maxWidth: '1300px', margin: '4rem auto 0', paddingTop: '2rem' }}>
+      {/* Desktop : grille statique */}
+      <div className="logos-desktop" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap', gap: '2.5rem 3.5rem' }}>
+        {logos.map((logo, i) => (
+          <img key={i} src={logo.src} alt={logo.alt} style={{ height: '36px', width: `${logo.width}px`, objectFit: 'contain', opacity: 0.75 }} />
+        ))}
+      </div>
+      {/* Mobile : défilement */}
+      <div className="logos-mobile" style={{ position: 'relative', overflow: 'hidden', display: 'none' }}>
+        <div style={{ display: 'flex', alignItems: 'center', animation: 'heroLogoScroll 20s linear infinite', width: 'max-content' }}>
+          {[...logos, ...logos].map((logo, i) => (
+            <img key={i} src={logo.src} alt={logo.alt} style={{ height: '36px', width: `${logo.width}px`, objectFit: 'contain', opacity: 0.75, flexShrink: 0, marginRight: '60px' }} />
+          ))}
+        </div>
+      </div>
+    </div>
+    <style>{`
+      @keyframes heroLogoScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+      @media (max-width: 768px) {
+        .logos-desktop { display: none !important; }
+        .logos-mobile { display: block !important; }
+      }
+    `}</style>
   </section>
 );
 
 /* ─── SECTION 2 — LE PROBLÈME ──────────────────────────────── */
 const problemes = [
   {
-    titre: "Vous contactez des centaines de prospects sans résultat.",
+    num: '01',
+    titre: "Votre offre & votre ICP",
+    desc: "",
     points: [
-      "→ Ils ne vous connaissent pas.",
-      "→ Vous parlez le même langage à tous vos prospects.",
-      "→ Vous essayez de vendre sans qualifier vos prospects.",
+      "Analyse et validation de votre offre",
+      "Recherche des points de douleurs",
+      "Stratégie créative & testing",
     ],
   },
   {
-    titre: "Vous essayez des outils, vous dépensez votre argent mais rien ne fonctionne.",
+    num: '02',
+    titre: "Qualifier vos prospects",
+    desc: "",
     points: [
-      "→ Le problème, ce n'est pas votre offre.",
-      "→ Vous n'avez pas les bonnes méthodes.",
-      "→ Vous n'avez aucun système de nurturing.",
-      "→ Vos prospects n'ont pas confiance avant l'appel.",
+      "Segmentation de prospects",
+      "Système de qualification multicanal social proof",
+      "Le warm pour maintenir vos prospects engagés",
     ],
   },
   {
-    titre: "Vous avez déjà essayé la publicité mais vous n'avez obtenu aucun résultat.",
+    num: '03',
+    titre: "Optimiser votre ROI",
+    desc: "",
     points: [
-      "→ La publicité est le seul canal qui génère des prospects immédiatement.",
-      "→ On vous a dit que c'était cher. Mais ça coûte moins cher que de perdre du temps.",
-      "→ Avec la bonne stratégie, 500€/mois peuvent générer un ROI réel.",
+      "Tracking",
+      "Optimisation de votre taux de transformation",
+      "Nurturing multicanal pour traiter et rééduquer les no-show",
+      "Relance selon les actions effectuées",
     ],
   },
   {
-    titre: "Vous perdez 60% de vos prospects par manque de structure et de suivi.",
+    num: '04',
+    titre: "Projection claire",
+    desc: "",
     points: [
-      "→ Vous n'enregistrez pas vos appels de closing.",
-      "→ Vous n'avez aucun suivi d'appels.",
-      "→ Vous ne relancez pas vos prospects.",
+      "Automatisation",
+      "Scale",
+      "Gestion du système",
     ],
   },
 ];
@@ -122,10 +197,10 @@ const Probleme = () => (
       {/* GAUCHE — sticky */}
       <div className="probleme-sticky" style={{ position: 'sticky', top: '6rem' }}>
         <p style={{ fontSize: '0.85rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.15em', color: '#64748b', marginBottom: '1rem' }}>
-          Le problème ↗
+          Pourquoi notre système fonctionne ↗
         </p>
         <h2 className="font-anton" style={{
-          fontFamily: "'Anton', sans-serif",
+          fontFamily: "'Plus Jakarta Sans', sans-serif",
           fontSize: 'clamp(1.6rem, 2.2vw, 2.8rem)',
           textTransform: 'uppercase',
           lineHeight: 1.2,
@@ -134,10 +209,10 @@ const Probleme = () => (
           fontWeight: 400,
           letterSpacing: '0.01em',
         }}>
-          Une stratégie focalisée performance<br/>pour des résultats immédiats
+          La méthode la plus rapide pour générer des prospects chauds
         </h2>
         <p style={{ fontSize: '1rem', color: '#64748b', lineHeight: 1.7 }}>
-          90% des Entreprises pensent que la publicité est une dépense et non un investissement avec un ROI immédiat. Nous avons implémenté notre stratégie au sein de +50 Entreprises, depuis, la publicité est devenue leur principal canal d'acquisition.
+          90% des Entreprises pensent que la publicité est une dépense et non un investissement avec un ROI immédiat.<br/><br/>Nous avons implémenté notre stratégie au sein de +50 Entreprises, depuis, la publicité est devenue leur principal canal d'acquisition.
         </p>
       </div>
 
@@ -145,14 +220,16 @@ const Probleme = () => (
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
         {problemes.map((p, i) => (
           <div key={i} style={{ backgroundColor: '#fff', borderRadius: '16px', padding: '2rem', boxShadow: '0 2px 12px rgba(0,0,0,0.06)' }}>
-            <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#0a0a0a', marginBottom: '1rem', lineHeight: 1.3 }}>
-              {p.titre}
-            </h3>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem', marginBottom: '1rem' }}>
+              <span style={{ fontSize: '0.72rem', fontWeight: 700, letterSpacing: '0.1em', color: '#a3e635', backgroundColor: '#0a0a0a', borderRadius: '6px', padding: '0.2em 0.55em', flexShrink: 0, marginTop: '3px' }}>{p.num}</span>
+              <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#0a0a0a', lineHeight: 1.3, margin: 0 }}>{p.titre}</h3>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', marginBottom: p.desc ? '0.9rem' : 0 }}>
               {p.points.map((pt, j) => (
-                <p key={j} style={{ fontSize: '0.95rem', color: '#475569', lineHeight: 1.5 }}>{pt}</p>
+                <p key={j} style={{ fontSize: '0.92rem', color: '#475569', lineHeight: 1.5, margin: 0 }}>— {pt}</p>
               ))}
             </div>
+            {p.desc && <p style={{ fontSize: '0.9rem', color: '#94a3b8', lineHeight: 1.6, margin: 0, borderTop: '1px solid #f1f5f9', paddingTop: '0.75rem', fontStyle: 'italic' }}>{p.desc}</p>}
           </div>
         ))}
       </div>
@@ -166,7 +243,7 @@ const VideoProof = () => (
   <section id="etude-de-cas" style={{ backgroundColor: '#f5f4f0', padding: '5rem 2rem' }}>
     <div style={{ maxWidth: '900px', margin: '0 auto' }}>
       <h2 style={{
-        fontFamily: "'Anton', sans-serif",
+        fontFamily: "'Plus Jakarta Sans', sans-serif",
         fontSize: 'clamp(1.6rem, 2.2vw, 2.8rem)',
         fontWeight: 400,
         textTransform: 'uppercase',
@@ -179,14 +256,8 @@ const VideoProof = () => (
         Extrait de notre stratégie <span style={{ backgroundColor: '#a3e635', padding: '0 0.3em' }}>+2000 RDV en 10 mois</span>
       </h2>
       <p style={{ fontSize: '1.1rem', color: '#475569', fontWeight: 400, fontStyle: 'italic', lineHeight: 1.6, textAlign: 'center', margin: '0 0 1.5rem' }}>
-        (<span style={{ position: 'relative', display: 'inline-block' }}>EMS QVEMA saison 4<svg viewBox="0 0 260 18" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ position: 'absolute', bottom: '-4px', left: '-4px', width: 'calc(100% + 8px)', height: '10px', overflow: 'visible' }}><path d="M4,10 Q65,2 130,9 Q195,16 256,8" stroke="#a3e635" strokeWidth="4" fill="none" strokeLinecap="round"/></svg></span> - La publicité a fait exploser leur business)
+        (<span style={{ position: 'relative', display: 'inline-block' }}>EMS QVEMA saison 4<svg viewBox="0 0 260 18" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ position: 'absolute', bottom: '-4px', left: '-4px', width: 'calc(100% + 8px)', height: '10px', overflow: 'visible' }}><path d="M4,10 Q65,2 130,9 Q195,16 256,8" stroke="#a3e635" strokeWidth="4" fill="none" strokeLinecap="round"/></svg></span> - On a fait exploser leur business)
       </p>
-      <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
-        <svg width="40" height="100" viewBox="0 0 40 100" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ display: 'inline-block' }}>
-          <line x1="20" y1="0" x2="20" y2="72" stroke="#a3e635" strokeWidth="4"/>
-          <polygon points="20,100 4,72 36,72" fill="#a3e635"/>
-        </svg>
-      </div>
       <div style={{ borderRadius: '20px', overflow: 'hidden', boxShadow: '0 8px 40px rgba(0,0,0,0.12)', position: 'relative', paddingTop: '56.25%' }}>
         <iframe
           src="https://www.youtube.com/embed/cb4NuQV8KRQ"
@@ -221,7 +292,7 @@ const SECTORS = [
 const SecteurSlider = () => (
   <div style={{ backgroundColor: '#f5f4f0', paddingTop: '2rem', paddingBottom: '2rem', borderTop: '1px solid rgba(0,0,0,0.08)', borderBottom: '1px solid rgba(0,0,0,0.08)' }}>
     <p style={{ textAlign: 'center', fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.15em', color: '#0f172a', marginBottom: '1.5rem' }}>
-      +30 secteurs d'activités accompagnés
+      +20 secteurs d'activité
     </p>
     <div style={{ position: 'relative', maxWidth: '1100px', margin: '0 auto', overflow: 'hidden', height: '4rem', display: 'flex', alignItems: 'center' }}>
       <div style={{ position: 'absolute', top: 0, bottom: 0, left: 0, width: '6rem', background: 'linear-gradient(to right, #f5f4f0, transparent)', zIndex: 10 }} />
@@ -255,7 +326,7 @@ const SourceToScale = () => (
         Source-to-scale ↗
       </p>
       <h2 style={{
-        fontFamily: "'Anton', sans-serif",
+        fontFamily: "'Plus Jakarta Sans', sans-serif",
         fontSize: 'clamp(1.6rem, 2.2vw, 2.8rem)',
         textTransform: 'uppercase',
         lineHeight: 1.2,
@@ -284,70 +355,6 @@ const SourceToScale = () => (
   </section>
 );
 
-/* ─── SECTION 4 — CARTES MÉTHODE ───────────────────────────── */
-const methodeCards = [
-  {
-    num: "01",
-    titre: "Définir votre offre & ICP",
-    texte: "Analyser votre offre et définir votre ICP. Identifier les points de douleurs et mettre en place une stratégie créative adaptée.",
-    lime: false,
-  },
-  {
-    num: "02",
-    titre: "Qualifier vos prospects",
-    texte: "Segmenter et qualifier les prospects avec nos outils internes multicanaux pour multiplier les points de contact et booster l'engagement.",
-    lime: true,
-  },
-  {
-    num: "03",
-    titre: "Optimiser votre taux de transformation",
-    texte: "Préparer le RDV avec des campagnes de nurturing ciblées qui éduquent, rassurent et convertissent avant même le premier appel.",
-    lime: true,
-  },
-  {
-    num: "04",
-    titre: "Optimiser votre ROI",
-    texte: "Mise en place de systèmes de tracking et de relance selon le contexte et les actions effectuées par le prospect pour maximiser le ROI.",
-    lime: true,
-  },
-];
-
-const CarteMethode = () => (
-  <section style={{ backgroundColor: '#f5f4f0', padding: '0 2rem 6rem' }}>
-    <div className="methode-grid" style={{ maxWidth: '1100px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.25rem' }}>
-      {methodeCards.map((c, i) => (
-        <div key={i} style={{
-          backgroundColor: c.lime ? '#a3e635' : '#ffffff',
-          borderRadius: '20px',
-          padding: '2rem',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '1rem',
-        }}>
-          <span style={{
-            fontSize: '0.75rem',
-            fontWeight: 800,
-            color: c.lime ? '#3d5a00' : '#94a3b8',
-            letterSpacing: '0.1em',
-          }}>{c.num}</span>
-          <h3 style={{
-            fontSize: '1.1rem',
-            fontWeight: 800,
-            color: '#0a0a0a',
-            lineHeight: 1.3,
-            margin: 0,
-          }}>{c.titre}</h3>
-          <p style={{
-            fontSize: '0.9rem',
-            color: c.lime ? '#3d5a00' : '#64748b',
-            lineHeight: 1.6,
-            margin: 0,
-          }}>{c.texte}</p>
-        </div>
-      ))}
-    </div>
-  </section>
-);
 
 /* ─── SECTION 5 — LA PROMESSE ──────────────────────────────── */
 const Promesse = () => (
@@ -568,12 +575,12 @@ const CTAFinal = () => (
 
 /* ─── FOOTER ────────────────────────────────────────────────── */
 const FooterLP = () => (
-  <footer style={{ backgroundColor: '#f5f4f0', borderTop: '1px solid rgba(0,0,0,0.08)', padding: '4rem 2rem' }}>
+  <footer style={{ backgroundColor: '#f5f4f0', backgroundImage: 'linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px)', backgroundSize: '40px 40px', borderTop: '1px solid rgba(0,0,0,0.08)', padding: '4rem 2rem' }}>
     <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '2rem' }}>
 
       {/* Logo + tagline */}
       <div>
-        <span style={{ fontFamily: "'Anton', sans-serif", fontSize: '1.75rem', fontWeight: 400, color: '#0f172a', letterSpacing: '0.02em' }}>
+        <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '1.75rem', fontWeight: 400, color: '#0f172a', letterSpacing: '0.02em' }}>
           ADONYME<span style={{ color: '#2563eb' }}>.</span>
         </span>
         <p style={{ fontSize: '0.85rem', color: '#64748b', marginTop: '0.75rem', maxWidth: '220px', lineHeight: 1.6 }}>
@@ -616,7 +623,7 @@ const Navbar = () => {
         {/* Desktop: liens | Mobile: hamburger */}
         <div className="nav-links" style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
           <a href="https://cal.com/source-to-scale/decouverte" target="_blank" rel="noopener noreferrer" className="nav-link" style={{ fontSize: '0.95rem', fontWeight: 600, color: '#0a0a0a', textDecoration: 'none' }}>Comment ça marche ?</a>
-          <a href="#etude-de-cas" className="nav-link" style={{ fontSize: '0.95rem', fontWeight: 600, color: '#0a0a0a', textDecoration: 'none' }}>Étude de cas</a>
+          <a href="/etude-de-cas" className="nav-link" style={{ fontSize: '0.95rem', fontWeight: 600, color: '#0a0a0a', textDecoration: 'none' }}>Étude de cas</a>
           <a href="#offre" className="nav-link" style={{ fontSize: '0.95rem', fontWeight: 600, color: '#0a0a0a', textDecoration: 'none' }}>Notre offre</a>
         </div>
         <button className="nav-burger" onClick={() => setOpen(!open)} style={{ display: 'none', background: 'none', border: 'none', cursor: 'pointer', padding: '0.25rem' }}>
@@ -625,7 +632,7 @@ const Navbar = () => {
 
         {/* Logo */}
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', lineHeight: 1.1 }}>
-          <span style={{ fontFamily: "'Anton', sans-serif", fontSize: '1.3rem', fontWeight: 400, textTransform: 'uppercase', color: '#0a0a0a', letterSpacing: '0.05em' }}>Adonyme</span>
+          <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '1.3rem', fontWeight: 400, textTransform: 'uppercase', color: '#0a0a0a', letterSpacing: '0.05em' }}>Adonyme</span>
           <span style={{ fontSize: '0.7rem', fontWeight: 600, color: '#64748b', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Source-to-Scale</span>
         </div>
       </div>
@@ -634,7 +641,7 @@ const Navbar = () => {
       {open && (
         <div className="nav-mobile-menu" style={{ backgroundColor: '#f5f4f0', borderTop: '1px solid #e2e8f0', padding: '1.5rem 2rem', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
           <a href="#methode" onClick={() => setOpen(false)} style={{ fontSize: '1rem', fontWeight: 600, color: '#0a0a0a', textDecoration: 'none' }}>Comment ça marche ?</a>
-          <a href="#etude-de-cas" onClick={() => setOpen(false)} style={{ fontSize: '1rem', fontWeight: 600, color: '#0a0a0a', textDecoration: 'none' }}>Étude de cas</a>
+          <a href="/etude-de-cas" onClick={() => setOpen(false)} style={{ fontSize: '1rem', fontWeight: 600, color: '#0a0a0a', textDecoration: 'none' }}>Étude de cas</a>
           <a href="#offre" onClick={() => setOpen(false)} style={{ fontSize: '1rem', fontWeight: 600, color: '#0a0a0a', textDecoration: 'none' }}>Notre offre</a>
         </div>
       )}
@@ -645,79 +652,223 @@ const Navbar = () => {
 const resultats = [
   {
     img: '/resultats-1.png',
-    tag: 'NDA — Secteur BtoB',
-    stats: [{ val: '229', label: 'prospects générés' }, { val: '4,75€', label: 'par prospect' }, { val: '531', label: 'clics qualifiés' }],
-    desc: 'Campagne Meta Ads — génération de leads formulaire.',
+    tag: 'Recouvrement — AB Partners',
+    stats: [{ val: 'Total lead : +100', label: 'Performance sur 60 jours' }, { val: '6€', label: 'CPL moyen' }, { val: '+37 000€', label: 'CA généré' }],
+    desc: '',
   },
   {
     img: '/resultats-2.png',
-    tag: 'NDA — Formation',
-    stats: [{ val: '61', label: 'prospects générés' }, { val: '5,14€', label: 'par prospect' }, { val: '214', label: 'clics' }],
-    desc: 'Campagne Meta Ads — audience froide retargetée.',
+    tag: 'BTP — Tech vertes',
+    stats: [{ val: 'Total lead : +100', label: 'Performance sur 60 jours' }, { val: '10€', label: 'CPL moyen' }, { val: '+75 000€', label: 'CA généré' }],
+    desc: '',
   },
   {
     img: '/resultats-3.png',
-    tag: 'NDA — Services',
-    stats: [{ val: '159', label: 'prospects générés' }, { val: '5,90€', label: 'par prospect' }, { val: '2603', label: 'clics' }],
-    desc: 'Campagne Google Ads — leads formulaire qualifiés.',
+    tag: 'EMS — Fulgurance',
+    stats: [{ val: 'Total lead : +800', label: 'Performance sur 60 jours' }, { val: '7€', label: 'CPL moyen' }, { val: '135 000€', label: 'CA généré' }],
+    desc: '',
   },
   {
     img: '/resultats-4.png',
-    tag: 'NDA — Immobilier',
-    stats: [{ val: '100', label: 'prospects générés' }, { val: '10,47€', label: 'par prospect' }, { val: '636', label: 'clics' }],
-    desc: 'Campagne Meta Ads — marché concurrentiel.',
+    tag: 'SaaS — Whatsy',
+    stats: [{ val: 'Total lead : +160', label: 'Performance sur 60 jours' }, { val: '7€', label: 'CPL moyen' }, { val: 'MRR +2 500€', label: 'CA généré' }],
+    desc: '',
+  },
+  {
+    img: '/ems.png',
+    tag: 'Effy',
+    stats: [{ val: 'Total lead : +1 400', label: 'Performance sur 60 jours' }, { val: '9€', label: 'CPL moyen' }, { val: '>1M€', label: 'CA généré' }],
+    desc: '',
   },
 ];
 
+const CARD_WIDTH_PX = 420;
+const CARD_GAP_PX = 24;
+
 const ResultatsClients = () => (
   <section style={{ backgroundColor: '#f5f4f0', padding: '5rem 0' }}>
-    <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 2rem' }}>
+    <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 2rem', marginBottom: '2rem' }}>
       <p style={{ fontSize: '0.85rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.15em', color: '#64748b', marginBottom: '0.75rem' }}>
-        Résultats clients
+        Résultats ↗
       </p>
-      <h2 style={{ fontFamily: "'Anton', sans-serif", fontSize: 'clamp(1.6rem, 2.2vw, 2.8rem)', fontWeight: 400, textTransform: 'uppercase', color: '#0a0a0a', marginBottom: '2.5rem', lineHeight: 1.2 }}>
-        Ce que nos clients obtiennent
+      <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 'clamp(1.6rem, 2.2vw, 2.8rem)', fontWeight: 900, textTransform: 'uppercase', color: '#0a0a0a', lineHeight: 1.2, margin: '0 0 0.5rem' }}>
+        Résultats de <span style={{ position: 'relative', display: 'inline-block' }}>nos clients récents<svg viewBox="0 0 340 18" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style={{ position: 'absolute', bottom: '-6px', left: '-4px', width: 'calc(100% + 8px)', height: '12px', overflow: 'visible' }}><path d="M4,10 Q85,2 170,9 Q255,16 336,8" stroke="#a3e635" strokeWidth="5" fill="none" strokeLinecap="round"/></svg></span>
       </h2>
+      <p style={{ fontSize: '0.85rem', color: '#94a3b8', fontWeight: 500, letterSpacing: '0.05em', marginTop: '0.75rem' }}>
+        Meta · Google · Taboola · Outbrain · LinkedIn
+      </p>
     </div>
-    <div style={{ display: 'flex', justifyContent: 'center', overflowX: 'auto', paddingBottom: '1rem', cursor: 'grab' }}>
-      <div style={{ display: 'flex', gap: '1.5rem', padding: '0 2rem', flexWrap: 'nowrap' }}>
-        {resultats.map((r, i) => (
-          <div key={i} style={{ width: '300px', backgroundColor: '#fff', borderRadius: '20px', overflow: 'hidden', boxShadow: '0 4px 24px rgba(0,0,0,0.07)', flexShrink: 0 }}>
-            {/* Image */}
-            <div style={{ width: '100%', height: '260px', overflow: 'hidden' }}>
-              <img src={r.img} alt={r.tag} style={{ width: '100%', height: 'auto', display: 'block' }} />
-            </div>
-            {/* Contenu */}
-            <div style={{ padding: '1.5rem' }}>
-              <p style={{ fontSize: '0.75rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#64748b', marginBottom: '1rem' }}>{r.tag}</p>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', marginBottom: '1rem' }}>
+
+    {/* Carrousel infini — limité à la largeur du contenu */}
+    <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 2rem' }}>
+    <div style={{ position: 'relative', overflow: 'hidden', borderRadius: '16px' }}>
+      <div style={{ display: 'flex', alignItems: 'stretch', animation: 'resultatsScroll 50s linear infinite', width: 'max-content' }}>
+        {[...resultats, ...resultats].map((r, i) => (
+          <div key={i} style={{ width: `${CARD_WIDTH_PX}px`, flexShrink: 0, marginRight: `${CARD_GAP_PX}px`, backgroundColor: '#fff', borderRadius: '24px', overflow: 'hidden', boxShadow: '0 4px 32px rgba(0,0,0,0.08)' }}>
+            <img src={r.img} alt={r.tag} style={{ width: '100%', display: 'block' }} />
+            <div style={{ padding: '1.5rem 2rem' }}>
+              <p style={{ fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em', color: '#64748b', marginBottom: '0.75rem' }}>{r.tag}</p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', marginBottom: '0.75rem' }}>
                 {r.stats.map((s, j) => (
-                  <div key={j} style={{ display: 'flex', alignItems: 'baseline', gap: '0.5rem' }}>
-                    <span style={{ fontWeight: 900, fontSize: '1.3rem', color: '#0a0a0a' }}>{s.val}</span>
-                    <span style={{ fontSize: '0.85rem', color: '#64748b' }}>{s.label}</span>
+                  <div key={j}>
+                    <span style={{ fontSize: '0.8rem', fontWeight: s.label === 'Performance sur 60 jours' ? 700 : 400, color: '#64748b', display: 'block' }}>{s.label}</span>
+                    {s.val.includes(' : ') ? (
+                      <>
+                        <span style={{ fontSize: '0.8rem', color: '#64748b', fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 400, display: 'block' }}>{s.val.split(' : ')[0]} :</span>
+                        <span style={{ fontWeight: 900, fontSize: '1.4rem', color: '#0a0a0a', display: 'block', lineHeight: 1 }}>{s.val.split(' : ')[1]}</span>
+                      </>
+                    ) : (
+                      <span style={{ fontWeight: 900, fontSize: '1.4rem', color: '#0a0a0a', display: 'block', lineHeight: 1 }}>{s.val}</span>
+                    )}
                   </div>
                 ))}
               </div>
-              <p style={{ fontSize: '0.85rem', color: '#94a3b8', fontStyle: 'italic', lineHeight: 1.5 }}>{r.desc}</p>
             </div>
           </div>
         ))}
       </div>
     </div>
+    </div>
+
+    <style>{`
+      @keyframes resultatsScroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      @media (max-width: 768px) {
+        @keyframes resultatsScroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+      }
+    `}</style>
+
   </section>
 );
+
+const etudesCas = [
+  {
+    img: '/fulgurance-etude-de-cas.webp',
+    titre: 'Fulgurance EMS — QVEMA S3',
+    stats: '+1000 leads · 7€ CPL · 135 000€ CA',
+    desc: <></>,
+    logos: ['/meta-logo.webp', '/Google_Ads_logo.svg.webp', '/whatsapp-logo-whatsapp-logo-transparent-whatsapp-icon-transparent-free-free-png.webp', '/claudecode-color.png', '/supabase-icon-logo.png'],
+  },
+  {
+    img: '/cerfrance-etude-de-cas.webp',
+    titre: 'Cerfrance - 720 agences',
+    stats: 'Contacter 35 000 prospects',
+    desc: <></>,
+    logos: ['/meta-logo.webp', '/Google_Ads_logo.svg.webp', '/claudecode-color.png', '/OpenAI-Logo-2022.png'],
+  },
+  {
+    img: '/abraham-etude-de-cas.webp',
+    titre: 'AB & Partners - Recouvrement',
+    stats: 'Nos 20 leads valent plus que 100 chez la concurrence',
+    desc: <></>,
+    logos: ['/meta-logo.webp', '/claudecode-color.png'],
+  },
+  {
+    img: '/gci-etude-de-cas.webp',
+    titre: 'decarbosolution.ai',
+    stats: "Une interface qui répond à +200 appels d'offres par jour",
+    desc: <></>,
+    logos: ['/claudecode-color.png', '/OpenAI-Logo-2022.png', '/claude-icon-logo.png', '/supabase-icon-logo.png', '/openclaw-logo.svg'],
+  },
+];
+
+const EtudesDeCasCarousel = () => {
+  const [index, setIndex] = useState(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const max = etudesCas.length - 3;
+
+  const scroll = (dir: 'prev' | 'next') => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const cardWidth = el.offsetWidth / 3 + 8;
+    el.scrollBy({ left: dir === 'next' ? cardWidth : -cardWidth, behavior: 'smooth' });
+    setIndex(prev => dir === 'next' ? Math.min(max, prev + 1) : Math.max(0, prev - 1));
+  };
+
+  return (
+    <section style={{ backgroundColor: '#f5f4f0', backgroundImage: 'linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px)', backgroundSize: '40px 40px', padding: '5rem 2rem' }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        <p style={{ fontSize: '0.85rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.15em', color: '#64748b', marginBottom: '0.75rem' }}>Résultats ↗</p>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '2rem', flexWrap: 'wrap', gap: '1rem' }}>
+          <div>
+            <h2 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: 'clamp(1.6rem, 2.5vw, 2.8rem)', fontWeight: 900, textTransform: 'uppercase', color: '#0a0a0a', lineHeight: 1.1, margin: 0 }}>
+              Témoignages clients
+            </h2>
+            <p style={{ fontSize: '0.9rem', fontWeight: 500, color: '#94a3b8', marginTop: '0.5rem' }}>(Vidéos bientôt disponibles)</p>
+          </div>
+          <div className="carousel-arrows" style={{ display: 'flex', gap: '0.5rem' }}>
+            <button onClick={() => scroll('prev')} disabled={index === 0} style={{ width: '40px', height: '40px', borderRadius: '50%', border: '1px solid #e2e8f0', backgroundColor: index === 0 ? '#f1f5f9' : '#fff', cursor: index === 0 ? 'default' : 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.1rem', color: index === 0 ? '#cbd5e1' : '#0a0a0a' }}>←</button>
+            <button onClick={() => scroll('next')} disabled={index >= max} style={{ width: '40px', height: '40px', borderRadius: '50%', border: '1px solid #e2e8f0', backgroundColor: index >= max ? '#f1f5f9' : '#0a0a0a', cursor: index >= max ? 'default' : 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.1rem', color: index >= max ? '#cbd5e1' : '#fff' }}>→</button>
+          </div>
+        </div>
+
+        {/* Desktop : carousel */}
+        <div className="carousel-desktop" ref={scrollRef} style={{ overflow: 'hidden', display: 'flex', gap: '1.5rem', scrollBehavior: 'smooth' }}>
+          <style>{`.carousel-desktop::-webkit-scrollbar { display: none; }`}</style>
+            {etudesCas.map((c, i) => (
+              <div key={i} style={{ flex: '0 0 calc(33.33% - 1rem)', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 4px 24px rgba(0,0,0,0.08)', backgroundColor: '#fff' }}>
+                <img src={c.img} alt={c.titre} style={{ width: '100%', display: 'block' }} />
+                <div style={{ padding: '1rem 1.25rem 1.25rem' }}>
+                  <p style={{ fontSize: '1rem', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#0a0a0a', margin: '0 0 0.4rem' }}>{c.titre}</p>
+                  <p style={{ fontSize: '0.82rem', fontWeight: 700, color: '#a3e635', margin: '0 0 0.5rem' }}>{c.stats}</p>
+                  <p style={{ fontSize: '0.82rem', color: '#64748b', margin: '0 0 0.75rem', lineHeight: 1.5 }}>{c.desc}</p>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', borderTop: '1px solid #f1f5f9', paddingTop: '0.75rem', flexWrap: 'wrap' }}>
+                    {c.logos.map((l, j) => <img key={j} src={l} alt="" style={{ height: '28px', objectFit: 'contain', opacity: 0.7 }} />)}
+                  </div>
+                </div>
+              </div>
+            ))}
+        </div>
+
+        {/* Mobile : empilées */}
+        <div className="carousel-mobile" style={{ display: 'none', flexDirection: 'column', gap: '1.5rem' }}>
+          {etudesCas.map((c, i) => (
+            <div key={i} style={{ borderRadius: '16px', overflow: 'hidden', boxShadow: '0 4px 24px rgba(0,0,0,0.08)', backgroundColor: '#fff' }}>
+              <img src={c.img} alt={c.titre} style={{ width: '100%', display: 'block' }} />
+              <div style={{ padding: '1rem 1.25rem 1.25rem' }}>
+                <p style={{ fontSize: '1rem', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '0.08em', color: '#0a0a0a', margin: '0 0 0.4rem' }}>{c.titre}</p>
+                <p style={{ fontSize: '0.82rem', fontWeight: 700, color: '#a3e635', margin: '0 0 0.5rem' }}>{c.stats}</p>
+                <p style={{ fontSize: '0.82rem', color: '#64748b', margin: '0 0 0.75rem', lineHeight: 1.5 }}>{c.desc}</p>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', borderTop: '1px solid #f1f5f9', paddingTop: '0.75rem', flexWrap: 'wrap' }}>
+                  {c.logos.map((l, j) => <img key={j} src={l} alt="" style={{ height: '28px', objectFit: 'contain', opacity: 0.7 }} />)}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <style>{`
+          @media (max-width: 768px) {
+            .carousel-desktop { display: none !important; }
+            .carousel-mobile { display: flex !important; }
+            .carousel-arrows { display: none !important; }
+          }
+        `}</style>
+
+        <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
+          <a href="/etude-de-cas" style={{ display: 'inline-block', backgroundColor: '#0a0a0a', color: '#fff', fontWeight: 700, fontSize: '0.9rem', padding: '0.85rem 2rem', borderRadius: '8px', textDecoration: 'none', letterSpacing: '0.05em' }}>
+            Toutes les études de cas →
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+};
 
 export const LandingPersonal = () => (
   <main>
     <Navbar />
     <Hero />
-    <LogoSlider />
-    <ResultatsClients />
-    <VideoProof />
-    <Probleme />
-    <SecteurSlider />
-    <SourceToScale />
-    <CarteMethode />
+    <EtudesDeCasCarousel />
+    {/* <ResultatsClients /> */}
+    {/* <VideoProof /> */}
+    {/* <Probleme /> */}
+    {/* <SourceToScale /> */}
     <FooterLP />
   </main>
 );
