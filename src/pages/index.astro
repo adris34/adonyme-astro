@@ -299,7 +299,7 @@ import Layout from '../layouts/Layout.astro';
             h('p', { style: { fontSize: '0.58rem', color: '#94a3b8', margin: 0, textTransform: 'uppercase', letterSpacing: '0.08em' } }, k.l)
           );
         });
-        return h('div', { key: p.img + suffix, style: { flexShrink: 0, width: '370px', borderRadius: '14px', overflow: 'hidden', background: '#fff', border: '1px solid #e2e8f0', display: 'flex', flexDirection: 'column' } },
+        return h('div', { key: p.img + suffix, style: { flexShrink: 0, width: '352px', marginRight: '24px', borderRadius: '14px', overflow: 'hidden', background: '#fff', border: '1px solid #e2e8f0', display: 'flex', flexDirection: 'column' } },
           h('img', { src: p.img, alt: '', style: { width: '100%', height: '200px', objectFit: 'cover', objectPosition: 'center', display: 'block' } }),
           h('div', { style: { padding: '1.4rem', display: 'flex', flexDirection: 'column', flex: 1 } },
             h('p', { style: { fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.12em', color: '#fb6931', margin: '0 0 0.25rem' } }, p.label),
@@ -321,8 +321,10 @@ import Layout from '../layouts/Layout.astro';
           ),
           h('h2', { style: { fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', fontWeight: 700, color: '#0a0a0a', lineHeight: 1.15, margin: 0 } }, 'Des solutions adaptées à vos objectifs')
         ),
-        h('div', { style: { overflow: 'hidden' } },
-          h.apply(null, ['div', { className: 'testim-track', style: { display: 'flex', gap: '1.5rem', width: 'max-content', paddingBottom: '0.5rem' } }].concat(allCards))
+        h('div', { style: { maxWidth: '1200px', margin: '0 auto', padding: '0 3rem' } },
+          h('div', { style: { overflow: 'hidden' } },
+            h.apply(null, ['div', { className: 'testim-track', style: { display: 'flex', width: 'max-content', paddingBottom: '0.5rem' } }].concat(allCards))
+          )
         )
       );
     }
