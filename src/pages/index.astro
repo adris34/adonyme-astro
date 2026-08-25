@@ -459,8 +459,8 @@ import Layout from '../layouts/Layout.astro';
         // Témoignages — juste après les logos
         h(TestimonialsCarousel),
 
-        // Section "Le Constat" — après logos
-        h('div', { className: 'mob-probleme-outer', style: { background: '#fcfaf6', padding: '2rem 4rem' } },
+        // Section "Le Constat" — après logos (masquée)
+        false && h('div', { className: 'mob-probleme-outer', style: { background: '#fcfaf6', padding: '2rem 4rem' } },
           h('div', { className: 'mob-probleme-inner', style: { background: 'linear-gradient(135deg, #fff8f5 0%, #ffeee5 40%, #ffd9c5 70%, #ffcbb0 100%)', borderRadius: '20px', padding: '3rem' } },
             h('div', { style: { maxWidth: '1100px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '1.5rem' } },
               // Carte blanche — titre + intro
