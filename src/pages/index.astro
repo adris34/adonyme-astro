@@ -266,7 +266,7 @@ import Layout from '../layouts/Layout.astro';
           a: "Avant le lancement, nous faisons un brief complet pour définir votre ICP (client idéal) et analyser votre offre. Nous mettons ensuite en place un système d'analyse automatique qui filtre chaque prospect entrant selon ces critères. Seuls ceux qui correspondent sont livrés."
         },
       ];
-      return h('section', { style: { background: '#ffffff', padding: '2rem', display: 'flex', justifyContent: 'center' } },
+      return h('section', { style: { background: '#fcfaf6', padding: '2rem', display: 'flex', justifyContent: 'center' } },
         h('div', { style: { background: 'linear-gradient(135deg, #fff8f5 0%, #ffeee5 40%, #ffd9c5 70%, #ffcbb0 100%)', borderRadius: '20px', padding: '3rem', display: 'flex', flexDirection: 'column', gap: '1.5rem', width: '100%', maxWidth: '760px' } },
           h('div', { style: { background: '#fff', borderRadius: '16px', padding: '2.5rem 2.5rem 2rem', textAlign: 'center' } },
             h('p', { style: { fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.1em', color: '#fb6931', marginBottom: '0.75rem' } }, 'FAQ'),
@@ -313,7 +313,7 @@ import Layout from '../layouts/Layout.astro';
       const allCards = PROJETS.map(function(p) { return makeCard(p, '-a'); })
         .concat(PROJETS.map(function(p) { return makeCard(p, '-b'); }));
 
-      return h('div', { style: { background: '#fff', padding: '5rem 0' } },
+      return h('div', { style: { background: '#fcfaf6', padding: '5rem 0' } },
         h('div', { style: { maxWidth: '1200px', margin: '0 auto', padding: '0 3rem', marginBottom: '2.5rem' } },
           h('div', { style: { display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' } },
             h('span', { style: { fontSize: '1rem', fontWeight: 700, letterSpacing: '0.05em', color: '#0a0a0a', whiteSpace: 'nowrap' } }, 'Nos derniers projets'),
@@ -421,7 +421,7 @@ import Layout from '../layouts/Layout.astro';
         h(TestimonialsCarousel),
 
         // Section "Le Constat" — après logos
-        h('div', { className: 'mob-probleme-outer', style: { background: '#ffffff', padding: '2rem 4rem' } },
+        h('div', { className: 'mob-probleme-outer', style: { background: '#fcfaf6', padding: '2rem 4rem' } },
           h('div', { className: 'mob-probleme-inner', style: { background: 'linear-gradient(135deg, #fff8f5 0%, #ffeee5 40%, #ffd9c5 70%, #ffcbb0 100%)', borderRadius: '20px', padding: '3rem' } },
             h('div', { style: { maxWidth: '1100px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '1.5rem' } },
               // Carte blanche — titre + intro
@@ -459,7 +459,7 @@ import Layout from '../layouts/Layout.astro';
           )
         ),
 
-        h('div', { style: { background: '#fff', padding: '6rem 3rem' } },
+        h('div', { style: { background: '#fcfaf6', padding: '6rem 3rem' } },
           h('div', { style: { maxWidth: '1100px', margin: '0 auto' } },
             h('h2', { style: { textAlign: 'center', fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', fontWeight: 700, lineHeight: 1.15, marginBottom: '1rem', color: '#0a0a0a' } },
               h('span', { style: { background: '#fb6931', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' } }, 'Une stratégie'),
@@ -559,7 +559,7 @@ import Layout from '../layouts/Layout.astro';
         h(FaqAccordion),
 
         // Watermark CTA section
-        h('div', { style: { position: 'relative', overflow: 'hidden', padding: '7rem 2rem', background: '#ffffff' } },
+        h('div', { style: { position: 'relative', overflow: 'hidden', padding: '7rem 2rem', background: '#fcfaf6' } },
           h('div', { style: { position: 'absolute', inset: 0, background: 'linear-gradient(to top, #ffcbb0 0%, #ffd9c5 25%, transparent 70%)', pointerEvents: 'none', zIndex: 0 } }),
           h('div', { style: { position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'none', userSelect: 'none', zIndex: 1 } },
             h('span', { style: { fontSize: 'clamp(3rem, 14vw, 11rem)', fontWeight: 900, color: '#0a0a0a', opacity: 0.08, letterSpacing: '-0.03em', whiteSpace: 'nowrap', lineHeight: 1 } }, 'Agence Leads')
