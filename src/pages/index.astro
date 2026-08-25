@@ -378,7 +378,7 @@ import Layout from '../layouts/Layout.astro';
             'Regardez cette vidéo pour découvrir nos services :'
           ),
           // Vidéo
-          h('div', { style: { position: 'relative', borderRadius: '20px', overflow: 'hidden', background: '#0a0a0a', aspectRatio: '16/9', boxShadow: '0 20px 80px rgba(0,0,0,0.2), 0 0 0 1px rgba(0,0,0,0.05)', marginBottom: '2rem', cursor: 'pointer', marginTop: '2rem' } },
+          h('div', { style: { position: 'relative', borderRadius: '20px', overflow: 'hidden', background: '#0a0a0a', aspectRatio: '16/9', boxShadow: '0 20px 80px rgba(0,0,0,0.2), 0 0 0 1px rgba(0,0,0,0.05)', marginBottom: '0.5rem', cursor: 'pointer', marginTop: '2rem' } },
             h('div', { style: { position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' } },
               h('div', { style: { width: '72px', height: '72px', borderRadius: '50%', background: 'rgba(255,255,255,0.95)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 24px rgba(0,0,0,0.3)' } },
                 h('svg', { xmlns: 'http://www.w3.org/2000/svg', width: 28, height: 28, viewBox: '0 0 24 24', fill: '#fb6931' },
@@ -390,8 +390,7 @@ import Layout from '../layouts/Layout.astro';
           ),
         ),
           // Logo marquee — dans le dégradé hero
-          h('p', { style: { fontSize: '0.78rem', fontWeight: 700, color: '#0a0a0a', letterSpacing: '0.1em', textAlign: 'center', margin: '0 0 1.25rem' } }, 'Ils nous font confiance'),
-          h('div', { style: { maxWidth: '1200px', margin: '0 auto', padding: '0 3rem 3rem' } },
+          h('div', { style: { maxWidth: '1200px', margin: '0 auto', padding: '0 3rem 2rem' } },
             h('div', { style: { overflow: 'hidden', position: 'relative' } },
               h('div', { className: 'logo-track', style: { display: 'flex', gap: '4rem', alignItems: 'center', width: 'max-content' } },
                 ...[
