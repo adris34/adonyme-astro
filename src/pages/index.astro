@@ -499,12 +499,8 @@ import Layout from '../layouts/Layout.astro';
         h('div', { style: { background: '#fcfaf6', padding: '6rem 3rem' } },
           h('div', { style: { maxWidth: '1100px', margin: '0 auto' } },
             h('h2', { style: { textAlign: 'center', fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', fontWeight: 700, lineHeight: 1.15, marginBottom: '1rem', color: '#0a0a0a' } },
-              h('span', { style: { background: '#fb6931', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' } }, 'Une stratégie'),
-              ' pensée',
-              h('br', { className: 'mob-title-br' }),
-              ' selon vos critères',
-              h('br'),
-              h('span', { style: { background: '#fb6931', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' } }, 'sous votre marque')
+              'Une stratégie pensée selon ',
+              h('span', { style: { color: '#fb6931', fontStyle: 'italic' } }, 'vos critères')
             ),
             h('p', { style: { textAlign: 'center', color: '#475569', maxWidth: '640px', margin: '0 auto 4rem', lineHeight: 1.7 } },
               'Avant la production on revoit avec vous l\'exploitation de votre base de données, le process de traitement de leads, les canaux utilisés pour maximiser votre ROI.'
