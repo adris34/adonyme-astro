@@ -314,12 +314,12 @@ import Layout from '../layouts/Layout.astro';
         .concat(PROJETS.map(function(p) { return makeCard(p, '-b'); }));
 
       return h('div', { style: { background: '#fcfaf6', padding: '5rem 0' } },
-        h('div', { style: { maxWidth: '1200px', margin: '0 auto', padding: '0 3rem', marginBottom: '2.5rem' } },
-          h('div', { style: { display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' } },
-            h('span', { style: { fontSize: '1rem', fontWeight: 700, letterSpacing: '0.05em', color: '#0a0a0a', whiteSpace: 'nowrap' } }, 'Nos derniers projets'),
-            h('div', { style: { flex: 1, height: '1px', background: '#e2e8f0' } })
-          ),
-          h('h2', { style: { fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', fontWeight: 700, color: '#0a0a0a', lineHeight: 1.15, margin: 0 } }, 'Des solutions adaptées à vos objectifs')
+        h('div', { style: { maxWidth: '1200px', margin: '0 auto', padding: '0 3rem', marginBottom: '2.5rem', textAlign: 'center' } },
+          h('h2', { style: { fontSize: 'clamp(2rem, 4vw, 3.4rem)', fontWeight: 700, lineHeight: 1.15, color: '#0a0a0a', margin: 0 } },
+            '+50 ',
+            h('span', { style: { color: '#fb6931', fontStyle: 'italic' } }, 'Entreprises'),
+            ' transformées'
+          )
         ),
         h('div', { style: { maxWidth: '1200px', margin: '0 auto', padding: '0 3rem' } },
           h('div', { style: { overflow: 'hidden', maskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)' } },
