@@ -11,6 +11,9 @@ import Layout from '../layouts/Layout.astro';
     .logo-track { animation: logoScroll 25s linear infinite; }
     @keyframes cardScroll { 0% { transform: translateY(0); } 100% { transform: translateY(-50%); } }
     .card-track { animation: cardScroll 18s linear infinite; }
+    @keyframes testimScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .testim-track { animation: testimScroll 22s linear infinite; }
+    .testim-track:hover { animation-play-state: paused; }
     @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.75); } }
     .dot-pulse { width: 8px; height: 8px; border-radius: 50%; background: #fb6931; display: inline-block; flex-shrink: 0; animation: pulse 2s ease-in-out infinite; }
     .mob-title-br { display: none; }
@@ -36,6 +39,9 @@ import Layout from '../layouts/Layout.astro';
       /* Le problème — 3 colonnes → 1 colonne */
       .mob-probleme-grid { grid-template-columns: 1fr !important; }
       .mob-probleme-card { border-right: none !important; border-bottom: 1px solid #e2e8f0; padding-left: 0 !important; }
+      .mob-probleme-outer { padding: 1rem 1rem !important; }
+      .mob-probleme-inner { padding: 1rem !important; }
+      .mob-probleme-carte { padding: 1.25rem !important; }
 
       /* Timeline line — alignée sur le numéro (20px = centre du cercle 40px) */
       .mob-timeline-line { display: none !important; }
@@ -285,44 +291,38 @@ import Layout from '../layouts/Layout.astro';
     }
 
     function TestimonialsCarousel() {
-      const scrollId = 'proj-scroll';
-      const scroll = function(dir) {
-        var el = document.getElementById(scrollId);
-        if (el) el.scrollBy({ left: dir * 320, behavior: 'smooth' });
-      };
       const sep = { borderTop: '1px solid rgba(0,0,0,0.08)', margin: '0.6rem 0' };
-      const cards = PROJETS.map(function(p) {
+      const makeCard = function(p, suffix) {
         const kpiItems = p.kpis.map(function(k) {
           return h('div', { key: k.l },
             h('p', { style: { fontSize: '1rem', fontWeight: 900, color: '#0a0a0a', margin: 0 } }, k.v),
             h('p', { style: { fontSize: '0.58rem', color: '#94a3b8', margin: 0, textTransform: 'uppercase', letterSpacing: '0.08em' } }, k.l)
           );
         });
-        return h('div', { key: p.img, style: { flexShrink: 0, width: '300px', borderRadius: '14px', overflow: 'hidden', background: '#fff', border: '1px solid #e2e8f0', scrollSnapAlign: 'start', display: 'flex', flexDirection: 'column' } },
-          h('img', { src: p.img, alt: '', style: { width: '100%', height: '170px', objectFit: 'cover', objectPosition: 'center', display: 'block' } }),
-          h('div', { style: { padding: '1.2rem', display: 'flex', flexDirection: 'column', flex: 1 } },
-            h('p', { style: { fontSize: '0.58rem', fontWeight: 700, letterSpacing: '0.12em', color: '#fb6931', margin: '0 0 0.25rem' } }, p.label),
-            h('h3', { style: { fontSize: '1rem', fontWeight: 900, color: '#0a0a0a', lineHeight: 1.2, margin: '0 0 0.5rem' } }, p.headline),
-            h('p', { style: { fontSize: '0.78rem', color: '#475569', lineHeight: 1.5, margin: '0 0 0.5rem', flex: 1 } }, p.desc),
+        return h('div', { key: p.img + suffix, style: { flexShrink: 0, width: '370px', borderRadius: '14px', overflow: 'hidden', background: '#fff', border: '1px solid #e2e8f0', display: 'flex', flexDirection: 'column' } },
+          h('img', { src: p.img, alt: '', style: { width: '100%', height: '200px', objectFit: 'cover', objectPosition: 'center', display: 'block' } }),
+          h('div', { style: { padding: '1.4rem', display: 'flex', flexDirection: 'column', flex: 1 } },
+            h('p', { style: { fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.12em', color: '#fb6931', margin: '0 0 0.25rem' } }, p.label),
+            h('h3', { style: { fontSize: '1.05rem', fontWeight: 900, color: '#0a0a0a', lineHeight: 1.2, margin: '0 0 0.5rem' } }, p.headline),
+            h('p', { style: { fontSize: '0.82rem', color: '#475569', lineHeight: 1.5, margin: '0 0 0.5rem', flex: 1 } }, p.desc),
             h('div', { style: sep }),
             h.apply(null, ['div', { style: { display: 'flex', gap: '1.25rem' } }].concat(kpiItems))
           )
         );
-      });
-      return h('div', { style: { background: '#fff', padding: '5rem 3rem' } },
-        h('div', { style: { maxWidth: '1200px', margin: '0 auto' } },
-          h('div', { style: { display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2.5rem' } },
-            h('span', { style: { fontSize: '1rem', fontWeight: 700, letterSpacing: '0.05em', color: '#0a0a0a', whiteSpace: 'nowrap', fontFamily: "'Instrument Sans', system-ui, sans-serif" } }, 'Nos derniers projets'),
+      };
+      const allCards = PROJETS.map(function(p) { return makeCard(p, '-a'); })
+        .concat(PROJETS.map(function(p) { return makeCard(p, '-b'); }));
+
+      return h('div', { style: { background: '#fff', padding: '5rem 0' } },
+        h('div', { style: { maxWidth: '1200px', margin: '0 auto', padding: '0 3rem', marginBottom: '2.5rem' } },
+          h('div', { style: { display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' } },
+            h('span', { style: { fontSize: '1rem', fontWeight: 700, letterSpacing: '0.05em', color: '#0a0a0a', whiteSpace: 'nowrap' } }, 'Nos derniers projets'),
             h('div', { style: { flex: 1, height: '1px', background: '#e2e8f0' } })
           ),
-          h('div', { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' } },
-            h('h2', { style: { fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', fontWeight: 700, color: '#0a0a0a', lineHeight: 1.15, margin: 0 } }, 'Des solutions adaptées à vos objectifs'),
-            h('div', { style: { display: 'flex', alignItems: 'center', gap: '0.75rem', marginLeft: '2rem', flexShrink: 0 } },
-              h('button', { onClick: function() { scroll(-1); }, style: { width: '36px', height: '36px', borderRadius: '50%', border: '1px solid #fb6931', background: '#fff', cursor: 'pointer', fontSize: '1rem', color: '#fb6931', display: 'flex', alignItems: 'center', justifyContent: 'center' } }, '←'),
-              h('button', { onClick: function() { scroll(1); }, style: { width: '36px', height: '36px', borderRadius: '50%', border: 'none', background: '#fb6931', cursor: 'pointer', fontSize: '1rem', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' } }, '→'),
-            )
-          ),
-          h.apply(null, ['div', { id: scrollId, style: { display: 'flex', gap: '1.25rem', overflowX: 'auto', scrollSnapType: 'x mandatory', paddingBottom: '0.5rem', scrollbarWidth: 'none', msOverflowStyle: 'none' } }].concat(cards))
+          h('h2', { style: { fontSize: 'clamp(1.8rem, 3vw, 2.8rem)', fontWeight: 700, color: '#0a0a0a', lineHeight: 1.15, margin: 0 } }, 'Des solutions adaptées à vos objectifs')
+        ),
+        h('div', { style: { overflow: 'hidden' } },
+          h.apply(null, ['div', { className: 'testim-track', style: { display: 'flex', gap: '1.5rem', width: 'max-content', paddingBottom: '0.5rem' } }].concat(allCards))
         )
       );
     }
@@ -419,11 +419,11 @@ import Layout from '../layouts/Layout.astro';
         h(TestimonialsCarousel),
 
         // Section "Le Constat" — après logos
-        h('div', { style: { background: '#ffffff', padding: '2rem 4rem' } },
-          h('div', { style: { background: 'linear-gradient(135deg, #fff8f5 0%, #ffeee5 40%, #ffd9c5 70%, #ffcbb0 100%)', borderRadius: '20px', padding: '3rem' } },
+        h('div', { className: 'mob-probleme-outer', style: { background: '#ffffff', padding: '2rem 4rem' } },
+          h('div', { className: 'mob-probleme-inner', style: { background: 'linear-gradient(135deg, #fff8f5 0%, #ffeee5 40%, #ffd9c5 70%, #ffcbb0 100%)', borderRadius: '20px', padding: '3rem' } },
             h('div', { style: { maxWidth: '1100px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '1.5rem' } },
               // Carte blanche — titre + intro
-              h('div', { style: { background: '#fff', borderRadius: '16px', padding: '2.5rem 2.5rem 2rem' } },
+              h('div', { className: 'mob-probleme-carte', style: { background: '#fff', borderRadius: '16px', padding: '2.5rem 2.5rem 2rem' } },
                 h('div', { style: { display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem' } },
                   h('span', { style: { fontSize: '0.95rem', fontWeight: 600, letterSpacing: '0.02em', color: '#0a0a0a', whiteSpace: 'nowrap' } }, 'Le problème'),
                   h('div', { style: { flex: 1, height: '1px', background: '#e2e8f0' } })
@@ -445,7 +445,7 @@ import Layout from '../layouts/Layout.astro';
                   { num: '2', titre: 'Aucune optimisation possible', desc: "Vous contactez des prospects qui ne correspondent pas à vos critères. Vous ne pouvez pas agir sur le profil des prospects ni ajuster le flux du volume que vous recevez." },
                   { num: '3', titre: 'Le Retour sur investissement', desc: "Vous devez compenser par le volume pour avoir des profils intéressants, ce qui signifie plus de dépenses, plus de temps nécessaire pour les traiter par vos commerciaux et une liste de relance qui explose." },
                 ].map((card) =>
-                  h('div', { key: card.num, className: 'mob-probleme-card', style: { background: '#fff', borderRadius: '16px', padding: '2rem' } },
+                  h('div', { key: card.num, className: 'mob-probleme-card mob-probleme-carte', style: { background: '#fff', borderRadius: '16px', padding: '2rem' } },
                     h('p', { style: { fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', color: '#fb6931', marginBottom: '0.75rem' } }, `PROBLÈME N° ${card.num}`),
                     h('div', { style: { width: '2rem', height: '2px', background: '#fb6931', marginBottom: '1.25rem' } }),
                     h('h3', { style: { fontWeight: 800, fontSize: '1.1rem', color: '#0a0a0a', marginBottom: '0.75rem', lineHeight: 1.3 } }, card.titre),
