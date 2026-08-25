@@ -424,8 +424,9 @@ import Layout from '../layouts/Layout.astro';
               h('br'),
               h('span', { style: { color: '#fb6931', fontStyle: 'italic' } }, 'sans l\'internaliser...')
             ),
-            h('p', { style: { fontSize: '1rem', color: '#64748b', lineHeight: 1.7, marginBottom: '3.5rem', maxWidth: '600px', margin: '0 auto 3.5rem' } },
-              'La plupart des Entreprises ont déjà acheté des listes de leads, sans aucun contrôle, sans aucune propriété, aucune exclusivité. Et si on pouvait fournir des leads au nom de votre cabinet, selon vos critères, s\'occuper de toutes les relances, c\'est comme internaliser un service non ?'
+            h('div', { style: { fontSize: '1rem', color: '#64748b', lineHeight: 1.7, maxWidth: '600px', margin: '0 auto 3.5rem' } },
+              h('p', { style: { margin: '0 0 1rem' } }, 'La plupart des Entreprises ont déjà acheté des listes de leads, sans aucun contrôle, sans aucune propriété, aucune exclusivité.'),
+              h('p', { style: { margin: 0 } }, 'Et si on pouvait fournir des leads au nom de votre cabinet, selon vos critères, s\'occuper de toutes les relances, c\'est comme internaliser un service non ?')
             ),
             h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem', textAlign: 'left' } },
               ...[
