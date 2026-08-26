@@ -448,6 +448,11 @@ import Layout from '../layouts/Layout.astro';
                   h('p', { style: { fontSize: '0.875rem', color: '#64748b', lineHeight: 1.65, margin: 0 } }, card.desc)
                 )
               )
+            ),
+            h('div', { style: { textAlign: 'center', marginTop: '3rem' } },
+              h('a', { href: 'https://calendly.com/session-acquisition/30min', style: { display: 'inline-block', background: '#fb6931', color: '#fff', padding: '0.85rem 2rem', borderRadius: '8px', fontWeight: 700, fontSize: '1rem', textDecoration: 'none' } },
+                'Prendre rendez-vous →'
+              )
             )
           )
         ),
