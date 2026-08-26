@@ -52,6 +52,8 @@ import Layout from '../layouts/Layout.astro';
       .mob-step-illus { order: 3 !important; width: 100% !important; }
       .mob-step-illus iframe { width: 100% !important; }
       .mob-challenge-grid { grid-template-columns: 1fr !important; }
+      .mob-testim-wrap { padding: 0 !important; max-width: 100% !important; }
+      .mob-testim-mask { mask-image: none !important; -webkit-mask-image: none !important; }
       .mob-step-content { order: 2 !important; }
       .mob-step-num-wrap { order: 1 !important; }
       .mob-step-num { width: 36px !important; height: 36px !important; font-size: 0.75rem !important; border: 3px solid #faf9f6 !important; }
@@ -322,8 +324,8 @@ import Layout from '../layouts/Layout.astro';
             ' transformées'
           )
         ),
-        h('div', { style: { maxWidth: '1200px', margin: '0 auto', padding: '0 3rem' } },
-          h('div', { style: { overflow: 'hidden', maskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)' } },
+        h('div', { className: 'mob-testim-wrap', style: { maxWidth: '1200px', margin: '0 auto', padding: '0 3rem' } },
+          h('div', { className: 'mob-testim-mask', style: { overflow: 'hidden', maskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)' } },
             h.apply(null, ['div', { className: 'testim-track', style: { display: 'flex', width: 'max-content', paddingBottom: '0.5rem' } }].concat(allCards))
           )
         )
