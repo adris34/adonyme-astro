@@ -51,6 +51,7 @@ import Layout from '../layouts/Layout.astro';
       .mob-step-grid { display: flex !important; flex-direction: column !important; gap: 1.5rem !important; margin-bottom: 3rem !important; }
       .mob-step-illus { order: 3 !important; width: 100% !important; }
       .mob-step-illus iframe { width: 100% !important; }
+      .mob-challenge-grid { grid-template-columns: 1fr !important; }
       .mob-step-content { order: 2 !important; }
       .mob-step-num-wrap { order: 1 !important; }
       .mob-step-num { width: 36px !important; height: 36px !important; font-size: 0.75rem !important; border: 3px solid #faf9f6 !important; }
@@ -425,7 +426,7 @@ import Layout from '../layouts/Layout.astro';
             h('p', { style: { fontSize: '1rem', color: '#64748b', lineHeight: 1.7, maxWidth: '600px', margin: '0 auto 3.5rem' } },
               'Et si on pouvait vous fournir des leads au nom de votre Entreprise, selon vos critères, s\'occuper de toutes les relances, étant seulement un fournisseur au lieu d\'une agence...'
             ),
-            h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem', textAlign: 'left' } },
+            h('div', { className: 'mob-challenge-grid', style: { display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem', textAlign: 'left' } },
               ...[
                 {
                   icon: '📣',
