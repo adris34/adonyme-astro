@@ -55,6 +55,7 @@ import Layout from '../layouts/Layout.astro';
       .mob-step-illus { order: 3 !important; width: 100% !important; }
       .mob-step-illus iframe { width: 100% !important; }
       .mob-challenge-grid { grid-template-columns: 1fr !important; }
+      .mob-proc-grid { grid-template-columns: 1fr !important; }
       .mob-testim-wrap { padding: 0 !important; max-width: 100% !important; }
       .mob-testim-mask { mask-image: none !important; -webkit-mask-image: none !important; }
       .mob-step-content { order: 2 !important; }
@@ -452,6 +453,112 @@ import Layout from '../layouts/Layout.astro';
             h('div', { style: { textAlign: 'center', marginTop: '3rem' } },
               h('a', { href: 'https://calendly.com/session-acquisition/30min', style: { display: 'inline-block', background: '#fb6931', color: '#fff', padding: '0.85rem 2rem', borderRadius: '8px', fontWeight: 700, fontSize: '1rem', textDecoration: 'none' } },
                 'Prendre rendez-vous →'
+              )
+            )
+          )
+        ),
+
+        // Section "Comment ça se passe ?" — 4 étapes process
+        h('div', { style: { background: '#f5f5f3', padding: '6rem 3rem' } },
+          h('div', { style: { maxWidth: '900px', margin: '0 auto' } },
+            h('div', { style: { textAlign: 'center', marginBottom: '2.5rem' } },
+              h('h2', { style: { fontSize: 'clamp(1.5rem, 3.5vw, 2.2rem)', fontWeight: 800, letterSpacing: '-0.03em', color: '#111', marginBottom: '0.5rem', lineHeight: 1.2 } },
+                'Comment ça se passe ?'
+              ),
+              h('p', { style: { textAlign: 'center', color: '#666', fontSize: '1rem', margin: 0 } },
+                'Un flux de prospects qualifiés en quelques jours'
+              )
+            ),
+            h('div', { className: 'mob-proc-grid', style: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' } },
+              // Card 1
+              h('div', { style: { background: '#fff', borderRadius: '20px', padding: '1.75rem 1.75rem 0', border: '1px solid rgba(0,0,0,.07)', boxShadow: '0 2px 12px rgba(0,0,0,.05)', overflow: 'hidden', display: 'flex', flexDirection: 'column', minHeight: '320px' } },
+                h('div', { style: { fontSize: '0.75rem', fontWeight: 700, letterSpacing: '.08em', textTransform: 'uppercase', color: '#F97316', marginBottom: '0.5rem' } }, '1ère étape'),
+                h('div', { style: { fontSize: 'clamp(1.1rem, 2.2vw, 1.5rem)', fontWeight: 800, letterSpacing: '-0.03em', color: '#111', lineHeight: 1.2, marginBottom: '0.625rem' } },
+                  'Brief &', h('br'), 'Lancement'
+                ),
+                h('div', { style: { fontSize: '0.875rem', lineHeight: 1.6, color: '#666', marginBottom: '1.25rem' } },
+                  'Appel de découverte avec votre chef de projet. On définit ensemble vos cibles, votre message et vos objectifs.'
+                ),
+                h('div', { style: { marginTop: 'auto', flex: 1, minHeight: '160px', background: 'linear-gradient(160deg,#f0f4ff 0%,#e8f0fe 100%)', borderRadius: '12px 12px 0 0', display: 'flex', alignItems: 'flex-end', gap: '8px', padding: '20px 20px 0' } },
+                  h('div', { style: { flex: 1, background: '#1a1a2e', borderRadius: '12px 12px 0 0', padding: '12px', position: 'relative', minHeight: '140px' } },
+                    h('div', { style: { position: 'absolute', top: 8, right: 8, background: 'rgba(255,255,255,.15)', color: '#fff', fontSize: '9px', fontWeight: 600, padding: '2px 7px', borderRadius: '5px' } }, 'You'),
+                    h('div', { style: { position: 'absolute', bottom: 58, left: 8, background: '#F97316', color: '#fff', fontSize: '10px', fontWeight: 700, padding: '3px 8px', borderRadius: '6px' } }, 'Jean — Project Manager'),
+                    h('div', { style: { position: 'absolute', bottom: 10, left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: '6px' } },
+                      h('div', { style: { width: 22, height: 22, borderRadius: '50%', background: 'rgba(255,255,255,.15)' } }),
+                      h('div', { style: { width: 22, height: 22, borderRadius: '50%', background: '#ef4444' } }),
+                      h('div', { style: { width: 22, height: 22, borderRadius: '50%', background: 'rgba(255,255,255,.15)' } }),
+                      h('div', { style: { width: 22, height: 22, borderRadius: '50%', background: 'rgba(255,255,255,.15)' } })
+                    ),
+                    h('div', { style: { width: 48, height: 48, borderRadius: 8, background: 'linear-gradient(135deg,#3b6fd4,#2255b5)', position: 'absolute', bottom: 10, right: 8, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' } },
+                      h('div', { style: { width: '60%', height: '60%', borderRadius: '50%', background: '#8b7355', position: 'relative', top: 4 } })
+                    )
+                  ),
+                  h('div', { style: { width: 44, height: 44, borderRadius: '50%', background: 'linear-gradient(135deg,#6b8cce,#3b6fd4)', alignSelf: 'center', flexShrink: 0, marginBottom: 10 } })
+                )
+              ),
+              // Card 2 — Canaux
+              h('div', { style: { background: '#fff', borderRadius: '20px', padding: '1.75rem 1.75rem 0', border: '1px solid rgba(0,0,0,.07)', boxShadow: '0 2px 12px rgba(0,0,0,.05)', overflow: 'hidden', display: 'flex', flexDirection: 'column', minHeight: '320px' } },
+                h('div', { style: { fontSize: '0.75rem', fontWeight: 700, letterSpacing: '.08em', textTransform: 'uppercase', color: '#F97316', marginBottom: '0.5rem' } }, '2ème étape'),
+                h('div', { style: { fontSize: 'clamp(1.1rem, 2.2vw, 1.5rem)', fontWeight: 800, letterSpacing: '-0.03em', color: '#111', lineHeight: 1.2, marginBottom: '0.625rem' } },
+                  'Canaux &', h('br'), 'Déploiement'
+                ),
+                h('div', { style: { fontSize: '0.875rem', lineHeight: 1.6, color: '#666', marginBottom: '1.25rem' } },
+                  'On active les bons canaux selon votre cible. LinkedIn, Email, WhatsApp, Pub Meta — tout est piloté pour vous.'
+                ),
+                h('div', { style: { marginTop: 'auto', flex: 1, minHeight: '160px', background: 'linear-gradient(160deg,#fafafa 0%,#f0f2f5 100%)', borderRadius: '12px 12px 0 0', display: 'flex', flexWrap: 'wrap', gap: '8px', padding: '20px', alignContent: 'center', justifyContent: 'center' } },
+                  ...['LinkedIn', 'Email', 'WhatsApp', 'Meta Ads', 'Google', 'Instagram'].map(ch =>
+                    h('div', { key: ch, style: { background: '#fff', borderRadius: '8px', padding: '6px 14px', fontSize: '0.8rem', fontWeight: 600, color: '#111', border: '1px solid rgba(0,0,0,.08)', boxShadow: '0 2px 8px rgba(0,0,0,.06)' } }, ch)
+                  )
+                )
+              ),
+              // Card 3 — Prospection
+              h('div', { style: { background: '#fff', borderRadius: '20px', padding: '1.75rem 1.75rem 0', border: '1px solid rgba(0,0,0,.07)', boxShadow: '0 2px 12px rgba(0,0,0,.05)', overflow: 'hidden', display: 'flex', flexDirection: 'column', minHeight: '320px' } },
+                h('div', { style: { fontSize: '0.75rem', fontWeight: 700, letterSpacing: '.08em', textTransform: 'uppercase', color: '#F97316', marginBottom: '0.5rem' } }, '3ème étape'),
+                h('div', { style: { fontSize: 'clamp(1.1rem, 2.2vw, 1.5rem)', fontWeight: 800, letterSpacing: '-0.03em', color: '#111', lineHeight: 1.2, marginBottom: '0.625rem' } },
+                  'Prospection &', h('br'), 'Automatisation'
+                ),
+                h('div', { style: { fontSize: '0.875rem', lineHeight: 1.6, color: '#666', marginBottom: '1.25rem' } },
+                  'Vos séquences tournent 24h/24. Chaque message est personnalisé, chaque relance est chronométrée.'
+                ),
+                h('div', { style: { marginTop: 'auto', flex: 1, minHeight: '160px', background: '#f8f9fa', borderRadius: '12px 12px 0 0', padding: '16px 20px 0' } },
+                  h('div', { style: { display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' } },
+                    h('div', { style: { display: 'inline-flex', alignItems: 'center', gap: 5, background: '#F97316', color: '#fff', fontSize: '0.7rem', fontWeight: 700, padding: '5px 12px', borderRadius: '20px' } }, '▶ En cours'),
+                    h('span', { style: { fontSize: '0.7rem', color: '#888', fontFamily: 'monospace' } }, '0:34 / 1:12')
+                  ),
+                  h('div', { style: { background: '#e8eaed', borderRadius: 3, height: 3, width: '100%', position: 'relative', marginBottom: 20 } },
+                    h('div', { style: { position: 'absolute', left: 0, top: 0, width: '45%', height: '100%', background: 'linear-gradient(90deg,#F97316,#fb923c)', borderRadius: 3 } }),
+                    h('div', { style: { position: 'absolute', top: '50%', left: '45%', transform: 'translate(-50%,-50%)', width: 12, height: 12, borderRadius: '50%', background: '#F97316', boxShadow: '0 0 0 3px rgba(249,115,22,.25)' } })
+                  ),
+                  ...[{ label: 'LinkedIn DM', w: '55%', c: 'rgba(249,115,22,.35)' }, { label: 'Email séquence', w: '80%', c: 'rgba(59,107,212,.25)' }, { label: 'Relance J+3', w: '38%', c: 'rgba(34,197,94,.25)' }].map(l =>
+                    h('div', { key: l.label, style: { height: 16, background: '#e8eaed', borderRadius: 4, position: 'relative', overflow: 'hidden', marginBottom: 5 } },
+                      h('div', { style: { position: 'absolute', top: 0, left: 0, height: '100%', width: l.w, background: l.c, borderRadius: 4 } }),
+                      h('span', { style: { position: 'absolute', left: 6, top: '50%', transform: 'translateY(-50%)', fontSize: '8px', fontWeight: 600, color: '#888' } }, l.label)
+                    )
+                  )
+                )
+              ),
+              // Card 4 — Leads livrés
+              h('div', { style: { background: '#fff', borderRadius: '20px', padding: '1.75rem 1.75rem 0', border: '1px solid rgba(0,0,0,.07)', boxShadow: '0 2px 12px rgba(0,0,0,.05)', overflow: 'hidden', display: 'flex', flexDirection: 'column', minHeight: '320px' } },
+                h('div', { style: { fontSize: '0.75rem', fontWeight: 700, letterSpacing: '.08em', textTransform: 'uppercase', color: '#F97316', marginBottom: '0.5rem' } }, '4ème étape'),
+                h('div', { style: { fontSize: 'clamp(1.1rem, 2.2vw, 1.5rem)', fontWeight: 800, letterSpacing: '-0.03em', color: '#111', lineHeight: 1.2, marginBottom: '0.625rem' } },
+                  'Leads livrés &', h('br'), 'Résultats'
+                ),
+                h('div', { style: { fontSize: '0.875rem', lineHeight: 1.6, color: '#666', marginBottom: '1.25rem' } },
+                  'Vous recevez vos leads qualifiés directement. Vous payez uniquement ce qui convertit.'
+                ),
+                h('div', { style: { marginTop: 'auto', flex: 1, minHeight: '160px', background: 'linear-gradient(160deg,#f8f9fa 0%,#f0f2f5 100%)', borderRadius: '12px 12px 0 0', padding: '20px', display: 'flex', flexDirection: 'column', gap: '10px' } },
+                  h('div', { style: { display: 'inline-flex', alignItems: 'center', gap: 8, background: '#fff', border: '1px solid rgba(0,0,0,.07)', borderRadius: 10, padding: '8px 14px', fontSize: '0.75rem', fontWeight: 600, color: '#111', boxShadow: '0 2px 8px rgba(0,0,0,.06)', width: 'fit-content' } },
+                    h('div', { style: { width: 22, height: 22, borderRadius: 5, background: '#ef4444', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '9px', fontWeight: 800, color: '#fff', flexShrink: 0 } }, 'LI'),
+                    'Jean-Dupont_BTP_lead.csv'
+                  ),
+                  h('div', { style: { display: 'inline-flex', alignItems: 'center', gap: 8, background: '#fff', border: '1px solid rgba(0,0,0,.07)', borderRadius: 10, padding: '8px 14px', fontSize: '0.75rem', fontWeight: 600, color: '#111', boxShadow: '0 2px 8px rgba(0,0,0,.06)', width: 'fit-content', alignSelf: 'center' } },
+                    h('div', { style: { width: 22, height: 22, borderRadius: 5, background: '#0A66C2', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '9px', fontWeight: 800, color: '#fff', flexShrink: 0 } }, '87'),
+                    'Score de qualification · 87/100'
+                  ),
+                  h('div', { style: { display: 'inline-flex', alignItems: 'center', gap: 8, background: '#F97316', border: '1px solid #F97316', borderRadius: 10, padding: '8px 14px', fontSize: '0.75rem', fontWeight: 600, color: '#fff', boxShadow: '0 2px 8px rgba(0,0,0,.06)', width: 'fit-content', alignSelf: 'flex-end' } },
+                    '✓ Signé — 5 700 €'
+                  )
+                )
               )
             )
           )
