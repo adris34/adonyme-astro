@@ -634,7 +634,7 @@ import Layout from '../layouts/Layout.astro';
                     h('div', { style: { position: 'absolute', left: 0, top: 0, width: '45%', height: '100%', background: 'linear-gradient(90deg,#F97316,#fb923c)', borderRadius: 3 } }),
                     h('div', { style: { position: 'absolute', top: '50%', left: '45%', transform: 'translate(-50%,-50%)', width: 12, height: 12, borderRadius: '50%', background: '#F97316', boxShadow: '0 0 0 3px rgba(249,115,22,.25)' } })
                   ),
-                  ...[{ label: 'LinkedIn DM', w: '55%', c: 'rgba(249,115,22,.35)' }, { label: 'Email séquence', w: '80%', c: 'rgba(59,107,212,.25)' }, { label: 'Relance J+3', w: '38%', c: 'rgba(34,197,94,.25)' }].map(l =>
+                  ...[{ label: 'LinkedIn Ads', w: '72%', c: 'rgba(10,102,194,.25)' }, { label: 'Emailing', w: '58%', c: 'rgba(249,115,22,.35)' }, { label: 'Meta Ads', w: '85%', c: 'rgba(0,130,251,.2)' }, { label: 'Outbrain', w: '43%', c: 'rgba(34,197,94,.25)' }].map(l =>
                     h('div', { key: l.label, style: { height: 16, background: '#e8eaed', borderRadius: 4, position: 'relative', overflow: 'hidden', marginBottom: 5 } },
                       h('div', { style: { position: 'absolute', top: 0, left: 0, height: '100%', width: l.w, background: l.c, borderRadius: 4 } }),
                       h('span', { style: { position: 'absolute', left: 6, top: '50%', transform: 'translateY(-50%)', fontSize: '8px', fontWeight: 600, color: '#888' } }, l.label)
