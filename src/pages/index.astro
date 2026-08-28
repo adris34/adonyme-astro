@@ -671,6 +671,45 @@ import Layout from '../layouts/Layout.astro';
           )
         ),
 
+        // Tableau comparatif
+        h('div', { style: { background: '#fcfaf6', padding: '4rem 2rem 5rem' } },
+          h('div', { style: { maxWidth: '860px', margin: '0 auto', background: '#fff', borderRadius: '20px', border: '1px solid #f0ede8', overflow: 'hidden', boxShadow: '0 2px 20px rgba(0,0,0,.05)' } },
+            // En-tête
+            h('div', { style: { display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', borderBottom: '1px solid #f0ede8' } },
+              h('div', { style: { padding: '1.25rem 1.5rem' } }),
+              h('div', { style: { padding: '1.25rem 1.5rem', borderLeft: '1px solid #f0ede8' } },
+                h('p', { style: { fontWeight: 700, fontSize: '0.9rem', color: '#0a0a0a', margin: 0 } }, 'Prix du marché'),
+                h('p', { style: { fontSize: '0.75rem', color: '#94a3b8', margin: '2px 0 0', fontWeight: 400 } }, 'hors budget publicitaire')
+              ),
+              h('div', { style: { padding: '1rem 1.5rem', borderLeft: '1px solid #f0ede8', background: '#fb6931', display: 'flex', alignItems: 'center' } },
+                h('p', { style: { fontWeight: 700, fontSize: '0.95rem', color: '#fff', margin: 0, lineHeight: 1.3 } }, 'Le tout en 1 et simultané')
+              )
+            ),
+            // Lignes
+            ...[
+              { label: 'Meta Ads', market: '800 – 2 000 €/mois', highlight: false },
+              { label: 'LinkedIn Ads', market: '1 500 – 3 000 €/mois', highlight: true },
+              { label: 'Google Ads', market: '800 – 2 000 €/mois', highlight: false },
+              { label: 'Campagnes emailing x IA', market: '500 – 1 500 €/mois', highlight: true },
+              { label: 'LinkedIn outreach', market: '500 – 1 500 €/mois', highlight: false },
+              { label: 'Vocal mailing', market: '0,15 – 0,40 €/contact ou ~800 €/mois', highlight: false },
+              { label: 'Reporting', market: '200 – 500 €/mois (souvent facturé en sus)', highlight: true },
+            ].map((row, i) =>
+              h('div', { key: row.label, style: { display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', borderBottom: i < 6 ? '1px solid #f0ede8' : 'none' } },
+                h('div', { style: { padding: '1.1rem 1.5rem', display: 'flex', alignItems: 'center' } },
+                  h('span', { style: { fontWeight: 600, fontSize: '0.9rem', color: '#0a0a0a' } }, row.label)
+                ),
+                h('div', { style: { padding: '1.1rem 1.5rem', borderLeft: '1px solid #f0ede8', display: 'flex', alignItems: 'center' } },
+                  h('span', { style: { fontSize: '0.875rem', color: row.highlight ? '#ef4444' : '#94a3b8' } }, row.market)
+                ),
+                h('div', { style: { padding: '1.1rem 1.5rem', borderLeft: '1px solid rgba(251,105,49,.15)', background: 'rgba(251,105,49,.04)', display: 'flex', alignItems: 'center' } },
+                  h('span', { style: { fontSize: '0.875rem', fontWeight: 700, color: '#fb6931' } }, 'Compris')
+                )
+              )
+            )
+          )
+        ),
+
         // Témoignages — juste après les logos
         h(TestimonialsCarousel),
 
