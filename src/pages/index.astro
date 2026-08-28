@@ -73,6 +73,13 @@ import Layout from '../layouts/Layout.astro';
 
       /* Footer */
       .mob-footer { flex-direction: column !important; align-items: flex-start !important; gap: 2rem !important; }
+      .mob-table-section { padding: 3rem 1rem 4rem !important; }
+      .mob-table-header { display: none !important; }
+      .mob-table-row { grid-template-columns: 1fr !important; border-bottom: none !important; }
+      .mob-table-row + .mob-table-row { border-top: 1px solid #f0ede8 !important; }
+      .mob-table-cell-label { padding: 1rem 1.25rem 0.3rem !important; border-left: none !important; }
+      .mob-table-cell-price { padding: 0.15rem 1.25rem 0.3rem !important; border-left: none !important; }
+      .mob-table-cell-compris { padding: 0.3rem 1.25rem 1rem !important; border-left: none !important; background: none !important; }
       .mob-footer-right { align-items: flex-start !important; }
     }
   </style>
@@ -672,14 +679,14 @@ import Layout from '../layouts/Layout.astro';
         ),
 
         // Tableau comparatif
-        h('div', { style: { background: '#fcfaf6', padding: '4rem 2rem 5rem' } },
+        h('div', { className: 'mob-table-section', style: { background: '#fcfaf6', padding: '4rem 2rem 5rem' } },
           h('h2', { style: { textAlign: 'center', fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', fontWeight: 700, lineHeight: 1.2, color: '#0a0a0a', marginBottom: '2rem' } },
             'On adapte chaque stratégie ',
             h('span', { style: { color: '#fb6931', fontStyle: 'italic' } }, 'selon votre secteur')
           ),
           h('div', { style: { maxWidth: '860px', margin: '0 auto', background: '#fff', borderRadius: '20px', border: '1px solid #f0ede8', overflow: 'hidden', boxShadow: '0 2px 20px rgba(0,0,0,.05)' } },
-            // En-tête
-            h('div', { style: { display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', borderBottom: '1px solid #f0ede8' } },
+            // En-tête — masqué sur mobile
+            h('div', { className: 'mob-table-header', style: { display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', borderBottom: '1px solid #f0ede8' } },
               h('div', { style: { padding: '1.25rem 1.5rem' } },
                 h('p', { style: { fontWeight: 700, fontSize: '0.9rem', color: '#0a0a0a', margin: 0 } }, 'Canal')
               ),
@@ -701,14 +708,14 @@ import Layout from '../layouts/Layout.astro';
               { label: 'Vocal mailing', market: '0,15 – 0,40 €/contact ou ~800 €/mois', highlight: false },
               { label: 'Reporting', market: '200 – 500 €/mois (souvent facturé en sus)', highlight: true },
             ].map((row, i) =>
-              h('div', { key: row.label, style: { display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', borderBottom: i < 6 ? '1px solid #f0ede8' : 'none' } },
-                h('div', { style: { padding: '1.1rem 1.5rem', display: 'flex', alignItems: 'center' } },
+              h('div', { key: row.label, className: 'mob-table-row', style: { display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', borderBottom: i < 6 ? '1px solid #f0ede8' : 'none' } },
+                h('div', { className: 'mob-table-cell-label', style: { padding: '1.1rem 1.5rem', display: 'flex', alignItems: 'center' } },
                   h('span', { style: { fontWeight: 600, fontSize: '0.9rem', color: '#fb6931' } }, row.label)
                 ),
-                h('div', { style: { padding: '1.1rem 1.5rem', borderLeft: '1px solid #f0ede8', display: 'flex', alignItems: 'center' } },
+                h('div', { className: 'mob-table-cell-price', style: { padding: '1.1rem 1.5rem', borderLeft: '1px solid #f0ede8', display: 'flex', alignItems: 'center' } },
                   h('span', { style: { fontSize: '0.875rem', color: '#0a0a0a' } }, row.market)
                 ),
-                h('div', { style: { padding: '1.1rem 1.5rem', borderLeft: '1px solid rgba(251,105,49,.15)', background: 'rgba(251,105,49,.04)', display: 'flex', alignItems: 'center' } },
+                h('div', { className: 'mob-table-cell-compris', style: { padding: '1.1rem 1.5rem', borderLeft: '1px solid rgba(251,105,49,.15)', background: 'rgba(251,105,49,.04)', display: 'flex', alignItems: 'center' } },
                   h('span', { style: { fontSize: '0.875rem', fontWeight: 700, color: '#0a0a0a' } }, 'Compris')
                 )
               )
