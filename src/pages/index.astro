@@ -703,13 +703,13 @@ import Layout from '../layouts/Layout.astro';
             ].map((row, i) =>
               h('div', { key: row.label, style: { display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', borderBottom: i < 6 ? '1px solid #f0ede8' : 'none' } },
                 h('div', { style: { padding: '1.1rem 1.5rem', display: 'flex', alignItems: 'center' } },
-                  h('span', { style: { fontWeight: 600, fontSize: '0.9rem', color: '#0a0a0a' } }, row.label)
+                  h('span', { style: { fontWeight: 600, fontSize: '0.9rem', color: '#fb6931' } }, row.label)
                 ),
                 h('div', { style: { padding: '1.1rem 1.5rem', borderLeft: '1px solid #f0ede8', display: 'flex', alignItems: 'center' } },
-                  h('span', { style: { fontSize: '0.875rem', color: row.highlight ? '#ef4444' : '#94a3b8' } }, row.market)
+                  h('span', { style: { fontSize: '0.875rem', color: '#0a0a0a' } }, row.market)
                 ),
                 h('div', { style: { padding: '1.1rem 1.5rem', borderLeft: '1px solid rgba(251,105,49,.15)', background: 'rgba(251,105,49,.04)', display: 'flex', alignItems: 'center' } },
-                  h('span', { style: { fontSize: '0.875rem', fontWeight: 700, color: '#fb6931' } }, 'Compris')
+                  h('span', { style: { fontSize: '0.875rem', fontWeight: 700, color: '#0a0a0a' } }, 'Compris')
                 )
               )
             )
