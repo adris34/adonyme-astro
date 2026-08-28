@@ -673,6 +673,10 @@ import Layout from '../layouts/Layout.astro';
 
         // Tableau comparatif
         h('div', { style: { background: '#fcfaf6', padding: '4rem 2rem 5rem' } },
+          h('h2', { style: { textAlign: 'center', fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', fontWeight: 700, lineHeight: 1.2, color: '#0a0a0a', marginBottom: '2rem' } },
+            'On adapte chaque stratégie ',
+            h('span', { style: { color: '#fb6931', fontStyle: 'italic' } }, 'selon votre secteur')
+          ),
           h('div', { style: { maxWidth: '860px', margin: '0 auto', background: '#fff', borderRadius: '20px', border: '1px solid #f0ede8', overflow: 'hidden', boxShadow: '0 2px 20px rgba(0,0,0,.05)' } },
             // En-tête
             h('div', { style: { display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', borderBottom: '1px solid #f0ede8' } },
