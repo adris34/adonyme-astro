@@ -418,7 +418,7 @@ import Layout from '../layouts/Layout.astro';
         ), // close gradient div
 
         // Section "Le défi de l'acquisition"
-        h('div', { style: { background: '#fcfaf6', padding: '6rem 2rem 5rem', textAlign: 'center' } },
+        false && h('div', { style: { background: '#fcfaf6', padding: '6rem 2rem 5rem', textAlign: 'center' } },
           h('div', { style: { maxWidth: '760px', margin: '0 auto' } },
             h('h2', { style: { fontSize: 'clamp(2rem, 4vw, 3.2rem)', fontWeight: 700, lineHeight: 1.12, color: '#0a0a0a', marginBottom: '1.5rem' } },
               h('span', { style: { color: '#fb6931', fontStyle: 'italic' } }, 'Votre propre service'),
