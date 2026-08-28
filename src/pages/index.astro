@@ -680,7 +680,9 @@ import Layout from '../layouts/Layout.astro';
           h('div', { style: { maxWidth: '860px', margin: '0 auto', background: '#fff', borderRadius: '20px', border: '1px solid #f0ede8', overflow: 'hidden', boxShadow: '0 2px 20px rgba(0,0,0,.05)' } },
             // En-tête
             h('div', { style: { display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', borderBottom: '1px solid #f0ede8' } },
-              h('div', { style: { padding: '1.25rem 1.5rem' } }),
+              h('div', { style: { padding: '1.25rem 1.5rem' } },
+                h('p', { style: { fontWeight: 700, fontSize: '0.9rem', color: '#0a0a0a', margin: 0 } }, 'Canal')
+              ),
               h('div', { style: { padding: '1.25rem 1.5rem', borderLeft: '1px solid #f0ede8' } },
                 h('p', { style: { fontWeight: 700, fontSize: '0.9rem', color: '#0a0a0a', margin: 0 } }, 'Prix du marché'),
                 h('p', { style: { fontSize: '0.75rem', color: '#94a3b8', margin: '2px 0 0', fontWeight: 400 } }, 'hors budget publicitaire')
