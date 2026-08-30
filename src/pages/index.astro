@@ -320,7 +320,7 @@ import Layout from '../layouts/Layout.astro';
         const kpiItems = p.kpis.map(function(k) {
           return h('div', { key: k.l },
             h('p', { style: { fontSize: '1rem', fontWeight: 900, color: '#0a0a0a', margin: 0 } }, k.v),
-            h('p', { style: { fontSize: '0.58rem', color: '#94a3b8', margin: 0, textTransform: 'uppercase', letterSpacing: '0.08em' } }, k.l)
+            h('p', { style: { fontSize: '0.58rem', color: '#27454F', margin: 0, textTransform: 'uppercase', letterSpacing: '0.08em' } }, k.l)
           );
         });
         return h('div', { key: p.img + suffix, style: { flexShrink: 0, width: '280px', marginRight: '20px', borderRadius: '14px', overflow: 'hidden', background: '#fff', border: '1px solid #e2e8f0', display: 'flex', flexDirection: 'column' } },
@@ -701,7 +701,7 @@ import Layout from '../layouts/Layout.astro';
               ),
               h('div', { style: { padding: '1.25rem 1.5rem', borderLeft: '1px solid #f0ede8' } },
                 h('p', { style: { fontWeight: 700, fontSize: '0.9rem', color: '#0a0a0a', margin: 0 } }, 'Prix du marché'),
-                h('p', { style: { fontSize: '0.75rem', color: '#94a3b8', margin: '2px 0 0', fontWeight: 400 } }, 'hors budget publicitaire')
+                h('p', { style: { fontSize: '0.75rem', color: '#27454F', margin: '2px 0 0', fontWeight: 400 } }, 'hors budget publicitaire')
               ),
               h('div', { style: { padding: '1rem 1.5rem', borderLeft: '1px solid #f0ede8', background: '#fb6931', display: 'flex', alignItems: 'center' } },
                 h('p', { style: { fontWeight: 700, fontSize: '0.95rem', color: '#fff', margin: 0, lineHeight: 1.3, letterSpacing: '0.05em' } }, 'AGENCE LEADS')
