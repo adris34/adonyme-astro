@@ -675,6 +675,9 @@ import Layout from '../layouts/Layout.astro';
         ),
 
         // Tableau comparatif
+        // Témoignages — au-dessus du tableau
+        h(TestimonialsCarousel),
+
         h('div', { id: 'notre-offre', className: 'mob-table-section', style: { background: '#fcfaf6', padding: '4rem 2rem 5rem' } },
           h('h2', { style: { textAlign: 'center', fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', fontWeight: 700, lineHeight: 1.2, color: '#0a0a0a', marginBottom: '2rem' } },
             'On adapte chaque stratégie ',
@@ -721,9 +724,6 @@ import Layout from '../layouts/Layout.astro';
             )
           )
         ),
-
-        // Témoignages — juste après les logos
-        h(TestimonialsCarousel),
 
         // Section "Le Constat" — après logos (masquée)
         false && h('div', { className: 'mob-probleme-outer', style: { background: '#fcfaf6', padding: '2rem 4rem' } },
