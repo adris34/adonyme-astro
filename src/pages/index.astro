@@ -74,6 +74,9 @@ import Layout from '../layouts/Layout.astro';
       /* Footer */
       .mob-footer { flex-direction: column !important; align-items: flex-start !important; gap: 2rem !important; }
       .mob-table-section { padding: 3rem 1rem 4rem !important; }
+      .mob-offres-section { padding: 3rem 1rem 4rem !important; }
+      .mob-offres-inner { grid-template-columns: 1fr !important; gap: 2rem !important; }
+      .mob-offres-grid { grid-template-columns: 1fr !important; }
       .mob-table-header { display: none !important; }
       .mob-table-row { grid-template-columns: 1fr !important; border-bottom: none !important; }
       .mob-table-row + .mob-table-row { border-top: 1px solid #f0ede8 !important; }
@@ -858,6 +861,50 @@ import Layout from '../layouts/Layout.astro';
             h('a', { href: 'https://calendly.com/session-acquisition/30min', className: 'cta-pulse', style: { display: 'inline-block', background: '#fb6931', color: '#fff', padding: '1rem 2.5rem', borderRadius: '12px', fontWeight: 700, fontSize: '1rem', textDecoration: 'none', letterSpacing: '.01em' } }, 'Je réserve un appel →')
           )
         ),
+        // Section "Nos offres" — 4 cartes + vidéo verticale
+        h('div', { className: 'mob-offres-section', style: { background: '#fcfaf6', padding: '6rem 2rem' } },
+          h('div', { className: 'mob-offres-inner', style: { maxWidth: '1100px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 420px', gap: '4rem', alignItems: 'start' } },
+            // Colonne gauche
+            h('div', null,
+              h('p', { style: { fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.12em', color: '#fb6931', marginBottom: '1rem', textTransform: 'uppercase' } }, 'Nos offres'),
+              h('h2', { style: { fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)', fontWeight: 700, lineHeight: 1.15, color: '#0a0a0a', marginBottom: '1rem' } },
+                'Une prospection ',
+                h('br'),
+                h('span', { style: { color: '#fb6931', fontStyle: 'italic' } }, 'multicanale'),
+                ' pilotée de A à Z'
+              ),
+              h('p', { style: { fontSize: '1rem', color: '#64748b', lineHeight: 1.65, marginBottom: '2.5rem', maxWidth: '520px' } },
+                'Du ciblage à la conversion, chaque étape est pensée pour maximiser la qualité des opportunités, pas le volume.'
+              ),
+              h('div', { className: 'mob-offres-grid', style: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' } },
+                ...[
+                  { icon: '🎯', title: 'Ciblage', desc: 'Nous construisons des bases de prospection ultra-ciblées en combinant plusieurs sources. Chaque contact est sélectionné, enrichi et qualifié.' },
+                  { icon: '✉️', title: 'Email', desc: 'Des séquences courtes, personnalisées et testées en continu. Copywriting, délivrabilité, A/B testing : on maîtrise chaque levier.' },
+                  { icon: '💼', title: 'LinkedIn', desc: 'Un canal d\'amplification pour multiplier les points de contact et accélérer les réponses. Toujours personnalisé, jamais automatisé à l\'aveugle.' },
+                  { icon: '📞', title: 'Vocal mailing', desc: 'On contacte uniquement des prospects déjà engagés. Objectif : transformer un signal d\'intérêt en opportunité concrète.' },
+                ].map(card =>
+                  h('div', { style: { background: '#fff', borderRadius: '16px', padding: '1.75rem', border: '1px solid #f0ede8' } },
+                    h('div', { style: { display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' } },
+                      h('div', { style: { width: 40, height: 40, borderRadius: '10px', background: '#fef3ed', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.1rem' } }, card.icon),
+                      h('p', { style: { fontWeight: 700, fontSize: '1rem', color: '#0a0a0a', margin: 0 } }, card.title)
+                    ),
+                    h('p', { style: { fontSize: '0.875rem', color: '#64748b', lineHeight: 1.65, margin: 0 } }, card.desc)
+                  )
+                )
+              )
+            ),
+            // Colonne droite — vidéo verticale
+            h('div', { style: { position: 'sticky', top: '6rem' } },
+              h('div', { style: { borderRadius: '20px', overflow: 'hidden', aspectRatio: '9/16', background: '#1a1a2e', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 20px 60px rgba(0,0,0,0.15)' } },
+                h('div', { style: { textAlign: 'center', color: '#fff' } },
+                  h('div', { style: { width: 64, height: 64, borderRadius: '50%', background: 'rgba(255,255,255,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1rem', fontSize: '1.5rem' } }, '▶'),
+                  h('p', { style: { fontSize: '0.875rem', color: 'rgba(255,255,255,0.6)', margin: 0 } }, 'Vidéo à venir')
+                )
+              )
+            )
+          )
+        ),
+
         // Section FAQ — accordion
         h(FaqAccordion),
 
