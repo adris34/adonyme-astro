@@ -879,7 +879,7 @@ import Layout from '../layouts/Layout.astro';
                   h('span', { style: { color: '#fb6931', fontStyle: 'italic' } }, 'leads')
                 ),
                 h('p', { style: { fontSize: '1rem', color: '#64748b', lineHeight: 1.65, marginBottom: '2.5rem', maxWidth: '520px' } },
-                  'La plupart des entreprises achètent des leads mutualisés en pensant que c\'est la solution qui leur fera gagner du temps, et de l\'argent, mais c\'est totalement faux !'
+                  'La plupart des entreprises achètent des leads mutualisés en pensant que c\'est la solution qui leur fera gagner du temps et de l\'argent, mais c\'est totalement faux !'
                 )
               ),
               // Vidéo — order 2 mobile (entre texte et cartes)
@@ -895,10 +895,10 @@ import Layout from '../layouts/Layout.astro';
               h('div', { className: 'mob-offres-cards', style: { gridColumn: '1', gridRow: '2' } },
                 h('div', { className: 'mob-offres-grid', style: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' } },
                   ...[
-                    { icon: '🎯', title: 'Ce que vous pensez acheter', desc: 'Des prospects qualifiés qui ont manifesté un intérêt pour le service de votre entreprise. Chaque contact a été confirmé et attend votre appel.' },
-                    { icon: '✉️', title: 'Ce que vous achetez', desc: 'Des contacts qui ne vous connaissent pas, qui ont été générés ou achetés depuis une source inconnue et redistribués à plusieurs entreprises. Aucune donnée sur l\'historique.' },
-                    { icon: '💼', title: 'Ce que ça vous coûte', desc: 'Une nécessité de commander énormément de volume pour pouvoir tomber par hasard sur des profils qui peuvent correspondre à vos attentes.' },
-                    { icon: '📞', title: 'Les résultats', desc: 'Vous perdez du temps à appeler des profils non qualifiés. Vous ne pouvez pas changer de critères, changer de source, ni adapter votre vitesse de croissance. Vous ne maîtrisez pas votre croissance de manière prévisible.' },
+                    { icon: '✨', title: 'Ce que vous pensez acheter', desc: 'Des prospects qualifiés qui ont manifesté un intérêt pour le service de votre entreprise. Chaque contact a été confirmé et attend votre appel.' },
+                    { icon: '📦', title: 'Ce que vous achetez', desc: 'Des contacts qui ne vous connaissent pas, qui ont été générés ou achetés depuis une source inconnue et redistribués à plusieurs entreprises. Aucune donnée sur l\'historique.' },
+                    { icon: '💸', title: 'Ce que ça vous coûte', desc: 'Une nécessité de commander énormément de volume pour pouvoir tomber par hasard sur des profils qui peuvent correspondre à vos attentes.' },
+                    { icon: '❌', title: 'Les résultats', desc: 'Vous perdez du temps à appeler des profils non qualifiés. Vous ne pouvez pas changer de critères, changer de source, ni adapter votre vitesse de croissance. Vous ne maîtrisez pas votre croissance de manière prévisible.' },
                   ].map(card =>
                     h('div', { style: { background: '#fff', borderRadius: '16px', padding: '1.75rem', border: '1px solid #f0ede8' } },
                       h('div', { style: { display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' } },
