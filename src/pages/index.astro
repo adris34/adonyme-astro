@@ -172,7 +172,7 @@ import Layout from '../layouts/Layout.astro';
         h('h2', { style: { fontSize: '1.4rem', fontWeight: 800, marginBottom: '0.25rem' } },
           'Simulez votre ', h('span', { style: { color: '#fb6931', fontStyle: 'italic' } }, 'coût par lead')
         ),
-        h('p', { style: { color: '#64748b', fontSize: '0.9rem', marginBottom: '1.5rem' } },
+        h('p', { style: { color: '#27454F', fontSize: '0.9rem', marginBottom: '1.5rem' } },
           '30 secondes. Recevez une estimation chiffrée pour votre activité.'
         ),
         h('div', { style: { display: 'flex', gap: '0.5rem', marginBottom: '1.5rem', alignItems: 'center' } },
@@ -191,7 +191,7 @@ import Layout from '../layouts/Layout.astro';
         ),
         step === 0 && h('div', null,
           h('h3', { style: { fontWeight: 700, marginBottom: '0.25rem' } }, 'Quel est votre secteur ?'),
-          h('p', { style: { color: '#64748b', fontSize: '0.85rem', marginBottom: '1rem' } }, 'Chaque secteur a ses enchères et ses coûts.'),
+          h('p', { style: { color: '#27454F', fontSize: '0.85rem', marginBottom: '1rem' } }, 'Chaque secteur a ses enchères et ses coûts.'),
           h('div', { style: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' } },
             SECTEURS.map(s =>
               h('button', {
@@ -248,7 +248,7 @@ import Layout from '../layouts/Layout.astro';
         step === 3 && h('div', { style: { textAlign: 'center' } },
           h('div', { style: { fontSize: '3rem', marginBottom: '0.5rem' } }, '🎯'),
           h('h3', { style: { fontWeight: 800, fontSize: '1.3rem', marginBottom: '0.5rem' } }, 'Votre estimation est prête !'),
-          h('p', { style: { color: '#64748b', marginBottom: '1.5rem' } },
+          h('p', { style: { color: '#27454F', marginBottom: '1.5rem' } },
             `Secteur : ${secteur} · Budget : ${budget}`
           ),
           h('a', {
@@ -306,7 +306,7 @@ import Layout from '../layouts/Layout.astro';
                   h('span', { style: { fontWeight: 700, fontSize: '0.975rem', color: '#0a0a0a' } }, item.q),
                   h('span', { style: { fontSize: '1.2rem', color: '#fb6931', fontWeight: 700, flexShrink: 0, transition: 'transform 0.2s', transform: open === i ? 'rotate(45deg)' : 'rotate(0deg)' } }, '+')
                 ),
-                open === i && h('p', { style: { color: '#475569', lineHeight: 1.7, fontSize: '0.925rem', paddingBottom: '1.25rem', margin: 0 } }, item.a)
+                open === i && h('p', { style: { color: '#27454F', lineHeight: 1.7, fontSize: '0.925rem', paddingBottom: '1.25rem', margin: 0 } }, item.a)
               )
             )
           )
@@ -328,7 +328,7 @@ import Layout from '../layouts/Layout.astro';
           h('div', { style: { padding: '1.4rem', display: 'flex', flexDirection: 'column', flex: 1 } },
             h('p', { style: { fontSize: '0.6rem', fontWeight: 700, letterSpacing: '0.12em', color: '#fb6931', margin: '0 0 0.25rem' } }, p.label),
             h('h3', { style: { fontSize: '1.05rem', fontWeight: 900, color: '#0a0a0a', lineHeight: 1.2, margin: '0 0 0.5rem' } }, p.headline),
-            h('p', { style: { fontSize: '0.82rem', color: '#475569', lineHeight: 1.5, margin: '0 0 0.5rem', flex: 1 } }, p.desc),
+            h('p', { style: { fontSize: '0.82rem', color: '#27454F', lineHeight: 1.5, margin: '0 0 0.5rem', flex: 1 } }, p.desc),
             h('div', { style: sep }),
             h.apply(null, ['div', { style: { display: 'flex', gap: '1.25rem' } }].concat(kpiItems))
           )
@@ -391,7 +391,7 @@ import Layout from '../layouts/Layout.astro';
             h('span', { style: { color: '#fb6931', fontStyle: 'italic' } }, 'leads qualifiés'),
             ' tous les jours !',
             h('br'),
-            h('span', { style: { fontSize: '0.48em', fontWeight: 500, color: '#475569', lineHeight: 1.3, display: 'block', marginTop: '0.5rem', letterSpacing: '0.01em' } }, 'On génère un flux de prospects exclusifs au nom de votre Entreprise, à votre place, comme si vous l\'aviez internalisé !')
+            h('span', { style: { fontSize: '0.48em', fontWeight: 500, color: '#27454F', lineHeight: 1.3, display: 'block', marginTop: '0.5rem', letterSpacing: '0.01em' } }, 'On génère un flux de prospects exclusifs au nom de votre Entreprise, à votre place, comme si vous l\'aviez internalisé !')
           ),
           // CTA
           h('a', { href: 'https://calendly.com/session-acquisition/30min', style: { display: 'inline-block', background: '#fb6931', color: '#fff', padding: '0.6rem 1.2rem', borderRadius: '8px', fontWeight: 700, fontSize: '0.9rem', textDecoration: 'none', margin: '1.5rem 0 2.5rem' } },
@@ -435,7 +435,7 @@ import Layout from '../layouts/Layout.astro';
               h('br'),
               'de génération de leads'
             ),
-            h('p', { style: { fontSize: '1rem', color: '#64748b', lineHeight: 1.7, maxWidth: '600px', margin: '0 auto 3.5rem' } },
+            h('p', { style: { fontSize: '1rem', color: '#27454F', lineHeight: 1.7, maxWidth: '600px', margin: '0 auto 3.5rem' } },
               'Et si on pouvait vous fournir des leads au nom de votre Entreprise, selon vos critères et s\'occuper de toutes les relances ?'
             ),
             h('div', { className: 'mob-challenge-grid', style: { display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem', textAlign: 'left' } },
@@ -459,7 +459,7 @@ import Layout from '../layouts/Layout.astro';
                 h('div', { key: card.title, style: { background: '#fff', borderRadius: '16px', padding: '1.75rem', border: '1px solid #f0ede8' } },
                   h('div', { style: { fontSize: '1.5rem', marginBottom: '1rem', background: '#fff4ef', width: '44px', height: '44px', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center' } }, card.icon),
                   h('h3', { style: { fontSize: '0.975rem', fontWeight: 700, color: '#0a0a0a', marginBottom: '0.6rem', lineHeight: 1.3 } }, card.title),
-                  h('p', { style: { fontSize: '0.875rem', color: '#64748b', lineHeight: 1.65, margin: 0 } }, card.desc)
+                  h('p', { style: { fontSize: '0.875rem', color: '#27454F', lineHeight: 1.65, margin: 0 } }, card.desc)
                 )
               )
             ),
@@ -480,7 +480,7 @@ import Layout from '../layouts/Layout.astro';
                 h('span', { style: { color: '#fb6931', fontStyle: 'italic' } }, 'ça marche'),
                 ' ?'
               ),
-              h('p', { style: { fontSize: '1rem', color: '#64748b', lineHeight: 1.7, maxWidth: '600px', margin: '0 auto' } },
+              h('p', { style: { fontSize: '1rem', color: '#27454F', lineHeight: 1.7, maxWidth: '600px', margin: '0 auto' } },
                 'On construit votre stratégie d\'acquisition pour générer un flux de prospects qualifiés en quelques jours'
               )
             ),
@@ -690,7 +690,7 @@ import Layout from '../layouts/Layout.astro';
             'On adapte chaque stratégie ',
             h('span', { style: { color: '#fb6931', fontStyle: 'italic' } }, 'selon votre secteur')
           ),
-          h('p', { style: { textAlign: 'center', fontSize: '1rem', color: '#64748b', maxWidth: '540px', margin: '0 auto 2rem', lineHeight: 1.6 } },
+          h('p', { style: { textAlign: 'center', fontSize: '1rem', color: '#27454F', maxWidth: '540px', margin: '0 auto 2rem', lineHeight: 1.6 } },
             'On maîtrise la totalité de votre stratégie et on alloue le budget aux canaux qui performent le plus'
           ),
           h('div', { style: { maxWidth: '860px', margin: '0 auto', background: '#fff', borderRadius: '20px', border: '1px solid #f0ede8', overflow: 'hidden', boxShadow: '0 2px 20px rgba(0,0,0,.05)' } },
@@ -748,7 +748,7 @@ import Layout from '../layouts/Layout.astro';
                   h('br'),
                   'dans des leads sans aucun contrôle'
                 ),
-                h('p', { style: { color: '#475569', fontSize: '1rem', lineHeight: 1.6, maxWidth: '600px' } },
+                h('p', { style: { color: '#27454F', fontSize: '1rem', lineHeight: 1.6, maxWidth: '600px' } },
                   'Toutes les entreprises qui achètent des listes de prospects ont accès aux mêmes fichiers que leurs concurrents et cela représente trois problèmes majeurs'
                 )
               ),
@@ -763,7 +763,7 @@ import Layout from '../layouts/Layout.astro';
                     h('p', { style: { fontSize: '0.7rem', fontWeight: 700, letterSpacing: '0.12em', color: '#fb6931', marginBottom: '0.75rem' } }, `PROBLÈME N° ${card.num}`),
                     h('div', { style: { width: '2rem', height: '2px', background: '#fb6931', marginBottom: '1.25rem' } }),
                     h('h3', { style: { fontWeight: 800, fontSize: '1.1rem', color: '#0a0a0a', marginBottom: '0.75rem', lineHeight: 1.3 } }, card.titre),
-                    h('p', { style: { color: '#475569', fontSize: '0.9rem', lineHeight: 1.6 } }, card.desc)
+                    h('p', { style: { color: '#27454F', fontSize: '0.9rem', lineHeight: 1.6 } }, card.desc)
                   )
                 )
               )
@@ -779,7 +779,7 @@ import Layout from '../layouts/Layout.astro';
               'selon ',
               h('span', { style: { color: '#fb6931', fontStyle: 'italic' } }, 'vos critères')
             ),
-            h('p', { style: { textAlign: 'center', color: '#475569', maxWidth: '640px', margin: '0 auto 4rem', lineHeight: 1.7 } },
+            h('p', { style: { textAlign: 'center', color: '#27454F', maxWidth: '640px', margin: '0 auto 4rem', lineHeight: 1.7 } },
               'Nous sommes un fournisseur pas comme les autres, avant la production on revoit avec vous l\'exploitation de votre base de données, le process de traitement de leads, les canaux utilisés pour maximiser votre ROI durant notre collaboration.'
             ),
             h('div', { style: { position: 'relative' } },
@@ -818,7 +818,7 @@ import Layout from '../layouts/Layout.astro';
                     ? h('div', { className: 'mob-step-content' },
                         h('p', { style: { fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.1em', color: '#fb6931', marginBottom: '0.5rem' } }, step.tag),
                         h('h3', { style: { fontWeight: 700, fontSize: '1.3rem', marginBottom: '0.75rem', color: '#0a0a0a' } }, step.title),
-                        h('p', { style: { color: '#475569', lineHeight: 1.6, marginBottom: '1rem' } }, step.body),
+                        h('p', { style: { color: '#27454F', lineHeight: 1.6, marginBottom: '1rem' } }, step.body),
                         h('div', { style: { display: 'flex', flexDirection: 'column' } },
                           step.points.map(function(p, i) { return h('div', { key: p, style: { display: 'flex', gap: '0.75rem', alignItems: 'center', fontSize: '0.875rem', padding: '0.75rem 0', borderBottom: i < step.points.length - 1 ? '1px solid #e2e8f0' : 'none' } },
                             h('span', { style: { color: '#fb6931', fontWeight: 900, flexShrink: 0, fontSize: '0.6rem' } }, '●'),
@@ -838,7 +838,7 @@ import Layout from '../layouts/Layout.astro';
                     ? h('div', { className: 'mob-step-content' },
                         h('p', { style: { fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.1em', color: '#fb6931', marginBottom: '0.5rem' } }, step.tag),
                         h('h3', { style: { fontWeight: 700, fontSize: '1.3rem', marginBottom: '0.75rem', color: '#0a0a0a' } }, step.title),
-                        h('p', { style: { color: '#475569', lineHeight: 1.6, marginBottom: '1rem' } }, step.body),
+                        h('p', { style: { color: '#27454F', lineHeight: 1.6, marginBottom: '1rem' } }, step.body),
                         h('div', { style: { display: 'flex', flexDirection: 'column' } },
                           step.points.map((p, i) => h('div', { key: p, style: { display: 'flex', gap: '0.75rem', alignItems: 'center', fontSize: '0.875rem', padding: '0.75rem 0', borderBottom: i < step.points.length - 1 ? '1px solid #e2e8f0' : 'none' } },
                             h('span', { style: { color: '#fb6931', fontWeight: 900, flexShrink: 0, fontSize: '0.6rem' } }, '●'),
@@ -849,7 +849,7 @@ import Layout from '../layouts/Layout.astro';
                     : h('div', { className: 'mob-step-content' },
                         h('p', { style: { fontSize: '0.75rem', fontWeight: 700, letterSpacing: '0.1em', color: '#fb6931', marginBottom: '0.5rem' } }, step.tag),
                         h('h3', { style: { fontWeight: 700, fontSize: '1.3rem', marginBottom: '0.75rem', color: '#0a0a0a' } }, step.title),
-                        h('p', { style: { color: '#475569', lineHeight: 1.6, marginBottom: '1rem' } }, step.body),
+                        h('p', { style: { color: '#27454F', lineHeight: 1.6, marginBottom: '1rem' } }, step.body),
                         h('div', { style: { display: 'flex', flexDirection: 'column' } },
                           step.points.map((p, i) => h('div', { key: p, style: { display: 'flex', gap: '0.75rem', alignItems: 'center', fontSize: '0.875rem', padding: '0.75rem 0', borderBottom: i < step.points.length - 1 ? '1px solid #e2e8f0' : 'none' } },
                             h('span', { style: { color: '#fb6931', fontWeight: 900, flexShrink: 0, fontSize: '0.6rem' } }, '●'),
@@ -878,7 +878,7 @@ import Layout from '../layouts/Layout.astro';
                   ' vous devez générer votre propre flux de ',
                   h('span', { style: { color: '#fb6931', fontStyle: 'italic' } }, 'leads')
                 ),
-                h('p', { style: { fontSize: '1rem', color: '#64748b', lineHeight: 1.65, marginBottom: '2.5rem', maxWidth: '520px' } },
+                h('p', { style: { fontSize: '1rem', color: '#27454F', lineHeight: 1.65, marginBottom: '2.5rem', maxWidth: '520px' } },
                   'La plupart des entreprises achètent des leads mutualisés en pensant que c\'est la solution qui leur fera gagner du temps et de l\'argent, mais c\'est totalement faux !'
                 )
               ),
@@ -905,7 +905,7 @@ import Layout from '../layouts/Layout.astro';
                         h('div', { style: { width: 40, height: 40, borderRadius: '10px', background: '#fef3ed', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.1rem' } }, card.icon),
                         h('p', { style: { fontWeight: 700, fontSize: '1rem', color: '#0a0a0a', margin: 0 } }, card.title)
                       ),
-                      h('p', { style: { fontSize: '0.875rem', color: '#64748b', lineHeight: 1.65, margin: 0 } }, card.desc)
+                      h('p', { style: { fontSize: '0.875rem', color: '#27454F', lineHeight: 1.65, margin: 0 } }, card.desc)
                     )
                   )
                 )
@@ -945,7 +945,7 @@ import Layout from '../layouts/Layout.astro';
                 ),
                 'LinkedIn'
               ),
-              h('p', { style: { fontSize: '0.7rem', color: '#475569', fontFamily: 'monospace' } }, '© 2026 Adonyme.')
+              h('p', { style: { fontSize: '0.7rem', color: '#27454F', fontFamily: 'monospace' } }, '© 2026 Adonyme.')
             )
           )
         )
