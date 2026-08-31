@@ -140,7 +140,7 @@ import Layout from '../layouts/Layout.astro';
   </script>
   <div id="app-root"></div>
   <script type="module">
-    import { createElement as h, useState } from 'https://esm.sh/react@18';
+    import { createElement as h, useState, Fragment } from 'https://esm.sh/react@18';
     import { createRoot } from 'https://esm.sh/react-dom@18/client';
 
     const SECTEURS = [
@@ -354,7 +354,8 @@ import Layout from '../layouts/Layout.astro';
     }
 
     function Page() {
-      return h('div', { style: {
+      return h(Fragment, null,
+      h('div', { style: {
         fontFamily: "'Instrument Sans', system-ui, sans-serif",
       }},
         // Barre d'annonce
