@@ -11,6 +11,7 @@ import Layout from '../layouts/Layout.astro';
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Instrument Sans', system-ui, sans-serif; background: #fcfaf6; color: #0a0a0a; }
 
+    /* Nav */
     .cgpt-nav {
       position: sticky; top: 0; z-index: 100;
       background: rgba(252,250,246,0.92); backdrop-filter: blur(12px);
@@ -26,189 +27,171 @@ import Layout from '../layouts/Layout.astro';
       font-size: 0.875rem; text-decoration: none;
     }
 
-    .cgpt-hero {
-      padding: 5rem 2rem 4rem;
-      max-width: 960px; margin: 0 auto; text-align: center;
-    }
+    /* Hero */
+    .cgpt-hero { padding: 5rem 2rem 4rem; max-width: 960px; margin: 0 auto; text-align: center; }
     .cgpt-badge {
       display: inline-block; background: rgba(251,105,49,0.1); color: #fb6931;
       font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em;
       padding: 0.4rem 1rem; border-radius: 100px; margin-bottom: 1.5rem;
     }
-    .cgpt-hero h1 {
-      font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 800; line-height: 1.1;
-      color: #0a0a0a; margin-bottom: 1.25rem;
-    }
+    .cgpt-hero h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 800; line-height: 1.1; color: #0a0a0a; margin-bottom: 1.25rem; }
     .cgpt-hero h1 em { font-style: italic; color: #fb6931; }
-    .cgpt-hero p {
-      font-size: 1.15rem; color: #27454F; line-height: 1.7;
-      max-width: 680px; margin: 0 auto 2.5rem;
-    }
+    .cgpt-hero p { font-size: 1.15rem; color: #27454F; line-height: 1.7; max-width: 680px; margin: 0 auto 2.5rem; }
     .cgpt-hero-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-    .btn-primary {
-      display: inline-block; background: #fb6931; color: #fff;
-      padding: 1rem 2.5rem; border-radius: 12px; font-weight: 700;
-      font-size: 1rem; text-decoration: none; letter-spacing: .01em;
-    }
-    .btn-secondary {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      background: #fff; color: #0a0a0a; border: 1.5px solid #e2e8f0;
-      padding: 1rem 2rem; border-radius: 12px; font-weight: 600;
-      font-size: 1rem; text-decoration: none;
-    }
+    .btn-primary { display: inline-block; background: #fb6931; color: #fff; padding: 1rem 2.5rem; border-radius: 12px; font-weight: 700; font-size: 1rem; text-decoration: none; }
+    .btn-wa { display: inline-flex; align-items: center; gap: 0.5rem; background: #25D366; color: #fff; padding: 1rem 2rem; border-radius: 12px; font-weight: 700; font-size: 1rem; text-decoration: none; }
 
-    .cgpt-stats {
-      background: #0a0a0a; padding: 3rem 2rem;
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      max-width: 1100px; margin: 0 auto 0; gap: 0;
-      border-radius: 20px;
-    }
+    /* Stats */
     .cgpt-stats-wrap { padding: 0 2rem 4rem; }
-    .cgpt-stat {
-      text-align: center; padding: 1.5rem 1rem;
-      border-right: 1px solid rgba(255,255,255,0.1);
-    }
+    .cgpt-stats { background: #0a0a0a; padding: 0; max-width: 1100px; margin: 0 auto; border-radius: 20px; display: grid; grid-template-columns: repeat(4, 1fr); }
+    .cgpt-stat { text-align: center; padding: 2rem 1rem; border-right: 1px solid rgba(255,255,255,0.08); }
     .cgpt-stat:last-child { border-right: none; }
     .cgpt-stat-num { font-size: 2.2rem; font-weight: 800; color: #fb6931; }
-    .cgpt-stat-label { font-size: 0.825rem; color: rgba(255,255,255,0.6); margin-top: 0.25rem; }
+    .cgpt-stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-top: 0.3rem; line-height: 1.4; }
 
+    /* Sections */
     .cgpt-section { padding: 5rem 2rem; }
     .cgpt-section-inner { max-width: 1100px; margin: 0 auto; }
-    .cgpt-section-tag {
-      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
-      color: #fb6931; margin-bottom: 0.75rem;
-    }
-    .cgpt-section h2 {
-      font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 800;
-      line-height: 1.15; color: #0a0a0a; margin-bottom: 1rem;
-    }
-    .cgpt-section h2 em { font-style: italic; color: #fb6931; }
-    .cgpt-section-sub {
-      font-size: 1.05rem; color: #27454F; line-height: 1.7;
-      max-width: 640px; margin-bottom: 3rem;
-    }
+    .cgpt-tag { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; color: #fb6931; margin-bottom: 0.75rem; }
+    .cgpt-h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 800; line-height: 1.15; color: #0a0a0a; margin-bottom: 1rem; }
+    .cgpt-h2 em { font-style: italic; color: #fb6931; }
+    .cgpt-sub { font-size: 1.05rem; color: #27454F; line-height: 1.7; max-width: 640px; margin-bottom: 3rem; }
 
-    /* Grille différences */
-    .cgpt-diff-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+    /* Mockup conversation */
+    .cgpt-mockup {
+      background: #fff; border-radius: 20px; border: 1px solid #f0ede8;
+      max-width: 680px; margin: 0 auto; overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.08);
     }
-    .cgpt-diff-card {
-      background: #fff; border-radius: 16px; padding: 2rem;
-      border: 1px solid #f0ede8;
+    .cgpt-mockup-bar {
+      background: #f7f7f7; border-bottom: 1px solid #f0ede8;
+      padding: 0.75rem 1.25rem; display: flex; align-items: center; gap: 0.5rem;
     }
-    .cgpt-diff-icon { font-size: 1.75rem; margin-bottom: 1rem; }
-    .cgpt-diff-card h3 { font-weight: 700; font-size: 1.05rem; color: #0a0a0a; margin-bottom: 0.6rem; }
-    .cgpt-diff-card p { color: #27454F; font-size: 0.95rem; line-height: 1.6; }
+    .cgpt-mockup-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .cgpt-mockup-title { font-size: 0.8rem; color: #94a3b8; margin-left: 0.5rem; font-weight: 500; }
+    .cgpt-mockup-body { padding: 1.5rem; }
+    .cgpt-mockup-question { background: #f0f4ff; border-radius: 12px 12px 4px 12px; padding: 0.9rem 1.1rem; font-size: 0.9rem; color: #0a0a0a; margin-bottom: 1.25rem; display: inline-block; max-width: 90%; }
+    .cgpt-mockup-answer { font-size: 0.875rem; color: #27454F; line-height: 1.7; margin-bottom: 1.25rem; }
+    .cgpt-mockup-ad {
+      border: 1.5px solid #fb6931; border-radius: 12px; padding: 1rem 1.25rem;
+      background: rgba(251,105,49,0.04);
+    }
+    .cgpt-mockup-ad-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; color: #fb6931; margin-bottom: 0.5rem; }
+    .cgpt-mockup-ad-name { font-weight: 700; font-size: 0.95rem; color: #0a0a0a; margin-bottom: 0.25rem; }
+    .cgpt-mockup-ad-desc { font-size: 0.825rem; color: #27454F; line-height: 1.5; }
+
+    /* Funnel Search → Discovery → Conversation */
+    .cgpt-funnel { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; align-items: center; gap: 0.5rem; margin-top: 2.5rem; }
+    .cgpt-funnel-card { background: #fff; border-radius: 16px; padding: 1.75rem 1.5rem; border: 1px solid #f0ede8; text-align: center; }
+    .cgpt-funnel-card.active { border-color: #fb6931; background: rgba(251,105,49,0.04); }
+    .cgpt-funnel-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; color: #94a3b8; margin-bottom: 0.5rem; }
+    .cgpt-funnel-card.active .cgpt-funnel-label { color: #fb6931; }
+    .cgpt-funnel-platform { font-size: 1.1rem; font-weight: 800; color: #0a0a0a; margin-bottom: 0.75rem; }
+    .cgpt-funnel-moment { font-size: 0.825rem; color: #27454F; line-height: 1.5; font-style: italic; }
+    .cgpt-funnel-arrow { color: #fb6931; font-size: 1.5rem; font-weight: 700; text-align: center; }
+
+    /* Context Hints */
+    .cgpt-hints-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .cgpt-hint-card { background: #fff; border-radius: 16px; padding: 1.75rem; border: 1px solid #f0ede8; }
+    .cgpt-hint-sector { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; color: #fb6931; margin-bottom: 0.75rem; }
+    .cgpt-hint-bubble { background: #f0f4ff; border-radius: 10px 10px 4px 10px; padding: 0.75rem 1rem; font-size: 0.875rem; color: #0a0a0a; font-style: italic; line-height: 1.5; margin-bottom: 1rem; }
+    .cgpt-hint-desc { font-size: 0.85rem; color: #27454F; line-height: 1.6; }
+
+    /* Pourquoi maintenant */
+    .cgpt-why-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+    .cgpt-why-card { background: #fff; border-radius: 16px; padding: 1.75rem; border: 1px solid #f0ede8; display: flex; gap: 1rem; align-items: flex-start; }
+    .cgpt-why-num { font-size: 2rem; font-weight: 900; color: rgba(251,105,49,0.2); line-height: 1; flex-shrink: 0; width: 2.5rem; }
+    .cgpt-why-card h3 { font-weight: 700; font-size: 1rem; color: #0a0a0a; margin-bottom: 0.4rem; }
+    .cgpt-why-card p { font-size: 0.9rem; color: #27454F; line-height: 1.6; }
+
+    /* Méthode */
+    .cgpt-method { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0; margin-top: 2.5rem; }
+    .cgpt-method-step { text-align: center; padding: 1.5rem 1rem; position: relative; }
+    .cgpt-method-step:not(:last-child)::after { content: '→'; position: absolute; right: -0.5rem; top: 50%; transform: translateY(-50%); color: #fb6931; font-size: 1.2rem; font-weight: 700; }
+    .cgpt-method-num { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: #fb6931; color: #fff; font-weight: 800; font-size: 0.9rem; margin: 0 auto 0.75rem; }
+    .cgpt-method-title { font-weight: 700; font-size: 0.9rem; color: #0a0a0a; margin-bottom: 0.3rem; }
+    .cgpt-method-sub { font-size: 0.78rem; color: #27454F; line-height: 1.5; }
+
+    /* Services condensés */
+    .cgpt-services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+    .cgpt-service-card { background: #fff; border-radius: 16px; padding: 2rem; border: 1px solid #f0ede8; }
+    .cgpt-service-card h3 { font-weight: 700; font-size: 1rem; color: #0a0a0a; margin-bottom: 0.5rem; }
+    .cgpt-service-card p { font-size: 0.9rem; color: #27454F; line-height: 1.6; }
+    .cgpt-service-list { list-style: none; margin-top: 0.75rem; display: flex; flex-direction: column; gap: 0.35rem; }
+    .cgpt-service-list li { font-size: 0.85rem; color: #27454F; display: flex; gap: 0.5rem; }
+    .cgpt-service-list li::before { content: '→'; color: #fb6931; flex-shrink: 0; font-weight: 700; }
 
     /* Tableau comparatif */
-    .cgpt-table-wrap {
-      overflow-x: auto; border-radius: 16px;
-      border: 1px solid #f0ede8; background: #fff;
-    }
-    .cgpt-table {
-      width: 100%; border-collapse: collapse; font-size: 0.9rem;
-    }
-    .cgpt-table th {
-      padding: 1rem 1.5rem; text-align: left; background: #0a0a0a;
-      color: #fff; font-weight: 700;
-    }
-    .cgpt-table th:first-child { border-radius: 16px 0 0 0; }
-    .cgpt-table th:last-child { border-radius: 0 16px 0 0; background: #fb6931; }
+    .cgpt-table-wrap { overflow-x: auto; border-radius: 16px; border: 1px solid #f0ede8; background: #fff; }
+    .cgpt-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    .cgpt-table th { padding: 1rem 1.5rem; text-align: left; background: #0a0a0a; color: #fff; font-weight: 700; }
+    .cgpt-table th:first-child { border-radius: 14px 0 0 0; }
+    .cgpt-table th:last-child { border-radius: 0 14px 0 0; }
     .cgpt-table th.col-chatgpt { background: #fb6931; }
-    .cgpt-table td {
-      padding: 0.9rem 1.5rem; border-bottom: 1px solid #f0ede8;
-      color: #27454F; vertical-align: top;
-    }
+    .cgpt-table td { padding: 0.9rem 1.5rem; border-bottom: 1px solid #f0ede8; color: #27454F; }
     .cgpt-table tr:last-child td { border-bottom: none; }
-    .cgpt-table td:first-child { font-weight: 600; color: #0a0a0a; width: 20%; }
+    .cgpt-table td:first-child { font-weight: 600; color: #0a0a0a; }
     .cgpt-table td.col-chatgpt { color: #0a0a0a; font-weight: 600; }
 
-    /* Services grid */
-    .cgpt-services-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
-    }
-    .cgpt-service-card {
-      background: #fff; border-radius: 14px; padding: 1.5rem;
-      border: 1px solid #f0ede8;
-    }
-    .cgpt-service-card h3 { font-weight: 700; font-size: 0.95rem; color: #0a0a0a; margin-bottom: 0.4rem; }
-    .cgpt-service-card p { color: #27454F; font-size: 0.875rem; line-height: 1.6; }
+    /* Disponibilité */
+    .cgpt-dispo { display: flex; flex-direction: column; gap: 0; border-radius: 16px; overflow: hidden; border: 1px solid #f0ede8; background: #fff; }
+    .cgpt-dispo-row { display: flex; align-items: flex-start; gap: 1.5rem; padding: 1.5rem 2rem; border-bottom: 1px solid #f0ede8; }
+    .cgpt-dispo-row:last-child { border-bottom: none; }
+    .cgpt-dispo-icon { font-size: 1.4rem; flex-shrink: 0; width: 2rem; text-align: center; }
+    .cgpt-dispo-title { font-weight: 700; font-size: 0.95rem; color: #0a0a0a; margin-bottom: 0.3rem; }
+    .cgpt-dispo-text { font-size: 0.875rem; color: #27454F; line-height: 1.6; }
 
-    /* Avant/Après */
-    .cgpt-avap {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
-    }
-    .cgpt-avap-col {
-      border-radius: 16px; padding: 2.5rem;
-    }
+    /* Avant / Après */
+    .cgpt-avap { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .cgpt-avap-col { border-radius: 16px; padding: 2.5rem; }
     .cgpt-avap-col.sans { background: #fff; border: 1.5px solid #f0ede8; }
     .cgpt-avap-col.avec { background: #0a0a0a; }
     .cgpt-avap-title { font-weight: 800; font-size: 1.05rem; margin-bottom: 1.5rem; }
     .cgpt-avap-col.sans .cgpt-avap-title { color: #0a0a0a; }
     .cgpt-avap-col.avec .cgpt-avap-title { color: #fff; }
-    .cgpt-avap-item {
-      display: flex; align-items: flex-start; gap: 0.75rem;
-      margin-bottom: 0.9rem; font-size: 0.925rem; line-height: 1.5;
-    }
+    .cgpt-avap-item { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 0.9rem; font-size: 0.925rem; line-height: 1.5; }
     .cgpt-avap-col.sans .cgpt-avap-item { color: #27454F; }
     .cgpt-avap-col.avec .cgpt-avap-item { color: rgba(255,255,255,0.85); }
-    .cgpt-avap-icon { flex-shrink: 0; font-size: 1rem; }
 
     /* FAQ */
-    .cgpt-faq { display: flex; flex-direction: column; gap: 0; }
-    .cgpt-faq-item {
-      border-bottom: 1px solid #f0ede8; padding: 1.25rem 0;
-    }
-    .cgpt-faq-q {
-      font-weight: 700; font-size: 1rem; color: #0a0a0a;
-      cursor: pointer; display: flex; justify-content: space-between; align-items: center;
-      background: none; border: none; width: 100%; text-align: left;
-    }
-    .cgpt-faq-a { color: #27454F; font-size: 0.95rem; line-height: 1.7; margin-top: 0.75rem; }
+    .cgpt-faq { display: flex; flex-direction: column; }
+    .cgpt-faq-item { border-bottom: 1px solid #f0ede8; padding: 1.25rem 0; }
+    .cgpt-faq-q { font-weight: 700; font-size: 1rem; color: #0a0a0a; display: flex; justify-content: space-between; align-items: center; cursor: default; }
     .cgpt-faq-arrow { color: #fb6931; font-size: 1.2rem; flex-shrink: 0; }
+    .cgpt-faq-a { color: #27454F; font-size: 0.95rem; line-height: 1.7; margin-top: 0.75rem; }
 
-    /* CTA banner */
-    .cgpt-cta-banner {
-      background: #0a0a0a; border-radius: 20px; padding: 4rem 3rem;
-      text-align: center; margin: 0 2rem 4rem;
-    }
+    /* CTA Banner */
+    .cgpt-cta-banner { background: #0a0a0a; border-radius: 20px; padding: 4rem 3rem; text-align: center; margin: 0 2rem 4rem; }
     .cgpt-cta-banner h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 800; color: #fff; margin-bottom: 1rem; }
     .cgpt-cta-banner h2 em { font-style: italic; color: #fb6931; }
-    .cgpt-cta-banner p { color: rgba(255,255,255,0.65); font-size: 1rem; margin-bottom: 2rem; }
-    .cgpt-cta-banner-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .cgpt-cta-banner p { color: rgba(255,255,255,0.6); font-size: 1rem; margin-bottom: 2rem; }
+    .cgpt-cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
     /* Footer */
-    .cgpt-footer-inner {
-      max-width: 1200px; margin: 0 auto;
-      display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 3rem;
-    }
-    .cgpt-footer-right {
-      display: flex; flex-direction: column; align-items: flex-end; gap: 0.75rem;
-    }
-    @media (max-width: 768px) {
-      .cgpt-footer-inner { flex-direction: column; align-items: flex-start; gap: 2rem; }
-      .cgpt-footer-right { align-items: flex-start; }
-    }
+    .cgpt-footer-inner { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 3rem; }
+    .cgpt-footer-right { display: flex; flex-direction: column; align-items: flex-end; gap: 0.75rem; }
 
-    /* WhatsApp float */
-    .cgpt-wa {
-      position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 9999;
-      width: 56px; height: 56px; border-radius: 50%; background: #25D366;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 20px rgba(37,211,102,0.4); text-decoration: none;
-    }
+    /* WhatsApp */
+    .cgpt-wa { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 9999; width: 56px; height: 56px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.4); text-decoration: none; }
 
     @media (max-width: 768px) {
       .cgpt-stats { grid-template-columns: 1fr 1fr; }
-      .cgpt-stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
-      .cgpt-stat:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.1); }
-      .cgpt-diff-grid { grid-template-columns: 1fr; }
+      .cgpt-stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+      .cgpt-stat:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.08); }
+      .cgpt-funnel { grid-template-columns: 1fr; }
+      .cgpt-funnel-arrow { transform: rotate(90deg); }
+      .cgpt-hints-grid { grid-template-columns: 1fr; }
+      .cgpt-why-grid { grid-template-columns: 1fr; }
+      .cgpt-method { grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+      .cgpt-method-step:not(:last-child)::after { display: none; }
       .cgpt-services-grid { grid-template-columns: 1fr; }
       .cgpt-avap { grid-template-columns: 1fr; }
       .cgpt-table { font-size: 0.8rem; }
       .cgpt-table th, .cgpt-table td { padding: 0.75rem 1rem; }
       .cgpt-cta-banner { margin: 0 1rem 3rem; padding: 2.5rem 1.5rem; }
       .cgpt-nav { padding: 0 1rem; }
+      .cgpt-footer-inner { flex-direction: column; align-items: flex-start; gap: 2rem; }
+      .cgpt-footer-right { align-items: flex-start; }
     }
   </style>
 
@@ -222,11 +205,11 @@ import Layout from '../layouts/Layout.astro';
   <section class="cgpt-hero">
     <div class="cgpt-badge">CHATGPT ADS — NOUVEAU CANAL IA</div>
     <h1>Soyez la marque que <em>ChatGPT recommande</em> à vos prospects</h1>
-    <p>Vos clients ne cherchent plus seulement sur Google : ils demandent à ChatGPT quelle marque choisir. Depuis février 2026, OpenAI diffuse des annonces sponsorisées au sein des réponses de ChatGPT. Adonyme vous prépare dès maintenant à ce canal.</p>
+    <p>Vos clients ne cherchent plus seulement sur Google : ils demandent à ChatGPT quelle marque choisir. Adonyme vous prépare à ce canal dès maintenant — stratégie, ciblage conversationnel, tracking et socle de visibilité organique IA.</p>
     <div class="cgpt-hero-ctas">
       <a href="https://calendly.com/session-acquisition/30min" target="_blank" rel="noopener" class="btn-primary">Réserver un appel →</a>
-      <a href="https://wa.me/33768183404?text=Bonjour%2C%20j%27ai%20quelques%20questions%20sur%20ChatGPT%20Ads" target="_blank" rel="noopener" class="btn-secondary">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      <a href="https://wa.me/33768183404?text=Bonjour%2C%20j%27ai%20quelques%20questions%20sur%20ChatGPT%20Ads" target="_blank" rel="noopener" class="btn-wa">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
         J'ai une question
       </a>
     </div>
@@ -237,70 +220,244 @@ import Layout from '../layouts/Layout.astro';
     <div class="cgpt-stats">
       <div class="cgpt-stat">
         <div class="cgpt-stat-num">+50</div>
-        <div class="cgpt-stat-label">entreprises accompagnées</div>
+        <div class="cgpt-stat-label">entreprises accompagnées en acquisition B2B</div>
       </div>
       <div class="cgpt-stat">
         <div class="cgpt-stat-num">3 canaux</div>
-        <div class="cgpt-stat-label">LinkedIn · Email · IA</div>
-      </div>
-      <div class="cgpt-stat">
-        <div class="cgpt-stat-num">2026</div>
-        <div class="cgpt-stat-label">OpenAI lance ChatGPT Ads</div>
+        <div class="cgpt-stat-label">LinkedIn · Email · IA conversationnelle</div>
       </div>
       <div class="cgpt-stat">
         <div class="cgpt-stat-num">+91 %</div>
-        <div class="cgpt-stat-label">de clics payants pour les marques déjà citées par l'IA</div>
+        <div class="cgpt-stat-label">de clics payants en plus pour les marques déjà citées par l'IA</div>
+      </div>
+      <div class="cgpt-stat">
+        <div class="cgpt-stat-num">Fév. 2026</div>
+        <div class="cgpt-stat-label">lancement officiel de ChatGPT Ads par OpenAI</div>
       </div>
     </div>
   </div>
 
-  <!-- Ce qui change -->
+  <!-- Mockup visuel -->
   <section class="cgpt-section" style="background: #fcfaf6;">
-    <div class="cgpt-section-inner">
-      <p class="cgpt-section-tag">CE QUI CHANGE VRAIMENT</p>
-      <h2>ChatGPT Ads n'est pas une régie de <em>plus</em></h2>
-      <p class="cgpt-section-sub">La publicité dans ChatGPT s'insère dans une conversation, au moment exact où votre prospect compare, hésite et décide. Ce n'est pas un bandeau : c'est une recommandation.</p>
-      <div class="cgpt-diff-grid">
-        <div class="cgpt-diff-card">
-          <div class="cgpt-diff-icon">🎯</div>
-          <h3>Ciblage 100 % contextuel</h3>
-          <p>Pas de cookies, pas d'audiences, pas de mots-clés. L'annonce est sélectionnée selon le contexte de la conversation en cours, décrit en langage naturel.</p>
+    <div class="cgpt-section-inner" style="text-align: center;">
+      <p class="cgpt-tag">À QUOI ÇA RESSEMBLE</p>
+      <h2 class="cgpt-h2">Une recommandation sponsorisée,<br>au cœur de la <em>conversation</em></h2>
+      <p class="cgpt-sub" style="margin: 0 auto 2.5rem;">L'annonce s'insère sous la réponse de ChatGPT, clairement étiquetée, au moment exact où votre prospect compare et décide.</p>
+      <div class="cgpt-mockup">
+        <div class="cgpt-mockup-bar">
+          <div class="cgpt-mockup-dot" style="background: #ff5f57;"></div>
+          <div class="cgpt-mockup-dot" style="background: #febc2e;"></div>
+          <div class="cgpt-mockup-dot" style="background: #28c840;"></div>
+          <span class="cgpt-mockup-title">ChatGPT</span>
         </div>
-        <div class="cgpt-diff-card">
-          <div class="cgpt-diff-icon">💬</div>
-          <h3>Le format Sponsored Recommendation</h3>
-          <p>Une recommandation sponsorisée, étiquetée et séparée du contenu, qui touche l'utilisateur en pleine réflexion d'achat. Non intrusif, ultra-qualifié.</p>
-        </div>
-        <div class="cgpt-diff-card">
-          <div class="cgpt-diff-icon">🧠</div>
-          <h3>Une intention plus riche qu'une requête</h3>
-          <p>Dans ChatGPT, l'utilisateur explique son besoin, ses contraintes, son budget. Ces signaux dépassent le simple mot-clé et permettent une publicité vraiment pertinente.</p>
-        </div>
-        <div class="cgpt-diff-card">
-          <div class="cgpt-diff-icon">⚖️</div>
-          <h3>Enchères pilotées par la pertinence</h3>
-          <p>OpenAI utilise une enchère au second prix pondérée par la pertinence. Ce n'est pas le plus gros budget qui gagne, c'est le plus cohérent avec la conversation.</p>
-        </div>
-        <div class="cgpt-diff-card">
-          <div class="cgpt-diff-icon">📈</div>
-          <h3>L'organique qui renforce le payant</h3>
-          <p>Une marque déjà citée dans les réponses IA obtient jusqu'à 91 % de clics payants en plus. On construit ce socle avant même le premier euro investi.</p>
-        </div>
-        <div class="cgpt-diff-card">
-          <div class="cgpt-diff-icon">🤝</div>
-          <h3>L'humain garde la main</h3>
-          <p>L'IA diffuse et optimise. Nos experts arbitrent la stratégie, les conversations cibles et le budget. C'est cet équilibre qui fait la différence sur un canal encore jeune.</p>
+        <div class="cgpt-mockup-body">
+          <div style="text-align: right;">
+            <div class="cgpt-mockup-question">Comment trouver une agence pour générer davantage de leads B2B ?</div>
+          </div>
+          <div class="cgpt-mockup-answer">
+            Pour générer des leads B2B de qualité, plusieurs approches complémentaires existent : la prospection LinkedIn outreach, les campagnes email ciblées, et la publicité sur des canaux à forte intention. L'essentiel est de construire un flux de prospects exclusifs sous votre marque, plutôt que d'acheter des listes mutualisées…
+          </div>
+          <div class="cgpt-mockup-ad">
+            <div class="cgpt-mockup-ad-label">SPONSORISÉ</div>
+            <div class="cgpt-mockup-ad-name">Adonyme — Agence leads B2B exclusifs</div>
+            <div class="cgpt-mockup-ad-desc">On génère un flux de prospects qualifiés sous votre marque via LinkedIn, email et IA. +50 entreprises accompagnées. Audit gratuit.</div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Tableau comparatif -->
+  <!-- Funnel Search → Discovery → Conversation -->
   <section class="cgpt-section" style="background: #fff;">
     <div class="cgpt-section-inner">
-      <p class="cgpt-section-tag">COMPARATIF</p>
-      <h2>ChatGPT Ads vs Google Ads vs <em>Meta</em></h2>
-      <p class="cgpt-section-sub">Les trois régies ne lisent pas le même signal et n'interviennent pas au même moment du parcours d'achat.</p>
+      <p class="cgpt-tag">OÙ SE SITUE CHATGPT ADS</p>
+      <h2 class="cgpt-h2">Google, Meta et ChatGPT ne captent pas<br>la même <em>intention</em></h2>
+      <p class="cgpt-sub">Trois canaux, trois moments différents du parcours de décision. ChatGPT intervient là où votre prospect formule encore son problème.</p>
+      <div class="cgpt-funnel">
+        <div class="cgpt-funnel-card">
+          <div class="cgpt-funnel-label">RECHERCHE</div>
+          <div class="cgpt-funnel-platform">Google Ads</div>
+          <div class="cgpt-funnel-moment">"Je cherche une agence pour améliorer mes campagnes Meta Ads."</div>
+          <div style="font-size: 0.8rem; color: #94a3b8; margin-top: 0.75rem;">Intention déjà exprimée</div>
+        </div>
+        <div class="cgpt-funnel-arrow">→</div>
+        <div class="cgpt-funnel-card">
+          <div class="cgpt-funnel-label">DÉCOUVERTE</div>
+          <div class="cgpt-funnel-platform">Meta Ads</div>
+          <div class="cgpt-funnel-moment">Découverte d'une offre pendant la navigation, au fil du feed.</div>
+          <div style="font-size: 0.8rem; color: #94a3b8; margin-top: 0.75rem;">Attention captée</div>
+        </div>
+        <div class="cgpt-funnel-arrow">→</div>
+        <div class="cgpt-funnel-card active">
+          <div class="cgpt-funnel-label">CONVERSATION</div>
+          <div class="cgpt-funnel-platform">ChatGPT Ads</div>
+          <div class="cgpt-funnel-moment">"Comment générer plus de leads sans acheter des listes ?"</div>
+          <div style="font-size: 0.8rem; color: #fb6931; margin-top: 0.75rem; font-weight: 600;">Exploration du problème ✦</div>
+        </div>
+      </div>
+      <p style="font-size: 0.875rem; color: #27454F; margin-top: 1.75rem; text-align: center;">ChatGPT Ads ne remplace ni Google ni Meta. Il s'ajoute <strong>en amont</strong>, là où votre prospect formule encore son besoin.</p>
+    </div>
+  </section>
+
+  <!-- Context Hints par secteur -->
+  <section class="cgpt-section" style="background: #fcfaf6;">
+    <div class="cgpt-section-inner">
+      <p class="cgpt-tag">CIBLAGE CONVERSATIONNEL</p>
+      <h2 class="cgpt-h2">Votre annonce apparaît dans les conversations<br>qui vous sont <em>pertinentes</em></h2>
+      <p class="cgpt-sub">Pas de mots-clés, pas d'audiences. On décrit en langage naturel les conversations où votre offre doit apparaître — c'est ce qu'OpenAI appelle les <strong>Context Hints</strong>.</p>
+      <div class="cgpt-hints-grid">
+        <div class="cgpt-hint-card">
+          <div class="cgpt-hint-sector">B2B / GÉNÉRATION DE LEADS</div>
+          <div class="cgpt-hint-bubble">"Comment trouver des prospects qualifiés sans passer par des listes achetées ?"</div>
+          <div class="cgpt-hint-desc">Les dirigeants et commerciaux qui cherchent à structurer leur acquisition sans dépendre de leads mutualisés.</div>
+        </div>
+        <div class="cgpt-hint-card">
+          <div class="cgpt-hint-sector">E-COMMERCE</div>
+          <div class="cgpt-hint-bubble">"Comment améliorer le ROAS de mes campagnes quand les coûts Meta explosent ?"</div>
+          <div class="cgpt-hint-desc">Les e-commerçants en quête de diversification de leurs canaux d'acquisition face à la hausse des CPM.</div>
+        </div>
+        <div class="cgpt-hint-card">
+          <div class="cgpt-hint-sector">SAAS / SERVICES</div>
+          <div class="cgpt-hint-bubble">"Quel prestataire choisir pour automatiser ma prospection commerciale avec l'IA ?"</div>
+          <div class="cgpt-hint-desc">Les décideurs SaaS et services qui comparent des solutions lors d'une phase d'exploration et de benchmark.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pourquoi préparer maintenant -->
+  <section class="cgpt-section" style="background: #fff;">
+    <div class="cgpt-section-inner">
+      <p class="cgpt-tag">POURQUOI MAINTENANT</p>
+      <h2 class="cgpt-h2">Les marques qui se préparent aujourd'hui<br>prendront une avance <em>difficile à rattraper</em></h2>
+      <p class="cgpt-sub" style="margin-bottom: 2rem;">La régie n'est pas encore ouverte en France — c'est exactement pour ça qu'il faut agir maintenant.</p>
+      <div class="cgpt-why-grid">
+        <div class="cgpt-why-card">
+          <div class="cgpt-why-num">01</div>
+          <div>
+            <h3>Comprendre la plateforme avant la saturation</h3>
+            <p>Les premières marques présentes sur un canal émergent captent l'inventaire au meilleur coût. Attendre l'ouverture, c'est payer plus cher pour moins de résultats.</p>
+          </div>
+        </div>
+        <div class="cgpt-why-card">
+          <div class="cgpt-why-num">02</div>
+          <div>
+            <h3>Construire votre visibilité organique IA (GEO)</h3>
+            <p>Être cité naturellement par ChatGPT avant d'y être sponsorisé augmente jusqu'à 91 % vos clics payants. Ce travail se fait maintenant, pas au moment du lancement.</p>
+          </div>
+        </div>
+        <div class="cgpt-why-card">
+          <div class="cgpt-why-num">03</div>
+          <div>
+            <h3>Cartographier vos intentions conversationnelles</h3>
+            <p>Les Context Hints qui convertissent se trouvent en testant et en analysant. Plus tôt vous commencez à identifier les bonnes conversations, plus vite vous serez rentable.</p>
+          </div>
+        </div>
+        <div class="cgpt-why-card">
+          <div class="cgpt-why-num">04</div>
+          <div>
+            <h3>Avoir le tracking prêt au premier jour</h3>
+            <p>Pixel, événements de conversion, UTM — sans infrastructure de mesure, impossible de piloter un canal. On configure tout en amont pour ne pas brûler de budget en apprentissage.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Méthode -->
+  <section class="cgpt-section" style="background: #fcfaf6;">
+    <div class="cgpt-section-inner">
+      <p class="cgpt-tag">NOTRE MÉTHODE</p>
+      <h2 class="cgpt-h2">De la préparation à l'<em>activation</em></h2>
+      <p class="cgpt-sub">Un process en 6 étapes, de l'analyse de votre marché jusqu'au scaling des campagnes rentables.</p>
+      <div class="cgpt-method">
+        <div class="cgpt-method-step">
+          <div class="cgpt-method-num">01</div>
+          <div class="cgpt-method-title">Analyse</div>
+          <div class="cgpt-method-sub">Business, offre, économie unitaire, cibles</div>
+        </div>
+        <div class="cgpt-method-step">
+          <div class="cgpt-method-num">02</div>
+          <div class="cgpt-method-title">Mapping</div>
+          <div class="cgpt-method-sub">Identification des conversations pertinentes</div>
+        </div>
+        <div class="cgpt-method-step">
+          <div class="cgpt-method-num">03</div>
+          <div class="cgpt-method-title">Infrastructure</div>
+          <div class="cgpt-method-sub">Tracking, pixel, UTM, analytics</div>
+        </div>
+        <div class="cgpt-method-step">
+          <div class="cgpt-method-num">04</div>
+          <div class="cgpt-method-title">Lancement</div>
+          <div class="cgpt-method-sub">Campagnes dès l'éligibilité du marché français</div>
+        </div>
+        <div class="cgpt-method-step">
+          <div class="cgpt-method-num">05</div>
+          <div class="cgpt-method-title">Optimisation</div>
+          <div class="cgpt-method-sub">CTR, CPC, conversions, qualité des leads</div>
+        </div>
+        <div class="cgpt-method-step">
+          <div class="cgpt-method-num">06</div>
+          <div class="cgpt-method-title">Scale</div>
+          <div class="cgpt-method-sub">Montée en budget sur ce qui est rentable</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services condensés -->
+  <section class="cgpt-section" style="background: #fff;">
+    <div class="cgpt-section-inner">
+      <p class="cgpt-tag">CE QU'ON FAIT POUR VOUS</p>
+      <h2 class="cgpt-h2">Un accompagnement complet,<br>de la <em>fondation à l'activation</em></h2>
+      <p class="cgpt-sub">On ne vend pas de la visibilité : on construit un canal d'acquisition rentable, mesuré au coût par lead.</p>
+      <div class="cgpt-services-grid">
+        <div class="cgpt-service-card">
+          <h3>🔍 Audit & stratégie</h3>
+          <p>On évalue votre potentiel sur ChatGPT Ads, analyse votre marché et aligne la stratégie sur vos marges avant d'engager quoi que ce soit.</p>
+          <ul class="cgpt-service-list">
+            <li>Audit de visibilité IA (GEO)</li>
+            <li>Analyse de vos intentions conversationnelles</li>
+            <li>Économie unitaire et seuils de rentabilité</li>
+          </ul>
+        </div>
+        <div class="cgpt-service-card">
+          <h3>🎯 Ciblage & création</h3>
+          <p>On rédige et teste les Context Hints, les annonces et les pages de destination pour maximiser la pertinence à chaque conversation.</p>
+          <ul class="cgpt-service-list">
+            <li>Context Hints par secteur et intention</li>
+            <li>Création des annonces sponsorisées</li>
+            <li>Landing pages alignées sur la conversation</li>
+          </ul>
+        </div>
+        <div class="cgpt-service-card">
+          <h3>📊 Tracking & mesure</h3>
+          <p>Sans mesure fiable, impossible de piloter un canal émergent. On installe l'infrastructure complète avant le premier euro dépensé.</p>
+          <ul class="cgpt-service-list">
+            <li>Pixel de conversion OpenAI</li>
+            <li>Événements achat, lead, inscription</li>
+            <li>UTM systématiques + reporting au CPA</li>
+          </ul>
+        </div>
+        <div class="cgpt-service-card">
+          <h3>🚀 Pilotage & scale</h3>
+          <p>On gère chaque campagne avec des règles claires et on scale progressivement sur un inventaire encore jeune, en gardant le CAC sous contrôle.</p>
+          <ul class="cgpt-service-list">
+            <li>Optimisation continue CTR / CPC</li>
+            <li>Tests d'angles et de messages</li>
+            <li>Reporting business centré sur la marge</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tableau comparatif condensé -->
+  <section class="cgpt-section" style="background: #fcfaf6;">
+    <div class="cgpt-section-inner">
+      <p class="cgpt-tag">COMPARATIF</p>
+      <h2 class="cgpt-h2">ChatGPT Ads vs Google Ads vs <em>Meta</em></h2>
+      <p class="cgpt-sub">Les 5 critères qui font vraiment la différence.</p>
       <div class="cgpt-table-wrap">
         <table class="cgpt-table">
           <thead>
@@ -314,9 +471,9 @@ import Layout from '../layouts/Layout.astro';
           <tbody>
             <tr>
               <td>Signal de ciblage</td>
-              <td class="col-chatgpt">Le contexte de la conversation, en langage naturel</td>
-              <td>Le mot-clé tapé par l'internaute</td>
-              <td>Le profil et les centres d'intérêt</td>
+              <td class="col-chatgpt">Contexte de la conversation, en langage naturel</td>
+              <td>Mot-clé tapé par l'internaute</td>
+              <td>Profil et centres d'intérêt</td>
             </tr>
             <tr>
               <td>Moment du parcours</td>
@@ -327,119 +484,54 @@ import Layout from '../layouts/Layout.astro';
             <tr>
               <td>Format</td>
               <td class="col-chatgpt">Recommandation sponsorisée, étiquetée</td>
-              <td>Annonce texte, shopping ou display</td>
+              <td>Annonce texte ou shopping</td>
               <td>Publication sponsorisée dans le fil</td>
             </tr>
             <tr>
-              <td>Données mobilisées</td>
-              <td class="col-chatgpt">La conversation en cours, sans cookies</td>
-              <td>Requête et signaux de compte</td>
-              <td>Données de profil et de navigation</td>
+              <td>Cookies / reciblage</td>
+              <td class="col-chatgpt">Aucun — ciblage contextuel pur</td>
+              <td>Signaux de compte + reciblage</td>
+              <td>Données de profil + reciblage</td>
             </tr>
             <tr>
-              <td>Mécanique d'enchère</td>
-              <td class="col-chatgpt">Second prix pondéré par la pertinence</td>
-              <td>Pondéré par la qualité de l'annonce</td>
-              <td>Pondéré par la performance attendue</td>
-            </tr>
-            <tr>
-              <td>Repère de coût</td>
-              <td class="col-chatgpt">3 à 5 $ par clic (recommandé)</td>
-              <td>Variable selon secteur et concurrence</td>
-              <td>Variable selon audience et format</td>
-            </tr>
-            <tr>
-              <td>Disponibilité en France</td>
-              <td class="col-chatgpt">Ouverture européenne attendue fin 2026 / début 2027</td>
+              <td>Disponibilité France</td>
+              <td class="col-chatgpt">Ouverture attendue fin 2026 / début 2027</td>
               <td>Ouverte</td>
               <td>Ouverte</td>
-            </tr>
-            <tr>
-              <td>Rôle dans votre mix</td>
-              <td class="col-chatgpt">Prendre l'avance sur un inventaire jeune et capitaliser votre visibilité organique IA</td>
-              <td>Capter la demande déjà exprimée</td>
-              <td>Créer la demande et travailler les audiences</td>
             </tr>
           </tbody>
         </table>
       </div>
-      <p style="font-size: 0.875rem; color: #27454F; margin-top: 1.5rem; max-width: 640px;">ChatGPT Ads ne remplace ni Google ni Meta : il s'ajoute en amont, là où votre client formule encore son besoin. Vos campagnes existantes continuent de produire des résultats pendant que ChatGPT Ads se construit.</p>
     </div>
   </section>
 
-  <!-- Nos services -->
-  <section class="cgpt-section" style="background: #fcfaf6;">
-    <div class="cgpt-section-inner">
-      <p class="cgpt-section-tag">CE QU'ON FAIT POUR VOUS</p>
-      <h2>Adonyme vous prépare et <em>pilote</em> votre publicité ChatGPT</h2>
-      <p class="cgpt-section-sub">De la cartographie de vos conversations cibles à l'activation des campagnes, en passant par le socle de visibilité organique IA qui multiplie le rendement du payant.</p>
-      <div class="cgpt-services-grid">
-        <div class="cgpt-service-card">
-          <h3>🔍 Audit & diagnostic de visibilité IA</h3>
-          <p>On mesure où en est votre marque dans les réponses de ChatGPT et on qualifie le potentiel de ChatGPT Ads pour votre activité avant d'engager quoi que ce soit.</p>
-        </div>
-        <div class="cgpt-service-card">
-          <h3>🗺️ Cartographie des conversations cibles</h3>
-          <p>On identifie les questions que vos prospects posent à ChatGPT au moment de choisir, et on les transforme en pistes de ciblage (Context Hints) prêtes pour vos campagnes.</p>
-        </div>
-        <div class="cgpt-service-card">
-          <h3>📐 Architecture de compte</h3>
-          <p>Campagnes, groupes d'annonces, enchères CPC ou CPM : on construit une structure propre dans l'Ads Manager d'OpenAI, calquée sur vos objectifs business.</p>
-        </div>
-        <div class="cgpt-service-card">
-          <h3>🎯 Ciblage conversationnel</h3>
-          <p>On rédige et teste les Context Hints comme on testait des thèmes de mots-clés : formulation, intention, proximité d'achat, pour toucher l'utilisateur au bon moment.</p>
-        </div>
-        <div class="cgpt-service-card">
-          <h3>📊 Infrastructure de tracking</h3>
-          <p>Pixel de conversion OpenAI, événements (achat, lead, inscription), UTM systématiques : des données fiables pour juger le canal sur des chiffres solides.</p>
-        </div>
-        <div class="cgpt-service-card">
-          <h3>✍️ Création d'annonces</h3>
-          <p>Titre, texte, visuel, page de destination : on conçoit des annonces utiles et contextuelles, pensées pour une conversation, pas pour un feed publicitaire.</p>
-        </div>
-        <div class="cgpt-service-card">
-          <h3>🌱 Socle GEO (visibilité organique IA)</h3>
-          <p>Être cité et recommandé par ChatGPT avant d'y être sponsorisé. Le contenu answer-first et l'autorité de marque qui multiplient le rendement du payant.</p>
-        </div>
-        <div class="cgpt-service-card">
-          <h3>🚀 Scaling & optimisation</h3>
-          <p>Montée en budget maîtrisée sur un inventaire encore jeune. On scale ce qui est rentable au coût par acquisition, avec des garde-fous CAC et payback.</p>
-        </div>
-        <div class="cgpt-service-card">
-          <h3>📈 Reporting business</h3>
-          <p>Des tableaux de bord centrés sur le coût par acquisition, la marge et la valeur générée, avec une lecture honnête d'un canal en construction.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Disponibilité France -->
+  <!-- Disponibilité France — timeline linéaire -->
   <section class="cgpt-section" style="background: #fff;">
     <div class="cgpt-section-inner">
-      <p class="cgpt-section-tag">CALENDRIER</p>
-      <h2>ChatGPT Ads est-il disponible <em>en France</em> ?</h2>
-      <p class="cgpt-section-sub">Une réponse honnête, sans formule commerciale.</p>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-        <div style="background: #fff; border: 1.5px solid #f0ede8; border-radius: 16px; padding: 2rem;">
-          <div style="font-size: 1.5rem; margin-bottom: 1rem;">🌍</div>
-          <h3 style="font-weight: 700; color: #0a0a0a; margin-bottom: 0.75rem;">Où la régie diffuse aujourd'hui</h3>
-          <p style="color: #27454F; font-size: 0.95rem; line-height: 1.6;">Les annonces sont actives aux États-Unis, Canada, Australie, Nouvelle-Zélande, Royaume-Uni, Japon et Corée du Sud. Le déploiement continue vers d'autres marchés.</p>
+      <p class="cgpt-tag">CALENDRIER</p>
+      <h2 class="cgpt-h2">ChatGPT Ads en France :<br>une réponse <em>honnête</em></h2>
+      <p class="cgpt-sub">Fuyez toute agence qui vous promet des campagnes déjà actives en France — la régie n'est pas encore ouverte. La vraie valeur, c'est la préparation.</p>
+      <div class="cgpt-dispo">
+        <div class="cgpt-dispo-row">
+          <div class="cgpt-dispo-icon">🌍</div>
+          <div>
+            <div class="cgpt-dispo-title">Marchés ouverts aujourd'hui</div>
+            <div class="cgpt-dispo-text">États-Unis, Canada, Australie, Nouvelle-Zélande, Royaume-Uni, Japon, Corée du Sud. Le déploiement continue vers d'autres marchés.</div>
+          </div>
         </div>
-        <div style="background: #fff; border: 1.5px solid #f0ede8; border-radius: 16px; padding: 2rem;">
-          <div style="font-size: 1.5rem; margin-bottom: 1rem;">🗓️</div>
-          <h3 style="font-weight: 700; color: #0a0a0a; margin-bottom: 0.75rem;">Le calendrier attendu</h3>
-          <p style="color: #27454F; font-size: 0.95rem; line-height: 1.6;">L'ouverture européenne est attendue fin 2026 / début 2027. D'abord par les agences partenaires, puis en accès libre. On suit ce calendrier pour être prêts au premier jour.</p>
+        <div class="cgpt-dispo-row">
+          <div class="cgpt-dispo-icon">🗓️</div>
+          <div>
+            <div class="cgpt-dispo-title">Ouverture européenne : fin 2026 / début 2027</div>
+            <div class="cgpt-dispo-text">D'abord par les agences partenaires, puis en accès libre. On suit ce calendrier pour être opérationnels au premier jour.</div>
+          </div>
         </div>
-        <div style="background: #fff; border: 1.5px solid #f0ede8; border-radius: 16px; padding: 2rem;">
-          <div style="font-size: 1.5rem; margin-bottom: 1rem;">⚠️</div>
-          <h3 style="font-weight: 700; color: #0a0a0a; margin-bottom: 0.75rem;">Ce qu'on ne vous promettra pas</h3>
-          <p style="color: #27454F; font-size: 0.95rem; line-height: 1.6;">Une agence qui vous annonce des campagnes ChatGPT déjà actives en France vous vend une promesse qu'elle ne peut pas tenir. La vraie valeur aujourd'hui, c'est la préparation.</p>
-        </div>
-        <div style="background: #fff; border: 1.5px solid #f0ede8; border-radius: 16px; padding: 2rem;">
-          <div style="font-size: 1.5rem; margin-bottom: 1rem;">🔨</div>
-          <h3 style="font-weight: 700; color: #0a0a0a; margin-bottom: 0.75rem;">Ce qu'on construit entre-temps</h3>
-          <p style="color: #27454F; font-size: 0.95rem; line-height: 1.6;">Socle de visibilité organique IA, tracking vérifié, conversations cibles cartographiées, messages et pages prêts. Pendant ce temps, vos campagnes LinkedIn et email continuent de générer des leads.</p>
+        <div class="cgpt-dispo-row">
+          <div class="cgpt-dispo-icon">🔨</div>
+          <div>
+            <div class="cgpt-dispo-title">Ce qu'on construit entre-temps</div>
+            <div class="cgpt-dispo-text">Visibilité organique IA (GEO), tracking vérifié, Context Hints cartographiés, messages et pages de destination prêts. Vos campagnes LinkedIn et email continuent de générer des leads en parallèle.</div>
+          </div>
         </div>
       </div>
     </div>
@@ -448,27 +540,25 @@ import Layout from '../layouts/Layout.astro';
   <!-- Avant / Après -->
   <section class="cgpt-section" style="background: #fcfaf6;">
     <div class="cgpt-section-inner">
-      <p class="cgpt-section-tag">AVANT / APRÈS</p>
-      <h2>Prenez l'avance sur la <em>publicité dans ChatGPT</em></h2>
-      <p class="cgpt-section-sub" style="margin-bottom: 2rem;">La différence entre les marques qui se préparent maintenant et celles qui attendront l'ouverture.</p>
+      <p class="cgpt-tag">AVANT / APRÈS</p>
+      <h2 class="cgpt-h2">Prenez l'avance sur la <em>publicité dans ChatGPT</em></h2>
+      <p class="cgpt-sub" style="margin-bottom: 2rem;">La différence se joue maintenant, pas à l'ouverture de la régie.</p>
       <div class="cgpt-avap">
         <div class="cgpt-avap-col sans">
           <div class="cgpt-avap-title">❌ Sans Adonyme</div>
-          <div class="cgpt-avap-item"><span class="cgpt-avap-icon">—</span> Invisible lorsque vos prospects interrogent ChatGPT</div>
-          <div class="cgpt-avap-item"><span class="cgpt-avap-icon">—</span> Un canal émergent découvert sans cadre ni méthode</div>
-          <div class="cgpt-avap-item"><span class="cgpt-avap-icon">—</span> Du budget brûlé en apprentissage, sans mesure fiable</div>
-          <div class="cgpt-avap-item"><span class="cgpt-avap-icon">—</span> Des promesses de campagnes "déjà actives en France"</div>
-          <div class="cgpt-avap-item"><span class="cgpt-avap-icon">—</span> Vos concurrents cités par l'IA prennent l'avance</div>
-          <div class="cgpt-avap-item"><span class="cgpt-avap-icon">—</span> Aucune visibilité organique construite avant le payant</div>
+          <div class="cgpt-avap-item"><span>—</span> Invisible quand vos prospects interrogent ChatGPT</div>
+          <div class="cgpt-avap-item"><span>—</span> Un canal découvert sans méthode ni cadre</div>
+          <div class="cgpt-avap-item"><span>—</span> Du budget brûlé en apprentissage sans mesure</div>
+          <div class="cgpt-avap-item"><span>—</span> Des promesses de campagnes "déjà actives en France"</div>
+          <div class="cgpt-avap-item"><span>—</span> Vos concurrents cités par l'IA prennent l'avance</div>
         </div>
         <div class="cgpt-avap-col avec">
           <div class="cgpt-avap-title">✅ Avec Adonyme</div>
-          <div class="cgpt-avap-item"><span class="cgpt-avap-icon">→</span> Une marque déjà citée et recommandée par ChatGPT</div>
-          <div class="cgpt-avap-item"><span class="cgpt-avap-icon">→</span> Un socle de visibilité IA (GEO) construit avant le payant</div>
-          <div class="cgpt-avap-item"><span class="cgpt-avap-icon">→</span> Un tracking fiable pour décider sur des faits, pas du battage</div>
-          <div class="cgpt-avap-item"><span class="cgpt-avap-icon">→</span> Un playbook prêt pour l'ouverture de la régie en France</div>
-          <div class="cgpt-avap-item"><span class="cgpt-avap-icon">→</span> Un pilotage au coût par acquisition, à la marge</div>
-          <div class="cgpt-avap-item"><span class="cgpt-avap-icon">→</span> Vos canaux LinkedIn et email continuent de générer des leads en parallèle</div>
+          <div class="cgpt-avap-item"><span>→</span> Une marque déjà citée et recommandée par ChatGPT</div>
+          <div class="cgpt-avap-item"><span>→</span> Visibilité organique IA (GEO) construite avant le payant</div>
+          <div class="cgpt-avap-item"><span>→</span> Tracking fiable pour décider sur des faits</div>
+          <div class="cgpt-avap-item"><span>→</span> Playbook prêt pour l'ouverture en France</div>
+          <div class="cgpt-avap-item"><span>→</span> LinkedIn et email qui génèrent des leads en parallèle</div>
         </div>
       </div>
     </div>
@@ -477,32 +567,32 @@ import Layout from '../layouts/Layout.astro';
   <!-- FAQ -->
   <section class="cgpt-section" style="background: #fff;">
     <div class="cgpt-section-inner">
-      <p class="cgpt-section-tag">FAQ</p>
-      <h2>Les questions <em>fréquentes</em></h2>
+      <p class="cgpt-tag">FAQ</p>
+      <h2 class="cgpt-h2">Les questions <em>fréquentes</em></h2>
       <div class="cgpt-faq" style="margin-top: 2rem;">
         <div class="cgpt-faq-item">
           <div class="cgpt-faq-q">Qu'est-ce que ChatGPT Ads exactement ? <span class="cgpt-faq-arrow">↓</span></div>
-          <div class="cgpt-faq-a">C'est la régie publicitaire d'OpenAI, lancée en février 2026 : des recommandations sponsorisées, clairement étiquetées, affichées sous les réponses de ChatGPT pour les utilisateurs des offres Free et Go. Les annonces sont séparées des réponses et ne les influencent pas.</div>
+          <div class="cgpt-faq-a">C'est la régie publicitaire d'OpenAI, lancée en février 2026 : des recommandations sponsorisées, clairement étiquetées "Sponsorisé", affichées sous les réponses de ChatGPT pour les utilisateurs des offres Free et Go. Les annonces n'influencent pas le contenu de la réponse.</div>
         </div>
         <div class="cgpt-faq-item">
           <div class="cgpt-faq-q">Peut-on lancer des campagnes ChatGPT Ads en France aujourd'hui ? <span class="cgpt-faq-arrow">↓</span></div>
-          <div class="cgpt-faq-a">Non. La régie n'est pas encore ouverte aux annonceurs français. L'ouverture européenne est attendue fin 2026 / début 2027. Ce que vous pouvez faire dès maintenant : construire votre visibilité organique dans les réponses IA (GEO), préparer votre tracking et vos messages.</div>
+          <div class="cgpt-faq-a">Non. La régie n'est pas encore ouverte aux annonceurs français. L'ouverture européenne est attendue fin 2026 / début 2027. Une agence qui vous promet des campagnes ChatGPT actives en France vous vend quelque chose qu'elle ne peut pas tenir.</div>
         </div>
         <div class="cgpt-faq-item">
-          <div class="cgpt-faq-q">Comment cible-t-on sans mots-clés ni audiences ? <span class="cgpt-faq-arrow">↓</span></div>
-          <div class="cgpt-faq-a">Via les Context Hints : des descriptions en langage naturel des conversations où votre annonce doit apparaître. Par exemple "des dirigeants de PME qui comparent des prestataires pour générer des leads B2B". La sélection se fait en temps réel sur le contexte du message de l'utilisateur.</div>
+          <div class="cgpt-faq-q">Comment fonctionne le ciblage sans mots-clés ni audiences ? <span class="cgpt-faq-arrow">↓</span></div>
+          <div class="cgpt-faq-a">Via les Context Hints : des descriptions en langage naturel des conversations où votre annonce doit apparaître. Par exemple "des dirigeants de PME qui comparent des prestataires pour générer des leads B2B". La sélection se fait en temps réel sur le contexte du message de l'utilisateur, sans cookies ni profilage individuel.</div>
         </div>
         <div class="cgpt-faq-item">
           <div class="cgpt-faq-q">Combien coûte la publicité sur ChatGPT ? <span class="cgpt-faq-arrow">↓</span></div>
-          <div class="cgpt-faq-a">L'enchère recommandée est de 3 à 5 dollars par clic (CPC), avec un modèle au second prix pondéré par la pertinence. Le CPC réel dépend de votre secteur et de la qualité de vos annonces. Ce n'est pas le plus gros budget qui gagne, c'est le plus cohérent avec la conversation.</div>
+          <div class="cgpt-faq-a">L'enchère recommandée est de 3 à 5 dollars par clic (CPC). Le modèle est au second prix pondéré par la pertinence : ce n'est pas le plus gros budget qui gagne, c'est l'annonce la plus cohérente avec la conversation. Le coût réel dépend de votre secteur et de la qualité de vos annonces.</div>
         </div>
         <div class="cgpt-faq-item">
           <div class="cgpt-faq-q">Qu'est-ce que le GEO et quel rapport avec ChatGPT Ads ? <span class="cgpt-faq-arrow">↓</span></div>
-          <div class="cgpt-faq-a">Le GEO (Generative Engine Optimization) c'est l'optimisation pour être cité organiquement dans les réponses des IA comme ChatGPT, Perplexity ou Gemini. C'est le socle indispensable : une marque déjà citée organiquement obtient jusqu'à 91 % de clics payants en plus sur la même page de résultats.</div>
+          <div class="cgpt-faq-a">Le GEO (Generative Engine Optimization) c'est l'optimisation pour être cité organiquement dans les réponses des IA comme ChatGPT, Perplexity ou Gemini. C'est le socle indispensable : une marque déjà citée organiquement obtient jusqu'à 91 % de clics payants en plus. Ce travail commence aujourd'hui, sans attendre l'ouverture de la régie.</div>
         </div>
         <div class="cgpt-faq-item">
           <div class="cgpt-faq-q">Adonyme gère-t-il aussi LinkedIn et email en parallèle ? <span class="cgpt-faq-arrow">↓</span></div>
-          <div class="cgpt-faq-a">Oui, c'est même notre cœur de métier. On génère des leads exclusifs via LinkedIn outreach, campagnes email IA et vocal mailing. ChatGPT Ads vient en surcouche pour capter les prospects en phase de décision. Vos campagnes existantes continuent de tourner pendant qu'on prépare le virage IA.</div>
+          <div class="cgpt-faq-a">Oui, c'est notre cœur de métier. On génère des leads exclusifs via LinkedIn outreach, campagnes email IA et vocal mailing — sous votre marque, comme si vous l'aviez internalisé. ChatGPT Ads vient en surcouche pour capter les prospects en phase de décision. Rien n'est mis en pause en attendant l'ouverture de la régie.</div>
         </div>
       </div>
     </div>
@@ -512,9 +602,9 @@ import Layout from '../layouts/Layout.astro';
   <div class="cgpt-cta-banner">
     <h2>Prêt à être la marque que <em>ChatGPT recommande</em> ?</h2>
     <p>Un appel de 30 min pour évaluer votre potentiel sur ChatGPT Ads et commencer à construire votre visibilité IA dès aujourd'hui.</p>
-    <div class="cgpt-cta-banner-btns">
+    <div class="cgpt-cta-btns">
       <a href="https://calendly.com/session-acquisition/30min" target="_blank" rel="noopener" class="btn-primary">Réserver un appel gratuit →</a>
-      <a href="https://wa.me/33768183404?text=Bonjour%2C%20j%27ai%20quelques%20questions%20sur%20ChatGPT%20Ads" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 0.5rem; background: #25D366; color: #fff; padding: 1rem 2rem; border-radius: 12px; font-weight: 700; font-size: 1rem; text-decoration: none;">
+      <a href="https://wa.me/33768183404?text=Bonjour%2C%20j%27ai%20quelques%20questions%20sur%20ChatGPT%20Ads" target="_blank" rel="noopener" class="btn-wa">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
         Écrire sur WhatsApp
       </a>
